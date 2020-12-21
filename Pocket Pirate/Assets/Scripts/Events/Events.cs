@@ -32,3 +32,8 @@ public class OnHitWater
 {
     public Vector2 Position { get; set; }
 }
+
+public class OnGameOver
+{
+    public bool Died { get; set; }
+}

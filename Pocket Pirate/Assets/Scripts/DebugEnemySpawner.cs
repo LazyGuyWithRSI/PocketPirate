@@ -36,15 +36,6 @@ public class DebugEnemySpawner : MonoBehaviour
             if (numEnemies < MaxEnemies)
                 SpawnEnemy();
         }
-        else if (args.Team == 0) // player died TODO do this elsewhere
-        {
-            Invoke("Restart", 2);
-        }
-    }
-
-    public void Restart() // TODO MOVE THIS
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void SpawnEnemy()

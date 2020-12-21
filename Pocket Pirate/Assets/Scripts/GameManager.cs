@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public FloatReference Score;
     // TODO add GameState
 
+    private const string TryAgainBtnName = "BtnTryAgain";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
         PubSub.ClearListeners();
 
         PubSub.RegisterListener<OnDeathEvent>(OnDeath);
+        PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonPressed);
 
         Score.Value = 0;
 
@@ -38,7 +41,8 @@ public class GameManager : MonoBehaviour
         }
 
         // TODO end game
-        StartCoroutine(ReloadScene(3f, true));
+        //StartCoroutine(ReloadScene(3f, true));
+        publishGameOver(false);
     }
 
     public void OnDeath (object publishedEvent)
@@ -47,13 +51,34 @@ public class GameManager : MonoBehaviour
         if (args.Team == 0) // player died
         {
             // TODO send a GameOver event?
-            StartCoroutine(ReloadScene(3f, false));
+            //StartCoroutine(ReloadScene(3f, false));
+            publishGameOver(true);
         }
 
         else if (args.Team == 1) // enemy died
         {
             Score.Value += 100;
         }
+    }
+
+    private void OnButtonPressed(object publishedEvent)
+    {
+        OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
+        if (args.Name == TryAgainBtnName)
+        {
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    private void publishGameOver(bool died)
+    {
+        if (died)
+            Time.timeScale = 1.0f;
+        else
+            Time.timeScale = 0.0f;
+
+        PubSub.Publish<OnGameOver>(new OnGameOver() { Died = died });
     }
 
     private IEnumerator ReloadScene (float delay, bool pauseGame)
