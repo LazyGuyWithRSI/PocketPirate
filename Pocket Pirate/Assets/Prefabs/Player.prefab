@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 14.8
-  TurnSpeed: 15.2
+  TurnSpeed: 28
   EasingFactor: 25
 --- !u!114 &7690721155982541227
 MonoBehaviour:
@@ -609,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057c8507b5d9cc548a1648b93a7d3cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpAccelRequired: 0.5
   JoyStickInput: {fileID: 11400000, guid: f8b2d00e910143447b1144af8c315b9a, type: 2}
 --- !u!54 &7690721155982541226
 Rigidbody:
