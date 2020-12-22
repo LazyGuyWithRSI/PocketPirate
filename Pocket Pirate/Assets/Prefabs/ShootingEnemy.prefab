@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 7586033476619514224}
   - component: {fileID: 7586033476619514225}
   - component: {fileID: 7586033476619514226}
-  - component: {fileID: 7586033476619514227}
   - component: {fileID: 7586033476619514228}
+  - component: {fileID: 7605441094426314349}
   - component: {fileID: 7586033476619514229}
   - component: {fileID: 7586033476619514230}
   m_Layer: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 10
   TurnSpeed: 5.5
   EasingFactor: 1
 --- !u!54 &7586033476619514226
@@ -157,27 +157,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586033476619514231}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 2.49
+  m_Mass: 2
+  m_Drag: 1.9
   m_AngularDrag: 3.16
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &7586033476619514227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586033476619514231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf0276458e99714086827911c3b2782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buoyancy: 10000
 --- !u!65 &7586033476619514228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,6 +178,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.36, z: 2.22}
   m_Center: {x: 0, y: 0.74, z: -0.08}
+--- !u!114 &7605441094426314349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586033476619514231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ed1c70e00bb1d4c86912cbca8d6d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StrengthMultiplier: 3500
+  DepthForce: 0.5
+  points:
+  - Position: {x: 0.5, y: 0.3, z: 1}
+    Strength: 1
+  - Position: {x: -0.5, y: 0.3, z: 1}
+    Strength: 1
+  - Position: {x: 0.5, y: 0.3, z: -1}
+    Strength: 1
+  - Position: {x: -0.5, y: 0.3, z: -1}
+    Strength: 1
 --- !u!114 &7586033476619514229
 MonoBehaviour:
   m_ObjectHideFlags: 0
