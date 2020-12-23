@@ -9,7 +9,6 @@ public class DistanceDecision : Decision
     public float DistanceEnterThreshold = 5f;
     public float DistanceExitThreshold = 10f;
 
-    public bool isWithin = false;
 
     public override bool Decide (StateController controller)
     {
@@ -18,11 +17,11 @@ public class DistanceDecision : Decision
 
     private bool Distance(StateController controller)
     {
-        if (!isWithin && Vector3.Distance(controller.transform.position, target.Value) < DistanceEnterThreshold)
-            isWithin = true;
-        else if (isWithin && Vector3.Distance(controller.transform.position, target.Value) > DistanceExitThreshold)
-            isWithin = false;
+        if (!controller.isWithin && Vector3.Distance(controller.transform.position, target.Value) < DistanceEnterThreshold)
+            controller.isWithin = true;
+        else if (controller.isWithin && Vector3.Distance(controller.transform.position, target.Value) > DistanceExitThreshold)
+            controller.isWithin = false;
 
-        return isWithin;
+        return controller.isWithin;
     }
 }

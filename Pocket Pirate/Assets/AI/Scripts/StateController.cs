@@ -11,7 +11,8 @@ public class StateController : MonoBehaviour
 
     [HideInInspector] public IBoatMover mover;
 
-    [HideInInspector] public bool canAct;
+    [HideInInspector] public bool canAct; // TODO coupling
+    [HideInInspector] public bool isWithin; // TODO coupling
     [HideInInspector] public float stateTimeElapsed;
 
     // temporary, move to a shoot controller (that can be asked for shooting angles, ranges, reloads, etc, so states can use it to generically shoot anything)
@@ -30,6 +31,7 @@ public class StateController : MonoBehaviour
         mover = GetComponent<IBoatMover>();
 
         canAct = true;
+        isWithin = true;
     }
 
     void Start ()
