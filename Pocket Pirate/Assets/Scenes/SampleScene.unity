@@ -3610,7 +3610,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
     type: 3}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  MaxEnemies: 1
+  MaxEnemies: 50
   MaxSpawnDistance: 30
   MinSpawnDistance: 20
 --- !u!1 &1870971852

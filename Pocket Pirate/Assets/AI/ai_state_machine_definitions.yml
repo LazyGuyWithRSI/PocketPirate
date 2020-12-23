@@ -1,0 +1,3 @@
+PatrolAction:
+    DelayLower: 4;
+    DelayUpper: 6;

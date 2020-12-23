@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //YAMLPersistance.ReadYaml(@"Assets/AI/ai_state_machine_definitions.yml");
+
         Time.timeScale = 1.0f;
 
         // clear event system

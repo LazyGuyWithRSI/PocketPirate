@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class StateController : MonoBehaviour
     public GameObject portShootMount;
     [HideInInspector] public IShooter portShooter;
 
+    [HideInInspector] public Dictionary<Type, object> contexts;
+
     private bool aiActive;
 
 
@@ -29,6 +32,8 @@ public class StateController : MonoBehaviour
         starboardShooter = starboardShootMount.GetComponentInChildren<IShooter>();
         portShooter = portShootMount.GetComponentInChildren<IShooter>();
         mover = GetComponent<IBoatMover>();
+
+        contexts = new Dictionary<Type, object>();
 
         canAct = true;
         isWithin = true;
@@ -79,17 +84,4 @@ public class StateController : MonoBehaviour
     {
         stateTimeElapsed = 0;
     }
-
-    public void StartActCooldown(float duration)
-    {
-        StartCoroutine(CanActCooldown(duration));
-    }
-
-    private IEnumerator CanActCooldown (float duration)
-    {
-        canAct = false;
-        yield return new WaitForSeconds(duration);
-        canAct = true;
-    }
-
 }

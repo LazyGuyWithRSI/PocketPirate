@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Catch Up State
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 3955619f602e1f54a9539c824937fb70, type: 2}
+  - {fileID: 11400000, guid: c71515a35f33db444827b7c92e37b561, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 98548175907f67541a9e39221f7fe8e9, type: 2}
-    trueState: {fileID: 11400000, guid: ed84ee514c3f6444a99572566112e687, type: 2}
+  - decision: {fileID: 11400000, guid: d00c7764dd16fcc4fa94a49957586e85, type: 2}
+    trueState: {fileID: 11400000, guid: d7cb170a552b36d459ca685c4ff08151, type: 2}
     falseState: {fileID: 11400000}
   sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

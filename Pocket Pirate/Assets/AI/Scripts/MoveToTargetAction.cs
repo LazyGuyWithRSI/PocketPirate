@@ -19,7 +19,7 @@ public class MoveToTargetAction : Action
         if (angle < 0)
             angle += 360;
 
-        Debug.Log("angle: " + angle);
+        //Debug.Log("angle: " + angle);
         controller.mover.SetHeading(angle);
     }
 }
