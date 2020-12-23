@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0800c0f7e63a2b645a9fe73dd96114ec, type: 3}
-  m_Name: Wander State
+  m_Name: Shoot At Player State
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: e6f0787d84b81c2479bb88c1de6cca2b, type: 2}
+  - {fileID: 11400000, guid: 31545a2552fce564ca1d5e7a0cfade25, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: d00c7764dd16fcc4fa94a49957586e85, type: 2}
     trueState: {fileID: 11400000}
     falseState: {fileID: 11400000, guid: be9f7487c6e610745832e34c7fc0ea6a, type: 2}
-  sceneGizmoColor: {r: 0.8396226, g: 0.5980331, b: 0.81778693, a: 1}
+  sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}

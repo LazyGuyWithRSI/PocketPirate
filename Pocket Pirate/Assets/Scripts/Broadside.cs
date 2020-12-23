@@ -4,28 +4,41 @@ using UnityEngine;
 
 public class Broadside : MonoBehaviour, IShooter
 {
+    public float ShootCooldown = 5f;
+
     private IShooter[] shooters;
 
-    public void Shoot ()
+    private bool canShoot = true;
+
+    public bool Shoot ()
     {
+        if (!canShoot)
+            return false;
+
         PubSub.Publish<OnShootEvent>(new OnShootEvent() { Position = transform.position });
 
-        //           v start from 1 because GetComponentsInChildren includes self for some reason
+        //           v start from 1 because GetComponentsInChildren includes self
         for (int i = 1; i < shooters.Length; i++)
             shooters[i].Shoot();
 
+        StartCoroutine(CanFireCooldown(ShootCooldown));
+        return true;
     }
 
-    // Start is called before the first frame update
+    public bool CanShoot()
+    {
+        return canShoot;
+    }
+
     void Start()
     {
         shooters = GetComponentsInChildren<IShooter>();
-        //Debug.Log("shooters:" + shooters.Length);
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator CanFireCooldown (float duration)
     {
-        
+        canShoot = false;
+        yield return new WaitForSeconds(duration);
+        canShoot = true;
     }
 }

@@ -10,7 +10,7 @@ public class Shooter : MonoBehaviour, IShooter
 
     private ParticleSystem smoke;
 
-    public void Shoot ()
+    public bool Shoot ()
     {
         smoke.Play();
         GameObject obj = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
@@ -19,6 +19,12 @@ public class Shooter : MonoBehaviour, IShooter
         rb.AddForce(transform.forward * ShootForce.Value);
         rb.AddForce(Vector3.up * UpShootForce.Value);
 
+        return true;
+    }
+
+    public bool CanShoot()
+    {
+        return true;
     }
 
     void Start()
@@ -34,5 +40,6 @@ public class Shooter : MonoBehaviour, IShooter
 
 public interface IShooter
 {
-    void Shoot ();
+    bool Shoot ();
+    bool CanShoot ();
 }

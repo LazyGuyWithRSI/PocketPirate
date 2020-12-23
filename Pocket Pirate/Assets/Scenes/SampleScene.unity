@@ -3610,7 +3610,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
     type: 3}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  MaxEnemies: 50
+  MaxEnemies: 10
   MaxSpawnDistance: 30
   MinSpawnDistance: 20
 --- !u!1 &1870971852
@@ -4948,6 +4948,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9014279104838529175, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+        type: 3}
+      propertyPath: ShootCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014279105153823634, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+        type: 3}
+      propertyPath: ShootCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9014279106555438938, guid: ba014c5cb40b2bd4ea9c701843c5d503,
         type: 3}
       propertyPath: m_Name

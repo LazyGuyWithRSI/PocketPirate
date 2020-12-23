@@ -30,6 +30,14 @@ public class BoatMover : MonoBehaviour, IBoatMover
         setHeadingToCurrent = true;
     }
 
+    public float GetHeading()
+    {
+        float currentHeading = (transform.eulerAngles.y % 360);
+        if (currentHeading < 0)
+            currentHeading = 360 - currentHeading;
+        return currentHeading;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,5 +87,6 @@ public interface IBoatMover
 {
     void SetHeading (float direction);
     void SetMoving (int direction);
+    float GetHeading ();
     void SetHeadingToCurrent ();
 }
