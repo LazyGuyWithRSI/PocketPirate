@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenerateWake : MonoBehaviour
 {
     public Transform target;
-
+    public float HeightOffWater = 0.2f;
     public float XOffset = 0.0f;
     public float ZOffset = 0.0f;
 
@@ -20,7 +20,6 @@ public class GenerateWake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("particle playing: " + particleSys.isEmitting);
         if (target.transform.position.y > 0 && particleSys.isEmitting)
         {
             particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -31,6 +30,6 @@ public class GenerateWake : MonoBehaviour
             particleSys.Play();
         }
 
-        transform.position = new Vector3(target.position.x + XOffset, 0.3f, target.position.z + ZOffset);
+        transform.position = new Vector3(target.position.x + XOffset, HeightOffWater, target.position.z + ZOffset);
     }
 }

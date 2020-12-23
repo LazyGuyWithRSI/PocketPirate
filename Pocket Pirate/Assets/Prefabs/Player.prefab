@@ -822,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 20.35
   TurnSpeed: 22.2
-  EasingFactor: 23.9
+  EasingFactor: 46.18
 --- !u!114 &9014279106555438941
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 25
+  TotalGameTime: 180
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
 --- !u!4 &1084219082
@@ -2459,6 +2459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 26483955}
+  HeightOffWater: 0.2
   XOffset: 0
   ZOffset: 0
 --- !u!1 &1119087070
@@ -3631,7 +3632,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
     type: 3}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  MaxEnemies: 20
+  MaxEnemies: 1
   MaxSpawnDistance: 30
   MinSpawnDistance: 20
 --- !u!1 &1870971852
