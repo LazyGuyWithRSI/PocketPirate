@@ -15,6 +15,9 @@ public class ShootInput : MonoBehaviour
     public GameObject portShootMount;
     private IShooter portShooter;
 
+    private bool starboardPressedWhileCanFire = false;
+    private bool portPressedWhileCanFire = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class ShootInput : MonoBehaviour
 
         starboardAimHelper.enabled = false;
         portAimHelper.enabled = false;
+
 
         //Debug.Log("unsubbing? : " + PubSub.UnregisterListener<OnButtonReleasedEvent>(OnButtonReleased));
         //PubSub.UnregisterListener<OnButtonPressedEvent>(OnButtonPressed);
@@ -52,27 +56,31 @@ public class ShootInput : MonoBehaviour
         {
             starboardAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
+            starboardPressedWhileCanFire = true;
         }
         else if (args.Name == "BtnPortFire" && portShooter.CanShoot())
         {
             portAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
+            portPressedWhileCanFire = true;
         }
     }
 
     public void OnButtonReleased (object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
-        if (args.Name == "BtnStarboardFire")
+        if (args.Name == "BtnStarboardFire" && starboardPressedWhileCanFire)
         {
             starboardAimHelper.enabled = false;
             Time.timeScale = 1f;
+            starboardPressedWhileCanFire = false;
             starboardShooter.Shoot();
         }
-        else if (args.Name == "BtnPortFire")
+        else if (args.Name == "BtnPortFire" && portPressedWhileCanFire)
         {
             portAimHelper.enabled = false;
             Time.timeScale = 1f;
+            portPressedWhileCanFire = false;
             portShooter.Shoot();
         }
     }

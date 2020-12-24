@@ -12,6 +12,8 @@ public class BoatInput : MonoBehaviour
 
     private bool stickReleasedThisFrame = false;
 
+    private bool gameIsOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,11 @@ public class BoatInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameIsOver)
+        {
+            mover.SetTurnDirection(0);
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.acceleration.z > JumpAccelRequired) // DEBUG
         {
@@ -31,29 +38,36 @@ public class BoatInput : MonoBehaviour
             jumper.DoJump();
         }
 
-        /* DEBUG
-        if (Input.GetKey(KeyCode.A))
-            mover.SetHeading(90);
-        else if (Input.GetKey(KeyCode.W))
-            mover.SetHeading(180);
-        else if (Input.GetKey(KeyCode.D))
-            mover.SetHeading(270);
-        else if (Input.GetKey(KeyCode.S))
-            mover.SetHeading(0);
-        */
+        
+
 
         if (JoyStickInput.Value.x == 0 && JoyStickInput.Value.y == 0)
         {
-            mover.SetHeadingToCurrent();
+            
+            //mover.SetHeadingToCurrent();
+            
+            if (Input.GetKey(KeyCode.A))
+                mover.SetTurnDirection(-1);
+            else if (Input.GetKey(KeyCode.D))
+                mover.SetTurnDirection(1);
+            else
+                mover.SetTurnDirection(0);
+
             return;
         }
 
+        mover.SetTurnDirection(JoyStickInput.Value.x);
+
+        /*
         float angle = Mathf.Atan2(JoyStickInput.Value.x, JoyStickInput.Value.y) * 180 / Mathf.PI;
         angle += 180;
 
         mover.SetHeading(angle);
+        */
+    }
 
-        
-
+    public void OnGameOverHandler (object publishedEvent)
+    {
+        gameIsOver = true;
     }
 }

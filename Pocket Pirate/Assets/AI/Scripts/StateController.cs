@@ -73,7 +73,6 @@ public class StateController : MonoBehaviour
         if (nextState != remainState)
         {
             remainState = nextState;
-            Debug.Log("Changing to " + nextState.name);
             currentState = nextState;
             OnExitState();
             return false;

@@ -9,7 +9,6 @@ public class ElapsedTimeDecision : Decision
 
     public override bool Decide (StateController controller)
     {
-        Debug.Log("controller.stateTimeElapsed " + controller.stateTimeElapsed);
         if (controller.stateTimeElapsed < time)
             return false;
 

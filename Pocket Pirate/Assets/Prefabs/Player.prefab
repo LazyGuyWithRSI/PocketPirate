@@ -91,7 +91,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1741745440732381706}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -187,7 +187,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3366821418709073715}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -283,7 +283,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5072835074717743490}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -413,7 +413,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6508299264544712085}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -1311,16 +1311,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ed1c70e00bb1d4c86912cbca8d6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StrengthMultiplier: 2000
+  StrengthMultiplier: 2300
   DepthForce: 0.5
+  SinkSpeed: 0.005
   points:
-  - Position: {x: 1, y: 0.25, z: 1.7}
+  - Position: {x: 0.8, y: 0.2, z: 1.7}
     Strength: 1
-  - Position: {x: -1, y: 0.25, z: 1.7}
+  - Position: {x: -0.8, y: 0.2, z: 1.7}
     Strength: 1
-  - Position: {x: 1, y: 0.25, z: -1.3}
+  - Position: {x: 0.8, y: 0.2, z: -1.3}
     Strength: 1
-  - Position: {x: -1, y: 0.25, z: -1.3}
+  - Position: {x: -0.8, y: 0.2, z: -1.3}
+    Strength: 1
+  - Position: {x: 0, y: 0.5, z: 0}
     Strength: 1
 --- !u!114 &9014279106555438929
 MonoBehaviour:

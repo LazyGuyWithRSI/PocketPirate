@@ -15,13 +15,13 @@ public class RemoveInWater : MonoBehaviour
     void Update()
     {
 
-        if (!hasHitWater && transform.position.y <= 0.25)
+        if (!hasHitWater && transform.position.y <= 0.1)
         {
             PubSub.Publish<OnHitWater>(new OnHitWater() { Position = new Vector2(transform.position.x, transform.position.z) });
             hasHitWater = true;
         }
 
-        if (transform.position.y < -0.2f)
+        if (transform.position.y < 0.005f)
             GameObject.Destroy(transform.parent.gameObject);
     }
 }

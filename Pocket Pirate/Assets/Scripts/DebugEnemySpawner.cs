@@ -17,6 +17,8 @@ public class DebugEnemySpawner : MonoBehaviour
     private float elapsed;
     private int extraEnemies = 0;
 
+    private bool gameIsOver = false;
+
     // Start is called before the first frame update
     void Start ()
     {
@@ -41,6 +43,11 @@ public class DebugEnemySpawner : MonoBehaviour
             SpawnEnemy();
     }
 
+    public void OnGameOverEvent(object publishedEvent)
+    {
+        gameIsOver = true;
+    }
+
     public void OnDeathDeath (object publishedEvent) // TODO make sure this is actually an enemy perhaps?
     {
         OnDeathEvent args = publishedEvent as OnDeathEvent;
@@ -54,6 +61,9 @@ public class DebugEnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        if (gameIsOver)
+            return;
+
         float xDelta = 0;
         float zDelta = 0;
 

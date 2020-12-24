@@ -11,11 +11,14 @@ public class BoatMover : MonoBehaviour, IBoatMover
     private int moveDirection = 1;
     private float desiredHeading = 0f;
     private bool setHeadingToCurrent = false;
+    private float turnDirection = 0f;
+    private bool usingManualTurning = false;
 
     private Rigidbody rb;
 
     public void SetMoving (int direction)
     {
+        moveDirection = Mathf.Clamp(direction, -1, 1);
     }
 
     public void SetHeading (float direction)
@@ -23,11 +26,20 @@ public class BoatMover : MonoBehaviour, IBoatMover
         desiredHeading = (direction % 360);
         if (desiredHeading < 0)
             desiredHeading = 360 - desiredHeading;
+
+        usingManualTurning = false;
+    }
+
+    public void SetTurnDirection(float direction)
+    {
+        turnDirection = Mathf.Clamp(direction, -1, 1);
+        usingManualTurning = true;
     }
 
     public void SetHeadingToCurrent()
     {
         setHeadingToCurrent = true;
+        usingManualTurning = false;
     }
 
     public float GetHeading()
@@ -52,31 +64,36 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
         // turn boat towards target heading
         // TODO maybe move heading calculation to helper class (if needed elsewhere)
-        float currentHeading = (transform.eulerAngles.y % 360);
-        if (currentHeading < 0)
-            currentHeading = 360 - currentHeading;
 
-        if (setHeadingToCurrent)
+        if (!usingManualTurning)
         {
-            desiredHeading = currentHeading;
-            setHeadingToCurrent = false;
+            float currentHeading = (transform.eulerAngles.y % 360);
+            if (currentHeading < 0)
+                currentHeading = 360 - currentHeading;
+
+            if (setHeadingToCurrent)
+            {
+                desiredHeading = currentHeading;
+                setHeadingToCurrent = false;
+            }
+
+            float headingDifference = desiredHeading - currentHeading;
+
+            if (headingDifference < 180)
+                headingDifference = headingDifference + 360;
+
+            if (headingDifference > 180)
+                headingDifference = headingDifference - 360;
+
+            turnDirection = 0;
+            if (headingDifference > 0)
+                turnDirection = 1;
+            else
+                turnDirection = -1;
+
+
+            turnDirection *= Mathf.Clamp(Mathf.Abs(headingDifference / EasingFactor), -1, 1);
         }
-
-        float headingDifference = desiredHeading - currentHeading;
-
-        if (headingDifference < 180)
-            headingDifference = headingDifference + 360;
-
-        if (headingDifference > 180)
-            headingDifference = headingDifference - 360;
-
-        float turnDirection = 0;
-        if (headingDifference > 0)
-            turnDirection = 1;
-        else
-            turnDirection = -1;
-
-        turnDirection *= Mathf.Clamp(Mathf.Abs(headingDifference / EasingFactor), -1, 1);
         //Debug.Log("current heading: " + currentHeading + ", target: " + desiredHeading + ", dif: " + headingDifference);
 
         rb.AddRelativeTorque(Vector3.up * TurnSpeed * turnDirection);
@@ -87,6 +104,7 @@ public interface IBoatMover
 {
     void SetHeading (float direction);
     void SetMoving (int direction);
+    void SetTurnDirection (float direction);
     float GetHeading ();
     void SetHeadingToCurrent ();
 }

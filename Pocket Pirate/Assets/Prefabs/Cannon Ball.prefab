@@ -111,8 +111,8 @@ MonoBehaviour:
   HeightOffset: 0.3
   MaxHeight: 2
   MinHeight: 0.5
-  MaxSize: 1.26
-  MinSize: 0.72
+  MaxSize: 1.1
+  MinSize: 0.5
 --- !u!1 &8255422357301620149
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d3a0bb7dfad4aec4b879eaaa8b86f5bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

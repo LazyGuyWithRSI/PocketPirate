@@ -13,6 +13,13 @@ public class FireButton : MonoBehaviour
         button = GetComponent<Button>();
 
         PubSub.RegisterListener<OnPlayerReloaded>(OnPlayerReload);
+        PubSub.RegisterListener<OnPlayerFired>(OnPlayerFired);
+    }
+    public void OnPlayerFired (object publishedEvent)
+    {
+        OnPlayerFired args = publishedEvent as OnPlayerFired;
+        if (args.WeaponName.Equals(WeaponName))
+            button.interactable = false; // TODO some cool animations
     }
 
     public void OnPlayerReload (object publishedEvent)
@@ -23,10 +30,5 @@ public class FireButton : MonoBehaviour
             Debug.Log("resetting fire button for " + WeaponName);
             button.interactable = true; // TODO some cool animations
         }
-    }
-
-    public void OnButtonUp () // disable after firing
-    {
-        button.interactable = false; // TODO some cool animations
     }
 }

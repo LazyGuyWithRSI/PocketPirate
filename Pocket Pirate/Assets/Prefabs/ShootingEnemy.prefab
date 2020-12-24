@@ -91,7 +91,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4775153414474845787}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -187,7 +187,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5244347427838580245}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StrengthMultiplier: 3500
   DepthForce: 0.5
+  SinkSpeed: 0.005
   points:
   - Position: {x: 0.5, y: 0.3, z: 1}
     Strength: 1
@@ -393,6 +394,8 @@ MonoBehaviour:
   - Position: {x: 0.5, y: 0.3, z: -1}
     Strength: 1
   - Position: {x: -0.5, y: 0.3, z: -1}
+    Strength: 1
+  - Position: {x: 0, y: 0.4, z: 0}
     Strength: 1
 --- !u!114 &7586033476619514229
 MonoBehaviour:

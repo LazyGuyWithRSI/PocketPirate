@@ -17,7 +17,10 @@ public class Broadside : MonoBehaviour, IShooter
             return false;
 
         PubSub.Publish<OnShootEvent>(new OnShootEvent() { Position = transform.position });
-
+        if (!string.IsNullOrEmpty(Name))
+        {
+            PubSub.Publish<OnPlayerFired>(new OnPlayerFired() { WeaponName = Name });
+        }
         //           v start from 1 because GetComponentsInChildren includes self
         for (int i = 1; i < shooters.Length; i++)
             shooters[i].Shoot();

@@ -8,6 +8,10 @@ public class Buoyancy : MonoBehaviour
     public float StrengthMultiplier = 100f;
     public float DepthForce = 0.5f;
 
+    public float SinkSpeed = 0.005f;
+
+    private BoxCollider projectileTriggerCollider; // TODO COUPLING
+
     [System.Serializable]
     public class BuoyancyPoint
     {
@@ -22,8 +26,40 @@ public class Buoyancy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+        projectileTriggerCollider = GetComponent<BoxCollider>();
     }
+
+    public void Sink()
+    {
+        if (projectileTriggerCollider != null)
+            projectileTriggerCollider.enabled = false;
+
+        // pick 2 random points and reduce their buoyancy
+        if (points.Length < 2)
+            points[0].Strength = 0;
+        else
+        {
+            points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
+            points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
+            StartCoroutine(SinkRoutine(5f));
+        }    
+    }
+
+    
+    private IEnumerator SinkRoutine (float duration)
+    {
+        float multiplier = 1.0f;
+        float time = 0;
+        while (time <= duration)
+        {
+            multiplier -= (SinkSpeed * Time.deltaTime);
+            StrengthMultiplier *= multiplier;
+            time += Time.deltaTime;
+            yield return null;
+        }
+    }
+    
 
     void FixedUpdate()
     {
