@@ -7,8 +7,9 @@ public class Broadside : MonoBehaviour, IShooter
     public float ShootCooldown = 5f;
 
     private IShooter[] shooters;
-
     private bool canShoot = true;
+
+    private string Name;
 
     public bool Shoot ()
     {
@@ -23,6 +24,11 @@ public class Broadside : MonoBehaviour, IShooter
 
         StartCoroutine(CanFireCooldown(ShootCooldown));
         return true;
+    }
+
+    public void SetName (string Name)
+    {
+        this.Name = Name;
     }
 
     public bool CanShoot()
@@ -40,5 +46,10 @@ public class Broadside : MonoBehaviour, IShooter
         canShoot = false;
         yield return new WaitForSeconds(duration);
         canShoot = true;
+
+        if (!string.IsNullOrEmpty(Name))
+        {
+            PubSub.Publish<OnPlayerReloaded>(new OnPlayerReloaded() { WeaponName = Name });
+        }
     }
 }

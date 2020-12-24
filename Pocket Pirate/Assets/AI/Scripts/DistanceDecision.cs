@@ -19,7 +19,6 @@ public class DistanceDecision : Decision
         object obj;
         controller.contexts.TryGetValue(typeof(DistanceDecisionContext), out obj);
         context = (DistanceDecisionContext)obj;
-
         return Distance(controller);
     }
 

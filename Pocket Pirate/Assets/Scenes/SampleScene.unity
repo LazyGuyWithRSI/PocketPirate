@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 543678852}
   - component: {fileID: 543678855}
   - component: {fileID: 543678851}
+  - component: {fileID: 543678856}
   m_Layer: 0
   m_Name: BtnPortFire
   m_TagString: Untagged
@@ -832,6 +833,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 543678856}
+          m_TargetAssemblyTypeName: FireButton, Assembly-CSharp
+          m_MethodName: OnButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 2
     callback:
       m_PersistentCalls:
@@ -868,11 +881,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.3443396, g: 1, b: 0.37656766, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.41037738, b: 0.41037738, a: 0.62352943}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -904,7 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.62947536, b: 0.18823427, a: 0.5882353}
+  m_Color: {r: 0.8867924, g: 0.83137256, b: 0.18823427, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -941,6 +954,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a96dd60375516468eb4b2f54cbbc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &543678856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543678849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882cb1203e1b88b45bd8971f77e64910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponName: Port
 --- !u!1 &560498610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,6 +1193,7 @@ GameObject:
   - component: {fileID: 567032183}
   - component: {fileID: 567032182}
   - component: {fileID: 567032186}
+  - component: {fileID: 567032187}
   m_Layer: 0
   m_Name: BtnStarboardFire
   m_TagString: Untagged
@@ -1226,11 +1253,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.3443396, g: 1, b: 0.37656766, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.41037738, b: 0.41037738, a: 0.62352943}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1262,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8862745, g: 0.6313726, b: 0.1882353, a: 0.5882353}
+  m_Color: {r: 0.8862745, g: 0.83147067, b: 0.18823527, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1316,6 +1343,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 567032187}
+          m_TargetAssemblyTypeName: FireButton, Assembly-CSharp
+          m_MethodName: OnButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 2
     callback:
       m_PersistentCalls:
@@ -1332,6 +1371,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &567032187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567032180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882cb1203e1b88b45bd8971f77e64910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponName: Starboard
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,7 +2445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 180
+  TotalGameTime: 120
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
 --- !u!4 &1084219082
@@ -2693,6 +2745,7 @@ GameObject:
   - component: {fileID: 1137343693}
   - component: {fileID: 1137343692}
   - component: {fileID: 1137343694}
+  - component: {fileID: 1137343695}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -2720,7 +2773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.299988}
+  m_AnchoredPosition: {x: 0, y: -1026}
   m_SizeDelta: {x: -826.70044, y: -179.45294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137343692
@@ -2773,6 +2826,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64de792656a7bc4e8b39d1bf5f41f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &1137343695
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137343690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 419a1d857e97443469a2cd50098f0fe7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 419a1d857e97443469a2cd50098f0fe7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1248264942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,9 +3679,10 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
     type: 3}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  MaxEnemies: 10
-  MaxSpawnDistance: 30
-  MinSpawnDistance: 20
+  MaxEnemies: 6
+  MaxSpawnDistance: 50
+  MinSpawnDistance: 30
+  Ramp: 0.3
 --- !u!1 &1870971852
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,15 +5018,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9014279104838529175, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+    - target: {fileID: 9014279106555438931, guid: ba014c5cb40b2bd4ea9c701843c5d503,
         type: 3}
-      propertyPath: ShootCooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014279105153823634, guid: ba014c5cb40b2bd4ea9c701843c5d503,
-        type: 3}
-      propertyPath: ShootCooldown
-      value: 2
+      propertyPath: MaxHealth
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9014279106555438938, guid: ba014c5cb40b2bd4ea9c701843c5d503,
         type: 3}
@@ -5017,6 +5082,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014279106555438942, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+        type: 3}
+      propertyPath: Speed
+      value: 18.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014279106555438942, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+        type: 3}
+      propertyPath: TurnSpeed
+      value: 20.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba014c5cb40b2bd4ea9c701843c5d503, type: 3}

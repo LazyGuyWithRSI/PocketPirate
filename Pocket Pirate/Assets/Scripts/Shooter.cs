@@ -36,10 +36,16 @@ public class Shooter : MonoBehaviour, IShooter
     {
         
     }
+
+    public void SetName (string Name)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public interface IShooter
 {
     bool Shoot ();
     bool CanShoot ();
+    void SetName (string Name);
 }

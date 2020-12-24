@@ -62,16 +62,24 @@ public class StateController : MonoBehaviour
     {
         if (!aiActive)
             return;
+
         currentState.UpdateState(this);
+        stateTimeElapsed += Time.deltaTime;
     }
 
-    public void TransitionToState(State nextState)
+    // return true if new state is the same as the old
+    public bool TransitionToState(State nextState)
     {
         if (nextState != remainState)
         {
+            remainState = nextState;
+            Debug.Log("Changing to " + nextState.name);
             currentState = nextState;
             OnExitState();
+            return false;
         }
+
+        return true;
     }
 
     public bool CheckIfCountDownElapsed(float duration)

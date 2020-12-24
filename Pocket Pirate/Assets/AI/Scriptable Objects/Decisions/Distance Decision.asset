@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Distance Decision
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  DistanceEnterThreshold: 15
-  DistanceExitThreshold: 25
+  DistanceEnterThreshold: 20
+  DistanceExitThreshold: 30

@@ -20,6 +20,8 @@ public class ShootInput : MonoBehaviour
     {
         starboardShooter = starboardShootMount.GetComponentInChildren<IShooter>();
         portShooter = portShootMount.GetComponentInChildren<IShooter>();
+        starboardShooter.SetName("Starboard");
+        portShooter.SetName("Port");
 
 
         starboardAimHelper.enabled = false;
@@ -46,12 +48,12 @@ public class ShootInput : MonoBehaviour
     public void OnButtonPressed (object publishedEvent)
     {
         OnButtonPressedEvent args = publishedEvent as OnButtonPressedEvent;
-        if (args.Name == "BtnStarboardFire")
+        if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot())
         {
             starboardAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
         }
-        else if (args.Name == "BtnPortFire")
+        else if (args.Name == "BtnPortFire" && portShooter.CanShoot())
         {
             portAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
@@ -63,14 +65,12 @@ public class ShootInput : MonoBehaviour
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
         if (args.Name == "BtnStarboardFire")
         {
-            Debug.Log("starboard released!");
             starboardAimHelper.enabled = false;
             Time.timeScale = 1f;
             starboardShooter.Shoot();
         }
         else if (args.Name == "BtnPortFire")
         {
-            Debug.Log("Port released!");
             portAimHelper.enabled = false;
             Time.timeScale = 1f;
             portShooter.Shoot();

@@ -20,6 +20,9 @@ public class GenerateWake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+            Destroy(gameObject);
+
         if (target.transform.position.y > 0 && particleSys.isEmitting)
         {
             particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);

@@ -29,11 +29,13 @@ public class State : ScriptableObject
 
             if (decisionSucceeded)
             {
-                controller.TransitionToState(transition.trueState);
+                if (!controller.TransitionToState(transition.trueState))
+                    break;
             }
             else
             {
-                controller.TransitionToState(transition.falseState);
+                if (!controller.TransitionToState(transition.falseState))
+                    break;
             }
         }
     }

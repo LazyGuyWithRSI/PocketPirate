@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 0.0f;
 
+        StopCoroutine(gameTimeCountdown());
         PubSub.Publish<OnGameOver>(new OnGameOver() { Died = died });
     }
 

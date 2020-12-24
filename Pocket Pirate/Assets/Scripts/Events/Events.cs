@@ -37,3 +37,13 @@ public class OnGameOver
 {
     public bool Died { get; set; }
 }
+
+public class OnPlayerFired
+{
+    public string WeaponName { get; set; }
+}
+
+public class OnPlayerReloaded
+{
+    public string WeaponName { get; set; }
+}

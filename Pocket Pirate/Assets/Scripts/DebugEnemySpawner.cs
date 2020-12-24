@@ -11,11 +11,14 @@ public class DebugEnemySpawner : MonoBehaviour
     public float MaxSpawnDistance = 20f;
     public float MinSpawnDistance = 8f;
 
-    private int numEnemies;
+    public float Ramp = 0.5f;
 
+    private int numEnemies;
+    private float elapsed;
+    private int extraEnemies = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
         PubSub.RegisterListener<OnDeathEvent>(OnDeathDeath);
 
@@ -25,6 +28,17 @@ public class DebugEnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
         }
+
+        elapsed = 0f;
+    }
+
+    private void FixedUpdate ()
+    {
+        elapsed += Time.fixedDeltaTime;
+
+        extraEnemies = (int)(elapsed * Ramp);
+        if (numEnemies < MaxEnemies + extraEnemies)
+            SpawnEnemy();
     }
 
     public void OnDeathDeath (object publishedEvent) // TODO make sure this is actually an enemy perhaps?
@@ -33,7 +47,7 @@ public class DebugEnemySpawner : MonoBehaviour
         if (args.Team == 1)
         {
             numEnemies--;
-            if (numEnemies < MaxEnemies)
+            if (numEnemies < MaxEnemies + extraEnemies)
                 SpawnEnemy();
         }
     }

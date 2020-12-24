@@ -9,7 +9,6 @@ public class ShootAction : Action
 
     public override void Act (StateController controller)
     {
-        
         float desiredAngle = AimAtPlayer(controller);
         TryShoot(controller, desiredAngle);
     }

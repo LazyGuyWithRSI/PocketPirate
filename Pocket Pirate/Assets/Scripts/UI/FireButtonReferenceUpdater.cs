@@ -14,12 +14,10 @@ public class FireButtonReferenceUpdater : MonoBehaviour
     public void OnButtonPressed(object publishedEvent)
     {
         OnButtonPressedEvent args = publishedEvent as OnButtonPressedEvent;
-        Debug.Log("starboard pressed..");
     }
 
     public void OnButtonReleased(object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
-        Debug.Log("starboard released!");
     }
 }

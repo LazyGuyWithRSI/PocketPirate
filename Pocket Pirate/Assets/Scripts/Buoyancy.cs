@@ -45,7 +45,7 @@ public class Buoyancy : MonoBehaviour
 
         foreach (BuoyancyPoint point in points)
         {
-            Gizmos.DrawWireSphere(transform.TransformPoint(point.Position), point.Strength);
+            Gizmos.DrawWireSphere(transform.TransformPoint(point.Position), point.Strength / 10);
         }
     }
 }
