@@ -20,6 +20,8 @@ public class BoatInput : MonoBehaviour
         mover = GetComponent<IBoatMover>();
         jumper = GetComponent<IJump>();
 
+        PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
+
         // TODO sub to jump event or something
     }
 

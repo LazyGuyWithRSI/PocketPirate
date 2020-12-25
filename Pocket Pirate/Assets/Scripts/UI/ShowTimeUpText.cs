@@ -9,7 +9,7 @@ public class ShowTimeUpText : MonoBehaviour
 
     private TMP_Text text;
 
-    private const string DeathText = "YOU DIED!";
+    private const string DeathText = "YOU SANK!";
     private const string TimeUpText = "TIME UP!";
     private bool timeUp = false;
 

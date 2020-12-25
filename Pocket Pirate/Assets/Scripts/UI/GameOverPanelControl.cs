@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GameOverPanelControl : MonoBehaviour
 {
-    Animation anim;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animation>();
-
+        anim = GetComponent<Animator>();
         //gameObject.SetActive(false);
         PubSub.RegisterListener<OnGameOver>(OnGameOverHandle);
     }
@@ -18,7 +17,7 @@ public class GameOverPanelControl : MonoBehaviour
     {
         OnGameOver args = publishedEvent as OnGameOver;
         //gameObject.SetActive(true);
-        anim.Play();
+        anim.Play("GameOverPanelSlideUp");
     }
 
     // Update is called once per frame
