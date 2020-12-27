@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 7586033476619514229}
   - component: {fileID: 7586033476619514230}
   - component: {fileID: 4401082904985895531}
+  - component: {fileID: 7374681837318767034}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Untagged
@@ -445,6 +446,21 @@ MonoBehaviour:
   stateTimeElapsed: 0
   starboardShootMount: {fileID: 7586033478048472614}
   portShootMount: {fileID: 7586033478142611865}
+--- !u!114 &7374681837318767034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586033476619514231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d84b1711a1b6194790937f5a7ef04f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 7586033477830173650}
+  MaxLeanAngle: 40
+  AngularVelocityMax: 2.5
 --- !u!1 &7586033476928445050
 GameObject:
   m_ObjectHideFlags: 0
