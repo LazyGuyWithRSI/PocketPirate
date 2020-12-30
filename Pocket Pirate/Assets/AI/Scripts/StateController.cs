@@ -9,6 +9,7 @@ public class StateController : MonoBehaviour
     public State remainState;
 
     public Vector3Reference playerPos;
+    public FloatReference playerHeading;
 
     [HideInInspector] public IBoatMover mover;
 
@@ -23,6 +24,8 @@ public class StateController : MonoBehaviour
     [HideInInspector] public IShooter portShooter;
 
     [HideInInspector] public Dictionary<Type, object> contexts;
+
+    [HideInInspector] public Vector3 ShootTarget; // TODO remove this debug shit
 
     private bool aiActive;
 
@@ -51,6 +54,12 @@ public class StateController : MonoBehaviour
 
     void OnDrawGizmos ()
     {
+        if (ShootTarget != Vector3.zero)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(ShootTarget, 1);
+        }
+
         if (currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColor;
@@ -90,5 +99,7 @@ public class StateController : MonoBehaviour
     public void OnExitState()
     {
         stateTimeElapsed = 0;
+
+        ShootTarget = Vector3.zero;
     }
 }

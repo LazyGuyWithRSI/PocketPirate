@@ -5,6 +5,7 @@ using UnityEngine;
 public class Broadside : MonoBehaviour, IShooter
 {
     public float ShootCooldown = 5f;
+    public float ShootHeading = 0f;
 
     private IShooter[] shooters;
     private bool canShoot = true;
@@ -37,6 +38,11 @@ public class Broadside : MonoBehaviour, IShooter
     public bool CanShoot()
     {
         return canShoot;
+    }
+
+    public float GetShootHeading()
+    {
+        return ShootHeading;
     }
 
     void Start()

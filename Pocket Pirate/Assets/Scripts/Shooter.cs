@@ -41,10 +41,16 @@ public class Shooter : MonoBehaviour, IShooter
     {
         throw new System.NotImplementedException();
     }
+
+    public float GetShootHeading()
+    {
+        return 0;
+    }
 }
 
 public interface IShooter
 {
+    float GetShootHeading ();
     bool Shoot ();
     bool CanShoot ();
     void SetName (string Name);

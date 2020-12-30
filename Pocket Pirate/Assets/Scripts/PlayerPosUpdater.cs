@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerPosUpdater : MonoBehaviour
 {
-    public Vector3Reference playerPosition;
+    public Vector3Reference PlayerPosition;
+    public FloatReference PlayerHeading;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerPosition.Value = transform.position;
+        PlayerPosition.Value = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerPosition.Value = transform.position;
+        PlayerPosition.Value = transform.position;
+        PlayerHeading.Value = Utils.HeadingFromRotation(transform.eulerAngles.y);
     }
 }
