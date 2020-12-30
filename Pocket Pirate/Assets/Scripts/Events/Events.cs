@@ -47,3 +47,8 @@ public class OnPlayerReloaded
 {
     public string WeaponName { get; set; }
 }
+
+public class OnRequestSceneChange
+{
+    public int SceneIndex { get; set; }
+}

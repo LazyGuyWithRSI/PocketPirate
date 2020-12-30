@@ -69,7 +69,9 @@ public class GameManager : MonoBehaviour
         if (args.Name == TryAgainBtnName)
         {
             Time.timeScale = 1.0f;
-            SceneManager.LoadScene(0);
+
+            //SceneManager.LoadScene(1);
+            PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
     }
 
@@ -95,7 +97,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay);
 
         Debug.Log("changing scene");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
