@@ -7,9 +7,11 @@ public class Health : MonoBehaviour
 {
     public float MaxHealth = 10f;
     public int Team = 0;
+    public float InvincibilityAfterDamageDuration = 0f;
 
-    private float curHealth;
+    [HideInInspector] public float curHealth;
     private bool dead;
+    private bool canTakeDamage;
 
     private Buoyancy buoyancy;
     private IBoatMover mover;
@@ -21,10 +23,14 @@ public class Health : MonoBehaviour
         buoyancy = GetComponent<Buoyancy>();
         mover = GetComponent<IBoatMover>();
         dead = false;
+        canTakeDamage = true;
     }
 
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
+        if (!canTakeDamage)
+            return false;
+
         // take arbitrary damage for now
         curHealth -= amount;
         if (curHealth <= 0 && !dead)
@@ -41,5 +47,15 @@ public class Health : MonoBehaviour
 
             GameObject.Destroy(gameObject, 6f);
         }
+
+        StartCoroutine(InvincibleCooldown(InvincibilityAfterDamageDuration));
+        return true;
+    }
+
+    private IEnumerator InvincibleCooldown (float duration)
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(duration);
+        canTakeDamage = true;
     }
 }

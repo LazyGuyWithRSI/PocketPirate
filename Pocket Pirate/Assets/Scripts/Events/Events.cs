@@ -18,6 +18,12 @@ public class OnShootEvent
     // direction?
 }
 
+public class OnHitEvent
+{
+    public Vector3 Position { get; set; }
+    public int HitType { get; set; } // TODO enum
+}
+
 public class OnButtonPressedEvent
 {
     public string Name { get; set; }

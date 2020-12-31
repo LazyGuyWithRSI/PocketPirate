@@ -21,7 +21,10 @@ public class Projectile : MonoBehaviour
         Health otherHealth = other.gameObject.GetComponent<Health>();
         if (otherHealth != null && otherHealth.Team != Team)
         {
+            //if (otherHealth.TakeDamage(Damage))
+            PubSub.Publish<OnHitEvent>(new OnHitEvent() { Position = transform.position, HitType = 0 });
             otherHealth.TakeDamage(Damage);
+
             hitsLeft--;
             if (hitsLeft <= 0)
             {
