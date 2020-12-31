@@ -48,7 +48,9 @@ public class Health : MonoBehaviour
             GameObject.Destroy(gameObject, 6f);
         }
 
-        StartCoroutine(InvincibleCooldown(InvincibilityAfterDamageDuration));
+        if (InvincibilityAfterDamageDuration != 0)
+            StartCoroutine(InvincibleCooldown(InvincibilityAfterDamageDuration));
+
         return true;
     }
 

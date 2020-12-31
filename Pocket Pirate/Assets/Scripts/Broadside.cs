@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Broadside : MonoBehaviour, IShooter
 {
     public float ShootCooldown = 5f;
+    public float ShootInterval = 0.04f;
     public float ShootHeading = 0f;
 
     private IShooter[] shooters;
@@ -23,8 +25,7 @@ public class Broadside : MonoBehaviour, IShooter
             PubSub.Publish<OnPlayerFired>(new OnPlayerFired() { WeaponName = Name });
         }
         //           v start from 1 because GetComponentsInChildren includes self
-        for (int i = 1; i < shooters.Length; i++)
-            shooters[i].Shoot();
+        StartCoroutine(FireCoroutine(ShootInterval));
 
         StartCoroutine(CanFireCooldown(ShootCooldown));
         return true;
@@ -48,6 +49,15 @@ public class Broadside : MonoBehaviour, IShooter
     void Start()
     {
         shooters = GetComponentsInChildren<IShooter>();
+    }
+
+    private IEnumerator FireCoroutine(float interval)
+    {
+        for (int i = 1; i < shooters.Length; i++)
+        {
+            shooters[i].Shoot();
+            yield return new WaitForSeconds(interval);
+        }
     }
 
     private IEnumerator CanFireCooldown (float duration)

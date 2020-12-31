@@ -40,12 +40,26 @@ public class Buoyancy : MonoBehaviour
             points[0].Strength = 0;
         else
         {
-            points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
-            points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
+            StartCoroutine(SinkPointRoutine(UnityEngine.Random.Range(0, points.Length - 1), 0.4f, 2f));
+            //points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
+            //points[UnityEngine.Random.Range(0, points.Length - 1)].Strength *= 0.2f;
             StartCoroutine(SinkRoutine(5f));
         }    
     }
 
+    private IEnumerator SinkPointRoutine(int index, float rate, float duration)
+    {
+        float multiplier = 1.0f;
+        float time = 0;
+        float originalStrength = points[index].Strength;
+        while (time <= duration)
+        {
+            multiplier -= (rate * Time.deltaTime);
+            points[index].Strength = originalStrength * multiplier;
+            time += Time.deltaTime;
+            yield return null;
+        }
+    }
     
     private IEnumerator SinkRoutine (float duration)
     {

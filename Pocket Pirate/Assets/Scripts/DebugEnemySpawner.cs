@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DebugEnemySpawner : MonoBehaviour
 {
     public GameObject EnemyPrefab;
+    public GameObject BigEnemyPrefab;
     public Vector3Reference PlayerPosition;
     public int MaxEnemies = 5;
     public float MaxSpawnDistance = 20f;
@@ -73,7 +74,11 @@ public class DebugEnemySpawner : MonoBehaviour
             xDelta = Random.Range(-MaxSpawnDistance, MaxSpawnDistance);
         }
 
-        Instantiate(EnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+        if (Random.Range(0, 4) == 0)
+            Instantiate(BigEnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+        else
+            Instantiate(EnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+
         numEnemies++;
     }
 
