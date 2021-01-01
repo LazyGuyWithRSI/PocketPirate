@@ -1654,9 +1654,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 160
+  Speed: 170
   TurnSpeed: 100
   EasingFactor: 25
+  WaterDrag: 0.95
 --- !u!114 &9014279106555438941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,7 +1681,7 @@ Rigidbody:
   m_GameObject: {fileID: 9014279106555438938}
   serializedVersion: 2
   m_Mass: 20
-  m_Drag: 2
+  m_Drag: 0
   m_AngularDrag: 2.6
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -1695,7 +1696,7 @@ ConstantForce:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014279106555438938}
   m_Enabled: 1
-  m_Force: {x: 0, y: -20, z: 0}
+  m_Force: {x: 0, y: -150, z: 0}
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
@@ -1725,9 +1726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ed1c70e00bb1d4c86912cbca8d6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StrengthMultiplier: 2300
-  DepthForce: 0.5
-  SinkSpeed: 0.01
+  StrengthMultiplier: 9500
+  DepthForce: 0.6
+  SinkSpeed: 0.007
   points:
   - Position: {x: 0.8, y: 0.2, z: 1.7}
     Strength: 1
@@ -1768,8 +1769,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d08f994505a704bb48dd54dad909ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 1500
+  JumpForce: 13000
   JumpCooldown: 3
+  VerticalDrag: 0.9
+  AirDrag: 1
 --- !u!114 &9014279106555438931
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
     public float Speed = 10f;
     public float TurnSpeed = 2f;
     public float EasingFactor = 1f;
+    public float WaterDrag = 0.8f;
 
     private int moveDirection = 1;
     private float desiredHeading = 0f;
@@ -97,6 +98,11 @@ public class BoatMover : MonoBehaviour, IBoatMover
         //Debug.Log("current heading: " + currentHeading + ", target: " + desiredHeading + ", dif: " + headingDifference);
 
         rb.AddRelativeTorque(Vector3.up * TurnSpeed * turnDirection);
+
+        Vector3 vel = rb.velocity;
+        vel.x *= WaterDrag;
+        vel.z *= WaterDrag;
+        rb.velocity = vel;
     }
 }
 

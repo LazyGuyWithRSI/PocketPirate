@@ -6,6 +6,10 @@ public class Jump : MonoBehaviour, IJump
 {
     public float JumpForce = 100f; // TODO scriptable obj, obv (obviously)
     public float JumpCooldown = 3f;
+    public float VerticalDrag = 0.95f;
+    public float AirDrag = 1f;
+    private bool inAir = false;
+
     private Rigidbody rb;
 
     private bool canJump = true;
@@ -16,12 +20,34 @@ public class Jump : MonoBehaviour, IJump
         rb = GetComponent<Rigidbody>();
     }
 
+    void FixedUpdate()
+    {
+        if (!inAir && transform.position.y > 0.5f)
+        {
+            inAir = true;
+        }
+        else if (inAir && transform.position.y < 0.5f)
+        {
+            inAir = false;
+        }
+
+        Vector3 vel = rb.velocity;
+
+        if (inAir)
+            vel.y *= AirDrag;
+        else
+            vel.y *= VerticalDrag;
+
+        rb.velocity = vel;
+    }
+
     public void DoJump ()
     {
-        if (canJump)
+        if (canJump && !inAir)
         {
             Debug.Log("Jumping!");
             rb.AddForce(Vector3.up * JumpForce);
+            inAir = true;
             StartCoroutine(DoCooldown());
         }
     }

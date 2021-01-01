@@ -7,7 +7,7 @@ public class FireDamageFXController : MonoBehaviour
     private ParticleSystem particleSystem;
     private Light light;
 
-    bool underWater = false;
+    bool underWater;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class FireDamageFXController : MonoBehaviour
 
         particleSystem.Stop();
         light.enabled = false;
+        underWater = false;
     }
 
     public void StartFire()
