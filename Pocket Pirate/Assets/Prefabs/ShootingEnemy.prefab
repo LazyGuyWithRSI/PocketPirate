@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 13
+  Speed: 22
   TurnSpeed: 2.13
   EasingFactor: 27.1
   WaterDrag: 0.95

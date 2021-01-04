@@ -1654,8 +1654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 170
-  TurnSpeed: 100
+  Speed: 180
+  TurnSpeed: 95
   EasingFactor: 25
   WaterDrag: 0.95
 --- !u!114 &9014279106555438941
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ed1c70e00bb1d4c86912cbca8d6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StrengthMultiplier: 9500
+  StrengthMultiplier: 10100
   DepthForce: 0.6
   SinkSpeed: 0.007
   points:
