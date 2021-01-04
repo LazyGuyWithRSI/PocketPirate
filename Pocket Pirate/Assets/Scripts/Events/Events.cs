@@ -58,3 +58,8 @@ public class OnRequestSceneChange
 {
     public int SceneIndex { get; set; }
 }
+
+public class OnPauseEvent
+{
+    public bool Paused { get; set; }
+}

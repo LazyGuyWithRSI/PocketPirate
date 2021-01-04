@@ -9,16 +9,17 @@ public class GameManager : MonoBehaviour
 
     public FloatReference GameTime;
     public FloatReference Score;
+    public BoolReference GameIsPaused;
     // TODO add GameState
 
     private const string TryAgainBtnName = "BtnTryAgain";
+    private const string PauseBtnName = "BtnPause";
 
     // Start is called before the first frame update
     void Start()
     {
-        //YAMLPersistance.ReadYaml(@"Assets/AI/ai_state_machine_definitions.yml");
-
         Time.timeScale = 1.0f;
+        GameIsPaused.Value = false;
 
         // clear event system
         PubSub.ClearListeners();
@@ -72,6 +73,13 @@ public class GameManager : MonoBehaviour
 
             //SceneManager.LoadScene(1);
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
+        }
+
+        if (args.Name == PauseBtnName)
+        {
+            GameIsPaused.Value = true;
+            Time.timeScale = 0.0f;
+            PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = true });
         }
     }
 
