@@ -63,3 +63,18 @@ public class OnPauseEvent
 {
     public bool Paused { get; set; }
 }
+
+public class ShowUIPanelEvent
+{
+    public string PanelName { get; set; }
+}
+
+public class UIPanelShownEvent
+{
+    public UIPanel panel { get; set; }
+}
+
+public class OnNoUIPanelShowingEvent
+{
+
+}

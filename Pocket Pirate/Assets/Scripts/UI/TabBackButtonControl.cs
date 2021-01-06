@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PausePanelControl : MonoBehaviour
+public class TabBackButtonControl : MonoBehaviour
 {
-    Animator anim;
-
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
-        anim = GetComponent<Animator>();
-        //gameObject.SetActive(false);
         PubSub.RegisterListener<OnPauseEvent>(OnPauseHandle);
 
         // disable panel on start up, some focus issue means spacebar hits the try again button...
@@ -23,17 +19,18 @@ public class PausePanelControl : MonoBehaviour
         if (args.Paused)
         {
             gameObject.SetActive(true);
-            anim.Play("PanelSlideUp");
+            //anim.Play("PanelSlideUp");
         }
         else
         {
-            anim.Play("PanelSlideDown");
+            gameObject.SetActive(false);
+            //anim.Play("PanelSlideDown");
         }
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-
+        
     }
 }

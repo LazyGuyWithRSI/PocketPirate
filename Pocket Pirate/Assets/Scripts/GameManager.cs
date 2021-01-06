@@ -6,20 +6,27 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float TotalGameTime = 20f; // TODO move to scriptable (for data driven woot)
+    public bool Playing = false;
 
     public FloatReference GameTime;
     public FloatReference Score;
     public BoolReference GameIsPaused;
+    public BoolReference IsAPanelShowing;
     // TODO add GameState
 
     private const string TryAgainBtnName = "BtnTryAgain";
     private const string PauseBtnName = "BtnPause";
+    private const string TapBackBtnName = "TapBtnBack";
+    private const string BtnResumeName = "BtnResume";
+
+    private bool unPausing = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1.0f;
         GameIsPaused.Value = false;
+        unPausing = false;
 
         // clear event system
         PubSub.ClearListeners();
@@ -27,10 +34,11 @@ public class GameManager : MonoBehaviour
         PubSub.RegisterListener<OnDeathEvent>(OnDeath);
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonPressed);
 
-        Score.Value = 0;
-
-        // start game timer
-        StartCoroutine(gameTimeCountdown());
+        if (Playing)
+        {
+            Score.Value = 0;
+            StartCoroutine(gameTimeCountdown());
+        }
     }
 
     private IEnumerator gameTimeCountdown()
@@ -67,6 +75,8 @@ public class GameManager : MonoBehaviour
     private void OnButtonPressed(object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
+        Debug.Log(args.Name);
+
         if (args.Name == TryAgainBtnName)
         {
             Time.timeScale = 1.0f;
@@ -74,12 +84,23 @@ public class GameManager : MonoBehaviour
             //SceneManager.LoadScene(1);
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
-
-        if (args.Name == PauseBtnName)
+        else if (args.Name == PauseBtnName && !unPausing)
         {
             GameIsPaused.Value = true;
             Time.timeScale = 0.0f;
             PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = true });
+        }
+        else if (GameIsPaused.Value && args.Name == BtnResumeName)
+        {
+            Unpause();
+        }
+
+        else if (args.Name == TapBackBtnName)
+        {
+            if (!IsAPanelShowing.Value)
+            {
+                Unpause();
+            }
         }
     }
 
@@ -92,6 +113,21 @@ public class GameManager : MonoBehaviour
 
         StopAllCoroutines();
         PubSub.Publish<OnGameOver>(new OnGameOver() { Died = died });
+    }
+
+    private void Unpause()
+    {
+        GameIsPaused.Value = false;
+        PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = false });
+        StartCoroutine(DelayUnpause(1.5f));
+    }
+
+    private IEnumerator DelayUnpause (float delay)
+    {
+        unPausing = true;
+        yield return new WaitForSecondsRealtime(delay);
+        Time.timeScale = 1.0f;
+        unPausing = false;
     }
 
     private IEnumerator ReloadScene (float delay, bool pauseGame)

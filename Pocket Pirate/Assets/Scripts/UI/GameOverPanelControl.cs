@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameOverPanelControl : MonoBehaviour
 {
-    Animator anim;
+    public float Delay = 2.0f;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,12 @@ public class GameOverPanelControl : MonoBehaviour
     {
         OnGameOver args = publishedEvent as OnGameOver;
         gameObject.SetActive(true);
+        StartCoroutine(DelayPanelAnim(Delay));
+    }
+
+    private IEnumerator DelayPanelAnim(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
         anim.Play("PanelSlideUp");
     }
 
