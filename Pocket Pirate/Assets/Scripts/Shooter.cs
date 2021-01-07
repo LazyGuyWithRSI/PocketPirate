@@ -8,11 +8,17 @@ public class Shooter : MonoBehaviour, IShooter
     public FloatReference ShootForce;
     public FloatReference UpShootForce;
 
+    public float PitchLower = 0.9f;
+    public float PitchUpper = 1.1f;
+
     private ParticleSystem smoke;
+    private AudioSource audio;
 
     public bool Shoot ()
     {
         smoke.Play();
+        audio.pitch = Random.Range(PitchLower, PitchUpper);
+        audio.Play();
         GameObject obj = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
 
@@ -30,6 +36,7 @@ public class Shooter : MonoBehaviour, IShooter
     void Start()
     {
         smoke = GetComponentInChildren<ParticleSystem>();
+        audio = GetComponentInChildren<AudioSource>();
     }
 
     void Update()

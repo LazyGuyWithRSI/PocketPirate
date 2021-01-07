@@ -7,6 +7,7 @@ public class BoatInput : MonoBehaviour
     public float JumpAccelRequired = 0.5f;
 
     public Vector2Reference JoyStickInput;
+    public SettingsReference settings;
     public IBoatMover mover;
     public IJump jumper;
 
@@ -40,9 +41,6 @@ public class BoatInput : MonoBehaviour
             jumper.DoJump();
         }
 
-        
-
-
         if (JoyStickInput.Value.x == 0 && JoyStickInput.Value.y == 0)
         {
             
@@ -58,14 +56,17 @@ public class BoatInput : MonoBehaviour
             return;
         }
 
-        mover.SetTurnDirection(JoyStickInput.Value.x);
+        if (settings.Use2AxisJoystick)
+        {
+            float angle = Mathf.Atan2(JoyStickInput.Value.x, JoyStickInput.Value.y) * 180 / Mathf.PI;
+            angle += 180;
 
-        /*
-        float angle = Mathf.Atan2(JoyStickInput.Value.x, JoyStickInput.Value.y) * 180 / Mathf.PI;
-        angle += 180;
-
-        mover.SetHeading(angle);
-        */
+            mover.SetHeading(angle);
+        }
+        else
+        {
+            mover.SetTurnDirection(JoyStickInput.Value.x);
+        }
     }
 
     public void OnGameOverHandler (object publishedEvent)

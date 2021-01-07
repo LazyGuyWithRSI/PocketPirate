@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
 
         // take arbitrary damage for now
         curHealth -= amount;
+
         if (curHealth <= 0 && !dead)
         {
             dead = true;
