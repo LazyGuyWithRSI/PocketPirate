@@ -282,8 +282,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586033476390592615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.57, z: -1.28}
-  m_LocalScale: {x: 1.5593766, y: 0.58413, z: 1.1512}
+  m_LocalPosition: {x: 0, y: 0.413, z: -1.325}
+  m_LocalScale: {x: 1.1576461, y: 0.58413, z: 1.1512}
   m_Children: []
   m_Father: {fileID: 7586033477830173650}
   m_RootOrder: 1
@@ -479,8 +479,6 @@ MonoBehaviour:
   Team: 1
   InvincibilityAfterDamageDuration: 0
   curHealth: 0
-  PitchLower: 0.9
-  PitchUpper: 1.1
 --- !u!114 &7586033476619514230
 MonoBehaviour:
   m_ObjectHideFlags: 0
