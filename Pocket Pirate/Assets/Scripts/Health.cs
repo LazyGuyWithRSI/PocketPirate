@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public float MaxHealth = 10f;
     public int Team = 0;
     public float InvincibilityAfterDamageDuration = 0f;
+    public GameObject ModelForFlash;
+    public float FlashTime = 0.2f;
 
     [HideInInspector] public float curHealth;
     private bool dead;
@@ -15,6 +17,10 @@ public class Health : MonoBehaviour
 
     private Buoyancy buoyancy;
     private IBoatMover mover;
+
+    private MeshRenderer[] renderers;
+    private Color[] originalColors;
+    private bool canFlash;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,17 @@ public class Health : MonoBehaviour
         mover = GetComponent<IBoatMover>();
         dead = false;
         canTakeDamage = true;
+
+        if (ModelForFlash != null)
+        {
+            renderers = ModelForFlash.GetComponentsInChildren<MeshRenderer>();
+            originalColors = new Color[renderers.Length];
+            canFlash = true;
+        }
+        else
+        {
+            canFlash = false;
+        }
     }
 
     public bool TakeDamage(float amount)
@@ -33,6 +50,9 @@ public class Health : MonoBehaviour
 
         // take arbitrary damage for now
         curHealth -= amount;
+
+        if (canFlash)
+            StartCoroutine(FlashCoroutine(FlashTime));
 
         if (curHealth <= 0 && !dead)
         {
@@ -53,6 +73,22 @@ public class Health : MonoBehaviour
             StartCoroutine(InvincibleCooldown(InvincibilityAfterDamageDuration));
 
         return true;
+    }
+
+    private IEnumerator FlashCoroutine(float duration)
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            originalColors[i] = renderers[i].material.color;
+            renderers[i].material.color = Color.red;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material.color = originalColors[i];
+        }
     }
 
     private IEnumerator InvincibleCooldown (float duration)
