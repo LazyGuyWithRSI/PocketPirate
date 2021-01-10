@@ -478,6 +478,8 @@ MonoBehaviour:
   MaxHealth: 5
   Team: 1
   InvincibilityAfterDamageDuration: 0
+  ModelForFlash: {fileID: 7586033477830173651}
+  FlashTime: 0.2
   curHealth: 0
 --- !u!114 &7586033476619514230
 MonoBehaviour:

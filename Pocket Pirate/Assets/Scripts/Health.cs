@@ -35,6 +35,9 @@ public class Health : MonoBehaviour
         {
             renderers = ModelForFlash.GetComponentsInChildren<MeshRenderer>();
             originalColors = new Color[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++)
+                originalColors[i] = renderers[i].material.color;
+
             canFlash = true;
         }
         else
@@ -78,17 +81,12 @@ public class Health : MonoBehaviour
     private IEnumerator FlashCoroutine(float duration)
     {
         for (int i = 0; i < renderers.Length; i++)
-        {
-            originalColors[i] = renderers[i].material.color;
             renderers[i].material.color = Color.red;
-        }
 
         yield return new WaitForSeconds(duration);
 
         for (int i = 0; i < renderers.Length; i++)
-        {
             renderers[i].material.color = originalColors[i];
-        }
     }
 
     private IEnumerator InvincibleCooldown (float duration)

@@ -1790,6 +1790,8 @@ MonoBehaviour:
   MaxHealth: 15
   Team: 0
   InvincibilityAfterDamageDuration: 2
+  ModelForFlash: {fileID: 9014279106278848773}
+  FlashTime: 0.2
   curHealth: 0
 --- !u!65 &9014279106555438930
 BoxCollider:
