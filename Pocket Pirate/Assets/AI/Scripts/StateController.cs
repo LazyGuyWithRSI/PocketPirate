@@ -23,6 +23,9 @@ public class StateController : MonoBehaviour
     public GameObject portShootMount;
     [HideInInspector] public IShooter portShooter;
 
+    public GameObject[] ShooterGameObjects;
+    [HideInInspector] public List<IShooter> shooters;
+
     [HideInInspector] public Dictionary<Type, object> contexts;
 
     [HideInInspector] public Vector3 ShootTarget; // TODO remove this debug shit
@@ -37,6 +40,10 @@ public class StateController : MonoBehaviour
         mover = GetComponent<IBoatMover>();
 
         contexts = new Dictionary<Type, object>();
+
+        shooters = new List<IShooter>();
+        foreach (GameObject go in ShooterGameObjects)
+            shooters.Add(go.GetComponent<IShooter>());
 
         canAct = true;
         isWithin = true;

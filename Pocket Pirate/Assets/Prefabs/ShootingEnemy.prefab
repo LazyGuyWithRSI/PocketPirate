@@ -516,6 +516,9 @@ MonoBehaviour:
   stateTimeElapsed: 0
   starboardShootMount: {fileID: 7586033478048472614}
   portShootMount: {fileID: 7586033478142611865}
+  ShooterGameObjects:
+  - {fileID: 7586033477957737014}
+  - {fileID: 7586033477312867211}
   ShootTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &7374681837318767034
 MonoBehaviour:
@@ -688,9 +691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f1af506e030374aa07a24a5b16ae19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootCooldown: 5
+  ShootCooldown: 7
   ShootInterval: 0.04
-  ShootHeading: 0
+  ShootHeading: 90
 --- !u!1 &7586033477712757710
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,9 +868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f1af506e030374aa07a24a5b16ae19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootCooldown: 5
+  ShootCooldown: 7
   ShootInterval: 0.04
-  ShootHeading: 0
+  ShootHeading: -90
 --- !u!1 &7586033478048472614
 GameObject:
   m_ObjectHideFlags: 0

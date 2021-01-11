@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 781940702069273578}
   - component: {fileID: 781940702069273577}
   - component: {fileID: 781940702069273576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Smoke Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,8 +1441,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.51373154, b: 0, a: 0.9137255}
-        key1: {r: 0.39800286, g: 0.120495915, b: 0, a: 0.34509805}
-        key2: {r: 0, g: 0, b: 0, a: 0.15686275}
+        key1: {r: 0.4716981, g: 0.28510728, b: 0.20247419, a: 0.34509805}
+        key2: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0.15686275}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}

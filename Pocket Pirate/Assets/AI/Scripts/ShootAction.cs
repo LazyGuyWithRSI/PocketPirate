@@ -26,11 +26,28 @@ public class ShootAction : Action
 
     private void TryShoot(StateController controller, float desiredAngle)
     {
+        foreach (IShooter shooter in controller.shooters)
+        {
+            float shooterAngle = desiredAngle + shooter.GetShootHeading();
+            if (shooterAngle < 0)
+                shooterAngle += 360;
+            else if (shooterAngle > 360)
+                shooterAngle -= 360;
+
+            Debug.Log("Looking to shoot at heading " + shooterAngle + ", my heading " + controller.mover.GetHeading());
+            if (Mathf.Abs(shooterAngle - controller.mover.GetHeading()) < AngleRequired && shooter.CanShoot())
+            {
+                if (shooter.Shoot())
+                    context.Variance = Vector3.zero;
+            }
+        }
+
+        /*
         if (Mathf.Abs(desiredAngle - controller.mover.GetHeading()) < AngleRequired && controller.starboardShooter.CanShoot())
         {
             if (controller.starboardShooter.Shoot())
                 context.Variance = Vector3.zero;
-        }
+        }*/
     }
 
     private float AimAtPlayer(StateController controller)
@@ -46,11 +63,11 @@ public class ShootAction : Action
         Vector3 playerPos = (controller.playerPos.Value + prediction) - controller.transform.position;
 
         float angle = Mathf.Atan2(playerPos.x, playerPos.z) * (180 / Mathf.PI);
-        angle -= 90;
+        //angle -= 90;
         if (angle < 0)
             angle += 360;
 
-        controller.mover.SetHeading(angle);
+        //controller.mover.SetHeading(angle);
         return angle;
     }
 }
