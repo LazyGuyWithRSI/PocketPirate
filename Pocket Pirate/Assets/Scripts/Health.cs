@@ -18,9 +18,15 @@ public class Health : MonoBehaviour
     private Buoyancy buoyancy;
     private IBoatMover mover;
 
+    // TODO Getting overloaded, break these extra features out
     private MeshRenderer[] renderers;
     private Color[] originalColors;
     private bool canFlash;
+
+    public bool ExplodeOnDeath = false;
+    public float ExplosionDelay = 4.0f;
+    public float ExplosionRadius = 10f;
+    public float ExplosionDamage = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -69,13 +75,37 @@ public class Health : MonoBehaviour
             if (mover != null)
                 mover.SetMoving(0);
 
-            GameObject.Destroy(gameObject, 6f);
+            if (ExplodeOnDeath)
+            {
+                StartCoroutine(ExplodeOnDeathCoroutine(ExplosionDelay, 1f));
+                GameObject.Destroy(gameObject, ExplosionDelay + 0.1f);
+            }
+            else
+                GameObject.Destroy(gameObject, 6f);
         }
 
         if (InvincibilityAfterDamageDuration != 0)
             StartCoroutine(InvincibleCooldown(InvincibilityAfterDamageDuration));
 
         return true;
+    }
+
+
+
+    private IEnumerator ExplodeOnDeathCoroutine (float duration, float maxFlashTime)
+    {
+        float remainingDuration = duration;
+        float currentFlashTime = 0f;
+        while (remainingDuration > 0.4f)
+        {
+            currentFlashTime = Mathf.Min(remainingDuration / 4, maxFlashTime);
+            StartCoroutine(FlashCoroutine(currentFlashTime / 2));
+            yield return new WaitForSeconds(currentFlashTime);
+            remainingDuration -= currentFlashTime;
+        }
+
+        Debug.Log("EXPLODING");
+        PubSub.Publish<DamagingExplosionEvent>(new DamagingExplosionEvent() { Position = transform.position, Radius = ExplosionRadius, Damage = ExplosionDamage});
     }
 
     private IEnumerator FlashCoroutine(float duration)

@@ -74,6 +74,13 @@ public class UIPanelShownEvent
     public UIPanel panel { get; set; }
 }
 
+public class DamagingExplosionEvent
+{
+    public Vector3 Position { get; set; }
+    public float Radius { get; set; }
+    public float Damage { get; set; }
+}
+
 public class OnNoUIPanelShowingEvent
 {
 
