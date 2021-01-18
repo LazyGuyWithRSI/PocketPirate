@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ExplosionSystem : MonoBehaviour
 {
     public GameObject ExplosionPrefab;
+    public GameObject BigExplosionPrefab;
     public GameObject FlashPrefab;
     public GameObject SmallFlashPrefab;
 
@@ -40,6 +41,9 @@ public class ExplosionSystem : MonoBehaviour
         GameObject explosion = Instantiate(ExplosionDamagePrefab, args.Position, Quaternion.identity);
         explosion.GetComponent<DamagingExplosion>().Explode(10f, 0.1f, 15f);
 
-        SpawnExplosion(new OnDeathEvent() { Position = args.Position, Team = 5});
+        args.Position = new Vector3(args.Position.x, args.Position.y + 1f, args.Position.z);
+        GameObject.Destroy(Instantiate(BigExplosionPrefab, args.Position, Quaternion.identity), 4);
+        GameObject.Destroy(Instantiate(FlashPrefab, args.Position, Quaternion.identity), 5);
+
     }
 }
