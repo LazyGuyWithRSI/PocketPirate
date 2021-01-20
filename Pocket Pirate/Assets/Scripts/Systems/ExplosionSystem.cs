@@ -39,7 +39,7 @@ public class ExplosionSystem : MonoBehaviour
         DamagingExplosionEvent args = publishedEvent as DamagingExplosionEvent;
 
         GameObject explosion = Instantiate(ExplosionDamagePrefab, args.Position, Quaternion.identity);
-        explosion.GetComponent<DamagingExplosion>().Explode(10f, 0.1f, 15f);
+        explosion.GetComponent<DamagingExplosion>().Explode(args.Radius, 0.1f, args.Damage);
 
         args.Position = new Vector3(args.Position.x, args.Position.y + 1f, args.Position.z);
         GameObject.Destroy(Instantiate(BigExplosionPrefab, args.Position, Quaternion.identity), 4);

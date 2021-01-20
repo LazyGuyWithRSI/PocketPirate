@@ -17,12 +17,6 @@ public class StateController : MonoBehaviour
     [HideInInspector] public bool isWithin; // TODO coupling
     [HideInInspector] public float stateTimeElapsed;
 
-    // temporary, move to a shoot controller (that can be asked for shooting angles, ranges, reloads, etc, so states can use it to generically shoot anything)
-    public GameObject starboardShootMount;
-    [HideInInspector] public IShooter starboardShooter;
-    public GameObject portShootMount;
-    [HideInInspector] public IShooter portShooter;
-
     public GameObject[] ShooterGameObjects;
     [HideInInspector] public List<IShooter> shooters;
 
@@ -35,8 +29,6 @@ public class StateController : MonoBehaviour
 
     void Awake()
     {
-        starboardShooter = starboardShootMount.GetComponentInChildren<IShooter>();
-        portShooter = portShootMount.GetComponentInChildren<IShooter>();
         mover = GetComponent<IBoatMover>();
 
         contexts = new Dictionary<Type, object>();
