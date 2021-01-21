@@ -5639,15 +5639,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc45e81a744f2748a383dfa7eea3913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5,
-    type: 3}
-  BigEnemyPrefab: {fileID: 9003299066617469212, guid: b72b83e19cf235d4295e654859063d37,
-    type: 3}
+  waves:
+  - {fileID: 11400000, guid: 4595152a6ec147e4294f93ff0a569abc, type: 2}
+  - {fileID: 11400000, guid: e3925c7a4200c37408ab8389b4af0b89, type: 2}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
-  MaxEnemies: 5
+  StartEnemies: 5
   MaxSpawnDistance: 50
   MinSpawnDistance: 30
-  Ramp: 0.1
+  WaveTimeLimit: 25
+  Ramp: 1.1
 --- !u!1 &1870971852
 GameObject:
   m_ObjectHideFlags: 0

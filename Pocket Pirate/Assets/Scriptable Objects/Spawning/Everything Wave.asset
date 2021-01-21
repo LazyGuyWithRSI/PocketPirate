@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa6fde5539906344826ee6b2c43f840, type: 3}
+  m_Name: Everything Wave
+  m_EditorClassIdentifier: 
+  ThingsToSpawn:
+  - Prefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
+      type: 3}
+    Weight: 1
+  - Prefab: {fileID: 9003299066617469212, guid: b72b83e19cf235d4295e654859063d37,
+      type: 3}
+    Weight: 0.5
+  - Prefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5, type: 3}
+    Weight: 0.1
