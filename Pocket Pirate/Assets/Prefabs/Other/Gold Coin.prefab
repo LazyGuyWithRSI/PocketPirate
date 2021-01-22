@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6804754541977472327}
   - component: {fileID: 6804754541977472326}
   - component: {fileID: 6804754541977472325}
+  - component: {fileID: 23700365674814941}
   m_Layer: 0
   m_Name: Gold Coin
   m_TagString: Untagged
@@ -189,8 +190,8 @@ Rigidbody:
   m_GameObject: {fileID: 6804754541977472322}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1.6
-  m_AngularDrag: 0.1
+  m_Drag: 1
+  m_AngularDrag: 0.12
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -222,5 +223,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Worth: 10
-  sinkTime: 3
-  sinkTimeDeviation: 1
+  sinkTime: 10
+  sinkTimeDeviation: 2
+--- !u!114 &23700365674814941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804754541977472322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d08f994505a704bb48dd54dad909ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpForce: 100
+  JumpCooldown: 3
+  VerticalDrag: 0.95
+  AirDrag: 1

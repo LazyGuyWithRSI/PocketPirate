@@ -6808,6 +6808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterRipples_Trail
       objectReference: {fileID: 0}
+    - target: {fileID: 208347899408736514, guid: 06323bb6fcc3c5c43b0112094a885783,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 208347899408736515, guid: 06323bb6fcc3c5c43b0112094a885783,
         type: 3}
       propertyPath: m_LocalPosition.x

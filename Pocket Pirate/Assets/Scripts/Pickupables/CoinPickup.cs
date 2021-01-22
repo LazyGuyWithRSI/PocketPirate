@@ -13,7 +13,7 @@ public class CoinPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SinkCoroutine();
+        StartCoroutine(SinkCoroutine());
     }
 
     private IEnumerator SinkCoroutine()
