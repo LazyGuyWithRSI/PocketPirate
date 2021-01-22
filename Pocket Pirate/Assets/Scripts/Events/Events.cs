@@ -85,3 +85,15 @@ public class OnNoUIPanelShowingEvent
 {
 
 }
+
+public class OnCoinPickUpEvent
+{
+    public int Worth { get; set; }
+    public Vector3 Position { get; set; }
+}
+
+public class OnSpewCoinsEvent
+{
+    public int Amount { get; set; }
+    public Vector3 Position { get; set; }
+}

@@ -315,14 +315,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   Team: 1
+  coinsOnDeath: 3
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 446508710049523184}
   FlashTime: 0.2
   curHealth: 0
   ExplodeOnDeath: 1
-  ExplosionDelay: 0
+  ExplosionDelay: 0.8
   ExplosionRadius: 4
-  ExplosionDamage: 20
+  ExplosionDamage: 15
 --- !u!114 &5937602048616678472
 MonoBehaviour:
   m_ObjectHideFlags: 0

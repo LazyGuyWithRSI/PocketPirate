@@ -51,6 +51,8 @@ public class BoatMover : MonoBehaviour, IBoatMover
         return currentHeading;
     }
 
+    public int GetMoving() { return moveDirection; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,7 @@ public interface IBoatMover
 {
     void SetHeading (float direction);
     void SetMoving (int direction);
+    int GetMoving ();
     void SetTurnDirection (float direction);
     float GetHeading ();
     void SetHeadingToCurrent ();

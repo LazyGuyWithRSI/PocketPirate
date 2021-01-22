@@ -34,7 +34,7 @@ public class ShootAction : Action
             else if (shooterAngle > 360)
                 shooterAngle -= 360;
 
-            Debug.Log("Looking to shoot at heading " + shooterAngle + ", my heading " + controller.mover.GetHeading());
+            //Debug.Log("Looking to shoot at heading " + shooterAngle + ", my heading " + controller.mover.GetHeading());
             if (Mathf.Abs(shooterAngle - controller.mover.GetHeading()) < AngleRequired && shooter.CanShoot())
             {
                 if (shooter.Shoot())

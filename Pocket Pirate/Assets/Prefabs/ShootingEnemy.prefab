@@ -364,7 +364,6 @@ GameObject:
   - component: {fileID: 7586033476619514228}
   - component: {fileID: 7605441094426314349}
   - component: {fileID: 7586033476619514229}
-  - component: {fileID: 7586033476619514230}
   - component: {fileID: 4401082904985895531}
   - component: {fileID: 7374681837318767034}
   - component: {fileID: -964173713205435023}
@@ -477,24 +476,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   Team: 1
+  coinsOnDeath: 3
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 7586033477830173651}
   FlashTime: 0.2
   curHealth: 0
---- !u!114 &7586033476619514230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586033476619514231}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01ffa6528a16e84a99a75b910db8589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starboardShootMount: {fileID: 7586033478048472614}
-  portShootMount: {fileID: 7586033478142611865}
+  ExplodeOnDeath: 0
+  ExplosionDelay: 4
+  ExplosionRadius: 10
+  ExplosionDamage: 20
 --- !u!114 &4401082904985895531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +504,6 @@ MonoBehaviour:
   canAct: 0
   isWithin: 0
   stateTimeElapsed: 0
-  starboardShootMount: {fileID: 7586033478048472614}
-  portShootMount: {fileID: 7586033478142611865}
   ShooterGameObjects:
   - {fileID: 7586033477957737014}
   - {fileID: 7586033477312867211}

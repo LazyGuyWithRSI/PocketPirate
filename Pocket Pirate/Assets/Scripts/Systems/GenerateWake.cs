@@ -23,11 +23,11 @@ public class GenerateWake : MonoBehaviour
         if (target == null)
             Destroy(gameObject);
 
-        if (target.transform.position.y > 0 && particleSys.isEmitting)
+        if (target.transform.position.y > 0.1 && particleSys.isEmitting)
         {
             particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
-        else if (target.transform.position.y <= 0 && !particleSys.isEmitting)
+        else if (target.transform.position.y <= 0.1 && !particleSys.isEmitting)
         {
             Debug.Log("playing wake");
             particleSys.Play();

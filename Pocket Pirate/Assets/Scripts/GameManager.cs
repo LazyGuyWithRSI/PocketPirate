@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
         PubSub.RegisterListener<OnDeathEvent>(OnDeath);
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonPressed);
+        PubSub.RegisterListener<OnCoinPickUpEvent>(OnCoinPickUpHandler);
 
         if (Playing)
         {
@@ -65,11 +66,12 @@ public class GameManager : MonoBehaviour
             //StartCoroutine(ReloadScene(3f, false));
             publishGameOver(true);
         }
+    }
 
-        else if (args.Team == 1) // enemy died
-        {
-            Score.Value += 100;
-        }
+    private void OnCoinPickUpHandler(object pubEvent)
+    {
+        OnCoinPickUpEvent args = pubEvent as OnCoinPickUpEvent;
+        Score.Value += args.Worth;
     }
 
     private void OnButtonPressed(object publishedEvent)

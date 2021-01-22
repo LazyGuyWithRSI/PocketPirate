@@ -15,6 +15,8 @@ public class BoatInput : MonoBehaviour
 
     private bool gameIsOver = false;
 
+    private const string BtnSailsName = "BtnSails";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class BoatInput : MonoBehaviour
         jumper = GetComponent<IJump>();
 
         PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
+        PubSub.RegisterListener<OnButtonPressedEvent>(OnButtonPressedHandler);
+        PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonReleasedHandler);
 
         // TODO sub to jump event or something
     }
@@ -35,7 +39,7 @@ public class BoatInput : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.acceleration.z > JumpAccelRequired) // DEBUG
+        if (Input.GetKeyDown(KeyCode.V) || Input.acceleration.z > JumpAccelRequired) // DEBUG
         {
             Debug.Log("Request Jump");
             jumper.DoJump();
@@ -66,6 +70,24 @@ public class BoatInput : MonoBehaviour
         else
         {
             mover.SetTurnDirection(JoyStickInput.Value.x);
+        }
+    }
+
+    public void OnButtonPressedHandler (object publishedObject)
+    {
+        OnButtonPressedEvent args = publishedObject as OnButtonPressedEvent;
+        if (args.Name.Equals(BtnSailsName) && !gameIsOver)
+        {
+            mover.SetMoving(0);
+        }
+    }
+
+    public void OnButtonReleasedHandler (object publishedObject)
+    {
+        OnButtonReleasedEvent args = publishedObject as OnButtonReleasedEvent;
+        if (args.Name.Equals(BtnSailsName) && !gameIsOver)
+        {
+            mover.SetMoving(1);
         }
     }
 

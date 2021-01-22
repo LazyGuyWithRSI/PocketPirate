@@ -2215,10 +2215,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 15
   Team: 1
+  coinsOnDeath: 10
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 7551995150692273265}
   FlashTime: 0.2
   curHealth: 0
+  ExplodeOnDeath: 0
+  ExplosionDelay: 4
+  ExplosionRadius: 10
+  ExplosionDamage: 20
 --- !u!114 &9003299066617469213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,8 +2257,6 @@ MonoBehaviour:
   canAct: 0
   isWithin: 0
   stateTimeElapsed: 0
-  starboardShootMount: {fileID: 9003299067639068237}
-  portShootMount: {fileID: 9003299067595258354}
   ShooterGameObjects:
   - {fileID: 9003299067544203869}
   - {fileID: 9003299067299873760}

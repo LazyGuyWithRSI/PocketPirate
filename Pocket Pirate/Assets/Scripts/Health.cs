@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public float MaxHealth = 10f;
     public int Team = 0;
+    public int coinsOnDeath = 0;
     public float InvincibilityAfterDamageDuration = 0f;
     public GameObject ModelForFlash;
     public float FlashTime = 0.2f;
@@ -81,7 +82,10 @@ public class Health : MonoBehaviour
                 GameObject.Destroy(gameObject, ExplosionDelay + 0.1f);
             }
             else
+            {
+                PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
                 GameObject.Destroy(gameObject, 6f);
+            }
         }
 
         if (InvincibilityAfterDamageDuration != 0)
@@ -104,8 +108,8 @@ public class Health : MonoBehaviour
             remainingDuration -= currentFlashTime;
         }
 
-        Debug.Log("EXPLODING");
-        PubSub.Publish<DamagingExplosionEvent>(new DamagingExplosionEvent() { Position = transform.position, Radius = ExplosionRadius, Damage = ExplosionDamage});
+        PubSub.Publish(new DamagingExplosionEvent() { Position = transform.position, Radius = ExplosionRadius, Damage = ExplosionDamage});
+        PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
     }
 
     private IEnumerator FlashCoroutine(float duration)

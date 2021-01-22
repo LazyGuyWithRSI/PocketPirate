@@ -7,6 +7,7 @@ public class DebugEnemySpawner : MonoBehaviour
 {
     public SpawningWaveReference[] waves;
     public Vector3Reference PlayerPosition;
+    public GameObject WakePrefab;
     public int StartEnemies = 5;
     public float MaxSpawnDistance = 20f;
     public float MinSpawnDistance = 8f;
@@ -89,7 +90,10 @@ public class DebugEnemySpawner : MonoBehaviour
         {
             if (rand < waves[wave].ThingsToSpawn[i].Weight)
             {
-                Instantiate(waves[wave].ThingsToSpawn[i].Prefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+                GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+                GameObject wake = Instantiate(WakePrefab);
+                wake.GetComponent<GenerateWake>().target = enemy.transform;
+                
                 break;
             }
 
