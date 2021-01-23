@@ -29,7 +29,6 @@ public class GenerateWake : MonoBehaviour
         }
         else if (target.transform.position.y <= 0.1 && !particleSys.isEmitting)
         {
-            Debug.Log("playing wake");
             particleSys.Play();
         }
 
