@@ -20,7 +20,7 @@ public class Attraction : MonoBehaviour
         if (inRange)
         {
             Vector3 force = target.position - transform.position;
-            Debug.Log("Applying " + (force * ForceMultiplier * Time.fixedDeltaTime));
+            Debug.Log("Applying " + (force.normalized * ForceMultiplier * Time.fixedDeltaTime));
             rb.AddForce(force * ForceMultiplier * Time.fixedDeltaTime);
         }
     }

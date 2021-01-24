@@ -6011,6 +6011,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThingToSpewPrefab: {fileID: 6804754541977472322, guid: 10ff0d939d5bdf547be2adae657527a1,
     type: 3}
+  PowerUpPrefab: {fileID: 7742832438702680049, guid: 20545d378325ff24cb39c16231c867d3,
+    type: 3}
+  ChanceForPowerUp: 0.4
+  SpewForce: 400
 --- !u!1 &1938433861
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,11 +7450,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9014279106555438941, guid: ba014c5cb40b2bd4ea9c701843c5d503,
-        type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 11400000, guid: 55cbd3e0ff1ecfe4eaf5e6a40ccca92d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba014c5cb40b2bd4ea9c701843c5d503, type: 3}

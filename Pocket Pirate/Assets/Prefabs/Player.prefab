@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 5062253591038011173}
   - component: {fileID: 3984168967739562656}
   - component: {fileID: 7828889673346396691}
-  - component: {fileID: 6792729131927489301}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -114,20 +113,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6792729131927489301
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741745440732381706}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2363952132177942682
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +219,6 @@ GameObject:
   - component: {fileID: 8110016401850254666}
   - component: {fileID: 498918355627415888}
   - component: {fileID: 5406300053183516542}
-  - component: {fileID: 5278062400010068775}
   m_Layer: 0
   m_Name: Cylinder_1
   m_TagString: Untagged
@@ -305,20 +289,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5278062400010068775
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366821418709073715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &3998482916162180366
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +536,6 @@ GameObject:
   - component: {fileID: 1047352594099410086}
   - component: {fileID: 7626680120848773368}
   - component: {fileID: 3744070105930464528}
-  - component: {fileID: 8388049812190647833}
   m_Layer: 0
   m_Name: Cylinder_2
   m_TagString: Untagged
@@ -637,20 +606,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8388049812190647833
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5072835074717743490}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5938485479809939581
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +651,6 @@ GameObject:
   - component: {fileID: 7924038035260015141}
   - component: {fileID: 6646926932341130700}
   - component: {fileID: 2971231314457074315}
-  - component: {fileID: 5380136996847615851}
   m_Layer: 0
   m_Name: Cylinder_3
   m_TagString: Untagged
@@ -767,20 +721,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5380136996847615851
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6508299264544712085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &408005200357116193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,6 +1560,7 @@ GameObject:
   - component: {fileID: 3473230679610147284}
   - component: {fileID: 8868549501240364684}
   - component: {fileID: 6166492938753961375}
+  - component: {fileID: 9014279106579299243}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1908,6 +1849,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 1, z: 0.4}
   m_Center: {x: 0, y: 1.1, z: 1.1}
+--- !u!114 &9014279106579299243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014279106555438938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1552fd2a5df7a48a8a14b8f6a24c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultDuration: 10
+  Model: {fileID: 9014279106278848773}
+  EtherealMat: {fileID: 2100000, guid: 01fdc72893b221749905242fe0395b33, type: 2}
 --- !u!1 &9014279106594402093
 GameObject:
   m_ObjectHideFlags: 0
