@@ -9,7 +9,17 @@ public class Turret : MonoBehaviour, IShooter
         throw new System.NotImplementedException();
     }
 
+    public float GetCooldown ()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public float GetShootHeading ()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SetCooldown (float cooldown)
     {
         throw new System.NotImplementedException();
     }

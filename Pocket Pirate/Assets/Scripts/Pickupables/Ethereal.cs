@@ -24,6 +24,14 @@ public class Ethereal : MonoBehaviour
         }
 
         colliders = GetComponentsInChildren<Collider>();
+        List<Collider> colliderList = new List<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag != "Pickup Collider")
+                colliderList.Add(collider);
+        }
+
+        colliders = colliderList.ToArray();
     }
 
     public void ActivateEthereal(float duration = -1)
@@ -37,6 +45,8 @@ public class Ethereal : MonoBehaviour
 
     private IEnumerator EtherealCoroutine(float duration)
     {
+        PubSub.Publish(new OnPowerupEvent { Type = "Ethereal", Activating = true });
+
         // swap materials and turn off colliders
         for (int i = 0; i < renderers.Length; i++)
         {
@@ -57,5 +67,7 @@ public class Ethereal : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
             colliders[i].enabled = true;
+
+        PubSub.Publish(new OnPowerupEvent { Type = "Ethereal", Activating = false });
     }
 }

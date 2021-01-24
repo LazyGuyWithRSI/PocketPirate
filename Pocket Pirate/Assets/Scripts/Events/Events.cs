@@ -97,3 +97,9 @@ public class OnSpewCoinsEvent
     public int Amount { get; set; }
     public Vector3 Position { get; set; }
 }
+
+public class OnPowerupEvent
+{
+    public string Type { get; set; }
+    public bool Activating { get; set; }
+}

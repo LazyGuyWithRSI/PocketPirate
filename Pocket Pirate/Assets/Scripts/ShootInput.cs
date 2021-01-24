@@ -18,6 +18,9 @@ public class ShootInput : MonoBehaviour
     private bool starboardPressedWhileCanFire = false;
     private bool portPressedWhileCanFire = false;
 
+    private bool inputDisabled = false;
+    private bool gameIsOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class ShootInput : MonoBehaviour
 
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonReleased);
         PubSub.RegisterListener<OnButtonPressedEvent>(OnButtonPressed);
+
     }
 
     // Update is called once per frame
@@ -51,6 +55,9 @@ public class ShootInput : MonoBehaviour
 
     public void OnButtonPressed (object publishedEvent)
     {
+        if (gameIsOver || inputDisabled)
+            return;
+
         OnButtonPressedEvent args = publishedEvent as OnButtonPressedEvent;
         if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot())
         {
@@ -68,6 +75,9 @@ public class ShootInput : MonoBehaviour
 
     public void OnButtonReleased (object publishedEvent)
     {
+        if (gameIsOver || inputDisabled)
+            return;
+
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
         if (args.Name == "BtnStarboardFire" && starboardPressedWhileCanFire)
         {
@@ -83,5 +93,41 @@ public class ShootInput : MonoBehaviour
             portPressedWhileCanFire = false;
             portShooter.Shoot();
         }
+    }
+
+    public void OnGameOverHandler (object pubEvent)
+    {
+        gameIsOver = true;
+        StopAllCoroutines();
+    }
+
+    public void RapidFire(float duration, float newShootCooldown)
+    {
+        if (!inputDisabled)
+            StartCoroutine(RapidFireCoroutine(duration, newShootCooldown));
+    }
+
+    private IEnumerator RapidFireCoroutine(float duration, float newShootCooldown)
+    {
+        PubSub.Publish(new OnPowerupEvent { Type = "Rapid Fire", Activating = true });
+        inputDisabled = true;
+        float oldShootCooldownStarboard = starboardShooter.GetCooldown();
+        float oldShootCooldownPort = portShooter.GetCooldown();
+        starboardShooter.SetCooldown(0);
+        portShooter.SetCooldown(0);
+
+        while (duration > 0)
+        {
+            starboardShooter.Shoot();
+            portShooter.Shoot();
+            yield return new WaitForSeconds(newShootCooldown);
+            duration -= newShootCooldown;
+        }
+
+        starboardShooter.SetCooldown(oldShootCooldownStarboard);
+        portShooter.SetCooldown(oldShootCooldownPort);
+        inputDisabled = false;
+
+        PubSub.Publish(new OnPowerupEvent { Type = "Rapid Fire", Activating = false });
     }
 }

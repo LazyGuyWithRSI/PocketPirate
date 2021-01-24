@@ -71,4 +71,14 @@ public class Broadside : MonoBehaviour, IShooter
             PubSub.Publish<OnPlayerReloaded>(new OnPlayerReloaded() { WeaponName = Name });
         }
     }
+
+    public void SetCooldown (float cooldown)
+    {
+        ShootCooldown = cooldown;
+    }
+
+    public float GetCooldown ()
+    {
+        return ShootCooldown;
+    }
 }

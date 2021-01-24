@@ -5,10 +5,17 @@ using UnityEngine;
 public class Spewer : MonoBehaviour
 {
     public GameObject ThingToSpewPrefab;
-    public GameObject PowerUpPrefab; // TODO make generic system for (will power up spawn -> use weights to determine which one gets spawned)
+    public Pickup[] Pickups;
     public float ChanceForPowerUp = 0.4f; // TODO use an SO (maybe change based on ship type? Or handle this elsewhere? (like a spawn powerup event?))
 
     public float SpewForce = 400f;
+
+    [System.Serializable]
+    public class Pickup
+    {
+        public GameObject Prefab;
+        public float Weight = 1f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +35,23 @@ public class Spewer : MonoBehaviour
 
         if (Random.Range(0f, 1f) <= ChanceForPowerUp)
         {
-            SpawnThing(PowerUpPrefab, position, force);
+            float total = 0;
+            foreach (Pickup pickup in Pickups)
+            {
+                total += pickup.Weight;
+            }
+
+            float rand = Random.Range(0f, total);
+            for (int i = 0; i < Pickups.Length; i++)
+            {
+                if (rand < Pickups[i].Weight)
+                {
+                    SpawnThing(Pickups[i].Prefab, position, force);
+                    break;
+                }
+
+                rand -= Pickups[i].Weight;
+            }
         }
 
         for (int i = 0; i < amount; i++)

@@ -53,6 +53,9 @@ public class Shooter : MonoBehaviour, IShooter
     {
         return 0;
     }
+
+    public void SetCooldown (float cooldown) { }
+    public float GetCooldown () { return 0; }
 }
 
 public interface IShooter
@@ -60,5 +63,7 @@ public interface IShooter
     float GetShootHeading ();
     bool Shoot ();
     bool CanShoot ();
+    void SetCooldown (float cooldown);
+    float GetCooldown ();
     void SetName (string Name);
 }

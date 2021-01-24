@@ -34,7 +34,10 @@ public class CoinPickup : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        Health otherHealth = other.gameObject.GetComponent<Health>();
+        if (other.tag != "Pickup Collider")
+            return;
+
+        Health otherHealth = other.gameObject.transform.parent.GetComponent<Health>();
         if (otherHealth != null && otherHealth.Team == 0) // player pickup
         {
             PubSub.Publish<OnCoinPickUpEvent>(new OnCoinPickUpEvent { Worth = Worth, Position = transform.position });

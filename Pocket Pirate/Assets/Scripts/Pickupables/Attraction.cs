@@ -20,17 +20,18 @@ public class Attraction : MonoBehaviour
         if (inRange)
         {
             Vector3 force = target.position - transform.position;
-            Debug.Log("Applying " + (force.normalized * ForceMultiplier * Time.fixedDeltaTime));
             rb.AddForce(force * ForceMultiplier * Time.fixedDeltaTime);
         }
     }
 
     private void OnTriggerEnter (Collider other)
     {
-        Health otherHealth = other.gameObject.GetComponent<Health>();
+        if (other.tag != "Pickup Collider")
+            return;
+
+        Health otherHealth = other.gameObject.transform.parent.GetComponent<Health>();
         if (otherHealth != null && otherHealth.Team == 0) // player
         {
-            Debug.Log("triggering");
             target = other.transform;
             inRange = true;
         }
@@ -38,10 +39,12 @@ public class Attraction : MonoBehaviour
 
     private void OnTriggerExit (Collider other)
     {
+        if (other.tag != "Pickup Collider")
+            return;
+
         Health otherHealth = other.gameObject.GetComponent<Health>();
         if (otherHealth != null && otherHealth.Team == 0) // player
         {
-            Debug.Log("UN - triggering");
             inRange = false;
         }
     }

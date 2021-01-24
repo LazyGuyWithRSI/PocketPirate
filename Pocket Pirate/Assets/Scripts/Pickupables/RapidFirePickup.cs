@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EtherealPickup : MonoBehaviour
+public class RapidFirePickup : MonoBehaviour
 {
+    public float Duration = 10f;
+    public float ShootCooldown = 0.1f;
     public float sinkTime = 10f;
     public float sinkTimeDeviation = 2f;
 
@@ -38,10 +40,10 @@ public class EtherealPickup : MonoBehaviour
             return;
 
         Health otherHealth = other.gameObject.transform.parent.GetComponent<Health>();
-        Ethereal otherEthereal = other.gameObject.transform.parent.GetComponent<Ethereal>();
-        if (otherHealth != null && otherHealth.Team == 0 && otherEthereal != null) // player pickup
+        ShootInput otherShootInput = other.gameObject.transform.parent.GetComponent<ShootInput>();
+        if (otherHealth != null && otherHealth.Team == 0 && otherShootInput != null) // player pickup
         {
-            otherEthereal.ActivateEthereal();
+            otherShootInput.RapidFire(Duration, ShootCooldown);
             GameObject.Destroy(gameObject);
         }
     }
