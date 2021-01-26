@@ -138,4 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RampUpTime: 0.1
   DecayTime: 0.35
-  MaxBrightness: 25
+  MaxBrightness: 50

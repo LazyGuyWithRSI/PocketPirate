@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22eb5e3d8c36c044bf36fcbeb15855d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 6
+  Duration: 5
   ShootCooldown: 0.2
   sinkTime: 15
   sinkTimeDeviation: 2

@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1552fd2a5df7a48a8a14b8f6a24c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultDuration: 10
+  DefaultDuration: 8
   Model: {fileID: 9014279106278848773}
   EtherealMat: {fileID: 2100000, guid: 01fdc72893b221749905242fe0395b33, type: 2}
 --- !u!1 &9014279106594402093
