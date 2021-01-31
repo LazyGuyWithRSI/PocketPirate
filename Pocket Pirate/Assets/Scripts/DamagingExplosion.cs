@@ -35,7 +35,7 @@ public class DamagingExplosion : MonoBehaviour
         if (otherHealth != null && otherHealth.Team != Team)
         {
             //if (otherHealth.TakeDamage(Damage))
-            PubSub.Publish<OnHitEvent>(new OnHitEvent() { Position = transform.position, HitType = 0 });
+            PubSub.Publish<OnHitEvent>(new OnHitEvent() { Position = transform.position, HitType = 0, Team = otherHealth.Team });
             otherHealth.TakeDamage(Damage);
         }
     }

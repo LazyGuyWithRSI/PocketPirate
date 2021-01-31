@@ -21,6 +21,7 @@ public class OnShootEvent
 public class OnHitEvent
 {
     public Vector3 Position { get; set; }
+    public int Team { get; set; }
     public int HitType { get; set; } // TODO enum
 }
 
