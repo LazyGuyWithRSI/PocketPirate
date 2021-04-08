@@ -45,6 +45,11 @@ public class BoatInput : MonoBehaviour
             jumper.DoJump();
         }
 
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PubSub.Publish(new OnPowerupEvent { Type = "Ethereal", Activating = true });
+        }
+
         if (JoyStickInput.Value.x == 0 && JoyStickInput.Value.y == 0)
         {
             

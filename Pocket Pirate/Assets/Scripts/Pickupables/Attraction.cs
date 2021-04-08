@@ -8,16 +8,22 @@ public class Attraction : MonoBehaviour
     Transform target;
     bool inRange = false;
     Rigidbody rb;
+
+    private bool gameIsOver = false;
+
+    // TODO on game over
+
     // Start is called before the first frame update
     void Start ()
     {
         rb = transform.parent.GetComponent<Rigidbody>();
+        PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
     }
 
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if (inRange)
+        if (inRange && !gameIsOver)
         {
             Vector3 force = target.position - transform.position;
             rb.AddForce(force * ForceMultiplier * Time.fixedDeltaTime);
@@ -26,7 +32,7 @@ public class Attraction : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.tag != "Pickup Collider")
+        if (other.tag != "Pickup Collider" || gameIsOver)
             return;
 
         Health otherHealth = other.gameObject.transform.parent.GetComponent<Health>();
@@ -47,5 +53,10 @@ public class Attraction : MonoBehaviour
         {
             inRange = false;
         }
+    }
+
+    public void OnGameOverHandler (object publishedEvent)
+    {
+        gameIsOver = true;
     }
 }

@@ -41,7 +41,7 @@ public class EtherealPickup : MonoBehaviour
         Ethereal otherEthereal = other.gameObject.transform.parent.GetComponent<Ethereal>();
         if (otherHealth != null && otherHealth.Team == 0 && otherEthereal != null) // player pickup
         {
-            otherEthereal.ActivateEthereal();
+            otherEthereal.ActivateEthereal(); // TODO use a command structure wtf is this
             GameObject.Destroy(gameObject);
         }
     }
