@@ -39,6 +39,7 @@ public class ShootInput : MonoBehaviour
 
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonReleased);
         PubSub.RegisterListener<OnButtonPressedEvent>(OnButtonPressed);
+        PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
 
     }
 

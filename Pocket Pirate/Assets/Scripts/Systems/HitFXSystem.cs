@@ -15,7 +15,7 @@ public class HitFXSystem : MonoBehaviour
     public void OnHitHandler (object publishedEvent)
     {
         OnHitEvent args = publishedEvent as OnHitEvent;
-
-        GameObject.Destroy(Instantiate(HitPrefab, args.Position, Quaternion.identity), 3);
+        Vector3 newPos = args.Position + ((Camera.main.transform.position - args.Position).normalized * 2f);
+        GameObject.Destroy(Instantiate(HitPrefab, newPos, Quaternion.identity), 3);
     }
 }

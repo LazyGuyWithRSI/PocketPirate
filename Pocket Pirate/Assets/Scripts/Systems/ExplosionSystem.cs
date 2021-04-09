@@ -30,7 +30,8 @@ public class ExplosionSystem : MonoBehaviour
     {
         OnDeathEvent args = publishedEvent as OnDeathEvent;
         args.Position = new Vector3(args.Position.x, args.Position.y + 1f, args.Position.z);
-        GameObject.Destroy(Instantiate(ExplosionPrefab, args.Position, Quaternion.identity), 4);
+        Vector3 newPos = args.Position + ((Camera.main.transform.position - args.Position).normalized * 2f);
+        GameObject.Destroy(Instantiate(ExplosionPrefab, newPos, Quaternion.identity), 4);
         GameObject.Destroy(Instantiate(FlashPrefab, args.Position, Quaternion.identity), 5);
     }
 
@@ -42,7 +43,8 @@ public class ExplosionSystem : MonoBehaviour
         explosion.GetComponent<DamagingExplosion>().Explode(args.Radius, 0.1f, args.Damage);
 
         args.Position = new Vector3(args.Position.x, args.Position.y + 1f, args.Position.z);
-        GameObject.Destroy(Instantiate(BigExplosionPrefab, args.Position, Quaternion.identity), 4);
+        Vector3 newPos = args.Position + ((Camera.main.transform.position - args.Position).normalized * 2f);
+        GameObject.Destroy(Instantiate(BigExplosionPrefab, newPos, Quaternion.identity), 4);
         GameObject.Destroy(Instantiate(FlashPrefab, args.Position, Quaternion.identity), 5);
 
     }

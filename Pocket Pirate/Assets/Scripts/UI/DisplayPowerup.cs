@@ -34,7 +34,11 @@ public class DisplayPowerup : MonoBehaviour
         string str = "";
         for (int i = 0; i < powerUps.Count; i++)
         {
-            str += powerUps[i];
+            // temp fix
+            if (powerUps[i].Equals("Ethereal"))
+                str += "Ghost Ship";
+            else
+                str += powerUps[i];
 
             if (i != powerUps.Count - 1)
                 str += "\n";
