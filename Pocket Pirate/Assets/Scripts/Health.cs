@@ -61,6 +61,13 @@ public class Health : MonoBehaviour
         // take arbitrary damage for now
         curHealth -= amount;
 
+        // camera shake for player
+        if (Team == 0)
+        {
+            CameraShake.Shake(0.2f, 0.2f);
+            PubSub.Publish<OnHitEvent>(new OnHitEvent() { Position = transform.position, HitType = 0, Team = 0 });
+        }
+
         if (canFlash)
             StartCoroutine(FlashCoroutine(FlashTime));
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Water
   - Pickup Collider
+  - Terrain Trigger
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - 
   - Blob Shadow
   - Particles
-  - 
-  - 
-  - 
+  - Scenery
+  - Player
+  - AI Repulse
   - 
   - 
   - 
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particles
+    uniqueID: 3461788279
     locked: 0
