@@ -25,7 +25,6 @@ public class TerrainCollision : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        Debug.Log("Terrain Collision > Trigger enter. Other tag is " + other.tag);
         if (other.tag == "Terrain Trigger" && canBeDamaged)
         {
             health.TakeDamage(damage);

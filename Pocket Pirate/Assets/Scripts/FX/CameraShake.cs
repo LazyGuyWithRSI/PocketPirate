@@ -11,13 +11,30 @@ public class CameraShake : MonoBehaviour
     private float _timeAtLastFrame;
     private float _fakeDelta;
 
+    private bool gameIsOver = false;
+
     void Awake ()
     {
         instance = this;
     }
 
+    private void Start ()
+    {
+        PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
+    }
+
+    public void OnGameOverHandler (object publishedEvent)
+    {
+        gameIsOver = true;
+    }
+
     void Update ()
     {
+        if (gameIsOver)
+        {
+            Camera.main.orthographicSize = Vector2.Lerp(new Vector2(0, Camera.main.orthographicSize), new Vector2(0, 6f), 0.01f).y;
+        }
+
         // Calculate a fake delta time, so we can Shake while game is paused.
         _timeAtCurrentFrame = Time.realtimeSinceStartup;
         _fakeDelta = _timeAtCurrentFrame - _timeAtLastFrame;

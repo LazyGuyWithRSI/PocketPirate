@@ -21,7 +21,10 @@ public class GenerateWake : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
             Destroy(gameObject);
+            return;
+        }
 
         if (target.transform.position.y > 0.1 && particleSys.isEmitting)
         {

@@ -15,11 +15,18 @@ public class BoatMover : MonoBehaviour, IBoatMover
     private float turnDirection = 0f;
     private bool usingManualTurning = false;
 
+    private Vector3 moveVector;
+    private int requestedDirection = 1;
+
     private Rigidbody rb;
+    private IJump jump;
 
     public void SetMoving (int direction)
     {
-        moveDirection = Mathf.Clamp(direction, -1, 1);
+        // if airborne, don't change move
+        //if (!jump.IsAirborne())
+        //moveDirection = Mathf.Clamp(direction, -1, 1);
+        requestedDirection = direction;
     }
 
     public void SetHeading (float direction)
@@ -57,13 +64,23 @@ public class BoatMover : MonoBehaviour, IBoatMover
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        jump = GetComponent<IJump>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // check requested direction
+        if (!jump.IsAirborne()) // don't change move vector if we are in the air
+        { 
+            moveVector = transform.forward;
+
+            if (requestedDirection != moveDirection)
+                moveDirection = requestedDirection;
+        }
+
         // move boat forward
-        rb.AddRelativeForce(Vector3.forward * Speed * moveDirection);
+        rb.AddForce(moveVector * Speed * moveDirection);
 
         // turn boat towards target heading
         // TODO maybe move heading calculation to helper class (if needed elsewhere)

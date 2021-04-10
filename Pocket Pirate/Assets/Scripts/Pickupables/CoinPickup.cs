@@ -9,10 +9,13 @@ public class CoinPickup : MonoBehaviour
     public float sinkTimeDeviation = 2f;
 
     private bool hasHitWater = false;
+    private bool gameIsOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
+
         StartCoroutine(SinkCoroutine());
     }
 
@@ -34,7 +37,7 @@ public class CoinPickup : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.tag != "Pickup Collider")
+        if (!other.CompareTag("Pickup Collider") || gameIsOver)
             return;
 
         Health otherHealth = other.gameObject.transform.parent.GetComponent<Health>();
@@ -43,5 +46,10 @@ public class CoinPickup : MonoBehaviour
             PubSub.Publish<OnCoinPickUpEvent>(new OnCoinPickUpEvent { Worth = Worth, Position = transform.position });
             GameObject.Destroy(gameObject);
         }
+    }
+
+    public void OnGameOverHandler (object publishedEvent)
+    {
+        gameIsOver = true;
     }
 }

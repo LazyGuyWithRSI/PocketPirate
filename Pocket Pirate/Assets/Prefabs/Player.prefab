@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2688188115246074501}
   - component: {fileID: 2820877326155031756}
   m_Layer: 11
-  m_Name: GameObject
+  m_Name: Pickup Colliders
   m_TagString: Pickup Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,6 +1732,8 @@ MonoBehaviour:
     Strength: 1
   - Position: {x: 0, y: 0.5, z: 0}
     Strength: 1
+  - Position: {x: 0, y: 1.93, z: 0}
+    Strength: 5
 --- !u!114 &9014279106555438929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,7 +1871,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014279106555438938}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!65 &8868549501240364684
 BoxCollider:
   m_ObjectHideFlags: 0

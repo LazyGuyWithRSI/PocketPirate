@@ -52,6 +52,8 @@ public class Jump : MonoBehaviour, IJump
         }
     }
 
+    public bool IsAirborne() { return inAir; }    
+
     private IEnumerator DoCooldown()
     {
         canJump = false;
@@ -63,4 +65,5 @@ public class Jump : MonoBehaviour, IJump
 public interface IJump
 {
     void DoJump ();
+    bool IsAirborne ();
 }

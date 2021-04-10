@@ -58,5 +58,6 @@ public class Attraction : MonoBehaviour
     public void OnGameOverHandler (object publishedEvent)
     {
         gameIsOver = true;
+        inRange = false;
     }
 }

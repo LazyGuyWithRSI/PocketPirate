@@ -47,7 +47,7 @@ public class BoatInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            PubSub.Publish(new OnPowerupEvent { Type = "Ethereal", Activating = true });
+            PubSub.Publish(new OnGameOver());
         }
 
         if (JoyStickInput.Value.x == 0 && JoyStickInput.Value.y == 0)
