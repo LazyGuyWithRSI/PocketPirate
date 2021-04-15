@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 5937602048616678472}
   - component: {fileID: 661310072592156569}
   - component: {fileID: 4182764616031043767}
+  - component: {fileID: 1211849755813266981}
   m_Layer: 0
   m_Name: BombEnemy
   m_TagString: Untagged
@@ -273,7 +274,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.36, z: 2.22}
+  m_Size: {x: 0.83, y: 1.36, z: 1.68}
   m_Center: {x: 0, y: 0.3, z: -0.08}
 --- !u!114 &504021002790305870
 MonoBehaviour:
@@ -376,6 +377,19 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+--- !u!135 &1211849755813266981
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446508708847417172}
+  m_Material: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.43
+  m_Center: {x: 0, y: 0, z: 0.68}
 --- !u!1 &446508709898421741
 GameObject:
   m_ObjectHideFlags: 0

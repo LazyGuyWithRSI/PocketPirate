@@ -1374,7 +1374,7 @@ BoxCollider:
   m_GameObject: {fileID: 7551995150695939842}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2105,6 +2105,7 @@ GameObject:
   - component: {fileID: 8353341145087912401}
   - component: {fileID: 6347084191758151191}
   - component: {fileID: 592530480348178445}
+  - component: {fileID: 7063728093782805689}
   m_Layer: 0
   m_Name: BigShootingEnemy
   m_TagString: Untagged
@@ -2173,8 +2174,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.39, y: 2.18, z: 4.82}
-  m_Center: {x: 0, y: 0.9, z: 0.01}
+  m_Size: {x: 1.39, y: 2.03, z: 3.65}
+  m_Center: {x: 0, y: 0.74, z: -0.14}
 --- !u!114 &8952823924509896198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,6 +2312,19 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+--- !u!135 &7063728093782805689
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003299066617469212}
+  m_Material: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.69
+  m_Center: {x: 0, y: 0.15, z: 1.86}
 --- !u!1 &9003299067299873760
 GameObject:
   m_ObjectHideFlags: 0

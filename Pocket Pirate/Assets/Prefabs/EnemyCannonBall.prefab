@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6989041795148874713}
   - component: {fileID: 6119495725842327101}
   - component: {fileID: 2222770277692459215}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: blob shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6949469027913687475}
   - component: {fileID: 6949469027913687472}
   - component: {fileID: 6949469027913687478}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 6949469028080978738}
   - component: {fileID: 6949469028080978733}
   - component: {fileID: 1360192261003145576}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: damage collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 6949469028374127270}
   - component: {fileID: 6949469028374127271}
   - component: {fileID: 6949469028374127268}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyCannonBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
