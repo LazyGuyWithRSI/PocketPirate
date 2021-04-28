@@ -16,6 +16,7 @@ public class BoatInput : MonoBehaviour
     private bool gameIsOver = false;
 
     private const string BtnSailsName = "BtnSails";
+    private const string BtnJumpName = "BtnJump";
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,8 @@ public class BoatInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) || Input.acceleration.z > JumpAccelRequired) // DEBUG
         {
             Debug.Log("Request Jump");
-            jumper.DoJump();
+            if (jumper.DoJump())
+                PubSub.Publish<OnPlayerJump>(new OnPlayerJump { Cooldown = jumper.GetCooldown() });
         }
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -84,6 +86,12 @@ public class BoatInput : MonoBehaviour
         if (args.Name.Equals(BtnSailsName) && !gameIsOver)
         {
             mover.SetMoving(0);
+        }
+
+        if (args.Name.Equals(BtnJumpName))
+        {
+            if (jumper.DoJump())
+                PubSub.Publish<OnPlayerJump>(new OnPlayerJump { Cooldown = jumper.GetCooldown() });
         }
     }
 

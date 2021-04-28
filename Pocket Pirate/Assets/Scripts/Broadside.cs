@@ -22,7 +22,7 @@ public class Broadside : MonoBehaviour, IShooter
         PubSub.Publish<OnShootEvent>(new OnShootEvent() { Position = transform.position });
         if (!string.IsNullOrEmpty(Name))
         {
-            PubSub.Publish<OnPlayerFired>(new OnPlayerFired() { WeaponName = Name });
+            PubSub.Publish<OnPlayerFired>(new OnPlayerFired() { WeaponName = Name, ReloadDuration = ShootCooldown });
         }
         //           v start from 1 because GetComponentsInChildren includes self
         StartCoroutine(FireCoroutine(ShootInterval));

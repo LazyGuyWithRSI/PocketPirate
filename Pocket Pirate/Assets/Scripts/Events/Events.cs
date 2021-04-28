@@ -48,6 +48,7 @@ public class OnGameOver
 public class OnPlayerFired
 {
     public string WeaponName { get; set; }
+    public float ReloadDuration { get; set; }
 }
 
 public class OnPlayerReloaded
@@ -63,6 +64,11 @@ public class OnRequestSceneChange
 public class OnPauseEvent
 {
     public bool Paused { get; set; }
+}
+
+public class OnPlayerJump
+{
+    public float Cooldown { get; set; }
 }
 
 public class ShowUIPanelEvent

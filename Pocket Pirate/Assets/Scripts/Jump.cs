@@ -41,7 +41,7 @@ public class Jump : MonoBehaviour, IJump
         rb.velocity = vel;
     }
 
-    public void DoJump ()
+    public bool DoJump ()
     {
         if (canJump && !inAir)
         {
@@ -49,7 +49,10 @@ public class Jump : MonoBehaviour, IJump
             rb.AddForce(Vector3.up * JumpForce);
             inAir = true;
             StartCoroutine(DoCooldown());
+            return true;
         }
+
+        return false;
     }
 
     public bool IsAirborne() { return inAir; }    
@@ -60,10 +63,13 @@ public class Jump : MonoBehaviour, IJump
         yield return new WaitForSeconds(JumpCooldown);
         canJump = true;
     }
+
+    public float GetCooldown() { return JumpCooldown; }
 }
 
 public interface IJump
 {
-    void DoJump ();
+    bool DoJump ();
+    float GetCooldown ();
     bool IsAirborne ();
 }
