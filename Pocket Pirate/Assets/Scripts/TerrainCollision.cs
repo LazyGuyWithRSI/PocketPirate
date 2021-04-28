@@ -6,10 +6,13 @@ public class TerrainCollision : MonoBehaviour
 {
     public float damage = 5.0f;
     public float damageCooldown = 2.0f;
+    public BoxCollider pickupCollider;
+    public bool isActive = true;
 
     private bool canBeDamaged = true;
 
     private Health health;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class TerrainCollision : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Terrain Trigger" && canBeDamaged)
+        if (other.tag == "Terrain Trigger" && canBeDamaged && isActive)
         {
             health.TakeDamage(damage);
             StartCoroutine("CooldownCoroutine");

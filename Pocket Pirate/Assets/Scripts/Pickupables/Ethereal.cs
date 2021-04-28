@@ -13,6 +13,8 @@ public class Ethereal : MonoBehaviour
 
     private Collider[] colliders;
 
+    private TerrainCollision terrainCollision; // gross
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class Ethereal : MonoBehaviour
         }
 
         colliders = colliderList.ToArray();
+
+        terrainCollision = GetComponent<TerrainCollision>();
     }
 
     public void ActivateEthereal(float duration = -1)
@@ -57,6 +61,9 @@ public class Ethereal : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
             colliders[i].enabled = false;
 
+        if (terrainCollision != null)
+            terrainCollision.isActive = false;
+
         yield return new WaitForSeconds(duration);
 
         for (int i = 0; i < renderers.Length; i++)
@@ -67,6 +74,9 @@ public class Ethereal : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
             colliders[i].enabled = true;
+
+        if (terrainCollision != null)
+            terrainCollision.isActive = true;
 
         PubSub.Publish(new OnPowerupEvent { Type = "Ethereal", Activating = false });
     }
