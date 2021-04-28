@@ -172,8 +172,9 @@ MonoBehaviour:
   chanceToPlaceTerrain: 0.8
   width: 100
   height: 100
-  terrainPrefab: {fileID: 8820076247973289149, guid: 37b4662a41f75e34f9d17086f54b4a02,
-    type: 3}
+  terrainPrefabs:
+  - {fileID: 8820076247973289149, guid: 37b4662a41f75e34f9d17086f54b4a02, type: 3}
+  - {fileID: 8249434161239678675, guid: 852280e2fea519946858f70664e9fb89, type: 3}
 --- !u!4 &26483955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014279106555438939, guid: ba014c5cb40b2bd4ea9c701843c5d503,

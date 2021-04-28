@@ -111,8 +111,8 @@ MonoBehaviour:
   HeightOffset: 0.3
   MaxHeight: 2
   MinHeight: 0.5
-  MaxSize: 1.1
-  MinSize: 0.5
+  MaxSize: 0.85
+  MinSize: 0.3
 --- !u!1 &6949469027913687476
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fddf428d1878d04daba6be50bec687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterDrag: 1
 --- !u!1 &6949469028080978739
 GameObject:
   m_ObjectHideFlags: 0

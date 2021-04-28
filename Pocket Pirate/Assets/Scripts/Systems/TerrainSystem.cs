@@ -10,7 +10,7 @@ public class TerrainSystem : MonoBehaviour
     public int width = 100;
     public int height = 100;
 
-    public GameObject terrainPrefab;
+    public GameObject[] terrainPrefabs;
 
     private float[,] noiseMap;
 
@@ -24,7 +24,7 @@ public class TerrainSystem : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 if (Random.Range(0f, 1f) < noiseMap[x, y] && Random.Range(0f, 1f) < chanceToPlaceTerrain)
-                    GameObject.Instantiate(terrainPrefab, new Vector3((x - (width / 2)) * noiseToUnitFactor, 0, (y - (height / 2)) * noiseToUnitFactor), Quaternion.Euler(0, Random.Range(0f, 360f), 0));
+                    GameObject.Instantiate(terrainPrefabs[Random.Range(0, terrainPrefabs.Length)], new Vector3((x - (width / 2)) * noiseToUnitFactor, 0, (y - (height / 2)) * noiseToUnitFactor), Quaternion.Euler(0, Random.Range(0f, 360f), 0));
             }
         }
     }
