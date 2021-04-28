@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UserSettings
   m_EditorClassIdentifier: 
   Use2AxisJoystick: 1
+  SoundEnabled: 1
   MasterVolume: 0
   MusicVolume: 0
   EffectsVolume: 0

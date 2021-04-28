@@ -181,6 +181,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9014279106579299240}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &32244396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2798194315436943124, guid: 20aae93a425d9e64996574444211ffe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5947586594240569059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &36777170
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0012207031, y: 0.00012207031}
+  m_AnchoredPosition: {x: -0.0014648438, y: 0.00024414062}
   m_SizeDelta: {x: -0.001953125, y: 0.0043945312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &36777172
@@ -7623,6 +7635,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 455090337}
     m_Modifications:
+    - target: {fileID: 3351754563565841563, guid: 20aae93a425d9e64996574444211ffe5,
+        type: 3}
+      propertyPath: SoundToggle
+      value: 
+      objectReference: {fileID: 32244396}
     - target: {fileID: 5947586594369790328, guid: 20aae93a425d9e64996574444211ffe5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8079,5 +8096,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3473230679610147284, guid: ba014c5cb40b2bd4ea9c701843c5d503, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba014c5cb40b2bd4ea9c701843c5d503, type: 3}
