@@ -23,10 +23,15 @@ public class TerrainSystem : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
+                // don't spawn anything in the middle
+                if (Mathf.Abs((width / 2) - x) < 1 && Mathf.Abs((height / 2) - y) < 1)
+                    continue;
+
                 if (Random.Range(0f, 1f) < noiseMap[x, y] && Random.Range(0f, 1f) < chanceToPlaceTerrain)
                     GameObject.Instantiate(terrainPrefabs[Random.Range(0, terrainPrefabs.Length)], new Vector3((x - (width / 2)) * noiseToUnitFactor, 0, (y - (height / 2)) * noiseToUnitFactor), Quaternion.Euler(0, Random.Range(0f, 360f), 0));
             }
         }
+
     }
 
     // Update is called once per frame

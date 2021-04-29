@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc44ff1198a89742b7c0b903d4a7f48, type: 3}
   m_Name: Short Elapsed Time Decision
   m_EditorClassIdentifier: 
-  time: 5
+  time: 4

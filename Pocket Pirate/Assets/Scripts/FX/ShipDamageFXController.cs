@@ -18,12 +18,26 @@ public class ShipDamageFXController : MonoBehaviour
         health = GetComponent<Health>();
 
         hitBreakpoints = new bool[breakpoints.Length];
+
+        PubSub.RegisterListener<OnPlayerHealed>(OnPlayerHealedHandler);
+    }
+
+    private void OnPlayerHealedHandler(object publishedEvent)
+    {
+        if (health.Team == 0)
+        {
+            for (int i = 0; i < hitBreakpoints.Length; i++)
+            {
+                hitBreakpoints[i] = false;
+                damageFX[i].StopFire();
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        int next = NextBreakPoint();
+        int next = NextBreakPoint(); // TODO lame and slow, but only a few of these scripts are running at a time
         if (next < 0)
             return;
 

@@ -58,7 +58,6 @@ public class Health : MonoBehaviour
         if (!canTakeDamage)
             return false;
 
-        // take arbitrary damage for now
         curHealth -= amount;
 
         // camera shake for player
@@ -69,7 +68,7 @@ public class Health : MonoBehaviour
         }
 
         if (canFlash)
-            StartCoroutine(FlashCoroutine(FlashTime));
+            StartCoroutine(FlashCoroutine(FlashTime, Color.red));
 
         if (curHealth <= 0 && !dead)
         {
@@ -101,6 +100,13 @@ public class Health : MonoBehaviour
         return true;
     }
 
+    public void heal(float amount)
+    {
+        curHealth = Mathf.Clamp(curHealth + amount, 0, MaxHealth);
+        StartCoroutine(FlashCoroutine(FlashTime, Color.green));
+        PubSub.Publish<OnPlayerHealed>(new OnPlayerHealed());
+    }
+
 
 
     private IEnumerator ExplodeOnDeathCoroutine (float duration, float maxFlashTime)
@@ -110,7 +116,7 @@ public class Health : MonoBehaviour
         while (remainingDuration > 0.4f)
         {
             currentFlashTime = Mathf.Min(remainingDuration / 4, maxFlashTime);
-            StartCoroutine(FlashCoroutine(currentFlashTime / 2));
+            StartCoroutine(FlashCoroutine(currentFlashTime / 2, Color.red));
             yield return new WaitForSeconds(currentFlashTime);
             remainingDuration -= currentFlashTime;
         }
@@ -119,10 +125,10 @@ public class Health : MonoBehaviour
         PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
     }
 
-    private IEnumerator FlashCoroutine(float duration)
+    private IEnumerator FlashCoroutine(float duration, Color color)
     {
         for (int i = 0; i < renderers.Length; i++)
-            renderers[i].material.color = Color.red;
+            renderers[i].material.color = color;
 
         yield return new WaitForSeconds(duration);
 

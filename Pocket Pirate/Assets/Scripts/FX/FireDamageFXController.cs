@@ -26,6 +26,12 @@ public class FireDamageFXController : MonoBehaviour
         light.enabled = true;
     }
 
+    public void StopFire()
+    {
+        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        light.enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

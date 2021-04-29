@@ -51,6 +51,11 @@ public class OnPlayerFired
     public float ReloadDuration { get; set; }
 }
 
+public class OnPlayerHealed
+{
+
+}
+
 public class OnPlayerReloaded
 {
     public string WeaponName { get; set; }

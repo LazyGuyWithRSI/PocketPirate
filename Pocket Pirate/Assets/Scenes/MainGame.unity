@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b596a461889f540918162e1fb8f97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageColor: {r: 0.7058824, g: 0, b: 0, a: 1}
+  HealColor: {r: 0.011213934, g: 0.7924528, b: 0.011213934, a: 1}
 --- !u!1 &74812582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +6698,9 @@ MonoBehaviour:
       type: 3}
     Weight: 1
   - Prefab: {fileID: 3041686980588180391, guid: 8c1792097fbdaad429a320e5af81b276,
+      type: 3}
+    Weight: 1
+  - Prefab: {fileID: 3802030736467118111, guid: 9d3322c69f7247947ac59808eca4d82c,
       type: 3}
     Weight: 1
   ChanceForPowerUp: 0.4
