@@ -1074,6 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 55cbd3e0ff1ecfe4eaf5e6a40ccca92d, type: 2}
   Use2AxisJoystickToggle: {fileID: 3681259514125427934}
+  SoundToggle: {fileID: 2798194315436943124}
 --- !u!1 &5947586594503503826
 GameObject:
   m_ObjectHideFlags: 0
