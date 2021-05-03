@@ -500,7 +500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 15
-  TurnSpeed: 1
+  TurnSpeed: 0.3
+  TurnSpeedWhileDrifting: 3
+  DriftDuration: 0.5
   EasingFactor: 27.1
   WaterDrag: 0.95
 --- !u!54 &7586033476619514226

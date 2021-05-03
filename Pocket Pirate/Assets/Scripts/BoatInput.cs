@@ -85,7 +85,8 @@ public class BoatInput : MonoBehaviour
         OnButtonPressedEvent args = publishedObject as OnButtonPressedEvent;
         if (args.Name.Equals(BtnSailsName) && !gameIsOver)
         {
-            mover.SetMoving(0);
+            mover.Drift(true);
+            //mover.SetMoving(0);
         }
 
         if (args.Name.Equals(BtnJumpName))
@@ -100,7 +101,8 @@ public class BoatInput : MonoBehaviour
         OnButtonReleasedEvent args = publishedObject as OnButtonReleasedEvent;
         if (args.Name.Equals(BtnSailsName) && !gameIsOver)
         {
-            mover.SetMoving(1);
+            mover.Drift(false);
+            //mover.SetMoving(1);
         }
     }
 

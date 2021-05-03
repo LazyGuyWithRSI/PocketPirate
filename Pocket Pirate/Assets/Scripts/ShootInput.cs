@@ -30,8 +30,8 @@ public class ShootInput : MonoBehaviour
         portShooter.SetName("Port");
 
 
-        starboardAimHelper.enabled = false;
-        portAimHelper.enabled = false;
+        //starboardAimHelper.enabled = false;
+        //portAimHelper.enabled = false;
 
 
         //Debug.Log("unsubbing? : " + PubSub.UnregisterListener<OnButtonReleasedEvent>(OnButtonReleased));
@@ -62,13 +62,13 @@ public class ShootInput : MonoBehaviour
         OnButtonPressedEvent args = publishedEvent as OnButtonPressedEvent;
         if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot())
         {
-            starboardAimHelper.enabled = true;
+            //starboardAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
             starboardPressedWhileCanFire = true;
         }
         else if (args.Name == "BtnPortFire" && portShooter.CanShoot())
         {
-            portAimHelper.enabled = true;
+            //portAimHelper.enabled = true;
             Time.timeScale = TimeScaleWhenAiming;
             portPressedWhileCanFire = true;
         }
@@ -82,14 +82,14 @@ public class ShootInput : MonoBehaviour
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
         if (args.Name == "BtnStarboardFire" && starboardPressedWhileCanFire)
         {
-            starboardAimHelper.enabled = false;
+            //starboardAimHelper.enabled = false;
             Time.timeScale = 1f;
             starboardPressedWhileCanFire = false;
             starboardShooter.Shoot();
         }
         else if (args.Name == "BtnPortFire" && portPressedWhileCanFire)
         {
-            portAimHelper.enabled = false;
+            //portAimHelper.enabled = false;
             Time.timeScale = 1f;
             portPressedWhileCanFire = false;
             portShooter.Shoot();

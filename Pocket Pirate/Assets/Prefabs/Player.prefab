@@ -900,8 +900,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014279104836277026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8, y: -0.060000032, z: -0.16}
-  m_LocalScale: {x: 1.4617699, y: 1, z: 0.15462999}
+  m_LocalPosition: {x: -6.8, y: 0.16, z: 0.02}
+  m_LocalScale: {x: 1.4617699, y: 1, z: 0.053583927}
   m_Children: []
   m_Father: {fileID: 9014279104621805246}
   m_RootOrder: 1
@@ -1601,7 +1601,6 @@ GameObject:
   - component: {fileID: 2378229343365396710}
   - component: {fileID: 3021026626124739640}
   - component: {fileID: 4471922881440883620}
-  - component: {fileID: 3473230679610147284}
   - component: {fileID: 8868549501240364684}
   - component: {fileID: 6166492938753961375}
   - component: {fileID: 9014279106579299243}
@@ -1661,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057c8507b5d9cc548a1648b93a7d3cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpAccelRequired: 0.5
+  JumpAccelRequired: 0.9
   JoyStickInput: {fileID: 11400000, guid: f8b2d00e910143447b1144af8c315b9a, type: 2}
   settings: {fileID: 11400000, guid: 55cbd3e0ff1ecfe4eaf5e6a40ccca92d, type: 2}
 --- !u!54 &9014279106555438940
@@ -1746,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36c14076fe68b44db8b5f4f73c41eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeScaleWhenAiming: 0.4
+  TimeScaleWhenAiming: 0.8
   starboardAimHelper: {fileID: 9014279106594402080}
   portAimHelper: {fileID: 9014279104836277029}
   starboardShootMount: {fileID: 9014279104835349748}
@@ -1864,14 +1863,6 @@ MonoBehaviour:
   breakpoints:
   - 10
   - 5
---- !u!81 &3473230679610147284
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014279106555438938}
-  m_Enabled: 0
 --- !u!65 &8868549501240364684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1927,6 +1918,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   damageCooldown: 2
+  pickupCollider: {fileID: 0}
+  isActive: 1
 --- !u!136 &1236201163985842926
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1968,8 +1961,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014279106594402093}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 6.8099995, y: -0.06, z: -0.20000029}
-  m_LocalScale: {x: 1.4617649, y: 1, z: 0.15462816}
+  m_LocalPosition: {x: 6.8099995, y: 0.16, z: 0.006139964}
+  m_LocalScale: {x: 1.4617649, y: 1, z: 0.053583294}
   m_Children: []
   m_Father: {fileID: 9014279104835349749}
   m_RootOrder: 1

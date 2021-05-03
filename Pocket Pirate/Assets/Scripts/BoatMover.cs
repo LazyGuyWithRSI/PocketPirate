@@ -6,6 +6,8 @@ public class BoatMover : MonoBehaviour, IBoatMover
 {
     public float Speed = 10f;
     public float TurnSpeed = 2f;
+    public float TurnSpeedWhileDrifting = 3f;
+    public float DriftDuration = 0.5f;
     public float EasingFactor = 1f;
     public float WaterDrag = 0.8f;
 
@@ -14,6 +16,8 @@ public class BoatMover : MonoBehaviour, IBoatMover
     private bool setHeadingToCurrent = false;
     private float turnDirection = 0f;
     private bool usingManualTurning = false;
+
+    private float currentTurnSpeed = 0f;
 
     private Vector3 moveVector;
     private int requestedDirection = 1;
@@ -60,11 +64,34 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
     public int GetMoving() { return moveDirection; }
 
+    public void Drift(bool isStart)
+    {
+        if (isStart)
+            StartCoroutine(DriftCoroutine(DriftDuration));
+        else
+        {
+            StopAllCoroutines();
+            currentTurnSpeed = TurnSpeed;
+            SetMoving(1);
+        }
+    }
+
+    private IEnumerator DriftCoroutine (float duration)
+    {
+        currentTurnSpeed = TurnSpeedWhileDrifting;
+        yield return new WaitForSeconds(duration / 2);
+        SetMoving(0);
+        yield return new WaitForSeconds(duration / 2);
+        currentTurnSpeed = TurnSpeed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         jump = GetComponent<IJump>();
+
+        currentTurnSpeed = TurnSpeed;
     }
 
     // Update is called once per frame
@@ -115,8 +142,9 @@ public class BoatMover : MonoBehaviour, IBoatMover
             turnDirection *= Mathf.Clamp(Mathf.Abs(headingDifference / EasingFactor), -1, 1);
         }
         //Debug.Log("current heading: " + currentHeading + ", target: " + desiredHeading + ", dif: " + headingDifference);
+        float forwardVelocity = transform.InverseTransformDirection(rb.velocity).z;
 
-        rb.AddRelativeTorque(Vector3.up * TurnSpeed * turnDirection);
+        rb.AddRelativeTorque(Vector3.up * currentTurnSpeed * turnDirection * forwardVelocity);
 
         Vector3 vel = rb.velocity;
         vel.x *= WaterDrag;
@@ -133,4 +161,5 @@ public interface IBoatMover
     void SetTurnDirection (float direction);
     float GetHeading ();
     void SetHeadingToCurrent ();
+    void Drift (bool isStart);
 }
