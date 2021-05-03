@@ -8046,6 +8046,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 9014279106555438929, guid: ba014c5cb40b2bd4ea9c701843c5d503,
+        type: 3}
+      propertyPath: TimeScaleWhenAiming
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9014279106555438938, guid: ba014c5cb40b2bd4ea9c701843c5d503,
         type: 3}
       propertyPath: m_Name
