@@ -91,6 +91,8 @@ public class BoatMover : MonoBehaviour, IBoatMover
         rb = GetComponent<Rigidbody>();
         jump = GetComponent<IJump>();
 
+        rb.centerOfMass = Vector3.zero;
+
         currentTurnSpeed = TurnSpeed;
     }
 
