@@ -32,7 +32,7 @@ Material:
     - _CFXR_GLOW_POW: 0
     - _DissolveSmooth: 0.1
     - _DstBlend: 1
-    - _GlowMax: 1.5
+    - _GlowMax: 1.59
     - _GlowMid: 2
     - _GlowMin: 0
     - _Glow_Pow: 2
@@ -52,3 +52,4 @@ Material:
     - _UseSP: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
