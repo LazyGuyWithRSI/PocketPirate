@@ -59,10 +59,15 @@ public class Ethereal : MonoBehaviour
         }
 
         for (int i = 0; i < colliders.Length; i++)
-            colliders[i].enabled = false;
+        {
+            //colliders[i].enabled = false;
+            colliders[i].gameObject.layer = LayerMask.NameToLayer("No Interaction"); // TODO slow static string
+        }
 
         if (terrainCollision != null)
+        {
             terrainCollision.isActive = false;
+        }
 
         yield return new WaitForSeconds(duration);
 
@@ -73,7 +78,10 @@ public class Ethereal : MonoBehaviour
         }
 
         for (int i = 0; i < colliders.Length; i++)
-            colliders[i].enabled = true;
+        {
+            //colliders[i].enabled = true;
+            colliders[i].gameObject.layer = LayerMask.NameToLayer("Player"); // TODO slow static string
+        }
 
         if (terrainCollision != null)
             terrainCollision.isActive = true;

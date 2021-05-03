@@ -16,6 +16,8 @@ public class BoatMover : MonoBehaviour, IBoatMover
     private bool setHeadingToCurrent = false;
     private float turnDirection = 0f;
     private bool usingManualTurning = false;
+    private bool isDead = false;
+    private bool inDrift = false;
 
     private float currentTurnSpeed = 0f;
 
@@ -64,6 +66,11 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
     public int GetMoving() { return moveDirection; }
 
+    public void Dead()
+    {
+        isDead = true;
+    }
+
     public void Drift(bool isStart)
     {
         if (isStart)
@@ -73,16 +80,19 @@ public class BoatMover : MonoBehaviour, IBoatMover
             StopAllCoroutines();
             currentTurnSpeed = TurnSpeed;
             SetMoving(1);
+            inDrift = false;
         }
     }
 
     private IEnumerator DriftCoroutine (float duration)
     {
+        inDrift = true;
         currentTurnSpeed = TurnSpeedWhileDrifting;
         yield return new WaitForSeconds(duration / 2);
         SetMoving(0);
         yield return new WaitForSeconds(duration / 2);
         currentTurnSpeed = TurnSpeed;
+        inDrift = false;
     }
 
     // Start is called before the first frame update
@@ -100,7 +110,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
     void FixedUpdate()
     {
         // check requested direction
-        if (!jump.IsAirborne()) // don't change move vector if we are in the air
+        if (!jump.IsAirborne() && !inDrift) // don't change move vector if we are in the air
         { 
             moveVector = transform.forward;
 
@@ -144,7 +154,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
             turnDirection *= Mathf.Clamp(Mathf.Abs(headingDifference / EasingFactor), -1, 1);
         }
         //Debug.Log("current heading: " + currentHeading + ", target: " + desiredHeading + ", dif: " + headingDifference);
-        float forwardVelocity = transform.InverseTransformDirection(rb.velocity).z;
+        float forwardVelocity = Mathf.Max(transform.InverseTransformDirection(rb.velocity).z, (float)(Mathf.Abs(transform.InverseTransformDirection(rb.velocity).x) * 0.7));
 
         rb.AddRelativeTorque(Vector3.up * currentTurnSpeed * turnDirection * forwardVelocity);
 
@@ -152,6 +162,14 @@ public class BoatMover : MonoBehaviour, IBoatMover
         vel.x *= WaterDrag;
         vel.z *= WaterDrag;
         rb.velocity = vel;
+
+
+        if (!isDead)
+            rb.transform.localEulerAngles = new Vector3(0, rb.transform.localEulerAngles.y, 0);
+    }
+
+    void LateUpdate()
+    {
     }
 }
 
@@ -164,4 +182,5 @@ public interface IBoatMover
     float GetHeading ();
     void SetHeadingToCurrent ();
     void Drift (bool isStart);
+    void Dead ();
 }

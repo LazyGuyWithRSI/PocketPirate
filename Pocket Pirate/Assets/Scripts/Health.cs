@@ -76,11 +76,18 @@ public class Health : MonoBehaviour
             //ExplosionSystem.Instance.SpawnExplosion(transform.position);
             PubSub.Publish<OnDeathEvent>(new OnDeathEvent() { Position = transform.position, Team = Team });
 
+            GenerateTrail generateTrail;
+            if (TryGetComponent<GenerateTrail>(out generateTrail))
+                generateTrail.StopEmitting();
+
             if (buoyancy != null)
                 buoyancy.Sink();
 
             if (mover != null)
+            {
                 mover.SetMoving(0);
+                mover.Dead();
+            }
 
             if (ExplodeOnDeath)
             {
