@@ -91,8 +91,8 @@ public class DebugEnemySpawner : MonoBehaviour
             if (rand < waves[wave].ThingsToSpawn[i].Weight)
             {
                 GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
-                GameObject wake = Instantiate(WakePrefab);
-                wake.GetComponent<GenerateWake>().target = enemy.transform;
+                //GameObject wake = Instantiate(WakePrefab);
+                //wake.GetComponent<GenerateWake>().target = enemy.transform;
                 
                 break;
             }
