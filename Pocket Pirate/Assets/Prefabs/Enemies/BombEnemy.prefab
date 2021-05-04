@@ -328,7 +328,7 @@ MonoBehaviour:
   ExplodeOnDeath: 1
   ExplosionDelay: 0.8
   ExplosionRadius: 4
-  ExplosionDamage: 15
+  ExplosionDamage: 10
 --- !u!114 &5937602048616678472
 MonoBehaviour:
   m_ObjectHideFlags: 0
