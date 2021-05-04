@@ -51,6 +51,11 @@ public class StateController : MonoBehaviour
         aiActive = true;
     }
 
+    public void StopAI()
+    {
+        aiActive = false;
+    }
+
     void OnDrawGizmos ()
     {
         if (ShootTarget != Vector3.zero)

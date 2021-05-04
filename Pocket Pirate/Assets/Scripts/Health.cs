@@ -89,6 +89,10 @@ public class Health : MonoBehaviour
                 mover.Dead();
             }
 
+            StateController stateCont;
+            if (TryGetComponent<StateController>(out stateCont))
+                stateCont.StopAI();
+
             if (ExplodeOnDeath)
             {
                 StartCoroutine(ExplodeOnDeathCoroutine(ExplosionDelay, 1f));
