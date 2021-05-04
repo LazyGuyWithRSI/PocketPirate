@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ee344ff51e4ffbb41949e122c861e46d, type: 3}
+      propertyPath: m_TagString
+      value: Terrain Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ee344ff51e4ffbb41949e122c861e46d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6807537
@@ -401,6 +405,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: ee344ff51e4ffbb41949e122c861e46d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee344ff51e4ffbb41949e122c861e46d, type: 3}
 --- !u!4 &8820076246532671739 stripped
@@ -423,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 08d02c187472d684096f88c67beb6890, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08d02c187472d684096f88c67beb6890, type: 3}
+      propertyPath: m_TagString
+      value: Terrain Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 08d02c187472d684096f88c67beb6890, type: 3}
       propertyPath: m_LocalPosition.x
@@ -480,6 +493,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 08d02c187472d684096f88c67beb6890, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08d02c187472d684096f88c67beb6890, type: 3}
 --- !u!4 &8820076246899501336 stripped
@@ -502,6 +520,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5ccad72751160e341ad0b43ec43a620a, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5ccad72751160e341ad0b43ec43a620a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5ccad72751160e341ad0b43ec43a620a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,6 +581,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 5ccad72751160e341ad0b43ec43a620a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccad72751160e341ad0b43ec43a620a, type: 3}
 --- !u!4 &8820076248229757665 stripped

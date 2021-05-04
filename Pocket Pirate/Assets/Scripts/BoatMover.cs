@@ -8,6 +8,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
     public float TurnSpeed = 2f;
     public float TurnSpeedWhileDrifting = 3f;
     public float DriftDuration = 0.5f;
+    public float DriftForwardSpeed = 10f;
     public float EasingFactor = 1f;
     public float WaterDrag = 0.8f;
 
@@ -102,6 +103,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
         jump = GetComponent<IJump>();
 
         rb.centerOfMass = Vector3.zero;
+        rb.inertiaTensorRotation = Quaternion.identity;
 
         currentTurnSpeed = TurnSpeed;
     }
@@ -119,7 +121,10 @@ public class BoatMover : MonoBehaviour, IBoatMover
         }
 
         // move boat forward
-        rb.AddForce(moveVector * Speed * moveDirection);
+        if (!inDrift)
+            rb.AddForce(moveVector * Speed * moveDirection);
+        else
+            rb.AddForce(Vector3.Lerp(moveVector, transform.forward, 0.5f) * Speed * moveDirection);
 
         // turn boat towards target heading
         // TODO maybe move heading calculation to helper class (if needed elsewhere)
@@ -166,10 +171,6 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
         if (!isDead)
             rb.transform.localEulerAngles = new Vector3(0, rb.transform.localEulerAngles.y, 0);
-    }
-
-    void LateUpdate()
-    {
     }
 }
 
