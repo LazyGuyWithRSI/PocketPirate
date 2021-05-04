@@ -7913,11 +7913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1209420414650481240, guid: dc3ac18dc78d24b4b8bd5de926bba500,
-        type: 3}
-      propertyPath: BounceForce
-      value: 7000
-      objectReference: {fileID: 0}
     - target: {fileID: 6803729473533443580, guid: dc3ac18dc78d24b4b8bd5de926bba500,
         type: 3}
       propertyPath: m_LocalPosition.x

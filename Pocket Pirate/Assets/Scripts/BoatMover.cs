@@ -121,10 +121,11 @@ public class BoatMover : MonoBehaviour, IBoatMover
         }
 
         // move boat forward
-        if (!inDrift)
-            rb.AddForce(moveVector * Speed * moveDirection);
-        else
+
+        if (inDrift && !jump.IsAirborne())
             rb.AddForce(Vector3.Lerp(moveVector, transform.forward, 0.5f) * Speed * moveDirection);
+        else
+            rb.AddForce(moveVector * Speed * moveDirection);
 
         // turn boat towards target heading
         // TODO maybe move heading calculation to helper class (if needed elsewhere)
