@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3aa6fde5539906344826ee6b2c43f840, type: 3}
-  m_Name: Big Boy Wave
+  m_Name: Boom Boom Wave
   m_EditorClassIdentifier: 
   ThingsToSpawn:
-  - Prefab: {fileID: 9003299066617469212, guid: b72b83e19cf235d4295e654859063d37,
-      type: 3}
+  - Prefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5, type: 3}
     Weight: 1
