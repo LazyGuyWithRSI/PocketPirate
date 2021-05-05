@@ -9,6 +9,7 @@ public class DebugEnemySpawner : MonoBehaviour
     public Vector3Reference PlayerPosition;
     public GameObject WakePrefab;
     public int StartEnemies = 5;
+    public int MaxEnemies = 12;
     public float MaxSpawnDistance = 20f;
     public float MinSpawnDistance = 8f;
     public float WaveTimeLimit = 10f;
@@ -126,6 +127,9 @@ public class DebugEnemySpawner : MonoBehaviour
         while (enemiesToSpawn > 0)
         {
             yield return new WaitForSeconds(interval);
+
+            if (numEnemies >= MaxEnemies)
+                continue;
 
             SpawnEnemy(wave);
             enemiesToSpawn--;
