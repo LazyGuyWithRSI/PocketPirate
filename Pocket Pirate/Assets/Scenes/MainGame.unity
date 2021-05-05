@@ -6551,8 +6551,8 @@ MonoBehaviour:
   StartEnemies: 5
   MaxSpawnDistance: 50
   MinSpawnDistance: 30
-  WaveTimeLimit: 25
-  Ramp: 1.1
+  WaveTimeLimit: 30
+  Ramp: 1.05
 --- !u!1 &1870971852
 GameObject:
   m_ObjectHideFlags: 0
