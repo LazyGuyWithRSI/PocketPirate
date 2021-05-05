@@ -648,10 +648,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 15
+  Speed: 12
   TurnSpeed: 0.65
   TurnSpeedWhileDrifting: 3
   DriftDuration: 0.5
+  DriftForwardSpeed: 10
   EasingFactor: 27.1
   WaterDrag: 0.95
 --- !u!54 &7586033476619514226
