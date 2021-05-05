@@ -63,12 +63,14 @@ public class ShootInput : MonoBehaviour
         if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot())
         {
             //starboardAimHelper.enabled = true;
+            portAimHelper.enabled = false;
             Time.timeScale = TimeScaleWhenAiming;
             starboardPressedWhileCanFire = true;
         }
         else if (args.Name == "BtnPortFire" && portShooter.CanShoot())
         {
             //portAimHelper.enabled = true;
+            starboardAimHelper.enabled = false;
             Time.timeScale = TimeScaleWhenAiming;
             portPressedWhileCanFire = true;
         }
@@ -83,6 +85,7 @@ public class ShootInput : MonoBehaviour
         if (args.Name == "BtnStarboardFire" && starboardPressedWhileCanFire)
         {
             //starboardAimHelper.enabled = false;
+            portAimHelper.enabled = true;
             Time.timeScale = 1f;
             starboardPressedWhileCanFire = false;
             starboardShooter.Shoot();
@@ -90,6 +93,7 @@ public class ShootInput : MonoBehaviour
         else if (args.Name == "BtnPortFire" && portPressedWhileCanFire)
         {
             //portAimHelper.enabled = false;
+            starboardAimHelper.enabled = true;
             Time.timeScale = 1f;
             portPressedWhileCanFire = false;
             portShooter.Shoot();
