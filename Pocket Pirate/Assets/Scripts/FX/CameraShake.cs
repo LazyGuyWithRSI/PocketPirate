@@ -44,6 +44,7 @@ public class CameraShake : MonoBehaviour
     public static void Shake (float duration, float amount)
     {
         instance._originalPos = instance.gameObject.transform.localPosition;
+        Debug.Log("Shaking camera");
         instance.StopAllCoroutines();
         instance.StartCoroutine(instance.cShake(duration, amount));
     }

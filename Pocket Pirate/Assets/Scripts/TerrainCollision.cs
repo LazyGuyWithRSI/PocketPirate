@@ -40,6 +40,8 @@ public class TerrainCollision : MonoBehaviour
             point.y = transform.position.y;
             //rb.AddForce(force * BounceForce);
             rb.AddForceAtPosition(force * BounceForce, point);
+
+            CameraShake.Shake(0.3f, 0.3f);
             StartCoroutine("CooldownCoroutine");
         }
     }

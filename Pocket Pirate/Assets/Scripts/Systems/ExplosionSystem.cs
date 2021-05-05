@@ -47,5 +47,6 @@ public class ExplosionSystem : MonoBehaviour
         GameObject.Destroy(Instantiate(BigExplosionPrefab, newPos, Quaternion.identity), 4);
         GameObject.Destroy(Instantiate(FlashPrefab, args.Position, Quaternion.identity), 5);
 
+        CameraShake.Shake(0.15f, 0.5f);
     }
 }
