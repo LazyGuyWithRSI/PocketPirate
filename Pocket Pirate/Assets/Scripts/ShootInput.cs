@@ -60,14 +60,14 @@ public class ShootInput : MonoBehaviour
             return;
 
         OnButtonPressedEvent args = publishedEvent as OnButtonPressedEvent;
-        if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot())
+        if (args.Name == "BtnStarboardFire" && starboardShooter.CanShoot() && Time.timeScale != 0f)
         {
             //starboardAimHelper.enabled = true;
             portAimHelper.enabled = false;
             Time.timeScale = TimeScaleWhenAiming;
             starboardPressedWhileCanFire = true;
         }
-        else if (args.Name == "BtnPortFire" && portShooter.CanShoot())
+        else if (args.Name == "BtnPortFire" && portShooter.CanShoot() && Time.timeScale != 0f)
         {
             //portAimHelper.enabled = true;
             starboardAimHelper.enabled = false;

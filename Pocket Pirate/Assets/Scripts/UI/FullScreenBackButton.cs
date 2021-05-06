@@ -12,7 +12,7 @@ public class FullScreenBackButton : MonoBehaviour
     {
 
         if (ActivateOnPause)
-            PubSub.RegisterListener<OnPauseEvent>(OnPauseHandle);
+            PubSub.RegisterListener<OnShowPausePanel>(OnShowPausePanelHandler);
 
         if (ActivateOnPanelShown)
         {
@@ -23,10 +23,10 @@ public class FullScreenBackButton : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OnPauseHandle (object publishedEvent)
+    public void OnShowPausePanelHandler(object publishedEvent)
     {
-        OnPauseEvent args = publishedEvent as OnPauseEvent;
-        if (args.Paused)
+        OnShowPausePanel args = publishedEvent as OnShowPausePanel;
+        if (args.Show)
         {
             gameObject.SetActive(true);
         }

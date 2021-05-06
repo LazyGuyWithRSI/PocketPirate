@@ -40,7 +40,7 @@ public class DebugEnemySpawner : MonoBehaviour
         }
         */
         //StartCoroutine(WaveControlCoroutine());
-        StartCoroutine(SpawnWaveCoroutine((int)CurrentWave.Value % waves.Length, (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 2f));
+        StartCoroutine(SpawnWaveCoroutine(Random.Range(0, waves.Length), (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 2f));
     }
 
     private void Update ()
@@ -65,7 +65,7 @@ public class DebugEnemySpawner : MonoBehaviour
         if (args.Team == 1)
         {
             numEnemies--;
-            Debug.Log("Enemy died, numEnemies is " + numEnemies);
+            Debug.Log("Enemy died, numEnemies is " + numEnemies + ", enemiesToSpawn is " + enemiesToSpawn);
             if (numEnemies == 0 && enemiesToSpawn == 0)
                 PubSub.Publish<OnWaveOver>(new OnWaveOver());
         }
@@ -99,7 +99,7 @@ public class DebugEnemySpawner : MonoBehaviour
                 GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
                 //GameObject wake = Instantiate(WakePrefab);
                 //wake.GetComponent<GenerateWake>().target = enemy.transform;
-                
+                numEnemies++;
                 break;
             }
 

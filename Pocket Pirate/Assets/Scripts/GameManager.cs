@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float TotalGameTime = 20f; // TODO move to scriptable (for data driven woot)
+    public float WaveOverDelay = 5.0f;
     public bool Playing = false;
 
     public FloatReference GameTime;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     private const string PauseBtnName = "BtnPause";
     private const string TapBackBtnName = "TapBtnBack";
     private const string BtnResumeName = "BtnResume";
+    private const string BtnNextWaveName = "BtnNextWave";
 
     private bool unPausing = false;
 
@@ -32,12 +34,13 @@ public class GameManager : MonoBehaviour
         PubSub.ClearListeners();
 
         PubSub.RegisterListener<OnDeathEvent>(OnDeath);
+        PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonPressed);
         PubSub.RegisterListener<OnCoinPickUpEvent>(OnCoinPickUpHandler);
 
         if (Playing)
         {
-            Score.Value = 0;
+            //Score.Value = 0;
             StartCoroutine(gameTimeCountdown());
         }
     }
@@ -54,7 +57,9 @@ public class GameManager : MonoBehaviour
 
         // TODO end game
         //StartCoroutine(ReloadScene(3f, true));
-        publishGameOver(false);
+
+        PubSub.Publish<OnWaveOver>(new OnWaveOver() { Imediate = true });
+        //publishGameOver(false);
     }
 
     public void OnDeath (object publishedEvent)
@@ -74,6 +79,15 @@ public class GameManager : MonoBehaviour
         Score.Value += args.Worth;
     }
 
+    private void OnWaveOverHandler(object pubEvent)
+    {
+        OnWaveOver args = pubEvent as OnWaveOver;
+        if (args.Imediate)
+            StartCoroutine(DelayWaveOver(0f));
+        else
+            StartCoroutine(DelayWaveOver(WaveOverDelay));
+    }
+
     private void OnButtonPressed(object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
@@ -82,7 +96,6 @@ public class GameManager : MonoBehaviour
         if (args.Name == TryAgainBtnName)
         {
             Time.timeScale = 1.0f;
-
             //SceneManager.LoadScene(1);
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
@@ -97,13 +110,18 @@ public class GameManager : MonoBehaviour
         {
             Unpause();
         }
-
         else if (args.Name == TapBackBtnName)
         {
             if (!IsAPanelShowing.Value)
             {
                 Unpause();
             }
+        }
+        else if (args.Name == BtnNextWaveName)
+        {
+            Time.timeScale = 1.0f;
+            //SceneManager.LoadScene(1);
+            PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
     }
 
@@ -132,6 +150,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay);
         Time.timeScale = 1.0f;
         unPausing = false;
+    }
+
+    private IEnumerator DelayWaveOver(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        GameIsPaused.Value = true;
+        Time.timeScale = 0.0f;
+        PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = true });
     }
 
     private IEnumerator ReloadScene (float delay, bool pauseGame)

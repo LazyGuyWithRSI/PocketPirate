@@ -48,6 +48,7 @@ public class OnGameOver
 public class OnWaveOver
 {
     public int Wave { get; set; }
+    public bool Imediate { get; set; }
 }
 
 public class OnPlayerFired

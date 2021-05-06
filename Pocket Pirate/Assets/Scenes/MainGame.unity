@@ -2758,6 +2758,7 @@ GameObject:
   - component: {fileID: 576902054}
   - component: {fileID: 576902053}
   - component: {fileID: 576902052}
+  - component: {fileID: 576902055}
   m_Layer: 0
   m_Name: WaveOverPanel
   m_TagString: Untagged
@@ -2788,8 +2789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1643}
-  m_SizeDelta: {x: 1093.2996, y: 900.547}
+  m_AnchoredPosition: {x: -2.252, y: -1643}
+  m_SizeDelta: {x: 1338.5037, y: 1123.0353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &576902052
 Animator:
@@ -2848,6 +2849,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576902050}
   m_CullTransparentMesh: 0
+--- !u!114 &576902055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576902050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3451806cd96ca874e816fa5c88a03402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimDelay: 5
+  WaveCompleteText: {fileID: 1011655325}
+  CurrentWave: {fileID: 11400000, guid: a3361196ad03df14f8201fe1f6cca0f6, type: 2}
 --- !u!1 &598195879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,9 +4891,8 @@ GameObject:
   - component: {fileID: 1011655323}
   - component: {fileID: 1011655326}
   - component: {fileID: 1011655325}
-  - component: {fileID: 1011655324}
   m_Layer: 0
-  m_Name: TimeUpText
+  m_Name: WaveCompleteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4902,19 +4917,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000035763, y: -114}
   m_SizeDelta: {x: 1093.2996, y: 182.13495}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1011655324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011655322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498fbcc89562f2244a597bf1b6beb10e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameTimeLeft: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
 --- !u!114 &1011655325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5121,7 +5123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 150
+  TotalGameTime: 60
+  WaveOverDelay: 5
   Playing: 1
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
@@ -5243,8 +5246,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.59
-  m_fontSizeBase: 80.59
+  m_fontSize: 97.24
+  m_fontSizeBase: 97.24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7956,10 +7959,10 @@ MonoBehaviour:
   CurrentWave: {fileID: 11400000, guid: a3361196ad03df14f8201fe1f6cca0f6, type: 2}
   WakePrefab: {fileID: 208347899408736512, guid: 06323bb6fcc3c5c43b0112094a885783,
     type: 3}
-  StartEnemies: 5
+  StartEnemies: 1
   MaxEnemies: 40
-  MaxSpawnDistance: 50
-  MinSpawnDistance: 30
+  MaxSpawnDistance: 35
+  MinSpawnDistance: 20
   WaveTimeLimit: 30
   Ramp: 1.08
 --- !u!1 &1870971852
