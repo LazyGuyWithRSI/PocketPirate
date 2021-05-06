@@ -31,9 +31,9 @@ public class TerrainCollision : MonoBehaviour
 
     private void OnCollisionEnter (Collision collision)
     {
-        if (collision.transform.tag == "Terrain Trigger" && canBeDamaged && isActive)
+        if (collision.transform.tag == "Terrain Trigger" && isActive)
         {
-            health.TakeDamage(damage);
+
             Vector3 force = collision.impulse.normalized;
             Vector3 point = collision.GetContact(0).point;
             force.y = 0;
@@ -42,7 +42,12 @@ public class TerrainCollision : MonoBehaviour
             rb.AddForceAtPosition(force * BounceForce, point);
 
             CameraShake.Shake(0.3f, 0.3f);
-            StartCoroutine("CooldownCoroutine");
+
+            if (canBeDamaged)
+            {
+                health.TakeDamage(damage);
+                StartCoroutine("CooldownCoroutine");
+            }
         }
     }
 
