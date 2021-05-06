@@ -7,9 +7,10 @@ public class DebugEnemySpawner : MonoBehaviour
 {
     public SpawningWaveReference[] waves;
     public Vector3Reference PlayerPosition;
+    public FloatReference CurrentWave;
     public GameObject WakePrefab;
     public int StartEnemies = 5;
-    public int MaxEnemies = 12;
+    public int MaxEnemies = 20;
     public float MaxSpawnDistance = 20f;
     public float MinSpawnDistance = 8f;
     public float WaveTimeLimit = 10f;
@@ -18,6 +19,9 @@ public class DebugEnemySpawner : MonoBehaviour
 
     private int numEnemies;
     private int MaxEnemiesThisWave;
+    private int enemiesToSpawn;
+
+    private int nextWave;
 
     private bool gameIsOver = false;
 
@@ -25,32 +29,34 @@ public class DebugEnemySpawner : MonoBehaviour
     void Start ()
     {
         PubSub.RegisterListener<OnDeathEvent>(OnDeathDeath);
+        PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
 
         numEnemies = 0;
-
+        nextWave = (int)CurrentWave.Value;
         /*
         for (int i = 0; i < MaxEnemies; i++)
         {
             SpawnEnemy();
         }
         */
-        StartCoroutine(WaveControlCoroutine());
+        //StartCoroutine(WaveControlCoroutine());
+        StartCoroutine(SpawnWaveCoroutine((int)CurrentWave.Value % waves.Length, (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 2f));
     }
 
-    private void FixedUpdate ()
+    private void Update ()
     {
-        /*
-        elapsed += Time.fixedDeltaTime;
 
-        extraEnemies = (int)(elapsed * Ramp);
-        if (numEnemies < MaxEnemies + extraEnemies)
-            SpawnEnemy();
-        */
     }
 
     public void OnGameOverEvent(object publishedEvent)
     {
         gameIsOver = true;
+        nextWave = 1;
+    }
+
+    public void OnWaveOverHandler(object publishedEvent)
+    {
+        nextWave++;
     }
 
     public void OnDeathDeath (object publishedEvent) // TODO make sure this is actually an enemy perhaps?
@@ -58,11 +64,10 @@ public class DebugEnemySpawner : MonoBehaviour
         OnDeathEvent args = publishedEvent as OnDeathEvent;
         if (args.Team == 1)
         {
-            /*
             numEnemies--;
-            if (numEnemies < MaxEnemies + extraEnemies)
-                SpawnEnemy();
-            */
+            Debug.Log("Enemy died, numEnemies is " + numEnemies);
+            if (numEnemies == 0 && enemiesToSpawn == 0)
+                PubSub.Publish<OnWaveOver>(new OnWaveOver());
         }
     }
 
@@ -110,6 +115,11 @@ public class DebugEnemySpawner : MonoBehaviour
         */
     }
 
+    private void OnDestroy()
+    {
+        CurrentWave.Value = nextWave;
+    }
+
     private IEnumerator WaveControlCoroutine()
     {
         int waveCount = 0;
@@ -124,7 +134,8 @@ public class DebugEnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnWaveCoroutine(int wave, int enemiesToSpawn, float interval)
     {
-        while (enemiesToSpawn > 0)
+        this.enemiesToSpawn = enemiesToSpawn;
+        while (this.enemiesToSpawn > 0)
         {
             yield return new WaitForSeconds(interval);
 
@@ -132,7 +143,7 @@ public class DebugEnemySpawner : MonoBehaviour
                 continue;
 
             SpawnEnemy(wave);
-            enemiesToSpawn--;
+            this.enemiesToSpawn--;
         }
     }
 }

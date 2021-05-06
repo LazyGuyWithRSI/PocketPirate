@@ -45,6 +45,11 @@ public class OnGameOver
     public bool Died { get; set; }
 }
 
+public class OnWaveOver
+{
+    public int Wave { get; set; }
+}
+
 public class OnPlayerFired
 {
     public string WeaponName { get; set; }
@@ -69,6 +74,11 @@ public class OnRequestSceneChange
 public class OnPauseEvent
 {
     public bool Paused { get; set; }
+}
+
+public class OnShowPausePanel
+{
+    public bool Show { get; set; }
 }
 
 public class OnPlayerJump

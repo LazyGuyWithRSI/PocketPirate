@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
             GameIsPaused.Value = true;
             Time.timeScale = 0.0f;
             PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = true });
+            PubSub.Publish<OnShowPausePanel>(new OnShowPausePanel() { Show = true });
         }
         else if (GameIsPaused.Value && args.Name == BtnResumeName)
         {
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
     {
         GameIsPaused.Value = false;
         PubSub.Publish<OnPauseEvent>(new OnPauseEvent() { Paused = false });
+        PubSub.Publish<OnShowPausePanel>(new OnShowPausePanel() { Show = false });
         StartCoroutine(DelayUnpause(1.5f));
     }
 

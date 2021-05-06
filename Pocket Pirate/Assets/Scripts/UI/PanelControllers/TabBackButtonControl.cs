@@ -7,16 +7,16 @@ public class TabBackButtonControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PubSub.RegisterListener<OnPauseEvent>(OnPauseHandle);
+        PubSub.RegisterListener<OnShowPausePanel>(OnShowPausePanelHandle);
 
         // disable panel on start up, some focus issue means spacebar hits the try again button...
         gameObject.SetActive(false);
     }
 
-    public void OnPauseHandle (object publishedEvent)
+    public void OnShowPausePanelHandle(object publishedEvent)
     {
-        OnPauseEvent args = publishedEvent as OnPauseEvent;
-        if (args.Paused)
+        OnShowPausePanel args = publishedEvent as OnShowPausePanel;
+        if (args.Show)
         {
             gameObject.SetActive(true);
             //anim.Play("PanelSlideUp");

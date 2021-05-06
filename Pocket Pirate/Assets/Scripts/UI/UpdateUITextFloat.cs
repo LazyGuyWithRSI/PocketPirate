@@ -6,6 +6,9 @@ using UnityEngine;
 public class UpdateUITextFloat : MonoBehaviour
 {
     public FloatReference FloatReference;
+    public bool OnlyAtStart = false;
+    public string PreText = "";
+    public string PostText = "";
 
     private TMP_Text text;
 
@@ -13,11 +16,14 @@ public class UpdateUITextFloat : MonoBehaviour
     void Start()
     {
         text = GetComponent<TMP_Text>();
+
+        text.text = PreText + FloatReference.Value.ToString() + PostText;
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = FloatReference.Value.ToString();
+        if (!OnlyAtStart)
+            text.text = PreText + FloatReference.Value.ToString() + PostText;
     }
 }
