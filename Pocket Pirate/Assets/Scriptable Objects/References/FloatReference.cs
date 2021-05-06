@@ -5,5 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FloatReference : ScriptableObject
 {
-    public float Value;
+    [SerializeField] private float baseValue = 1f;
+
+    public float Value { get; set; }
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+        Value = baseValue;
+    }
 }
