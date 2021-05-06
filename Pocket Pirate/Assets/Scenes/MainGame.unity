@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gold:'
+  m_text: 'Current Gold:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3756,7 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa93d23b6d355d144b79af7e9cd9fead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FloatReference: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
+  FloatReference: {fileID: 11400000, guid: 2e996495a1fc71344b0991ccee28ef0f, type: 2}
   OnlyAtStart: 0
   PreText: 
   PostText: 
@@ -5128,6 +5128,7 @@ MonoBehaviour:
   Playing: 1
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
+  TotalScore: {fileID: 11400000, guid: 2e996495a1fc71344b0991ccee28ef0f, type: 2}
   GameIsPaused: {fileID: 11400000, guid: 48f8e7134216bf34c84b49c299bd2e5d, type: 2}
   IsAPanelShowing: {fileID: 11400000, guid: e7e607371d2f1644cb5b67a0e16abbc4, type: 2}
 --- !u!4 &1084219082
@@ -6641,9 +6642,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1475055192}
-        m_TargetAssemblyTypeName: ButtonEventFirer, Assembly-CSharp
-        m_MethodName: OnButtonUp
+      - m_Target: {fileID: 1004365363}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadPort
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8670,7 +8671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: 'Total Gold:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9610,21 +9611,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6803729473533443580, guid: dc3ac18dc78d24b4b8bd5de926bba500,
         type: 3}
       propertyPath: m_LocalPosition.x

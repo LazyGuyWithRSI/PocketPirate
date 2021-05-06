@@ -9,10 +9,22 @@ public class Broadside : MonoBehaviour, IShooter
     public float ShootInterval = 0.04f;
     public float ShootHeading = 0f;
 
+    [SerializeField] private UpgradablePropertyReference UpgradableReloadReference;
+
     private IShooter[] shooters;
     private bool canShoot = true;
 
     private string Name;
+
+    void Start()
+    {
+        shooters = GetComponentsInChildren<IShooter>();
+
+        if (UpgradableReloadReference != null)
+        {
+            ShootCooldown = UpgradableReloadReference.Value;
+        }
+    }
 
     public bool Shoot ()
     {
@@ -44,11 +56,6 @@ public class Broadside : MonoBehaviour, IShooter
     public float GetShootHeading()
     {
         return ShootHeading;
-    }
-
-    void Start()
-    {
-        shooters = GetComponentsInChildren<IShooter>();
     }
 
     private IEnumerator FireCoroutine(float interval)

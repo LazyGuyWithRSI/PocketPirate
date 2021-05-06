@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public FloatReference GameTime;
     public FloatReference Score;
+    public FloatReference TotalScore;
     public BoolReference GameIsPaused;
     public BoolReference IsAPanelShowing;
     // TODO add GameState
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         OnCoinPickUpEvent args = pubEvent as OnCoinPickUpEvent;
         Score.Value += args.Worth;
+        TotalScore.Value += args.Worth;
     }
 
     private void OnWaveOverHandler(object pubEvent)

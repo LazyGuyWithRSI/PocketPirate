@@ -30,6 +30,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(Load(0));
     }
 
+    public void LoadPort()
+    {
+        StartCoroutine(Load(2));
+    }
+
     IEnumerator Load (int index)
     {
         Transition.SetTrigger("Start");

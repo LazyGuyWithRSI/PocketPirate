@@ -1749,6 +1749,8 @@ MonoBehaviour:
   ShootCooldown: 2
   ShootInterval: 0.04
   ShootHeading: 0
+  UpgradableReloadReference: {fileID: 11400000, guid: 8ff1674c4057d8141a811f6c4a47f959,
+    type: 2}
 --- !u!1 &6803729474628643630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6867,6 +6869,8 @@ MonoBehaviour:
   ShootCooldown: 2
   ShootInterval: 0.04
   ShootHeading: 0
+  UpgradableReloadReference: {fileID: 11400000, guid: 8ff1674c4057d8141a811f6c4a47f959,
+    type: 2}
 --- !u!1 &6803729475197610671
 GameObject:
   m_ObjectHideFlags: 0
@@ -11800,13 +11804,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7016422350942144776}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.117}
   m_LocalScale: {x: 0.11170082, y: 0.095016, z: 0.17554717}
   m_Children: []
   m_Father: {fileID: 4862163421889374265}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5379143124315542206
 MeshFilter:
   m_ObjectHideFlags: 0
