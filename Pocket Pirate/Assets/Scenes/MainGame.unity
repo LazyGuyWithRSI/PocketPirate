@@ -6562,11 +6562,11 @@ MonoBehaviour:
   WakePrefab: {fileID: 208347899408736512, guid: 06323bb6fcc3c5c43b0112094a885783,
     type: 3}
   StartEnemies: 5
-  MaxEnemies: 15
+  MaxEnemies: 40
   MaxSpawnDistance: 50
   MinSpawnDistance: 30
   WaveTimeLimit: 30
-  Ramp: 1.07
+  Ramp: 1.08
 --- !u!1 &1870971852
 GameObject:
   m_ObjectHideFlags: 0
