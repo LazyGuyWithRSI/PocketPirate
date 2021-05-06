@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         }
         else if (args.Name == BtnNextWaveName)
         {
-            Time.timeScale = 1.0f;
+            //Time.timeScale = 1.0f;
             //SceneManager.LoadScene(1);
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
