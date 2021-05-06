@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 74812585}
   meshRenderer: {fileID: 74812584}
 --- !u!23 &74812584
 MeshRenderer:
@@ -447,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 156068874}
   meshRenderer: {fileID: 156068873}
 --- !u!23 &156068873
 MeshRenderer:
@@ -746,7 +748,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 30, y: -180, z: 0}
 --- !u!1 &332123818
 GameObject:
@@ -1066,6 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 436535490}
   meshRenderer: {fileID: 436535489}
 --- !u!23 &436535489
 MeshRenderer:
@@ -1762,7 +1765,7 @@ Transform:
   - {fileID: 2250145}
   - {fileID: 1830936594}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &560498612
 MonoBehaviour:
@@ -3757,6 +3760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1000846469}
   meshRenderer: {fileID: 1000846468}
 --- !u!23 &1000846468
 MeshRenderer:
@@ -4246,6 +4250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1119087073}
   meshRenderer: {fileID: 1119087072}
 --- !u!23 &1119087072
 MeshRenderer:
@@ -4746,6 +4751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1248264945}
   meshRenderer: {fileID: 1248264944}
 --- !u!23 &1248264944
 MeshRenderer:
@@ -5167,11 +5173,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSceneCamera: 0
+  autoAssignCamera: 0
   followTarget: {fileID: 101141683}
   scale: 500
   vertexDistance: 2
   rowsColumns: 4
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  m_rowsColumns: 4
   objects:
   - {fileID: 1733231577}
   - {fileID: 2126689268}
@@ -5221,6 +5229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1448440746}
   meshRenderer: {fileID: 1448440745}
 --- !u!23 &1448440745
 MeshRenderer:
@@ -5317,6 +5326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1477592049}
   meshRenderer: {fileID: 1477592048}
 --- !u!23 &1477592048
 MeshRenderer:
@@ -5413,6 +5423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1509368657}
   meshRenderer: {fileID: 1509368656}
 --- !u!23 &1509368656
 MeshRenderer:
@@ -5887,6 +5898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1584313575}
   meshRenderer: {fileID: 1584313574}
 --- !u!23 &1584313574
 MeshRenderer:
@@ -6300,6 +6312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1733231579}
   meshRenderer: {fileID: 1733231578}
 --- !u!23 &1733231578
 MeshRenderer:
@@ -6586,6 +6599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1870971855}
   meshRenderer: {fileID: 1870971854}
 --- !u!23 &1870971854
 MeshRenderer:
@@ -6739,6 +6753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 1938433864}
   meshRenderer: {fileID: 1938433863}
 --- !u!23 &1938433863
 MeshRenderer:
@@ -6865,6 +6880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 2019511969}
   meshRenderer: {fileID: 2019511968}
 --- !u!23 &2019511968
 MeshRenderer:
@@ -7309,6 +7325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 2124584755}
   meshRenderer: {fileID: 2124584754}
 --- !u!23 &2124584754
 MeshRenderer:
@@ -7405,6 +7422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9e73dc93ef929ba46ae79f13b165b3dc, type: 2}
+  meshFilter: {fileID: 2126689270}
   meshRenderer: {fileID: 2126689269}
 --- !u!23 &2126689269
 MeshRenderer:
@@ -7814,7 +7832,7 @@ PrefabInstance:
     - target: {fileID: 6500640219880889363, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6500640219880889363, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
@@ -7888,7 +7906,7 @@ PrefabInstance:
     - target: {fileID: 9102048258626605802, guid: 4a0b4703c2819d144836fce859fa587f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9102048258626605802, guid: 4a0b4703c2819d144836fce859fa587f,
         type: 3}
@@ -7914,6 +7932,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036673971529030163, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6803729473533443580, guid: dc3ac18dc78d24b4b8bd5de926bba500,
         type: 3}
       propertyPath: m_LocalPosition.x

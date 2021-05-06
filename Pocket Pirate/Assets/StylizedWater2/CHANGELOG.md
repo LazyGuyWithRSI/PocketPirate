@@ -1,3 +1,65 @@
+1.0.9
+
+Added:
+- Support for SC Post Effects Pack fog rendering (activated through the Help window)
+
+Changed:
+- Material UI now has a help toggle button, with quick links to documentation
+- Buoyancy.SampleWaves function now has a boolean argument, to indicate if the material's wave parameters are being changed at runtime. Version without this has been marked as obsolete.
+- Floating Transform component now supports multi-selection
+
+Fixed:
+- Planar reflections failing to render if the water mesh was positioned further away than its size
+- Warning about obsolete API in Unity 2021.2+ due to URP changes, package will now import without any interuptions
+- Shader error when Enviro fog was enabled, due to a conflicting function name
+
+1.0.8
+
+Added:
+- Distance normals feature, blends in a second normal map, based on a start/end distance.
+- Distance fade parameter for waves. Waves can smoothly fade out between a start/end distance, to avoid tiling artifacts when viewed from afar.
+- Planar Reflections, option to specify the renderer to be used for reflection. This allows a set up where certain render features aren't being applied to the reflection
+
+Changed:
+- Planar Reflections inspector now shows a warning and quick-fix button if the bounds need to be recalculated.
+- Material section headers now also have tooltips
+- Water Grid improvements, now only recreates tiles if the rows/colums value was changed
+
+Fixed:
+- Issues with DWP2 integration since its latest update
+
+1.0.7
+
+Added:
+- Planar Reflections, option to include skybox.
+
+Changed:
+- Greatly improved caustics shading. No longer depends on the normal map for distortion.
+- Normal map now has a speed multiplier, rather than being bound to the wave animation speed. If any custom materials were made, these likely have to be adjusted
+- Updated default filepath for Boxophobic's Atmospheric Height Fog. This requires to reconfigure the fog integration through the Help window.
+- Removed "MainColor" attribute from shader's deep color, to avoid Unity giving it a white color value for new materials
+- Floating Transform, if roll strength is 0, the component will no longer modify the transform's orientation
+
+Fixed:
+- Objects above/in front of the water are no longer being refracted. Requires some additional legwork, so is limited to the Advanced shading mode.
+- (Preliminary) Error about experimental API in Unity 2021.2+
+
+1.0.6
+
+Added:
+- River mode, forces animations to flow in the vertical UV direction and draws surface foam on slopes (with configurable stretching and speed).
+- Waterfall splash particle effect
+- Data provider script for Dynamic Water Physics 2 is now part of the package (can be unlocked through the Help window if installed)
+- Curvature mask parameter for environment reflections, allows for more true-to-nature reflections
+
+Changed:
+- Water hole shader can now also be used with Curved World 2020
+
+Fixed:
+- Planar reflections, reflected objects being sorting in reverse in some cases
+- Mobile, animations appearing stepped on some devices when using Vulkan rendering
+- (Preliminary) Error in URP 11, due to changes in shader code
+
 1.0.5
 
 Added:

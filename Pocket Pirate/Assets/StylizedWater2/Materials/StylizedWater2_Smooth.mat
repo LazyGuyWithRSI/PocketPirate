@@ -94,9 +94,10 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CROSSPAN_INTERSECTIONOn: 1
-    - _CausticsBrightness: 1
+    - _CausticsBrightness: 3
     - _CausticsDistortion: 0.118
     - _CausticsOn: 1
+    - _CausticsSpeed: 0.1
     - _CausticsTiling: 0.3900002
     - _CrossPan_IntersectionOn: 0
     - _Cull: 2
@@ -138,6 +139,7 @@ Material:
     - _NORMALMAPOn: 1
     - _NormalMap: 1
     - _NormalMapOn: 1
+    - _NormalSpeed: 0.2
     - _NormalStrength: 0.225
     - _NormalTiling: 0.09999996
     - _OcclusionStrength: 1
@@ -147,6 +149,7 @@ Material:
     - _ReceiveShadows: 1
     - _ReflectionBlur: 0.235
     - _ReflectionDistortion: 0.1
+    - _ReflectionFresnel: 5
     - _ReflectionStrength: 0.31
     - _Reflectivity: 1
     - _RefractionAmount: 0.05
@@ -198,6 +201,7 @@ Material:
     - _IntersectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShallowColor: {r: 0, g: 1, b: 0.9905014, a: 0}
+    - _SlopeParams: {r: 0.5, g: 4, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TranslucencyParams: {r: 1, g: 4, b: 0, a: 0}
     - _VertexColorMask: {r: 0, g: 0, b: 1, a: 0}

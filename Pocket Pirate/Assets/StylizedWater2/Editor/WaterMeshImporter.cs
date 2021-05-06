@@ -22,11 +22,11 @@ namespace StylizedWater2
             if (plane == null)
             {
                 plane = new WaterMesh();
-                mesh = plane.Create();
+                mesh = plane.Rebuild();
             }
             else
             {
-                mesh = plane.Create();
+                mesh = plane.Rebuild();
             }
 
             context.AddObjectToAsset("mesh", mesh);

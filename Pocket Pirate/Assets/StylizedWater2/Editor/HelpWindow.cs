@@ -288,7 +288,7 @@ namespace StylizedWater2
             }
             if (GUILayout.Button("<b><size=12>Twitter</size></b>\n<i>Follow developments</i>", UI.Styles.Button))
             {
-                Application.OpenURL("https://twitter.com/search?q=staggart%20creations");
+                Application.OpenURL("https://twitter.com/search?q=staggart%20creations&f=user");
             }
             if (GUILayout.Button("<b><size=12>Forum</size></b>\n<i>Join the discussion</i>", UI.Styles.Button))
             {

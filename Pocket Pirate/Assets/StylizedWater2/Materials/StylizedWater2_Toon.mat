@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CausticsTex:
-        m_Texture: {fileID: 2800000, guid: 744ff0bbd92e5bd41a70b5102327485b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36b7496f7c0078b49a44468d3e120e62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DepthTex:
@@ -94,10 +94,11 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CROSSPAN_INTERSECTIONOn: 0
-    - _CausticsBrightness: 2
+    - _CausticsBrightness: 1
     - _CausticsDistortion: 0.048
     - _CausticsOn: 1
-    - _CausticsTiling: 0.5
+    - _CausticsSpeed: 0.1
+    - _CausticsTiling: 0.26000023
     - _CrossPan_IntersectionOn: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -123,12 +124,12 @@ Material:
     - _HorizonDistance: 8
     - _IntersectionClipping: 1
     - _IntersectionFalloff: 0.637
-    - _IntersectionLength: 4.16
+    - _IntersectionLength: 2.72
     - _IntersectionRippleDist: 32
-    - _IntersectionRippleStrength: 0.309
+    - _IntersectionRippleStrength: 0.251
     - _IntersectionSize: 0.944
     - _IntersectionSource: 0
-    - _IntersectionSpeed: 0.05
+    - _IntersectionSpeed: -0.05
     - _IntersectionStyle: 1
     - _IntersectionTiling: 0.11000057
     - _IntersectionWaveDist: 41.4
@@ -137,6 +138,7 @@ Material:
     - _NORMALMAPOn: 1
     - _NormalMap: 1
     - _NormalMapOn: 1
+    - _NormalSpeed: 0.2
     - _NormalStrength: 0.353
     - _NormalTiling: 0.3300001
     - _OcclusionStrength: 1
@@ -146,6 +148,7 @@ Material:
     - _ReceiveShadows: 1
     - _ReflectionBlur: 0.013
     - _ReflectionDistortion: 0.075
+    - _ReflectionFresnel: 5
     - _ReflectionStrength: 0
     - _Reflectivity: 1
     - _RefractionAmount: 0.05
@@ -196,6 +199,7 @@ Material:
     - _IntersectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShallowColor: {r: 0, g: 1, b: 0.98136926, a: 0.8862745}
+    - _SlopeParams: {r: 0.5, g: 4, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TranslucencyParams: {r: 1, g: 4, b: 0, a: 0}
     - _VertexColorMask: {r: 0, g: 0, b: 0, a: 0}

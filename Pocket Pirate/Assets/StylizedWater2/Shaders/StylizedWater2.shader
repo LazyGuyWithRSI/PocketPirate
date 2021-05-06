@@ -14,12 +14,11 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 		//[Header(Feature switches)]
 		_DisableDepthTexture("Disable depth texture", Float) = 0
 		_AnimationParams("XY=Direction, Z=Speed", Vector) = (1,1,1,0)
-		//XY: Direction
-		//Z:  Speed
+		_SlopeParams("Slope (X=Stretch) (Y=Speed)", Vector) = (0.5, 4, 0, 0)
 		[MaterialEnum(Mesh UV,0,World XZ projected ,1)]_WorldSpaceUV("UV Source", Float) = 1
 
 		//[Header(Color)]
-		[HDR][MainColor]_BaseColor("Deep", Color) = (0, 0.44, 0.62, 1)
+		[HDR]_BaseColor("Deep", Color) = (0, 0.44, 0.62, 1)
 		[HDR]_ShallowColor("Shallow", Color) = (0.1, 0.9, 0.89, 0.02)
 		[HDR]_HorizonColor("Horizon", Color) = (0.84, 1, 1, 0.15)
 		_HorizonDistance("Horizon Distance", Range(0.01 , 32)) = 8
@@ -36,7 +35,7 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 		[Toggle(_CAUSTICS)] _CausticsOn("Caustics ON", Float) = 1
 		_CausticsBrightness("Brightness", Float) = 2
 		_CausticsTiling("Tiling", Float) = 0.5
-		_CausticsDistortion("Distortion", Range(0 , 1)) = 0.1
+		_CausticsSpeed("Speed multiplier", Float) = 0.1
 		[NoScaleOffset][SingleLineTexture]_CausticsTex("Caustics Mask", 2D) = "black" {}
 		
 		[Toggle(_REFRACTION)] _RefractionOn("_REFRACTION", Float) = 1
@@ -70,6 +69,13 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 		[NoScaleOffset][Normal][SingleLineTexture]_BumpMap("Normals", 2D) = "bump" {}
 		_NormalTiling("Tiling", Float) = 1
 		_NormalStrength("Strength", Range(0 , 1)) = 0.5
+		_NormalSpeed("Speed multiplier", Float) = 0.2
+		//X: Start
+		//Y: End
+		//Z: Tiling multiplier
+		_DistanceNormalParams("Distance normals", vector) = (100, 300, 0.25, 0)
+		[NoScaleOffset][Normal][SingleLineTexture]_BumpMapLarge("Normals (Distance)", 2D) = "bump" {}
+
 		_SparkleIntensity("Sparkle Intensity", Range(0 , 10)) = 00
 		_SparkleSize("Sparkle Size", Range( 0 , 1)) = 0.280
 
@@ -82,6 +88,7 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 		_ReflectionStrength("Strength", Range( 0 , 1)) = 0
 		_ReflectionDistortion("Distortion", Range( 0 , 1)) = 0.05
 		_ReflectionBlur("Blur", Range( 0 , 1)) = 0	
+		_ReflectionFresnel("Curvature mask", Range( 0.01 , 20)) = 5	
 		_PlanarReflectionLeft("Planar Reflections", 2D) = "" {} //Instanced
 		//_PlanarReflectionRight("Planar Reflections", 2D) = "" {} //Instanced
 		_PlanarReflectionsEnabled("Planar Enabled", float) = 0 //Instanced
@@ -95,6 +102,7 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 		_WaveHeight("Height", Range(0 , 10)) = 0.25
 		_WaveNormalStr("Normal Strength", Range(0 , 6)) = 0.5
 		_WaveDistance("Distance", Range(0 , 1)) = 0.8
+		_WaveFadeDistance("Fade Distance", vector) = (150, 300, 0, 0)
 		//_ShoreLineWaveStr("Shore line strength", Range(0 , 1)) = 0.5
 		//_ShoreLineWaveDistance("Shore wave distance", Range(1 , 256)) = 64
 		//_ShoreLineLength("Shore Length", Range(0.0 , 30)) = 2
@@ -112,9 +120,6 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 
 		//Instanced properties
 		_VertexColorMask ("Vertex color mask", vector) = (0,0,0,0)
-		//[NoScaleOffset][SingleLineTexture]_DepthTex("Baked Depth", 2D) = "black" {}
-		//[MaterialEnum(Camera Depth,0,Baked Texture,1,Vertex Color,2)] _DepthMode("Depth source", Float) = 0
-		//[HideInInspector]_DepthMapBounds("Depthmap bounds", vector) = (0,0,0,0)
 		
 		/* start CurvedWorld */
 		//[CurvedWorldBendSettings] _CurvedWorldBendSettings("0|1|1", Vector) = (0, 0, 0, 0)
@@ -133,7 +138,7 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 			Name "ForwardLit"
 			Tags { "LightMode"="UniversalForward" }
 			
-			Blend SrcAlpha OneMinusSrcAlpha , One OneMinusSrcAlpha
+			Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
 			ZWrite [_ZWrite]
 			Cull [_Cull]
 			ZTest LEqual
@@ -154,12 +159,11 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 			#pragma target 3.0
 			/* endifn Tesselation */
 			#pragma exclude_renderers d3d11_9x ps3 psp2 xbox360 gles n3ds wiiu
-
-			//#define UNDERWATER_ENABLED 1
 			
 			// Material Keywords
-			//Note: _fragment suffix fails to work on GLES. Keywords will always be stripped
+			//Note: _fragment suffix fails to work on GLES. Keywords would always be stripped
 			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _DISTANCE_NORMALS
 			#pragma shader_feature_local _WAVES
 			#pragma shader_feature_local _FOAM
 			#pragma shader_feature_local _UNLIT
@@ -174,14 +178,18 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 			#pragma shader_feature_local _DISABLE_DEPTH_TEX
 			#pragma shader_feature_local _SHARP_INERSECTION
 			#pragma shader_feature_local _SMOOTH_INTERSECTION
+			#pragma shader_feature_local _RIVER
+			
+			#if _RIVER
+			#undef _WAVES
+			#endif
+			
 			#if _DISABLE_DEPTH_TEX
 			#undef _CAUSTICS //Caustics require depth texture
 			#endif
+			
 			#if !_NORMALMAP && !_WAVES
 			#undef _REFRACTION
-			#endif
-			#if !_ADVANCED_SHADING
-			#define _SIMPLE_SHADING
 			#endif
 			
 			//Unity global keywords
@@ -199,14 +207,16 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 			/* end AtmosphericHeightFog */
 
 			//Defines
+			#define SHADERPASS_FORWARD
 			#if !defined(_DISABLE_DEPTH_TEX) || defined(_REFRACTION) || defined(_CAUSTICS)
 			#define SCREEN_POS
+			#endif
+			#if !_ADVANCED_SHADING
+			#define _SIMPLE_SHADING
 			#endif
 
 			#pragma vertex Vertex
 			#pragma fragment ForwardPassFragment
-
-			#define SHADERPASS_FORWARD
 
 			#include "Libraries/Pipeline.hlsl"
 			/* start Tesselation */
@@ -215,19 +225,26 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 			#include "Libraries/Input.hlsl"
 
 			/* start CurvedWorld */
-//#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
-//#define CURVEDWORLD_BEND_ID_1
-//#pragma shader_feature_local CURVEDWORLD_DISABLED_ON
-//#pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
-//#include "Assets/Amazing Assets/Curved World/Shaders/Core/CurvedWorldTransform.cginc"
+			//#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+			//#define CURVEDWORLD_BEND_ID_1
+			//#pragma shader_feature_local CURVEDWORLD_DISABLED_ON
+			//#pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
+			//#include "Assets/Amazing Assets/Curved World/Shaders/Core/CurvedWorldTransform.cginc"
 			/* end CurvedWorld */
 			
 			#include "Libraries/Common.hlsl"
 			#include "Libraries/Fog.hlsl"
 			#include "Libraries/Waves.hlsl"
+			//Fragment only
+			//#pragma multi_compile_local _ _UNDERWATER_ENABLED
+			#include "Libraries/UnderwaterShading.hlsl"
+			#include "Libraries/Lighting.hlsl"
+			#include "Libraries/Features.hlsl"
 			#define VERTEX_PASS
 			#include "Libraries/Vertex.hlsl"
 			#undef VERTEX_PASS
+			#include "Libraries/ForwardPass.hlsl"
+			
 			/* start Tesselation */
 //			#include "Libraries/Tesselation.hlsl"
 //			#pragma require tessellation tessHW
@@ -235,11 +252,6 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 //			#pragma domain DomainFunction
 			/* end Tesselation */
 			
-			//Fragment only
-			#include "Libraries/Normals.hlsl"
-			#include "Libraries/Lighting.hlsl"
-			#include "Libraries/Features.hlsl"
-			#include "Libraries/ForwardPass.hlsl"
 
 			Varyings Vertex(Attributes v)
 			{
@@ -248,6 +260,80 @@ Shader "Universal Render Pipeline/FX/Stylized Water 2"
 
 			ENDHLSL
 		}
+		
+		//Used solely in underwater rendering (prototype)
+		Pass
+        {
+            Name "DepthOnly"
+            //Tags{"LightMode" = "DepthOnly"}
+            Tags { "LightMode"="UniversalForward" }
+            
+            ZWrite On
+            //ColorMask RG
+            Cull Off
+
+            HLSLPROGRAM
+            // Required to compile gles 2.0 with standard srp library
+            #pragma prefer_hlslcc gles
+            #pragma exclude_renderers d3d11_9x
+            #pragma target 2.0
+            #pragma multi_compile_instancing
+
+            #pragma shader_feature_local _WAVES
+
+            #pragma vertex Vertex
+            #pragma fragment DepthOnlyFragment
+
+            #define SHADERPASS_DEPTHONLY
+
+            #include "Libraries/Pipeline.hlsl"
+            /* start Tesselation */
+//			#define TESSELLATION_ON
+            /* end Tesselation */
+            #include "Libraries/Input.hlsl"
+
+            /* start CurvedWorld */
+//#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+//#define CURVEDWORLD_BEND_ID_1
+//#pragma shader_feature_local CURVEDWORLD_DISABLED_ON
+//#pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
+//#include "Assets/Amazing Assets/Curved World/Shaders/Core/CurvedWorldTransform.cginc"
+            /* end CurvedWorld */
+
+            //#pragma multi_compile_local _UNDERWATER_ENABLED
+			#if defined(_UNDERWATER_ENABLED)
+            #define SCREEN_POS
+			#include "Libraries/UnderwaterShading.hlsl"
+			#endif
+
+            #include "Libraries/Common.hlsl"
+            #include "Libraries/Fog.hlsl"
+            #include "Libraries/Waves.hlsl"
+            #define VERTEX_PASS
+            #include "Libraries/Vertex.hlsl"
+            #undef VERTEX_PASS
+
+            Varyings Vertex(Attributes v)
+            {
+                return LitPassVertex(v);
+            }
+
+            half4 DepthOnlyFragment(Varyings input, FRONT_FACE_TYPE facing : FRONT_FACE_SEMANTIC) : SV_TARGET
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+            	float depth = input.positionCS.z;
+
+            	#if UNDERWATER_ENABLED
+				ClipSurface(input.screenPos / input.screenPos.w, input.positionCS.z, facing);
+				#endif
+
+                return float4(depth, facing, 0, 0);
+            }
+
+            ENDHLSL
+
+        }
 	}
 
 	CustomEditor "StylizedWater2.MaterialUI"

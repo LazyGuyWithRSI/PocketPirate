@@ -2,11 +2,18 @@
 //Staggart Creations (http://staggart.xyz)
 //Copyright protected under Unity Asset Store EULA
 
+//Schlick's BRDF fresnel
+float ReflectionFresnel(float3 worldNormal, float3 viewDir, float exponent)
+{
+	float cosTheta = saturate(dot(worldNormal, viewDir));
+	return pow(max(0.0, 1.0 - cosTheta), exponent);
+}
 
 float3 SampleReflections(float3 reflectionVector, float smoothness, float4 screenPos, float3 normal, float3 viewDir, float2 pixelOffset)
 {
 	float3 probe = saturate(GlossyEnvironmentReflection(reflectionVector, smoothness, 1.0));
 
+	#if !_RIVER //Planar reflections are pointless on curve surfaces, skip
 	screenPos.xy += pixelOffset.xy;
 	screenPos /= screenPos.w;
 
@@ -16,6 +23,9 @@ float3 SampleReflections(float3 reflectionVector, float smoothness, float4 scree
 	float4 planarLeft = SAMPLE_TEX(_PlanarReflectionLeft, sampler_PlanarReflectionLeft, screenPos.xy);
 	
 	return lerp(probe, planarLeft.rgb, planarLeft.a * planarMask * _PlanarReflectionsEnabled);
+	#else
+	return probe;
+	#endif
 }
 
 //Reusable for every light
@@ -69,10 +79,8 @@ float4 ApplyLighting(SurfaceData surfaceData, InputData inputData, TranslucencyD
 {
 	float4 finalColor = 0;
 
-	//Unlit
 #if _UNLIT
-	finalColor = float4(surfaceData.albedo.rgb + surfaceData.emission.rgb, surfaceData.alpha);
-	return finalColor;
+	return float4(surfaceData.albedo.rgb + surfaceData.emission.rgb, surfaceData.alpha);
 #else
 
 	Light mainLight = GetMainLight(inputData.shadowCoord);

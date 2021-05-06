@@ -17,7 +17,7 @@ namespace StylizedWater2
         public const string ASSET_ID = "170386";
         public const string ASSET_ABRV = "SWS2";
 
-        public const string INSTALLED_VERSION = "1.0.5";
+        public const string INSTALLED_VERSION = "1.0.9";
         public const string MIN_UNITY_VERSION = "2019.3.7f1";
         public const string MIN_URP_VERSION = "7.4.1";
 

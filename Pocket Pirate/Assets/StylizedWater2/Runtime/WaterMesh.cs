@@ -31,7 +31,7 @@ namespace StylizedWater2
         [Range(0f, 1f)]
         public float noise;
 
-        public Mesh Create()
+        public Mesh Rebuild()
         {
             switch (shape)
             {
@@ -40,6 +40,17 @@ namespace StylizedWater2
             }
 
             return null;
+        }
+
+        public static Mesh Create(Shape shape, float size, int subdivisions, float uvTiling)
+        {
+            WaterMesh waterMesh = new WaterMesh();
+            waterMesh.shape = Shape.Rectangle;
+            waterMesh.size = size;
+            waterMesh.subdivisions = subdivisions;
+            waterMesh.UVTiling = waterMesh.size;
+            
+            return waterMesh.Rebuild();
         }
 
         // Get the index of point number 'x' in circle number 'c'
@@ -135,6 +146,8 @@ namespace StylizedWater2
             Mesh m = new Mesh();
             m.name = "proceduralPlane";
 
+            size = Mathf.Max(1f, size);
+            
             int xCount = subdivisions + 1;
             int zCount = subdivisions + 1;
             int numTriangles = subdivisions * subdivisions * 6;
@@ -157,7 +170,7 @@ namespace StylizedWater2
             {
                 for (int x = 0; x < xCount; x++)
                 {
-                    vertices[index] = new Vector3(x * scaleX - (size *  0.5f), 0f, z * scaleY - (size *  0.5f));
+                    vertices[index] = new Vector3(x * scaleX - (size * 0.5f), 0f, z * scaleY - (size * 0.5f));
                     
                     UnityEngine.Random.InitState(z + x);
                     vertices[index].x += UnityEngine.Random.Range(-noise, noise);

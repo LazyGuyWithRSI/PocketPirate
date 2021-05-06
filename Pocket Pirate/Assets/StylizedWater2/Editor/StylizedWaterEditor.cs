@@ -9,6 +9,9 @@ using UnityEditor;
 using UnityEngine;
 #if URP
 using UnityEngine.Rendering.Universal;
+#if UNITY_2021_2_OR_NEWER
+using ForwardRendererData = UnityEngine.Rendering.Universal.UniversalRendererData;
+#endif
 #endif
 
 namespace StylizedWater2
@@ -56,22 +59,6 @@ namespace StylizedWater2
             SettingsService.OpenProjectSettings("Project/Graphics");
         }
         
-        public static bool TransparentShadowsEnabled()
-        {
-			#if URP
-            if (!UniversalRenderPipeline.asset) return false;
-
-            System.Reflection.BindingFlags bindings = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
-            ScriptableRendererData[] m_rendererDataList = (ScriptableRendererData[])typeof(UniversalRenderPipelineAsset).GetField("m_RendererDataList", bindings).GetValue(UniversalRenderPipeline.asset);
-
-            ForwardRendererData main = m_rendererDataList[0] as ForwardRendererData;
-
-            return main.shadowTransparentReceive;
-			#else
-			return true;
-			#endif
-        }
-
         public static void SelectForwardRenderer()
         {
 			#if URP
@@ -108,7 +95,7 @@ namespace StylizedWater2
         public class DWP2
         {
             private const string DataProviderName = "StylizedWaterDataProvider";
-
+            
             public static bool isInstalled;
             public static bool dataProviderUnlocked;
 
@@ -126,6 +113,10 @@ namespace StylizedWater2
                 {
                     isInstalled = true;
                     return true;
+                }
+                else
+                {
+                    isInstalled = false;
                 }
                 return false;
 

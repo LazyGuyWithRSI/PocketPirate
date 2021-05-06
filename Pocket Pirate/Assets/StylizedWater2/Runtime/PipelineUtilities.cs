@@ -8,7 +8,12 @@ using System.Reflection;
 using UnityEngine;
 #if URP
 using UnityEngine.Rendering.Universal;
+
+#if UNITY_2021_2_OR_NEWER
+using ForwardRendererData = UnityEngine.Rendering.Universal.UniversalRendererData;
 #endif
+#endif
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -36,6 +41,96 @@ namespace StylizedWater2
             Debug.LogError("PipelineUtilities.GetRenderer() cannot be called in a build, it requires AssetDatabase. References to renderers should be saved beforehand!");
             return null;
 #endif
+        }
+
+        public static void RefreshRendererList()
+        {
+            if (UniversalRenderPipeline.asset == null)
+            {
+                Debug.LogError("No pipeline is active, do not display UI that uses this function if it isn't!");
+            }
+            
+            ScriptableRendererData[] m_rendererDataList = (ScriptableRendererData[]) typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(UniversalRenderPipeline.asset);
+              
+            //Display names
+            _rendererDisplayList = new GUIContent[m_rendererDataList.Length+1];
+
+            int defaultIndex = GetDefaultRendererIndex(UniversalRenderPipeline.asset);
+            _rendererDisplayList[0] = new GUIContent($"Default ({(m_rendererDataList[defaultIndex].name)})");
+                    
+            for (int i = 1; i < _rendererDisplayList.Length; i++)
+            {
+                _rendererDisplayList[i] = new GUIContent($"{(i - 1).ToString()}: {(m_rendererDataList[i-1]).name}");
+            }
+            
+            //Indices
+            _rendererIndexList = new int[m_rendererDataList.Length+1];
+            for (int i = 0; i < _rendererIndexList.Length; i++)
+            {
+                _rendererIndexList[i] = i-1;
+            }
+        }
+
+        private static GUIContent[] _rendererDisplayList;
+        public static GUIContent[] rendererDisplayList
+        {
+            get
+            {
+                if (_rendererDisplayList == null) RefreshRendererList();
+                return _rendererDisplayList;
+            }
+            set
+            {
+                _rendererDisplayList = value;
+            }
+        }
+
+        private static int[] _rendererIndexList;
+        public static int[] rendererIndexList
+        {
+            get
+            {
+                if (_rendererIndexList == null) RefreshRendererList();
+                return _rendererIndexList;
+            }
+            set
+            {
+                _rendererIndexList = value;
+            }
+        }
+
+        /// <summary>
+        /// Given a renderer index, validates if there is actually a renderer at the index. Otherwise returns the index of the default renderer.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static int ValidateRenderer(int index)
+        {
+            if (UniversalRenderPipeline.asset)
+            {
+                int defaultRendererIndex = GetDefaultRendererIndex(UniversalRenderPipeline.asset);
+                ScriptableRendererData[] m_rendererDataList = (ScriptableRendererData[]) typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(UniversalRenderPipeline.asset);
+                
+                //-1 is used to indicate the default renderer
+                if (index == -1) index = defaultRendererIndex;
+
+                //Check if any renderer exists at the current index
+                if (!(index < m_rendererDataList.Length && m_rendererDataList[index] != null))
+                {
+                    Debug.LogWarning($"Renderer at <b>index {index.ToString()}</b> is missing, falling back to Default Renderer. <b>{m_rendererDataList[defaultRendererIndex].name}</b>", UniversalRenderPipeline.asset);
+                    return defaultRendererIndex;
+                }
+                else
+                {
+                    //Valid
+                    return index;
+                }
+            }
+            else
+            {
+                Debug.LogError("No Universal Render Pipeline is currently active.");
+                return 0;
+            }
         }
         
         /// <summary>
@@ -74,7 +169,6 @@ namespace StylizedWater2
             }
         }
         
-        
         /// <summary>
         /// Adds a ForwardRenderer to the pipeline asset in use
         /// </summary>
@@ -109,6 +203,11 @@ namespace StylizedWater2
             }
         }
 
+        private static int GetDefaultRendererIndex(UniversalRenderPipelineAsset asset)
+        {
+            return (int)typeof(UniversalRenderPipelineAsset).GetField("m_DefaultRendererIndex", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(asset);;
+        }
+
         /// <summary>
         /// Gets the renderer from the current pipeline asset that's marked as default
         /// </summary>
@@ -120,9 +219,7 @@ namespace StylizedWater2
                 ScriptableRendererData[] rendererDataList = (ScriptableRendererData[])typeof(UniversalRenderPipelineAsset)
                         .GetField(renderDataListFieldName, BindingFlags.NonPublic | BindingFlags.Instance)
                         .GetValue(UniversalRenderPipeline.asset);
-                int defaultRendererIndex = (int)typeof(UniversalRenderPipelineAsset)
-                    .GetField("m_DefaultRendererIndex", BindingFlags.NonPublic | BindingFlags.Instance)
-                    .GetValue(UniversalRenderPipeline.asset);
+                int defaultRendererIndex = GetDefaultRendererIndex(UniversalRenderPipeline.asset);
 
                 return rendererDataList[defaultRendererIndex];
             }
@@ -198,23 +295,25 @@ namespace StylizedWater2
 
             if (UniversalRenderPipeline.asset)
             {
-                BindingFlags bindings =
-                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+                BindingFlags bindings = BindingFlags.NonPublic | BindingFlags.Instance;
 
                 ScriptableRendererData[] m_rendererDataList =
                     (ScriptableRendererData[]) typeof(UniversalRenderPipelineAsset)
                         .GetField(renderDataListFieldName, bindings).GetValue(UniversalRenderPipeline.asset);
                 List<ScriptableRendererData> rendererDataList = new List<ScriptableRendererData>(m_rendererDataList);
 
-                if (rendererDataList.Contains(renderer)) rendererDataList.Remove((renderer));
-
-                typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, bindings)
-                    .SetValue(UniversalRenderPipeline.asset, rendererDataList.ToArray());
+                if (rendererDataList.Contains(renderer))
+                {
+                    rendererDataList.Remove(renderer);
+                    
+                    typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, bindings)
+                        .SetValue(UniversalRenderPipeline.asset, rendererDataList.ToArray());
 
 #if UNITY_EDITOR
-                EditorUtility.SetDirty(UniversalRenderPipeline.asset);
-                AssetDatabase.SaveAssets();
+                    EditorUtility.SetDirty(UniversalRenderPipeline.asset);
+                    AssetDatabase.SaveAssets();
 #endif
+                }
             }
             else
             {
@@ -234,7 +333,7 @@ namespace StylizedWater2
                 if (renderer)
                 {
                     //list is internal, so perform reflection workaround
-                    ScriptableRendererData[] rendererDataList = (ScriptableRendererData[])typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(UniversalRenderPipeline.asset);
+                    ScriptableRendererData[] rendererDataList = (ScriptableRendererData[])typeof(UniversalRenderPipelineAsset).GetField(renderDataListFieldName, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(UniversalRenderPipeline.asset);
 
                     for (int i = 0; i < rendererDataList.Length; i++)
                     {
@@ -246,6 +345,15 @@ namespace StylizedWater2
             {
                 Debug.LogError("No Universal Render Pipeline is currently active.");
             }
+        }
+        
+        public static bool TransparentShadowsEnabled()
+        {
+            if (!UniversalRenderPipeline.asset) return false;
+
+            ForwardRendererData main = (ForwardRendererData)GetDefaultRenderer();
+
+            return main ? main.shadowTransparentReceive : false;
         }
 #endif
     }

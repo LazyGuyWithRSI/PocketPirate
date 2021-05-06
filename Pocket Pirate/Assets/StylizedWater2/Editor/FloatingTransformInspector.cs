@@ -7,9 +7,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+#if UNITY_2021_2
+using PrefabStageUtility = UnityEditor.SceneManagement.PrefabStageUtility;
+#else
+using PrefabStageUtility = UnityEditor.Experimental.SceneManagement.PrefabStageUtility;
+#endif
 
 namespace StylizedWater2
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(FloatingTransform))]
     public class FloatingTransformInspector : Editor
     {
@@ -26,6 +32,8 @@ namespace StylizedWater2
         SerializedProperty samples;
 
         private bool editSamples;
+        private bool isRiver;
+        private bool wavesEnabled;
         
         private void OnEnable()
         {
@@ -38,6 +46,17 @@ namespace StylizedWater2
             heightOffset = serializedObject.FindProperty("heightOffset");
             rollAmount = serializedObject.FindProperty("rollAmount");
             samples = serializedObject.FindProperty("samples");
+            
+            //Auto fetch if there is only one water body in the scene
+            if (waterObject.objectReferenceValue == null && WaterObject.Instances.Count == 1)
+            {
+                serializedObject.Update();
+                waterObject.objectReferenceValue = WaterObject.Instances[0];
+                EditorUtility.SetDirty(target);
+                serializedObject.ApplyModifiedPropertiesWithoutUndo();
+            }
+            
+            ValidateMaterial();
         }
 
         private void OnDisable()
@@ -62,14 +81,10 @@ namespace StylizedWater2
 
             EditorGUI.BeginChangeCheck();
             
-            //Auto fetch if there is only one water body in the scene
-            if (waterObject.objectReferenceValue == null && WaterObject.Instances.Count == 1)
-            {
-                waterObject.objectReferenceValue = WaterObject.Instances[0];
-                EditorUtility.SetDirty(target);
-                serializedObject.ApplyModifiedPropertiesWithoutUndo();
-            }
             EditorGUILayout.PropertyField(waterObject);
+            
+            UI.DrawNotification(isRiver, "Material has river mode enabled, buoyancy only works for flat water bodies", MessageType.Error);
+            UI.DrawNotification(!wavesEnabled && !isRiver, "Material used on the water object does not have waves enabled.", MessageType.Error);
             
             if (script.waterObject && script.waterObject.material)
             {
@@ -78,7 +93,7 @@ namespace StylizedWater2
 
             if(waterObject.objectReferenceValue == null)
             {
-                UI.DrawNotification("A object must be assigned!", MessageType.Error);
+                UI.DrawNotification("A water object must be assigned!", MessageType.Error);
             }
             
             using (new EditorGUILayout.HorizontalScope())
@@ -96,56 +111,67 @@ namespace StylizedWater2
             EditorGUILayout.Space();
 
             EditorGUILayout.LabelField("Sample positions", EditorStyles.boldLabel);
-            
-            if (samples.arraySize > 0)
+
+            if (targets.Length > 1)
             {
-                editSamples =
-                    GUILayout.Toggle(editSamples,
-                        new GUIContent(" Edit samples", EditorGUIUtility.IconContent("sv_icon_dot0_pix16_gizmo").image),
-                        "Button", GUILayout.MaxWidth(125f), GUILayout.MaxHeight(30f));
+                EditorGUILayout.HelpBox("Cannot be modified for a multi-selection", MessageType.Info);
             }
-
-            if (script.samples != null)
+            else
             {
-                for (int i = 0; i < script.samples.Count; i++)
+                if (samples.arraySize > 0)
                 {
-                    using (new EditorGUILayout.HorizontalScope())
+                    editSamples =
+                        GUILayout.Toggle(editSamples,
+                            new GUIContent(" Edit samples", EditorGUIUtility.IconContent("sv_icon_dot0_pix16_gizmo").image),
+                            "Button", GUILayout.MaxWidth(125f), GUILayout.MaxHeight(30f));
+                }
+                else
+                {
+                    EditorGUILayout.HelpBox("No sample positions added. The transform's pivot position is used", MessageType.None);
+                }
+
+                if (script.samples != null)
+                {
+                    for (int i = 0; i < script.samples.Count; i++)
                     {
-                        EditorGUILayout.LabelField(i.ToString() + ":", GUILayout.MaxWidth(40f));
-                        EditorGUI.BeginChangeCheck();
-                        script.samples[i] = EditorGUILayout.Vector3Field("", script.samples[i]);
-                        if (EditorGUI.EndChangeCheck())
+                        using (new EditorGUILayout.HorizontalScope())
                         {
-                            EditorUtility.SetDirty(target);
-                        }
+                            EditorGUILayout.LabelField(i.ToString() + ":", GUILayout.MaxWidth(40f));
+                            EditorGUI.BeginChangeCheck();
+                            script.samples[i] = EditorGUILayout.Vector3Field("", script.samples[i]);
+                            if (EditorGUI.EndChangeCheck())
+                            {
+                                EditorUtility.SetDirty(target);
+                            }
 
-                        if (GUILayout.Button(new GUIContent("",
-                            EditorGUIUtility.IconContent("d_TreeEditor.Trash").image, "Delete item")))
-                        {
-                            script.samples.RemoveAt(i);
-                            selectedSampleIndex = -1;
-							
-							EditorUtility.SetDirty(target);
-                        }
+                            if (GUILayout.Button(new GUIContent("",
+                                EditorGUIUtility.IconContent("d_TreeEditor.Trash").image, "Delete item")))
+                            {
+                                script.samples.RemoveAt(i);
+                                selectedSampleIndex = -1;
 
+                                EditorUtility.SetDirty(target);
+                            }
+
+                        }
+                    }
+                }
+
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    GUILayout.FlexibleSpace();
+                    if (GUILayout.Button(new GUIContent("Add", EditorGUIUtility.IconContent(EditorGUIUtility.isProSkin ? "d_Toolbar Plus" : "Toolbar Plus").image)))
+                    {
+                        if (script.samples == null) script.samples = new List<Vector3>();
+
+                        script.samples.Add(Vector3.zero);
+                        selectedSampleIndex = script.samples.Count - 1;
+
+                        EditorUtility.SetDirty(target);
                     }
                 }
             }
 
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                GUILayout.FlexibleSpace();
-                if (GUILayout.Button(new GUIContent("Add", EditorGUIUtility.IconContent(EditorGUIUtility.isProSkin ? "d_Toolbar Plus" : "Toolbar Plus").image)))
-                {
-                    if(script.samples == null) script.samples = new List<Vector3>();
-                    
-                    script.samples.Add(Vector3.zero);
-                    selectedSampleIndex = script.samples.Count-1;
-					
-					EditorUtility.SetDirty(target);
-                }
-            }
-            
             EditorGUILayout.PropertyField(childTransform);
             if (childTransform.objectReferenceValue == null && samples.arraySize > 0)
                 UI.DrawNotification("Assign a transform to rotate/scale the sample positions with");
@@ -153,9 +179,22 @@ namespace StylizedWater2
             if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();
+
+                ValidateMaterial();
             }
             
             UI.DrawFooter();
+        }
+
+        private void ValidateMaterial()
+        {
+            if (script.waterObject && script.waterObject.material)
+            {
+                if (script.waterObject.material != script.waterObject.meshRenderer.sharedMaterial) script.waterObject.material = script.waterObject.meshRenderer.sharedMaterial;
+                
+                wavesEnabled = WaveParameters.WavesEnabled(script.waterObject.material);
+                isRiver = script.waterObject.material.IsKeywordEnabled("_RIVER");
+            }
         }
 
         private int selectedSampleIndex;
@@ -164,7 +203,9 @@ namespace StylizedWater2
 
         private void OnSceneGUI()
         {
-            FloatingTransform.Disable = UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null || editSamples;
+            if (!script) return;
+            
+            FloatingTransform.Disable = PrefabStageUtility.GetCurrentPrefabStage() != null || editSamples;
             
             if (editSamples)
             {

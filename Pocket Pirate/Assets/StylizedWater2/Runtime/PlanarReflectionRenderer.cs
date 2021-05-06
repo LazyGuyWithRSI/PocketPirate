@@ -27,17 +27,23 @@ namespace StylizedWater2
         private const string ForwardRendererDataGUID = "9769b595a3a38a342bc60810360664f8";
         #endif
 
-        [Header("Rendering")] 
-        [Tooltip("Set the layers that should be rendered into the reflection. The Water layer is always excluded")]
+        //Rendering
+        [Tooltip("Set the layers that should be rendered into the reflection. The \"Water\" layer is always excluded")]
         public LayerMask cullingMask = -1;
+        [Tooltip("The renderer used by the reflection camera. It's recommend to create a separate renderer, so any custom render features aren't executed for the reflection")]
+        public int rendererIndex = -1;
 #if RENDER_FEATURE
         public uint renderingLayerMask = 0xFFFFFFFF;
 #endif
         public float offset = 0.05f;
+        [Tooltip("When disabled, the skybox reflection comes from a Reflection Probe. This has the benefit of being omni-directional rather than flat/planar. Enabled this to render the skybox into the planar reflection anyway")]
+        public bool includeSkybox;
 
-        [Header("Quality")] 
+        //Quality
+        [Tooltip("Objects beyond this range aren't rendered into the reflection. Note that this may causes popping for large/tall objects.")]
 		public float renderRange = 500f;
         [Range(0.25f, 1f)] 
+        [Tooltip("A multiplier for the rendering resolution, based on the current screen resolution")]
 		public float renderScale = 0.75f;
 #if RENDER_FEATURE
         [Range(0, 8)]
@@ -45,7 +51,6 @@ namespace StylizedWater2
         public bool vertexLights = true;
 #endif
         
-        [Header("Affected water meshes")]
         [SerializeField]
         public List<WaterObject> waterObjects = new List<WaterObject>();
         [HideInInspector]
@@ -54,6 +59,7 @@ namespace StylizedWater2
         private Camera reflectionCamera;
         private static RenderTexture currentBuffer;
         private float m_renderScale = 1f;
+        private float m_renderRange;
         private static bool m_reflectionsEnabled;
         public static bool ReflectionsEnabled { get { return m_reflectionsEnabled; } }
         private static int _PlanarReflectionsEnabledID = Shader.PropertyToID("_PlanarReflectionsEnabled");
@@ -71,7 +77,8 @@ namespace StylizedWater2
             }
 #endif
 
-            m_renderScale = renderScale;
+            InitializeValues();
+
             Instances.Add(this);
             EnableReflections();
         }
@@ -82,16 +89,25 @@ namespace StylizedWater2
             DisableReflections();
         }
 
+        public void InitializeValues()
+        {
+            m_renderScale = renderScale;
+            m_renderRange = renderRange;
+        }
+
         /// <summary>
         /// Toggle reflections or set the render scale for all reflection renderers. This can be tied into performance scaling or graphics settings in menus
         /// </summary>
-        /// <param name="enableReflections"></param>
-        /// <param name="renderScale"></param>
-        public static void SetQuality(bool enableReflections, float renderScale)
+        /// <param name="enableReflections">Toggles rendering of reflections, and toggles it on all the assigned water objects</param>
+        /// <param name="renderScale">A multiplier for the current screen resolution. Note that the render scale configured in URP is also taken into account</param>
+        /// <param name="renderRange">Objects beyond this range aren't rendered into the reflection</param>
+        public static void SetQuality(bool enableReflections, float renderScale = -1f, float renderRange = -1f)
         {
             foreach (PlanarReflectionRenderer renderer in Instances)
             {
-                renderer.renderScale = renderScale;
+                if (renderScale > 0) renderer.renderScale = renderScale;
+                if (renderRange > 0) renderer.renderRange = renderRange;
+                renderer.InitializeValues();
 
                 if (enableReflections) renderer.EnableReflections();
                 if (!enableReflections) renderer.DisableReflections();
@@ -130,33 +146,43 @@ namespace StylizedWater2
             reflectionCameras.Clear();
         }
 
-        private void OnValidate()
-        {
-            RecalculateBounds();
-            ToggleMaterialReflectionSampling(true);
-        }
-
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawWireCube(bounds.center, bounds.size);
         }
 
-        public void RecalculateBounds()
+        public Bounds CalculateBounds()
         {
-            if (waterObjects == null) return;
+            Bounds m_bounds = new Bounds(Vector3.zero, Vector3.zero);
+            
+            if (waterObjects == null) return m_bounds;
+            if (waterObjects.Count == 0) return m_bounds;
 
-            bounds = new Bounds(Vector3.zero, Vector3.zero);
+            if (waterObjects.Count == 1) return waterObjects[0].meshRenderer.bounds;
 
-            if (waterObjects.Count == 1)
-            {
-                bounds = waterObjects[0].meshRenderer.bounds;
-                return;
-            }
-
+            Vector3 minSum = Vector3.one * Mathf.Infinity;
+            Vector3 maxSum = Vector3.one * Mathf.NegativeInfinity;
+            
             for (int i = 0; i < waterObjects.Count; i++)
             {
-                if (waterObjects[i]) bounds.Encapsulate(waterObjects[i].meshRenderer.bounds);
+                if (!waterObjects[i]) continue;
+                    
+                //World-space bounds corners
+                Vector3 min = waterObjects[i].meshRenderer.bounds.min;
+                Vector3 max = waterObjects[i].meshRenderer.bounds.max;
+
+                if (max.x > maxSum.x || max.y > maxSum.y || max.z > maxSum.z) maxSum = max;
+                if (min.x < minSum.x || min.y < minSum.y || min.z < minSum.z) minSum = min;
             }
+            
+            m_bounds.SetMinMax(minSum, maxSum);
+            
+            return m_bounds;
+        }
+
+        public void RecalculateBounds()
+        {
+            bounds = CalculateBounds();
         }
 
         private void OnWillRenderCamera(ScriptableRenderContext context, Camera camera)
@@ -203,6 +229,7 @@ namespace StylizedWater2
             //Screen pos outside of frustrum
             if (Vector3.Dot(Vector3.forward, reflectionCamera.transform.forward) > 0.9999f) return;
 #endif
+            reflectionCamera.clearFlags = includeSkybox ? CameraClearFlags.Skybox : CameraClearFlags.Depth;
             
             GL.invertCulling = true;
             UniversalRenderPipeline.RenderSingleCamera(context, reflectionCamera);
@@ -218,6 +245,23 @@ namespace StylizedWater2
             return Mathf.Clamp(renderScale * UniversalRenderPipeline.asset.renderScale, 0.25f, 1f);
         }
 
+        /// <summary>
+        /// Should the renderer index be changed at runtime, this function must be called to update any reflection cameras
+        /// </summary>
+        /// <param name="index"></param>
+        public void SetRendererIndex(int index)
+        {
+            index = PipelineUtilities.ValidateRenderer(index);
+
+            foreach (var kvp in reflectionCameras)
+            {
+                if (kvp.Value == null) continue;
+                
+                cameraData = kvp.Value.GetComponent<UniversalAdditionalCameraData>();
+                cameraData.SetRenderer(index);
+            }
+        }
+
         private void CreateReflectionCamera(Camera source)
         {
             GameObject go = new GameObject(source.name + "_reflection_left");
@@ -231,13 +275,17 @@ namespace StylizedWater2
             newCamera.depth = -99f;
             newCamera.rect = new Rect(0,0,1,1);
             newCamera.enabled = false;
-            newCamera.clearFlags = CameraClearFlags.Depth;
+            newCamera.clearFlags = includeSkybox ? CameraClearFlags.Skybox : CameraClearFlags.Depth;
             newCamera.useOcclusionCulling = false;
 
             UniversalAdditionalCameraData data = newCamera.gameObject.AddComponent<UniversalAdditionalCameraData>();
-            data.requiresDepthTexture = false;
+            data.requiresDepthTexture = true;
             data.requiresColorTexture = false;
             data.renderShadows = false;
+
+            rendererIndex = PipelineUtilities.ValidateRenderer(rendererIndex);
+            data.SetRenderer(rendererIndex);
+            
 #if RENDER_FEATURE
             cameraLeft.cullingMask = 0;
             data.SetRenderer(1);
@@ -253,11 +301,11 @@ namespace StylizedWater2
             reflectionCameras[source] = newCamera;
         }
 
-        private static Plane[] frustrumPlanes = new Plane[6];
+        private static readonly Plane[] frustrumPlanes = new Plane[6];
         
         public bool IsVisible(Camera camera)
         {
-            GeometryUtility.CalculateFrustumPlanes(camera.projectionMatrix, frustrumPlanes);
+            GeometryUtility.CalculateFrustumPlanes(camera.projectionMatrix * camera.worldToCameraMatrix, frustrumPlanes);
 
             return GeometryUtility.TestPlanesAABB(frustrumPlanes, bounds);
         }
@@ -303,7 +351,7 @@ namespace StylizedWater2
         private static Matrix4x4 viewMatrix;
         private static Matrix4x4 projectionMatrix;
         private static Vector4 clipPlane;
-        private static float[] layerCullDistances = new float[32];
+        private static readonly float[] layerCullDistances = new float[32];
         
         private void UpdatePerspective(Camera source, Camera reflectionCamera)
         {
@@ -339,10 +387,16 @@ namespace StylizedWater2
 #else
             //reflectionCamera.cullingMask = 0;
 #endif
-            
-            for (int i = 0; i < layerCullDistances.Length; i++)
+
+            //Only re-apply on value change
+            if (m_renderRange != renderRange)
             {
-                layerCullDistances[i] = renderRange;
+                m_renderRange = renderRange;
+                
+                for (int i = 0; i < layerCullDistances.Length; i++)
+                {
+                    layerCullDistances[i] = renderRange;
+                }
             }
             
             reflectionCamera.projectionMatrix = projectionMatrix;

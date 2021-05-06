@@ -29,6 +29,8 @@ namespace StylizedWater2
         public Transform childTransform;
 
         public float heightOffset;
+        [Min(0)]
+        [Tooltip("Controls how strongly the transform should rotate to align with the wave curvature")]
         public float rollAmount = 0.1f;
 
         public List<Vector3> samples;
@@ -84,14 +86,14 @@ namespace StylizedWater2
             height = 0f;
             if (samples == null || samples.Count == 0)
             {
-                height = Buoyancy.SampleWaves(this.transform.position, waterObject.material, m_waterLevel - heightOffset, rollAmount, out normal);
+                height = Buoyancy.SampleWaves(this.transform.position, waterObject.material, m_waterLevel - heightOffset, rollAmount, false, out normal);
             }
             else
             {
                 Vector3 avgNormal = Vector3.zero;
                 for (int i = 0; i < samples.Count; i++)
                 {
-                    height += Buoyancy.SampleWaves(ConvertToWorldSpace(samples[i]), waterObject.material, m_waterLevel - heightOffset, rollAmount, out normal);
+                    height += Buoyancy.SampleWaves(ConvertToWorldSpace(samples[i]), waterObject.material, m_waterLevel - heightOffset, rollAmount, false, out normal);
                     avgNormal += normal;
                 }
 
@@ -104,7 +106,7 @@ namespace StylizedWater2
 
         private void ApplyTransform()
         {
-            this.transform.up = normal;
+            if(rollAmount > 0) this.transform.up = normal;
             this.transform.position = new Vector3(this.transform.position.x, height, this.transform.position.z);
         }
         

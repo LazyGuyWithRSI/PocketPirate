@@ -5,9 +5,8 @@
 TEXTURE2D(_IntersectionNoise);
 SAMPLER(sampler_IntersectionNoise);
 TEXTURE2D(_CausticsTex);
+SAMPLER(sampler_CausticsTex);
 TEXTURE2D(_DepthTex);
-TEXTURE2D(_FoamTex);
-SAMPLER(sampler_FoamTex);
 TEXTURE2D(_PlanarReflectionLeft);
 SAMPLER(sampler_PlanarReflectionLeft);
 TEXTURE2D(_PlanarReflectionRight);
@@ -22,6 +21,8 @@ CBUFFER_START(UnityPerMaterial)
 	float _DepthExp;
 	float _WorldSpaceUV;
 	float _NormalTiling;
+	float _NormalSpeed;
+	half4 _DistanceNormalParams;
 	half _NormalStrength;
 	half4 _TranslucencyParams;
 	half _EdgeFade;
@@ -35,16 +36,18 @@ CBUFFER_START(UnityPerMaterial)
 	float _SunReflectionStrength;
 	float _ReflectionDistortion;
 	float _ReflectionBlur;
+	float _ReflectionFresnel;
 	float _ReflectionStrength;
 	half _PlanarReflectionsParams;
 	half _PlanarReflectionsEnabled;
 	half _ShadowStrength;
-	half4 _AnimationParams;
+	float4 _AnimationParams;
+	float4 _SlopeParams;
 
 	//Foam
-	half _FoamTiling;
+	float _FoamTiling;
 	float4 _FoamColor;
-	half _FoamSpeed;
+	float _FoamSpeed;
 	half _FoamSize;
 	half _FoamWaveMask;
 	half _FoamWaveMaskExp;
@@ -57,13 +60,14 @@ CBUFFER_START(UnityPerMaterial)
 	half _IntersectionRippleDist;
 	half _IntersectionRippleStrength;
 	half _IntersectionClipping;
-	half _IntersectionSpeed;
+	float _IntersectionSpeed;
 
 	//Waves
 	half _WaveHeight;
 	half _WaveNormalStr;
-	half _WaveDistance;
-	half _WaveSteepness;
+	float _WaveDistance;
+	half4 _WaveFadeDistance;
+	float _WaveSteepness;
 	uint _WaveCount;
 	half4 _WaveDirection;
 
@@ -73,18 +77,15 @@ CBUFFER_START(UnityPerMaterial)
 
 	//Underwater
 	half _CausticsBrightness;
-	half _CausticsTiling;
-	half _CausticsDistortion;
+	float _CausticsTiling;
+	half _CausticsSpeed;
 	half _RefractionStrength;
 
 	half4 _VertexColorMask;
-	half _DepthMode;
-	float4 _DepthMapBounds;
 	half _WaveTint;
 #ifdef TESSELLATION_ON	
 	float _TessValue;
 	float _TessMin;
 	float _TessMax;
-
 #endif
 CBUFFER_END

@@ -1,4 +1,4 @@
-﻿//Stylized Grass Shader
+﻿//Stylized Water 2
 //Staggart Creations (http://staggart.xyz)
 //Copyright protected under Unity Asset Store EULA
 
@@ -22,7 +22,8 @@ namespace StylizedWater2
             UnityFog,
             Enviro,
             Azure,
-            AtmosphericHeightFog
+            AtmosphericHeightFog,
+            SCPostEffects
         }
 
         public static FogConfiguration CurrentFogConfiguration
@@ -45,6 +46,7 @@ namespace StylizedWater2
             if(config == FogConfiguration.Enviro) ConfigureEnviroFog();
             if(config == FogConfiguration.Azure) ConfigureAzureFog();
             if(config == FogConfiguration.AtmosphericHeightFog) ConfigureAtmosphericHeightFog();
+            if(config == FogConfiguration.SCPostEffects) ConfigureSCPEFog();
         }
 
         private struct CodeBlock
@@ -69,6 +71,7 @@ namespace StylizedWater2
                 ToggleCodeBlock(FogLibraryFilePath, "Enviro", false);
                 ToggleCodeBlock(FogLibraryFilePath, "Azure", false);
                 ToggleCodeBlock(FogLibraryFilePath, "AtmosphericHeightFog", false);
+                ToggleCodeBlock(FogLibraryFilePath, "SCPE", false);
 
                 //multi_compile keyword
                 ToggleCodeBlock(ShaderFilePath, "UnityFog", true);
@@ -78,7 +81,7 @@ namespace StylizedWater2
             EditorUtility.ClearProgressBar();
 
             CurrentFogConfiguration = FogConfiguration.UnityFog;
-            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " rendering");
+            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " fog rendering");
         }
         
         public static void ConfigureEnviroFog()
@@ -91,6 +94,7 @@ namespace StylizedWater2
                 ToggleCodeBlock(FogLibraryFilePath, "Enviro", true);
                 ToggleCodeBlock(FogLibraryFilePath, "Azure", false);
                 ToggleCodeBlock(FogLibraryFilePath, "AtmosphericHeightFog", false);
+                ToggleCodeBlock(FogLibraryFilePath, "SCPE", false);
 
                 //multi_compile keyword
                 ToggleCodeBlock(ShaderFilePath, "UnityFog", false);
@@ -100,7 +104,7 @@ namespace StylizedWater2
             EditorUtility.ClearProgressBar();
 
             CurrentFogConfiguration = FogConfiguration.Enviro;
-            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " rendering");
+            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " fog rendering");
         }
         
         public static void ConfigureAzureFog()
@@ -113,6 +117,7 @@ namespace StylizedWater2
                 ToggleCodeBlock(FogLibraryFilePath, "Enviro", false);
                 ToggleCodeBlock(FogLibraryFilePath, "Azure", true);
                 ToggleCodeBlock(FogLibraryFilePath, "AtmosphericHeightFog", false);
+                ToggleCodeBlock(FogLibraryFilePath, "SCPE", false);
 
                 //multi_compile keyword
                 ToggleCodeBlock(ShaderFilePath, "UnityFog", false);
@@ -123,7 +128,7 @@ namespace StylizedWater2
             EditorUtility.ClearProgressBar();
 
             CurrentFogConfiguration = FogConfiguration.Azure;
-            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " rendering");
+            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " fog rendering");
         }
         
         public static void ConfigureAtmosphericHeightFog()
@@ -136,7 +141,8 @@ namespace StylizedWater2
                 ToggleCodeBlock(FogLibraryFilePath, "Enviro", false);
                 ToggleCodeBlock(FogLibraryFilePath, "Azure", false);
                 ToggleCodeBlock(FogLibraryFilePath, "AtmosphericHeightFog", true);
-                
+                ToggleCodeBlock(FogLibraryFilePath, "SCPE", false);
+
                 //multi_compile keyword
                 ToggleCodeBlock(ShaderFilePath, "UnityFog", false);
                 ToggleCodeBlock(ShaderFilePath, "AtmosphericHeightFog", true);
@@ -145,7 +151,30 @@ namespace StylizedWater2
             EditorUtility.ClearProgressBar();
 
             CurrentFogConfiguration = FogConfiguration.AtmosphericHeightFog;
-            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " rendering");
+            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " fog rendering");
+        }
+
+        public static void ConfigureSCPEFog()
+        {
+            RefreshShaderFilePaths();
+
+            EditorUtility.DisplayProgressBar("Stylized Water 2", "Modifying shader...", 1f);
+            {
+                ToggleCodeBlock(FogLibraryFilePath, "UnityFog", false);
+                ToggleCodeBlock(FogLibraryFilePath, "Enviro", false);
+                ToggleCodeBlock(FogLibraryFilePath, "Azure", false);
+                ToggleCodeBlock(FogLibraryFilePath, "AtmosphericHeightFog", false);
+                ToggleCodeBlock(FogLibraryFilePath, "SCPE", true);
+                
+                //multi_compile keyword
+                ToggleCodeBlock(ShaderFilePath, "UnityFog", false);
+                ToggleCodeBlock(ShaderFilePath, "AtmosphericHeightFog", false);
+
+            }
+            EditorUtility.ClearProgressBar();
+
+            CurrentFogConfiguration = FogConfiguration.SCPostEffects;
+            Debug.Log("Shader file modified to use " + CurrentFogConfiguration + " fog rendering");
         }
 
         //TODO: Process multiple keywords in one read/write pass

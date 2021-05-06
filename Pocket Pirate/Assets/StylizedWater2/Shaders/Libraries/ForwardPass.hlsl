@@ -2,14 +2,12 @@
 //Staggart Creations (http://staggart.xyz)
 //Copyright protected under Unity Asset Store EULA
 
-float4x4 _SunProjection;
+//#define RESAMPLE_REFRACTION_DEPTH
 
-#define UP_VECTOR float3(0,1,0)
-
-//Note: Throws an error about a BLENDWEIGHTS vertex attribute on GLES when VR is enabled
+//Note: Throws an error about a BLENDWEIGHTS vertex attribute on GLES when VR is enabled (fixed in URP 10+)
 //Possibly related to: https://issuetracker.unity3d.com/issues/oculus-a-non-system-generated-input-signature-parameter-blendindices-cannot-appear-after-a-system-generated-value
-#if UNDERWATER_ENABLED
-half4 ForwardPassFragment(Varyings input, FRONT_FACE_TYPE facing : FRONT_FACE_SEMANTIC) : SV_Target
+#if _UNDERWATER_ENABLED
+half4 ForwardPassFragment(Varyings input, FRONT_FACE_TYPE vFace : FRONT_FACE_SEMANTIC) : SV_Target
 #else
 half4 ForwardPassFragment(Varyings input) : SV_Target
 #endif
@@ -20,15 +18,16 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	float3 finalColor = 0;
 	float alpha = 1;
 
+	float facing = 1.0;
 	//0 = back face
-	#if UNDERWATER_ENABLED
-	facing = IS_FRONT_VFACE(facing, true, false);
-	//finalColor = lerp(float3(1,0,0), float3(0,1,0), IS_FRONT_VFACE(facing, true, false));
+	#if _UNDERWATER_ENABLED
+	facing = IS_FRONT_VFACE(vFace, true, false);
+	//finalColor = lerp(float3(1,0,0), float3(0,1,0), IS_FRONT_VFACE(vFace, true, false));
 	//return float4(finalColor.rgb, 1);
 	#endif
 	
-	float4 vertexColor = GetVertexColor(input.color, _VertexColorMask);
-	//return float4(vertexColor.rgb, 1);
+	float4 vertexColor = input.color; //Mask already applied in vertex shader
+	//return float4(vertexColor.bbb, 1);
 
 	//Vertex normal in world-space
 	float3 normalWS = normalize(input.normal.xyz);
@@ -52,14 +51,20 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 
 	//Returns mesh or world-space UV
 	float2 uv = GetSourceUV(input.uv.xy, wPos.xz, _WorldSpaceUV);
-	
+	float2 flowMap = float2(1, 1);
+
+	half slope = 0;
+	#if _RIVER
+	slope = GetSlopeInverse(normalWS);
+	//return float4(slope, slope, slope, 1);
+	#endif
+
 	// Waves
-	//----------
 	float height = 0;
 
 	float3 waveNormal = normalWS;
 #if _WAVES
-	WaveInfo waves = GetWaveInfo(uv, TIME * _WaveSpeed);
+	WaveInfo waves = GetWaveInfo(uv, TIME * _WaveSpeed, _WaveFadeDistance.x, _WaveFadeDistance.y);
 	#if !_FLAT_SHADING
 		//Flatten by blue vertex color weight
 		waves.normal = lerp(waves.normal, normalWS, lerp(0, 1, vertexColor.b));
@@ -93,41 +98,37 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	#endif
 
 	//Normals
-//---------------------
 	float3 NormalsCombined = float3(0.5, 0.5, 1);
 	float3 worldTangentNormal = waveNormal;
-
+	
 #if _NORMALMAP
-	float4 nUV = PackedUV(uv * _NormalTiling, TIME, _WaveSpeed * 0.1);
-	NormalsCombined = SampleNormals(nUV);
-	//float4 NormalsMod = SampleNormalModifier(wPos);
-	//NormalsCombined = lerp(NormalsCombined, NormalsMod.rgb, NormalsMod.a);
+	NormalsCombined = SampleNormals(uv * _NormalTiling, wPos, TIME, flowMap, _NormalSpeed, slope);
+	//return float4((NormalsCombined.x * 0.5 + 0.5), (NormalsCombined.y * 0.5 + 0.5), 1, 1);
 
-	//#if !_FLAT_SHADING //Skip, not a good fit
 	worldTangentNormal = normalize(TransformTangentToWorld(NormalsCombined, half3x3(WorldTangent, WorldBiTangent, waveNormal)));
-	//#endif
 #endif
 
 #ifdef SCREEN_POS
 	float4 ScreenPos = input.screenPos;
-	//ScreenPos.z = (UNITY_NEAR_CLIP_VALUE >= 0) ? ScreenPos.z : ScreenPos.z * 0.5 + 0.5;
 #else
 	float4 ScreenPos = 0;
 #endif
-#if _REFRACTION
-	float4 refractedScreenPos = ScreenPos.xyzw + (float4(worldTangentNormal.xy, 0, 0) * (_RefractionStrength * 0.1));
-#endif
-
-	DepthData depth = SampleDepth(ScreenPos, wPos);
+	
 	//return float4(depth.linear01, depth.linear01, depth.linear01, 1);
+
+	#if _REFRACTION
+	float4 refractedScreenPos = ScreenPos.xyzw + (float4(worldTangentNormal.xy, 0, 0) * (_RefractionStrength * 0.1));
+	#endif
 
 	float3 opaqueWorldPos = wPos;
 	float opaqueDist = 1;
 	float aborptionDist = opaqueDist;
+	
 #if !_DISABLE_DEPTH_TEX
+	DepthData depth = SampleDepth(ScreenPos, wPos);
 	opaqueWorldPos = ReconstructViewPos(ScreenPos, viewDir, depth);
 	//return float4(frac(opaqueWorldPos.xyz), 1);
-	//
+
 	//Invert normal when viewing backfaces
 	float normalSign = ceil(dot(viewDirNorm, normalWS));
 	normalSign = normalSign == 0 ? -1 : 1;
@@ -135,49 +136,56 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	opaqueDist = DepthDistance(wPos, opaqueWorldPos, normalWS * normalSign);
 	//return float4(opaqueDist,opaqueDist,opaqueDist,1);
 	
-	#if _ADVANCED_SHADING && _REFRACTION
-	//Double sample depth to avoid depth discrepancies
-	//DepthData depthRefracted = SampleDepth(refractedScreenPos, wPos);
-	//float3 opaqueWorldPosRefracted = ReconstructViewPos(refractedScreenPos, viewDir, depthRefracted);
-	//aborptionDist = DepthDistance(wPos, opaqueWorldPosRefracted, normalWS);
+#if _ADVANCED_SHADING && _REFRACTION
+	DepthData depthRefracted = SampleDepth(refractedScreenPos, wPos);
+	float3 opaqueWorldPosRefracted = ReconstructViewPos(refractedScreenPos, viewDir, depthRefracted);
+
+	//Reject any offset pixels above water
+	float refractionMask = saturate((wPos - opaqueWorldPosRefracted).y);
+	//return float4(refractionMask.xxx, 1.0);
+	refractedScreenPos = lerp(ScreenPos, refractedScreenPos, refractionMask);
+	
+	//Double sample depth to avoid depth discrepancies (though this doesn't always offer the best result)
+	#ifdef RESAMPLE_REFRACTION_DEPTH
+	aborptionDist = DepthDistance(wPos, opaqueWorldPosRefracted, normalWS);
+	#else
 	aborptionDist = opaqueDist;
+	#endif
+	
 #else
 	aborptionDist = opaqueDist;
 #endif
-#endif
-
-#if _ADVANCED_SHADING && _REFRACTION
-	//Reject any offset pixels above water
-	float refractionMask = saturate(wPos.y - opaqueWorldPos.y);
-	//return float4(refractionMask,refractionMask,refractionMask,1);
-	
-	#if UNDERWATER_ENABLED
-	refractionMask *= facing;
-	#endif
-	refractedScreenPos = lerp(ScreenPos, refractedScreenPos, refractionMask);
 #endif
 
 	float AbsorptionDepth = 1;
 #if !_DISABLE_DEPTH_TEX
 	AbsorptionDepth = saturate(lerp(aborptionDist / _Depth, 1-(exp(-aborptionDist) / _Depth), _DepthExp));
 #endif
-
 	//return float4(AbsorptionDepth,AbsorptionDepth,AbsorptionDepth,1);
 	
-	//if (_DepthMode == 1) shoreDist = SampleShoreDistance(wPos);
-
 	float intersection = 0;
 #if _SHARP_INERSECTION || _SMOOTH_INTERSECTION
 	float interSecGradient = 1-saturate(exp(opaqueDist) / _IntersectionLength);
+
 	#if _DISABLE_DEPTH_TEX
 	interSecGradient = 0;
 	#endif
+	
 	if (_IntersectionSource == 1) interSecGradient = vertexColor.r;
 	if (_IntersectionSource == 2) interSecGradient = saturate(interSecGradient + vertexColor.r);
 
-	intersection = SampleIntersection(uv, interSecGradient, TIME * _IntersectionSpeed);
+	intersection = SampleIntersection(uv.xy, interSecGradient, TIME * _IntersectionSpeed);
 	intersection *= _IntersectionColor.a;
 
+	#if _UNDERWATER_ENABLED
+	intersection *= facing;
+	#endif
+
+	#if _WAVES
+	//Prevent from peering through waves when camera is at the water level
+	if(wPos.y < opaqueWorldPos.y) intersection = 0;
+	#endif
+	
 	//Flatten normals on intersection foam
 	waveNormal = lerp(waveNormal, normalWS, intersection);
 #endif
@@ -200,22 +208,34 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	//return float4(height, height, height, 1);
 
 	//FOAM
-	//---------------
 	float foam = 0;
 	#if _FOAM
-	float4 foamUV = PackedUV(uv * _FoamTiling, TIME, _FoamSpeed);
+
+	#if !_RIVER
 	float foamWaveMask = lerp(1, saturate(height), _FoamWaveMask);
 	foamWaveMask = pow(abs(foamWaveMask), _FoamWaveMaskExp);
-	foam = SampleFoam(foamUV, _FoamSize, foamWaveMask) * _FoamColor.a;
-	//return float4(foam, foam, foam, 1);
+	#else
+	float foamWaveMask = 1;
+	#endif
+	
+	foam = SampleFoam(uv * _FoamTiling, TIME, flowMap, _FoamSize, foamWaveMask, slope);
+	
+	#if _RIVER
+	foam *= saturate(_FoamColor.a + 1-slope + vertexColor.b);
+	#else
+	foam *= saturate(_FoamColor.a);
+	#endif	
 
-	#if UNDERWATER_ENABLED
+	#if _UNDERWATER_ENABLED
 	foam *= facing;
 	#endif
+	
+	//return float4(foam, foam, foam, 1);
 	#endif
 
+	SampleWaveSimulation(wPos, foam);
+
 	//Albedo
-	//---------------
 	float4 baseColor = lerp(_ShallowColor, _BaseColor, AbsorptionDepth);
 	baseColor.rgb += _WaveTint * saturate(height + (shoreSine * 1.0));
 	
@@ -244,7 +264,6 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	//Blinn-phong reflection
 	sunSpec = SunSpecular(mainLight, viewDirNorm, sunReflectionNormals, _SunReflectionDistortion, _SunReflectionSize, _SunReflectionStrength);
 	sunSpec.rgb *=  saturate((1-foam) * (1-intersection) * shadowMask); //Hide
-	//sunSpec.rgb *=  (1-intersection); //Hide
 #endif
 
 	//Reflection probe
@@ -256,20 +275,38 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	#endif
 	
 	float3 reflectionVector = reflect(-viewDirNorm , refWorldTangentNormal);
-	float3 reflections = SampleReflections(reflectionVector, _ReflectionBlur, ScreenPos.xyzw, refWorldTangentNormal, viewDirNorm, lerp(waveNormal.xz * 0.5, worldTangentNormal.xy, _ReflectionDistortion).xy);
-
-	half reflectionFresnel = 1-dot(viewDirNorm, normalWS);
-	finalColor.rgb = lerp((finalColor.rgb), reflections, _ReflectionStrength * 1);
+	float2 reflectionPerturbation = lerp(waveNormal.xz * 0.5, worldTangentNormal.xy, _ReflectionDistortion).xy;
+	float3 reflections = SampleReflections(reflectionVector, _ReflectionBlur, ScreenPos.xyzw, refWorldTangentNormal, viewDirNorm, reflectionPerturbation);
+	
+	half reflectionFresnel = ReflectionFresnel(refWorldTangentNormal, viewDirNorm, _ReflectionFresnel);
+	//return float4(reflectionFresnel.xxx, 1);
+	finalColor.rgb = lerp(finalColor.rgb, reflections, _ReflectionStrength * reflectionFresnel);
+	
+	#if _UNDERWATER_ENABLED
+	float3 underwaterReflections = SampleUnderwaterReflections(reflectionVector, 0.0, normalize(waveNormal + 0), viewDirNorm, 0.0);
+	//Underwater surface practically has no color, except for applied water density further down
+	finalColor.rgb = lerp(underwaterReflections, finalColor.rgb, facing);
+	#endif
+	
+	//return float4(finalColor.rgb, 1);
 #endif
 
-
 #if _CAUSTICS
-	float3 caustics = SampleCaustics(opaqueWorldPos, _CausticsTiling, worldTangentNormal.xy * _CausticsDistortion) * _CausticsBrightness;
+	float3 caustics = SampleCaustics(opaqueWorldPos, TIME * _CausticsSpeed, _CausticsTiling) * _CausticsBrightness;
+	#if _ADVANCED_SHADING
+	caustics *= GetShadows(opaqueWorldPos);
+	#endif
 	//return float4(caustics, caustics, caustics, 1);
+
+	SampleWaveCaustics(opaqueWorldPos, caustics);
 
 	float causticsMask = AbsorptionDepth;
 	causticsMask = saturate(causticsMask + intersection);
-	
+
+	#if _RIVER
+	//Reduce caustics visibility by supposed water turbulence
+	causticsMask = lerp(1, causticsMask, slope);
+	#endif
 	finalColor = lerp(finalColor + caustics, finalColor, causticsMask );
 #endif
 
@@ -277,7 +314,7 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	// Translucency
 	//////////////////////
 	TranslucencyData translucencyData = (TranslucencyData)0;
-#if _TRANSLUCENCY
+	#if _TRANSLUCENCY
 	float waveHeight = saturate(height);
 	#if !_WAVES || _FLAT_SHADING
 	waveHeight = 1;
@@ -292,9 +329,9 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	translucencyData = PopulateTranslucencyData(_ShallowColor.rgb * 20, sunDir, viewDirNorm, waveNormal, worldTangentNormal, waveHeight, transmissionMask, _TranslucencyParams);
 	
 	finalColor.rgb = ApplyTranslucency(finalColor.rgb, translucencyData);
-#endif
+	#endif
 
-	//Foam application
+	//Foam application on top of everything up to this point
 	#if _FOAM
 	finalColor.rgb = lerp(finalColor.rgb, _FoamColor.rgb, foam);
 	#endif
@@ -304,6 +341,7 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	finalColor.rgb = lerp(finalColor.rgb, _IntersectionColor.rgb, intersection);
 	#endif
 
+	//Full alpha on intersection and foam
 	alpha = saturate(alpha + intersection + foam);
 
 	#if _FLAT_SHADING //Skip, not a good fit
@@ -319,19 +357,32 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	//Horizon color (note: not using normals, since they are perturbed by waves)
 	half VdotN = 1.0 - saturate(dot(viewDirNorm, normalWS));
 	float fresnel = saturate(pow(VdotN, _HorizonDistance));
-	#if UNDERWATER_ENABLED
+	#if _UNDERWATER_ENABLED
 	fresnel *= facing;
 	#endif
 	finalColor.rgb = lerp(finalColor.rgb, _HorizonColor.rgb, fresnel * _HorizonColor.a);
 
 	//Final alpha
 	float edgeFade = saturate(opaqueDist / (_EdgeFade * 0.01));
+
+	#if _UNDERWATER_ENABLED
+	edgeFade = lerp(1.0, edgeFade, facing);
+	#endif
+
+	#if _WAVES
+	//Prevent from peering through waves when camera is at the water level
+	if(wPos.y <= opaqueWorldPos.y) edgeFade = 1;
+	#endif
+
 	alpha *= edgeFade;
 
-	float4 diffuseProjector = SampleDiffuseProjectors(wPos);
+	//Not yet implemented
+	float4 diffuseProjector = SampleDiffuseProjectors(wPos, ScreenPos);
 	finalColor.rgb = lerp(finalColor.rgb, diffuseProjector.rgb, diffuseProjector.a);
 	
 	SurfaceData surf = (SurfaceData)0;
+
+	ApplyUnderwaterShading(finalColor.rgb, alpha, wPos, worldTangentNormal, viewDirNorm, _ShallowColor.rgb, _BaseColor.rgb, 1-facing);
 
 	surf.albedo = finalColor.rgb;
 	surf.specular = 0;
@@ -350,15 +401,10 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	inputData.fogCoord = input.fogFactorAndVertexLight.x;
 
 	inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
-	inputData.bakedGI = SAMPLE_GI(input.lightmapUVOrVertexSH.xy, input.lightmapUVOrVertexSH.xyz, inputData.normalWS);
+	//Note: Masked by front face, negatively affects final color on back faces!
+	inputData.bakedGI = SAMPLE_GI(input.lightmapUVOrVertexSH.xy, input.lightmapUVOrVertexSH.xyz, inputData.normalWS) * facing;
 
 	float4 color = ApplyLighting(surf, inputData, translucencyData);
-
-	#if UNDERWATER_ENABLED
-	//TODO: Move to underwater rendering code so effects are in sync
-	float verticalDist = saturate(distance(_WorldSpaceCameraPos.xz, wPos.xz) / 8);
-	alpha *= lerp(verticalDist, 1, facing);	
-	#endif
 	
 	#if _REFRACTION
 		float3 refraction = SAMPLE_SCENE_COLOR(refractedScreenPos.xy / refractedScreenPos.w).rgb;
@@ -376,5 +422,7 @@ half4 ForwardPassFragment(Varyings input) : SV_Target
 	color.a = alpha * saturate(alpha - vertexColor.g);
 	ApplyFog(color.rgb, input.fogFactorAndVertexLight.x, ScreenPos, wPos);
 
+	ClipSurface(ScreenPos, input.positionCS.z, facing);
+	
 	return color;
 }

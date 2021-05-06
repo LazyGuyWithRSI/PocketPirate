@@ -6,6 +6,10 @@
 #define UnityFog
 /* end UnityFog */
 
+/* start Colorful */
+//#define Colorful
+/* end Colorful */
+
 /* start Enviro */
 //#define Enviro
 /* end Enviro */
@@ -18,6 +22,14 @@
 //#define AtmosphericHeightFog
 /* end AtmosphericHeightFog */
 
+/* start SCPE */
+//#define SCPE
+/* end SCPE */
+
+#ifdef Colorful
+#include "Assets/ColorfulSky/Shaders/Libraries/Fog.hlsl"
+#endif
+
 #ifdef Enviro
 #include "Assets/Enviro - Sky and Weather/Core/Resources/Shaders/Core/EnviroFogCore.hlsl"
 #endif
@@ -27,7 +39,11 @@
 #endif
 
 #ifdef AtmosphericHeightFog
-#include "Assets/BOXOPHOBIC/Atmospheric Height Fog/Core/Library/AtmosphericHeightFog.cginc"
+#include "Assets/BOXOPHOBIC/Atmospheric Height Fog/Core/Includes/AtmosphericHeightFog.cginc"
+#endif
+
+#ifdef SCPE
+#include "Assets/SC Post Effects/Runtime/Fog/Fog.hlsl"
 #endif
 
 //Executed in vertex stage
@@ -41,18 +57,28 @@ void ApplyFog(inout float3 color, float fogFactor, float4 screenPos, float3 wPos
 #ifdef UnityFog
 	color = MixFog(color.rgb, fogFactor);
 #endif
+
+#ifdef Colorful
+	color.rgb = ApplyFog(color.rgb, fogFactor, wPos, screenPos.xy / screenPos.w);
+#endif
 	
 #ifdef Enviro
-	color.rgb = TransparentFog(float4(color.rgb, 1), wPos, screenPos.xy / screenPos.w, fogFactor).rgb;
+	color.rgb = TransparentFog(float4(color.rgb, 1.0), wPos, screenPos.xy / screenPos.w, fogFactor).rgb;
 #endif
 	
 #ifdef Azure
-	color.rgb = ApplyAzureFog(float4(color.rgb, 1), wPos).rgb;
+	color.rgb = ApplyAzureFog(float4(color.rgb, 1.0), wPos).rgb;
 #endif
 
 #ifdef AtmosphericHeightFog
 	float4 fogParams = GetAtmosphericHeightFog(wPos.xyz);
 	color.rgb = ApplyAtmosphericHeightFog(color.rgb, fogParams);
+#endif
+
+#ifdef SCPE
+	float4 dummy;
+	screenPos.xy /= screenPos.w;
+	ApplyFog_float(wPos, float3(0,1,0), screenPos, _TimeParameters.x, 0, color.rgb, dummy, color.rgb);
 #endif
 
 }

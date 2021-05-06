@@ -64,12 +64,39 @@ namespace StylizedWater2
             
             return icon;
         }
+        
+        public static string iconPrefix => EditorGUIUtility.isProSkin ? "d_" : "";
+
+        public static void DrawRendererProperty(SerializedProperty property)
+        {
+            #if URP
+            property.serializedObject.Update();
+            int selectedRendererOption = property.intValue;
+            EditorGUI.BeginChangeCheck();
+            
+            Rect controlRect = EditorGUILayout.GetControlRect(true);
+            EditorGUI.BeginProperty(controlRect, new GUIContent(property.displayName, null, tooltip:property.tooltip), property);
+            
+            selectedRendererOption = EditorGUI.IntPopup(controlRect, new GUIContent(property.displayName, null, tooltip:property.tooltip), selectedRendererOption, PipelineUtilities.rendererDisplayList,PipelineUtilities.rendererIndexList);
+            
+            if (EditorGUI.EndChangeCheck())
+            {
+                //Clamp to valid index
+                selectedRendererOption = PipelineUtilities.ValidateRenderer(selectedRendererOption);
+
+                property.intValue = selectedRendererOption;
+                property.serializedObject.ApplyModifiedProperties();
+            }
+            #else
+            EditorGUILayout.PropertyField(property);
+            #endif
+        }
 
         private static float Sin(float offset = 0f)
         {
             return Mathf.Sin(offset + (float)EditorApplication.timeSinceStartup * Mathf.PI * 2f) * 0.5f + 0.5f;
         }
-
+        
         public static void DrawNotification(string text, MessageType messageType = MessageType.None)
         {
             DrawHelpbox(text, messageType);
@@ -103,27 +130,26 @@ namespace StylizedWater2
                     break;
                 case (MessageType.Warning): //Warning
                     {
-                        sideColor = Color.Lerp(OrangeColor, OrangeColor * 1.20f, Sin());
+                        sideColor = Color.Lerp(OrangeColor, OrangeColor * 1.20f, Sin(r.y));
                         icon = WarningIcon;
                     }
                     break;
                 case (MessageType.Error): //Error
                     {
-                        sideColor = Color.Lerp(RedColor, RedColor * 1.20f, Sin());
+                        sideColor = Color.Lerp(RedColor, RedColor * 1.33f, Sin(r.y));
                         icon = ErrorIcon;
-
                     }
                     break;
                 case (MessageType.Info): //Info
                     {
-                        sideColor = Color.Lerp(new Color(1f, 1f, 1f), new Color(0.9f, 0.9f, 0.9f), Sin());
+                        sideColor = Color.Lerp(new Color(1f, 1f, 1f), new Color(0.9f, 0.9f, 0.9f), Sin(r.y));
                         icon = InfoIcon;
                     }
                     break;
             }
             
             float width = r.width;
-            float height = EditorStyles.helpBox.CalcHeight(new GUIContent(text), EditorGUIUtility.currentViewWidth) + (EditorStyles.label.lineHeight * 2f);
+            float height = EditorStyles.helpBox.CalcHeight(new GUIContent(text), EditorGUIUtility.currentViewWidth) + (EditorStyles.label.lineHeight * 1.2f);
             r.height = height;
 
             Rect btnRect = r;
@@ -226,9 +252,9 @@ namespace StylizedWater2
                 public AnimBool anim;
 
                 public readonly string id;
-                public string title;
+                public GUIContent title;
 
-                public Section(MaterialEditor owner, string id, string title)
+                public Section(MaterialEditor owner, string id, GUIContent title)
                 {
                     this.id = "SWS2_" + id + "_SECTION";
                     this.title = title;
@@ -250,6 +276,17 @@ namespace StylizedWater2
             {
                 GUI.DrawTexture(rect, UI.AssetIcon, ScaleMode.ScaleToFit);
 
+                /*
+                if (hasError)
+                {
+                    Rect errorRect = rect;
+                    errorRect.width = 15f;
+                    errorRect.height = 15f;
+                    
+                    GUI.DrawTexture(errorRect, UI.ErrorIcon, ScaleMode.ScaleToFit);
+                }
+                */
+                
                 GUIContent c = new GUIContent("Version " + AssetInfo.INSTALLED_VERSION);
                 rect.width = EditorStyles.miniLabel.CalcSize(c).x + 7f;
                 rect.x += EditorGUIUtility.currentViewWidth - (rect.width * 2f);
@@ -280,15 +317,17 @@ namespace StylizedWater2
                 }
                 //TODO: Draw overlay for help button
             }
+            
+            private const float HeaderHeight = 25f;
 
             //https://github.com/Unity-Technologies/Graphics/blob/d0473769091ff202422ad13b7b764c7b6a7ef0be/com.unity.render-pipelines.core/Editor/CoreEditorUtils.cs#L460
-            public static bool DrawHeader(string title, bool isExpanded, Action clickAction = null)
+            public static bool DrawHeader(GUIContent content, bool isExpanded, Action clickAction = null)
             {
 #if URP
                 CoreEditorUtils.DrawSplitter();
 #endif
 
-                Rect backgroundRect = GUILayoutUtility.GetRect(1f, 25f);
+                Rect backgroundRect = GUILayoutUtility.GetRect(1f, HeaderHeight);
 
                 var labelRect = backgroundRect;
                 labelRect.xMin += 8f;
@@ -297,8 +336,8 @@ namespace StylizedWater2
                 var foldoutRect = backgroundRect;
                 foldoutRect.xMin -= 8f;
                 foldoutRect.y += 0f;
-                foldoutRect.width = 25f;
-                foldoutRect.height = 25f;
+                foldoutRect.width = HeaderHeight;
+                foldoutRect.height = HeaderHeight;
 
                 // Background rect should be full-width
                 backgroundRect.xMin = 0f;
@@ -311,7 +350,7 @@ namespace StylizedWater2
                 EditorGUI.DrawRect(backgroundRect, new Color(backgroundTint, backgroundTint, backgroundTint, 0.2f));
 
                 // Title
-                EditorGUI.LabelField(labelRect, title, EditorStyles.boldLabel);
+                EditorGUI.LabelField(labelRect, content, EditorStyles.boldLabel);
 
                 // Foldout
                 GUI.Label(foldoutRect, new GUIContent(isExpanded ? "−" : "≡"), EditorStyles.boldLabel);
@@ -410,6 +449,22 @@ namespace StylizedWater2
             public static float DrawSlider(float value, string label, string tooltip = null)
             {
                 return EditorGUILayout.Slider(new GUIContent(label, null, tooltip), value, 0f, 1f);
+            }
+
+            public static void DrawRangeSlider(MaterialProperty prop, float min, float max, string label = null, string tooltip = null)
+            {
+                float minVal = prop.vectorValue.x;
+                float maxVal = prop.vectorValue.y;
+
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    EditorGUILayout.LabelField(new GUIContent(label ?? prop.displayName, null, tooltip), GUILayout.MaxWidth(EditorGUIUtility.labelWidth));
+                    EditorGUILayout.LabelField(System.Math.Round(minVal, 2).ToString(), GUILayout.Width(40f));
+                    EditorGUILayout.MinMaxSlider(ref minVal, ref maxVal, min, max);
+                    EditorGUILayout.LabelField(System.Math.Round(maxVal, 2).ToString(), GUILayout.Width(40f));
+                }
+
+                prop.vectorValue = new Vector4(minVal, maxVal, prop.vectorValue.z, prop.vectorValue.w);
             }
 
             public static void Toggle(MaterialProperty prop, string label = null, string tooltip = null)

@@ -10,6 +10,7 @@
 #endif
 #endif
 
+//As per the "Shader" section of the documentation, this is primarily used to synchronizing animations in networked games
 //#define USE_CUSTOM_TIME
 
 #if !defined(USE_CUSTOM_TIME)
@@ -25,54 +26,18 @@ float _CustomTime;
 #define TIME_VERTEX ((TIME_VERTEX_OUTPUT * _AnimationParams.z) * _AnimationParams.xy)
 
 #define HORIZONTAL_DISPLACEMENT_SCALAR 0.020
-
-struct Attributes
-{
-#ifdef TESSELATION_ON
-	float4 vertex 		: INTERNALTESSPOS;
-#else
-	float4 positionOS 	: POSITION;
-#endif
-	float4 uv 			: TEXCOORD0;
-	float4 normalOS 	: NORMAL;
-	float4 tangentOS 	: TANGENT;
-	float4 color 		: COLOR0;
-	UNITY_VERTEX_INPUT_INSTANCE_ID
-};
-
-struct Varyings
-{
-	float4 positionCS 	: SV_POSITION;
-	float4 uv 			: TEXCOORD0;
-	float4 color 		: COLOR0;
-	half4 fogFactorAndVertexLight : TEXCOORD1;
-#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
-	float4 shadowCoord 	: TEXCOORD2;
-#endif
-	//wPos.x in w-component
-	float4 normal 		: NORMAL;
-#if _NORMALMAP
-	//wPos.y in w-component
-	float4 tangent 		: TANGENT;
-	//wPos.z in w-component
-	float4 bitangent 	: TEXCOORD3;
-#else
-	float3 wPos 		: TEXCOORD4;
-#endif
-
-#if defined(SCREEN_POS)
-	float4 screenPos 	: TEXCOORD5;
-#endif
-	float4 lightmapUVOrVertexSH : TEXCOORD6;
-	UNITY_VERTEX_INPUT_INSTANCE_ID
-	UNITY_VERTEX_OUTPUT_STEREO
-};
+#define UP_VECTOR float3(0,1,0)
 
 float2 GetSourceUV(float2 uv, float2 wPos, float state) 
 {
 	float2 output =  lerp(uv, wPos, state);
 	//output.x = (int)((output.x / 0.5) + 0.5) * 0.5;
 	//output.y = (int)((output.y / 0.5) + 0.5) * 0.5;
+
+	#ifdef _RIVER
+	//World-space tiling is useless in this case
+	return uv;
+	#endif
 	
 	return output;
 }
@@ -84,17 +49,31 @@ float4 GetVertexColor(float4 inputColor, float4 mask)
 
 float DepthDistance(float3 wPos, float3 viewPos, float3 normal)
 {
-	float3 dist = (wPos - viewPos);
-	return ((dist.x * normal.x) + (dist.y * normal.y) + (dist.z * normal.z));
+	return length((wPos - viewPos) * normal);
 }
 
-float4 PackedUV(float2 sourceUV, float2 time, float speed)
+float4 PackedUV(float2 sourceUV, float2 time, float2 flowmap, float speed)
 {
+	#if _RIVER
+	time *= flowmap;
+	time.x = 0; //Only move in forward direction
+	#endif
+	
 	float2 uv1 = sourceUV.xy + (time.xy * speed);
+	#ifndef _RIVER
 	//Second UV, 2x larger, twice as slow, in opposite direction
 	float2 uv2 = (sourceUV.xy * 0.5) + ((1 - time.xy) * speed * 0.5);
+	#else
+	//2x larger, same direction/speed
+	float2 uv2 = (sourceUV.xy * 0.5) + (time.xy * speed);
+	#endif
 
 	return float4(uv1.xy, uv2.xy);
+}
+
+float GetSlopeInverse(float3 normalWS)
+{
+	return saturate(pow(dot(UP_VECTOR, normalWS), 4));
 }
 
 struct DepthData
@@ -103,7 +82,6 @@ struct DepthData
 	float linear01;
 	float eye;
 };
-
 
 //Return depth based on the used technique (buffer, vertex color, baked texture)
 DepthData SampleDepth(float4 screenPos, float3 wPos)
