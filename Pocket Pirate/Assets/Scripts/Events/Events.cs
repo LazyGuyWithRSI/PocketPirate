@@ -17,6 +17,11 @@ public class OnReset
 
 }
 
+public class OnUpgradePurchased
+{
+
+}
+
 public class OnShootEvent
 {
     public Vector3 Position { get; set; }

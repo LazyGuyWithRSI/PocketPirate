@@ -22,6 +22,13 @@ public class UpgradableElement : MonoBehaviour
     {
         BtnBuy.onClick.AddListener(OnBuyButtonClick);
         Reset();
+
+        PubSub.RegisterListener<OnUpgradePurchased>(OnUpgradePurchasedHandler);
+    }
+
+    private void OnUpgradePurchasedHandler(object publishedEvent)
+    {
+        Reset();
     }
 
     private void Reset()
@@ -54,7 +61,7 @@ public class UpgradableElement : MonoBehaviour
     {
         Score.Value -= UpgradableProperty.Cost;
         UpgradableProperty.Increment();
-        Reset();
+        PubSub.Publish<OnUpgradePurchased>(new OnUpgradePurchased());
     }
 
     // Update is called once per frame
