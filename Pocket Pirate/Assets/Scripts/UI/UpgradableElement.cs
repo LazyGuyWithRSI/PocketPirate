@@ -20,6 +20,12 @@ public class UpgradableElement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BtnBuy.onClick.AddListener(OnBuyButtonClick);
+        Reset();
+    }
+
+    private void Reset()
+    {
         // populate menu and all that
         TxtName.text = UpgradableProperty.Name;
         TxtCurrentValue.text = UpgradableProperty.Value.ToString();
@@ -42,14 +48,13 @@ public class UpgradableElement : MonoBehaviour
         if (Score.Value < UpgradableProperty.Cost)
             BtnBuy.interactable = false;
 
-        BtnBuy.onClick.AddListener(OnBuyButtonClick);
     }
 
     private void OnBuyButtonClick()
     {
         Score.Value -= UpgradableProperty.Cost;
         UpgradableProperty.Increment();
-        Start();
+        Reset();
     }
 
     // Update is called once per frame
