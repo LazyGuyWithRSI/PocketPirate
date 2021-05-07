@@ -5120,7 +5120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 20
+  TotalGameTime: 60
   WaveOverDelay: 5
   Playing: 1
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
@@ -8009,6 +8009,7 @@ MonoBehaviour:
   MaxEnemies: 40
   MaxSpawnDistance: 33
   MinSpawnDistance: 20
+  totalSpawnDistance: 40
   WaveTimeLimit: 30
   Ramp: 1.2
 --- !u!1 &1870971852
@@ -9553,6 +9554,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209420414650481240, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6803729473533443580, guid: dc3ac18dc78d24b4b8bd5de926bba500,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     [HideInInspector] public float curHealth;
     private bool dead;
     private bool canTakeDamage;
+    private bool isInvincible = false;
 
     private Buoyancy buoyancy;
     private IBoatMover mover;
@@ -63,7 +64,7 @@ public class Health : MonoBehaviour
 
     public bool TakeDamage(float amount)
     {
-        if (!canTakeDamage)
+        if (!canTakeDamage || isInvincible)
             return false;
 
         curHealth -= amount;
@@ -127,6 +128,10 @@ public class Health : MonoBehaviour
         PubSub.Publish<OnPlayerHealed>(new OnPlayerHealed());
     }
 
+    public void SetInvincible(bool value)
+    {
+        isInvincible = value;
+    }
 
 
     private IEnumerator ExplodeOnDeathCoroutine (float duration, float maxFlashTime)
