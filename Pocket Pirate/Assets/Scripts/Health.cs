@@ -108,7 +108,8 @@ public class Health : MonoBehaviour
             }
             else
             {
-                PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
+                if (Team != 0)
+                    PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
                 GameObject.Destroy(gameObject, 6f);
             }
         }
@@ -141,7 +142,9 @@ public class Health : MonoBehaviour
         }
 
         PubSub.Publish(new DamagingExplosionEvent() { Position = transform.position, Radius = ExplosionRadius, Damage = ExplosionDamage});
-        PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
+
+        if (Team != 0)
+            PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
     }
 
     private IEnumerator FlashCoroutine(float duration, Color color)
