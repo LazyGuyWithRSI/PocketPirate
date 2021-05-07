@@ -28,13 +28,14 @@ public class UpgradableElement : MonoBehaviour
     {
         // populate menu and all that
         TxtName.text = UpgradableProperty.Name;
-        TxtCurrentValue.text = UpgradableProperty.Value.ToString();
+        TxtCurrentValue.text = (int)UpgradableProperty.GetPercentageOfValue() + "%";
 
-        nextValue = UpgradableProperty.Value + UpgradableProperty.stepSize;
+        nextValue = UpgradableProperty.GetPercentageOfValue() + UpgradableProperty.GetPercentageOfStep();
+        Debug.Log("%val: " + UpgradableProperty.GetPercentageOfValue() + ", %step: " + UpgradableProperty.GetPercentageOfStep());
         BtnText = BtnBuy.GetComponentInChildren<TMP_Text>();
         if (UpgradableProperty.CanIncrement())
         {
-            TxtNextValue.text = nextValue.ToString();
+            TxtNextValue.text = (int)nextValue + "%";
             BtnText.text = UpgradableProperty.Cost + "g";
             BtnBuy.interactable = true;
         }

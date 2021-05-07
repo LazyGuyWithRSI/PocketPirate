@@ -43,4 +43,17 @@ public class UpgradablePropertyReference : ScriptableObject
 
         return Value + stepSize >= maxValue;
     }
+
+    public float GetPercentageOfValue()
+    {
+        //if (Increasing)
+            //return (Value / baseValue) * 100;
+
+        return ((baseValue - Value) / baseValue) * 100;
+    }
+
+    public float GetPercentageOfStep()
+    {
+        return (Mathf.Abs(stepSize) / baseValue) * 100;
+    }
 }

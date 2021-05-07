@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     public GameObject ModelForFlash;
     public float FlashTime = 0.2f;
 
+    [SerializeField] private UpgradablePropertyReference UpgradablePlayerHealth;
+
     [HideInInspector] public float curHealth;
     private bool dead;
     private bool canTakeDamage;
@@ -50,6 +52,12 @@ public class Health : MonoBehaviour
         else
         {
             canFlash = false;
+        }
+
+        if (UpgradablePlayerHealth != null)
+        {
+            MaxHealth = UpgradablePlayerHealth.Value;
+            curHealth = MaxHealth; // TODO use a scriptable object
         }
     }
 

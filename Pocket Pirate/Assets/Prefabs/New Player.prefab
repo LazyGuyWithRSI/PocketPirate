@@ -1070,6 +1070,8 @@ MonoBehaviour:
   InvincibilityAfterDamageDuration: 1
   ModelForFlash: {fileID: 5956813397050801444}
   FlashTime: 0.2
+  UpgradablePlayerHealth: {fileID: 11400000, guid: c052faf2964c62147ae23276a8a66d59,
+    type: 2}
   curHealth: 0
   ExplodeOnDeath: 0
   ExplosionDelay: 3
@@ -12686,6 +12688,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c8ffcbe5ce7732246b2c724445926808,
         type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a990472f9e55d44b865e7c4fe49e36,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: UpgradableShootForce
+      value: 
+      objectReference: {fileID: 11400000, guid: 976e2df15f6d10241b03fd53587823f1,
+        type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
       propertyPath: m_Name
@@ -12822,6 +12836,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c8ffcbe5ce7732246b2c724445926808,
         type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a990472f9e55d44b865e7c4fe49e36,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: UpgradableShootForce
+      value: 
+      objectReference: {fileID: 11400000, guid: 976e2df15f6d10241b03fd53587823f1,
+        type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
       propertyPath: m_Name
@@ -12957,6 +12983,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c8ffcbe5ce7732246b2c724445926808,
         type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a990472f9e55d44b865e7c4fe49e36,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: UpgradableShootForce
+      value: 
+      objectReference: {fileID: 11400000, guid: 976e2df15f6d10241b03fd53587823f1,
+        type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
       propertyPath: m_Name
@@ -13087,6 +13125,18 @@ PrefabInstance:
       propertyPath: UpShootForce
       value: 
       objectReference: {fileID: 11400000, guid: c8ffcbe5ce7732246b2c724445926808,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a990472f9e55d44b865e7c4fe49e36,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: UpgradableShootForce
+      value: 
+      objectReference: {fileID: 11400000, guid: 976e2df15f6d10241b03fd53587823f1,
         type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}

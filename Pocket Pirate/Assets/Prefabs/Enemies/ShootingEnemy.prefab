@@ -728,6 +728,7 @@ MonoBehaviour:
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 7586033477830173651}
   FlashTime: 0.2
+  UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
   ExplodeOnDeath: 0
   ExplosionDelay: 4
@@ -956,6 +957,7 @@ MonoBehaviour:
   ShootCooldown: 7
   ShootInterval: 0.04
   ShootHeading: 90
+  UpgradableReloadReference: {fileID: 0}
 --- !u!1 &7586033477712757710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1136,7 @@ MonoBehaviour:
   ShootCooldown: 7
   ShootInterval: 0.04
   ShootHeading: -90
+  UpgradableReloadReference: {fileID: 0}
 --- !u!1 &7586033478048472614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1324,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: efba8c8d597288949ae734df96288458,
         type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f7a0b5897ff74bf46803c3d85469ac60,
+        type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}
       propertyPath: m_Name
@@ -1418,6 +1427,12 @@ PrefabInstance:
       propertyPath: UpShootForce
       value: 
       objectReference: {fileID: 11400000, guid: efba8c8d597288949ae734df96288458,
+        type: 2}
+    - target: {fileID: 6500640219880889360, guid: e915f6433bc8f384880351c3cf3249ae,
+        type: 3}
+      propertyPath: ShootForceReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f7a0b5897ff74bf46803c3d85469ac60,
         type: 2}
     - target: {fileID: 6500640219880889362, guid: e915f6433bc8f384880351c3cf3249ae,
         type: 3}

@@ -5,12 +5,15 @@ using UnityEngine;
 public class Shooter : MonoBehaviour, IShooter
 {
     public GameObject ProjectilePrefab;
-    public FloatReference ShootForce;
+    public FloatReference ShootForceReference;
     public FloatReference UpShootForce;
+
+    [SerializeField] private UpgradablePropertyReference UpgradableShootForce;
 
     public float PitchLower = 0.9f;
     public float PitchUpper = 1.1f;
 
+    private float shootForce;
     private ParticleSystem smoke;
     private AudioSource audio;
 
@@ -22,7 +25,7 @@ public class Shooter : MonoBehaviour, IShooter
         GameObject obj = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-        rb.AddForce(transform.forward * ShootForce.Value);
+        rb.AddForce(transform.forward * shootForce);
         rb.AddForce(Vector3.up * UpShootForce.Value);
 
         return true;
@@ -37,6 +40,11 @@ public class Shooter : MonoBehaviour, IShooter
     {
         smoke = GetComponentInChildren<ParticleSystem>();
         audio = GetComponentInChildren<AudioSource>();
+
+        shootForce = ShootForceReference.Value;
+
+        if (UpgradableShootForce != null)
+            shootForce = UpgradableShootForce.Value;
     }
 
     void Update()
