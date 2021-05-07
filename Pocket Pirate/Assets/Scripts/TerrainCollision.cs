@@ -39,7 +39,10 @@ public class TerrainCollision : MonoBehaviour
             force.y = 0;
             point.y = transform.position.y;
             //rb.AddForce(force * BounceForce);
-            rb.AddForceAtPosition(force * BounceForce, point);
+            Vector3 localPoint = transform.InverseTransformPoint(point);
+            localPoint.x = Mathf.Max(3f, localPoint.x);
+            point = transform.TransformPoint(localPoint);
+            rb.AddForceAtPosition(force * BounceForce, point, ForceMode.Acceleration);
 
             CameraShake.Shake(0.3f, 0.3f);
 

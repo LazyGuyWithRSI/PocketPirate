@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   damageCooldown: 2
-  BounceForce: 7000
+  BounceForce: 500
   pickupCollider: {fileID: 312806683171241579}
   isActive: 1
 --- !u!136 &3626887084497332297
