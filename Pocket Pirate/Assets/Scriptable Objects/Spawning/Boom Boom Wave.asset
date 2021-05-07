@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Boom Boom Wave
   m_EditorClassIdentifier: 
   ThingsToSpawn:
-  - Prefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5, type: 3}
+  - Prefab: {fileID: 7586033476619514231, guid: c31107511fed86d468c71487367182b3,
+      type: 3}
     Weight: 1
+  - Prefab: {fileID: 9003299066617469212, guid: b72b83e19cf235d4295e654859063d37,
+      type: 3}
+    Weight: 0.2
+  - Prefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5, type: 3}
+    Weight: 2

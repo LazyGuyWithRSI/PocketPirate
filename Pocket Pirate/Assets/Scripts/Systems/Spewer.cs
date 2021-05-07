@@ -10,6 +10,8 @@ public class Spewer : MonoBehaviour
 
     public float SpewForce = 400f;
 
+    private bool waveOver = false;
+
     [System.Serializable]
     public class Pickup
     {
@@ -21,12 +23,18 @@ public class Spewer : MonoBehaviour
     void Start()
     {
         PubSub.RegisterListener<OnSpewCoinsEvent>(OnSpewCoinsHandler);
+        PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
     }
 
     public void OnSpewCoinsHandler (object publishedEvent) // TODO change to CoinSpew event or something
     {
         OnSpewCoinsEvent args = publishedEvent as OnSpewCoinsEvent;
         Spew(args.Position, 0, args.Amount, SpewForce);
+    }
+
+    public void OnWaveOverHandler(object publishedEvent) // TODO change to CoinSpew event or something
+    {
+        waveOver = true;
     }
 
     public void Spew(Vector3 position, float duration, int amount, float force)
@@ -56,17 +64,20 @@ public class Spewer : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            SpawnThing(ThingToSpewPrefab, position, force);
+            GameObject thing = SpawnThing(ThingToSpewPrefab, position, force);
+            if (waveOver)
+                thing.GetComponent<CoinPickup>().WaveOver();
         }
     }
 
-    private void SpawnThing(GameObject thingToSpew, Vector3 position, float force)
+    private GameObject SpawnThing(GameObject thingToSpew, Vector3 position, float force)
     {
         GameObject thing = Instantiate(thingToSpew, position, Quaternion.identity);
         Vector3 forceToApply = new Vector3(Random.Range(-1f, 1f), Random.Range(0.5f, 2f), Random.Range(-1f, 1f)) * force;
         Rigidbody rb = thing.GetComponent<Rigidbody>();
         rb.AddForce(forceToApply);
         rb.AddTorque(forceToApply);
+        return thing;
     }
 
     private IEnumerator SpewCoroutine(Vector3 position, float duration, int amount, float force)

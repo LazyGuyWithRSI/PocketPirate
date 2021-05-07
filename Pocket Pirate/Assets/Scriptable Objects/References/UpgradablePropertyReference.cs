@@ -49,7 +49,7 @@ public class UpgradablePropertyReference : ScriptableObject
         //if (Increasing)
             //return (Value / baseValue) * 100;
 
-        return ((baseValue - Value) / baseValue) * 100;
+        return (Mathf.Abs(baseValue - Value) / baseValue) * 100;
     }
 
     public float GetPercentageOfStep()

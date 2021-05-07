@@ -7,6 +7,8 @@ public class CoinPickup : MonoBehaviour
     public int Worth = 100;
     public float sinkTime = 10f;
     public float sinkTimeDeviation = 2f;
+    public float EndOfWaveAttractionRadius = 10f;
+    public SphereCollider AttractionCollider;
 
     private bool hasHitWater = false;
     private bool gameIsOver = false;
@@ -15,6 +17,7 @@ public class CoinPickup : MonoBehaviour
     void Start()
     {
         PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
+        PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
 
         StartCoroutine(SinkCoroutine());
     }
@@ -51,5 +54,16 @@ public class CoinPickup : MonoBehaviour
     public void OnGameOverHandler (object publishedEvent)
     {
         gameIsOver = true;
+    }
+
+    public void OnWaveOverHandler (object publishedEvent)
+    {
+        WaveOver();
+    }
+
+    public void WaveOver()
+    {
+        if (AttractionCollider != null)
+            AttractionCollider.radius = EndOfWaveAttractionRadius;
     }
 }

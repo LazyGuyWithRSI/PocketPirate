@@ -301,6 +301,8 @@ MonoBehaviour:
   Worth: 10
   sinkTime: 30
   sinkTimeDeviation: 3
+  EndOfWaveAttractionRadius: 100
+  AttractionCollider: {fileID: 5111920372204053553}
 --- !u!114 &23700365674814941
 MonoBehaviour:
   m_ObjectHideFlags: 0
