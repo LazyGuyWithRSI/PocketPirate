@@ -13,6 +13,7 @@ public class DebugEnemySpawner : MonoBehaviour
     public int MaxEnemies = 20;
     public float MaxSpawnDistance = 20f;
     public float MinSpawnDistance = 8f;
+    public float totalSpawnDistance = 40f;
     public float WaveTimeLimit = 10f;
 
     public float Ramp = 1.4f;
@@ -78,11 +79,20 @@ public class DebugEnemySpawner : MonoBehaviour
 
         float xDelta = 0;
         float zDelta = 0;
-
-        while (Mathf.Abs(zDelta) < MinSpawnDistance && Mathf.Abs(xDelta) < MinSpawnDistance) // I DON'T LIKE THIS
+        Vector3 spawnPoint = Vector3.zero;
+        for (int i = 0; i <= 20; i++)
         {
             zDelta = Random.Range(-MaxSpawnDistance, MaxSpawnDistance);
             xDelta = Random.Range(-MaxSpawnDistance, MaxSpawnDistance);
+            spawnPoint = new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta);
+            if (SpawnPointIsValid(spawnPoint))
+                break;
+        }
+
+        if (!SpawnPointIsValid(spawnPoint))
+        {
+            Debug.Log("Could not find place to spawn");
+            return;
         }
 
         // add up weights
@@ -96,7 +106,7 @@ public class DebugEnemySpawner : MonoBehaviour
         {
             if (rand < waves[wave].ThingsToSpawn[i].Weight)
             {
-                GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
+                GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, spawnPoint, Quaternion.identity);
                 //GameObject wake = Instantiate(WakePrefab);
                 //wake.GetComponent<GenerateWake>().target = enemy.transform;
                 numEnemies++;
@@ -113,6 +123,18 @@ public class DebugEnemySpawner : MonoBehaviour
             Instantiate(EnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
         numEnemies++;
         */
+    }
+
+    private bool SpawnPointIsValid(Vector3 point)
+    {
+        float distanceSqr = (point - PlayerPosition.Value).sqrMagnitude;
+        if (distanceSqr < Mathf.Pow(MinSpawnDistance, 2) || distanceSqr > Mathf.Pow(MaxSpawnDistance, 2))
+            return false;
+
+        if (point.sqrMagnitude > Mathf.Pow(totalSpawnDistance, 2))
+            return false;
+
+        return true;
     }
 
     private IEnumerator WaveControlCoroutine()
