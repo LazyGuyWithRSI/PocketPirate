@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SET SAIL
+  m_text: '! SET SAIL !'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4211f073e50540640a5217dcfed6a76b, type: 2}
   m_sharedMaterial: {fileID: 1929159855321340482, guid: 4211f073e50540640a5217dcfed6a76b,
@@ -1408,8 +1408,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.94
-  m_fontSizeBase: 112.94
+  m_fontSize: 95.22
+  m_fontSizeBase: 95.22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1745,8 +1745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -2217.3, y: 152}
-  m_SizeDelta: {x: 546.697, y: 208.31683}
+  m_AnchoredPosition: {x: -2281.9, y: 1329.3}
+  m_SizeDelta: {x: 473.062, y: 167.40851}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676692713
 MonoBehaviour:
@@ -2980,8 +2980,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988669263}
-  m_LocalRotation: {x: -0.012216863, y: 0, z: 0.0020598322, w: 0.9999233}
-  m_LocalPosition: {x: -9.221, y: -0.50492287, z: 16.924}
+  m_LocalRotation: {x: -0.018371783, y: 0, z: 0.0028122698, w: 0.99982727}
+  m_LocalPosition: {x: -9.221, y: -0.5010435, z: 16.924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7221086185727058564}
@@ -5424,8 +5424,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 413, y: -170.80005}
-  m_SizeDelta: {x: 720.2197, y: 238.13232}
+  m_AnchoredPosition: {x: 487.1, y: -1230.6}
+  m_SizeDelta: {x: 818.39966, y: 270.85898}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531874879
 MonoBehaviour:
@@ -5459,7 +5459,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.9788772, b: 0.5990566, a: 1}
+    m_NormalColor: {r: 0.36436453, g: 0.8679245, b: 0.44545943, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5518,7 +5518,7 @@ MonoBehaviour:
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 3
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

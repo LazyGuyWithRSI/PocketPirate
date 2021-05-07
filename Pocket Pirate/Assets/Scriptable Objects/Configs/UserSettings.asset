@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7ba3479e6c6f645bf6c0fa4827c709, type: 3}
   m_Name: UserSettings
   m_EditorClassIdentifier: 
-  Use2AxisJoystick: 1
-  SoundEnabled: 1
+  Use2AxisJoystick: 0
+  SoundEnabled: 0
   MasterVolume: 0
   MusicVolume: 0
   EffectsVolume: 0

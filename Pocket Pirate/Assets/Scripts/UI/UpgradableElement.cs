@@ -31,7 +31,6 @@ public class UpgradableElement : MonoBehaviour
         TxtCurrentValue.text = (int)UpgradableProperty.GetPercentageOfValue() + "%";
 
         nextValue = UpgradableProperty.GetPercentageOfValue() + UpgradableProperty.GetPercentageOfStep();
-        Debug.Log("%val: " + UpgradableProperty.GetPercentageOfValue() + ", %step: " + UpgradableProperty.GetPercentageOfStep());
         BtnText = BtnBuy.GetComponentInChildren<TMP_Text>();
         if (UpgradableProperty.CanIncrement())
         {

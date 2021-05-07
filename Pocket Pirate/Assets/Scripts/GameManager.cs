@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
     private void OnButtonPressed(object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
-        Debug.Log(args.Name);
 
         if (args.Name == TryAgainBtnName)
         {
