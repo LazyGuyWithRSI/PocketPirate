@@ -115,11 +115,6 @@ public class DebugEnemySpawner : MonoBehaviour
         */
     }
 
-    private void OnDestroy()
-    {
-        CurrentWave.Value = nextWave;
-    }
-
     private IEnumerator WaveControlCoroutine()
     {
         int waveCount = 0;

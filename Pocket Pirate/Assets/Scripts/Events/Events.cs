@@ -12,6 +12,11 @@ public class OnDeathEvent
     public int Team { get; set; }
 }
 
+public class OnReset
+{
+
+}
+
 public class OnShootEvent
 {
     public Vector3 Position { get; set; }

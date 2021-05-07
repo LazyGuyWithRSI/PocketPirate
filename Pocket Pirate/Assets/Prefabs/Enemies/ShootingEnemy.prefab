@@ -730,6 +730,14 @@ MonoBehaviour:
   FlashTime: 0.2
   UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
+  modelRenderers:
+  - {fileID: 7586033477712757707}
+  - {fileID: 7902874411513800962}
+  - {fileID: 7586033476390592612}
+  - {fileID: 1487638232930629332}
+  - {fileID: 363082401161864964}
+  - {fileID: 7586033476928444999}
+  - {fileID: 4145115043734732881}
   ExplodeOnDeath: 0
   ExplosionDelay: 4
   ExplosionRadius: 10

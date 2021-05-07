@@ -1036,7 +1036,7 @@ MonoBehaviour:
   Team: 0
   coinsOnDeath: 0
   InvincibilityAfterDamageDuration: 1
-  ModelForFlash: {fileID: 5956813397050801444}
+  ModelForFlash: {fileID: 2124509478166996317}
   FlashTime: 0.2
   UpgradablePlayerHealth: {fileID: 11400000, guid: c052faf2964c62147ae23276a8a66d59,
     type: 2}
@@ -12121,15 +12121,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aaa82f41d4b71440b0e63ec83384684, type: 3}
---- !u!1 &5956813397050801444 stripped
+--- !u!1 &2124509478166996317 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 560471557568545792, guid: 4aaa82f41d4b71440b0e63ec83384684,
+  m_CorrespondingSourceObject: {fileID: 5194389580371811449, guid: 4aaa82f41d4b71440b0e63ec83384684,
     type: 3}
   m_PrefabInstance: {fileID: 6155835544859670820}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6476469377526949790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 904345315508035258, guid: 4aaa82f41d4b71440b0e63ec83384684,
+    type: 3}
+  m_PrefabInstance: {fileID: 6155835544859670820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5956813397050801444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560471557568545792, guid: 4aaa82f41d4b71440b0e63ec83384684,
     type: 3}
   m_PrefabInstance: {fileID: 6155835544859670820}
   m_PrefabAsset: {fileID: 0}

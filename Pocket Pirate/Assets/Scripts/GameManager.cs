@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public FloatReference GameTime;
     public FloatReference Score;
     public FloatReference TotalScore;
+    public FloatReference currentWave;
+    public FloatReference nextWave;
     public BoolReference GameIsPaused;
     public BoolReference IsAPanelShowing;
     // TODO add GameState
@@ -38,6 +40,9 @@ public class GameManager : MonoBehaviour
         PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
         PubSub.RegisterListener<OnButtonReleasedEvent>(OnButtonPressed);
         PubSub.RegisterListener<OnCoinPickUpEvent>(OnCoinPickUpHandler);
+        PubSub.RegisterListener<OnReset>(OnResetHandler);
+
+        currentWave.Value = nextWave.Value;
 
         if (Playing)
         {
@@ -84,6 +89,9 @@ public class GameManager : MonoBehaviour
     private void OnWaveOverHandler(object pubEvent)
     {
         OnWaveOver args = pubEvent as OnWaveOver;
+
+        nextWave.Value = currentWave.Value + 1;
+
         if (args.Imediate)
             StartCoroutine(DelayWaveOver(0f));
         else
@@ -98,6 +106,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             //SceneManager.LoadScene(1);
+            PubSub.Publish<OnReset>(new OnReset());
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
         else if (args.Name == PauseBtnName && !unPausing)
@@ -124,6 +133,12 @@ public class GameManager : MonoBehaviour
             //SceneManager.LoadScene(1);
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
+    }
+
+    private void OnResetHandler(object publishedEvent)
+    {
+        Debug.Log("reseting");
+        SOPersistance.Instance.ResetAll();
     }
 
     private void publishGameOver(bool died)
