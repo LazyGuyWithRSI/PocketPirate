@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa35ad542104d934299e9671fd4a2f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowDuration: 2
+  ShowDuration: 5
   text: {fileID: 657726585}
   CurrentWave: {fileID: 11400000, guid: a3361196ad03df14f8201fe1f6cca0f6, type: 2}
 --- !u!1 &321773468
