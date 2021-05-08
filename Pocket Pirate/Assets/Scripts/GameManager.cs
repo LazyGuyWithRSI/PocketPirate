@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     private const string BtnNextWaveName = "BtnNextWave";
 
     private bool unPausing = false;
+    private bool waveOverFired = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,8 +64,8 @@ public class GameManager : MonoBehaviour
 
         // TODO end game
         //StartCoroutine(ReloadScene(3f, true));
-
-        PubSub.Publish<OnWaveOver>(new OnWaveOver() { Imediate = true });
+        if (!waveOverFired)
+            PubSub.Publish<OnWaveOver>(new OnWaveOver() { Imediate = true });
         //publishGameOver(false);
     }
 
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         OnWaveOver args = pubEvent as OnWaveOver;
 
+        waveOverFired = true;
         nextWave.Value = currentWave.Value + 1;
 
         if (args.Imediate)
