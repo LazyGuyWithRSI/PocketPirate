@@ -8631,7 +8631,7 @@ MonoBehaviour:
   MinSpawnDistance: 20
   totalSpawnDistance: 40
   WaveTimeLimit: 30
-  Ramp: 1.2
+  Ramp: 1.3
 --- !u!1 &1870971852
 GameObject:
   m_ObjectHideFlags: 0
