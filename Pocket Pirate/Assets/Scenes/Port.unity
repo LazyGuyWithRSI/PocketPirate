@@ -2980,8 +2980,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988669263}
-  m_LocalRotation: {x: 0.0033755933, y: 0, z: 0.0027255868, w: 0.9999906}
-  m_LocalPosition: {x: -9.221, y: -0.32564747, z: 16.924}
+  m_LocalRotation: {x: 0.010952442, y: 0, z: -0.005182232, w: 0.9999266}
+  m_LocalPosition: {x: -9.221, y: -0.48856357, z: 16.924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7221086185727058564}
@@ -4821,9 +4821,9 @@ MonoBehaviour:
   Playing: 0
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
-  TotalScore: {fileID: 0}
-  currentWave: {fileID: 0}
-  nextWave: {fileID: 0}
+  TotalScore: {fileID: 11400000, guid: 2e996495a1fc71344b0991ccee28ef0f, type: 2}
+  currentWave: {fileID: 11400000, guid: a3361196ad03df14f8201fe1f6cca0f6, type: 2}
+  nextWave: {fileID: 11400000, guid: d4a70cc8eb1cf6c46aa8a20cb6bd79f6, type: 2}
   GameIsPaused: {fileID: 11400000, guid: 48f8e7134216bf34c84b49c299bd2e5d, type: 2}
   IsAPanelShowing: {fileID: 11400000, guid: e7e607371d2f1644cb5b67a0e16abbc4, type: 2}
 --- !u!4 &1383669183

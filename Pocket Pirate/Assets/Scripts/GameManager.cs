@@ -42,12 +42,12 @@ public class GameManager : MonoBehaviour
         PubSub.RegisterListener<OnCoinPickUpEvent>(OnCoinPickUpHandler);
         PubSub.RegisterListener<OnReset>(OnResetHandler);
 
-        currentWave.Value = nextWave.Value;
 
         if (Playing)
         {
             //Score.Value = 0;
             StartCoroutine(gameTimeCountdown());
+            currentWave.Value = nextWave.Value;
         }
     }
 
