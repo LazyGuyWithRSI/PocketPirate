@@ -16,6 +16,7 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable
     public float costScalingFactor = 1.5f;
 
     [SerializeField] private bool Increasing = true;
+    [SerializeField] private float RoundFactor = 50;
 
     public float Value { get; set; }
     public float Cost { get; set; }
@@ -32,7 +33,7 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable
         if (CanIncrement())
         {
             Value += stepSize;
-            Cost = (int)(Cost * costScalingFactor);
+            Cost = (int)Mathf.Round((Cost * costScalingFactor) / RoundFactor) * RoundFactor;
         }
     }
 
