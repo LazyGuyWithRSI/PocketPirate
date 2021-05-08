@@ -94,7 +94,7 @@ public class DebugEnemySpawner : MonoBehaviour
         }
 
         // add up weights
-        
+
         float totalWeight = 0;
         for (int i = 0; i < waves[wave].ThingsToSpawn.Length; i++)
             totalWeight += waves[wave].ThingsToSpawn[i].Weight;
@@ -102,7 +102,7 @@ public class DebugEnemySpawner : MonoBehaviour
         float rand = Random.Range(0, totalWeight);
         for (int i = 0; i < waves[wave].ThingsToSpawn.Length; i++)
         {
-            if (rand < waves[wave].ThingsToSpawn[i].Weight)
+            if (rand <= waves[wave].ThingsToSpawn[i].Weight)
             {
                 GameObject enemy = Instantiate(waves[wave].ThingsToSpawn[i].Prefab, spawnPoint, Quaternion.identity);
                 //GameObject wake = Instantiate(WakePrefab);
@@ -151,7 +151,6 @@ public class DebugEnemySpawner : MonoBehaviour
             if (numEnemies >= MaxEnemies)
                 continue;
 
-            Debug.Log("Trying to spawn");
             if (SpawnEnemy(wave))
                 this.enemiesToSpawn--;
         }
