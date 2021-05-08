@@ -20,4 +20,4 @@ MonoBehaviour:
       type: 3}
     Weight: 0.5
   - Prefab: {fileID: 446508708847417172, guid: 235ea597b9db8e24fa48b40b8b85f5a5, type: 3}
-    Weight: 0.1
+    Weight: 0.05

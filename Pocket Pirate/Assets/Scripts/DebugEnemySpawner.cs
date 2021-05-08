@@ -22,7 +22,6 @@ public class DebugEnemySpawner : MonoBehaviour
     private int MaxEnemiesThisWave;
     private int enemiesToSpawn;
 
-    private int nextWave;
 
     private bool gameIsOver = false;
 
@@ -33,7 +32,6 @@ public class DebugEnemySpawner : MonoBehaviour
         PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
 
         numEnemies = 0;
-        nextWave = (int)CurrentWave.Value;
         /*
         for (int i = 0; i < MaxEnemies; i++)
         {
@@ -41,6 +39,7 @@ public class DebugEnemySpawner : MonoBehaviour
         }
         */
         //StartCoroutine(WaveControlCoroutine());
+        Debug.Log("enemies to start: " + (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)));
         StartCoroutine(SpawnWaveCoroutine(Random.Range(0, waves.Length), (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 2f));
     }
 
@@ -52,12 +51,11 @@ public class DebugEnemySpawner : MonoBehaviour
     public void OnGameOverEvent(object publishedEvent)
     {
         gameIsOver = true;
-        nextWave = 1;
     }
 
     public void OnWaveOverHandler(object publishedEvent)
     {
-        nextWave++;
+
     }
 
     public void OnDeathDeath (object publishedEvent) // TODO make sure this is actually an enemy perhaps?
@@ -72,10 +70,10 @@ public class DebugEnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy(int wave)
+    private bool SpawnEnemy(int wave)
     {
         if (gameIsOver)
-            return;
+            return false;
 
         float xDelta = 0;
         float zDelta = 0;
@@ -92,7 +90,7 @@ public class DebugEnemySpawner : MonoBehaviour
         if (!SpawnPointIsValid(spawnPoint))
         {
             Debug.Log("Could not find place to spawn");
-            return;
+            return false;
         }
 
         // add up weights
@@ -116,13 +114,7 @@ public class DebugEnemySpawner : MonoBehaviour
             rand -= waves[wave].ThingsToSpawn[i].Weight;
         }
 
-        /*
-        if (Random.Range(0, 4) == 0)
-            Instantiate(BigEnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
-        else
-            Instantiate(EnemyPrefab, new Vector3(PlayerPosition.Value.x + xDelta, 1, PlayerPosition.Value.z + zDelta), Quaternion.identity);
-        numEnemies++;
-        */
+        return true;
     }
 
     private bool SpawnPointIsValid(Vector3 point)
@@ -159,8 +151,9 @@ public class DebugEnemySpawner : MonoBehaviour
             if (numEnemies >= MaxEnemies)
                 continue;
 
-            SpawnEnemy(wave);
-            this.enemiesToSpawn--;
+            Debug.Log("Trying to spawn");
+            if (SpawnEnemy(wave))
+                this.enemiesToSpawn--;
         }
     }
 }

@@ -2,20 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 32
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f13e0262b7a79c4cb828c250f28c0f4, type: 3}
-  m_Name: UP_PlayerReloadSpeed
+  m_Script: {fileID: 11500000, guid: 3aa6fde5539906344826ee6b2c43f840, type: 3}
+  m_Name: Big Boi Wave
   m_EditorClassIdentifier: 
-  Name: Reload Speed
-  baseValue: 3.5
-  maxValue: 1
-  stepSize: 0.5
-  baseCost: 250
-  costScalingFactor: 1.5
-  Increasing: 0
+  ThingsToSpawn:
+  - Prefab: {fileID: 9003299066617469212, guid: b72b83e19cf235d4295e654859063d37,
+      type: 3}
+    Weight: 0

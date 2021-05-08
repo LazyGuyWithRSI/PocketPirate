@@ -7,7 +7,7 @@ public class FloatReference : ScriptableObject, IResetable
 {
     [SerializeField] private float baseValue = 1f;
 
-    public float Value;// { get; set; }
+    public float Value { get; set; }
 
     private void OnEnable()
     {

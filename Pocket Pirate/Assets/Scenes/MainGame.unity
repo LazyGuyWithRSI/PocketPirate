@@ -6126,6 +6126,16 @@ MonoBehaviour:
   SOContainers:
   - ID: NextWave
     Object: {fileID: 11400000, guid: d4a70cc8eb1cf6c46aa8a20cb6bd79f6, type: 2}
+  - ID: Score
+    Object: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
+  - ID: TotalScore
+    Object: {fileID: 11400000, guid: 2e996495a1fc71344b0991ccee28ef0f, type: 2}
+  - ID: TotalScore
+    Object: {fileID: 11400000, guid: 976e2df15f6d10241b03fd53587823f1, type: 2}
+  - ID: TotalScore
+    Object: {fileID: 11400000, guid: c052faf2964c62147ae23276a8a66d59, type: 2}
+  - ID: TotalScore
+    Object: {fileID: 11400000, guid: 8ff1674c4057d8141a811f6c4a47f959, type: 2}
 --- !u!1 &1280115190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8462,11 +8472,12 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 4595152a6ec147e4294f93ff0a569abc, type: 2}
   - {fileID: 11400000, guid: e3925c7a4200c37408ab8389b4af0b89, type: 2}
+  - {fileID: 11400000, guid: a34b03335ac6da740a3c8e57b9b50965, type: 2}
   PlayerPosition: {fileID: 11400000, guid: 90dfe63f85748e746b96bbca143f6199, type: 2}
   CurrentWave: {fileID: 11400000, guid: a3361196ad03df14f8201fe1f6cca0f6, type: 2}
   WakePrefab: {fileID: 208347899408736512, guid: 06323bb6fcc3c5c43b0112094a885783,
     type: 3}
-  StartEnemies: 5
+  StartEnemies: 2
   MaxEnemies: 40
   MaxSpawnDistance: 33
   MinSpawnDistance: 20
