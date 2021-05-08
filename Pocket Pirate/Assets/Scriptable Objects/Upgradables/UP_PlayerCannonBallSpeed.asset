@@ -16,6 +16,7 @@ MonoBehaviour:
   baseValue: 650
   maxValue: 1000
   stepSize: 50
-  baseCost: 100
-  costScalingFactor: 1.5
+  baseCost: 50
+  costScalingFactor: 1.3
   Increasing: 1
+  RoundFactor: 50
