@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noiseToUnitFactor: 10
   noiseScale: 0.2
-  chanceToPlaceTerrain: 0.3
+  chanceToPlaceTerrain: 0.2
   borderRadius: 60
   distanceBetweenBorderObjects: 1
   width: 50

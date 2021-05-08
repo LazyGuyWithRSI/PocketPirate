@@ -37,7 +37,7 @@ public class TerrainSystem : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 // don't spawn anything in the middle
-                if (Mathf.Abs((width / 2) - x) < 1 && Mathf.Abs((height / 2) - y) < 1)
+                if (Mathf.Abs((width / 2) - x) < 2 && Mathf.Abs((height / 2) - y) < 2)
                     continue;
 
                 if (Random.Range(0f, 1f) < noiseMap[x, y] && Random.Range(0f, 1f) < chanceToPlaceTerrain)
