@@ -1743,10 +1743,10 @@ RectTransform:
   m_Father: {fileID: 1252619411}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -2281.9, y: 1329.3}
-  m_SizeDelta: {x: 473.062, y: 167.40851}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249, y: -126}
+  m_SizeDelta: {x: 423.69153, y: 148.41992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676692713
 MonoBehaviour:
@@ -2980,8 +2980,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988669263}
-  m_LocalRotation: {x: -0.018371783, y: 0, z: 0.0028122698, w: 0.99982727}
-  m_LocalPosition: {x: -9.221, y: -0.5010435, z: 16.924}
+  m_LocalRotation: {x: 0.0033755933, y: 0, z: 0.0027255868, w: 0.9999906}
+  m_LocalPosition: {x: -9.221, y: -0.32564747, z: 16.924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7221086185727058564}
@@ -4822,6 +4822,8 @@ MonoBehaviour:
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
   Score: {fileID: 11400000, guid: e799ad167f42a6f468fa927a946c2131, type: 2}
   TotalScore: {fileID: 0}
+  currentWave: {fileID: 0}
+  nextWave: {fileID: 0}
   GameIsPaused: {fileID: 11400000, guid: 48f8e7134216bf34c84b49c299bd2e5d, type: 2}
   IsAPanelShowing: {fileID: 11400000, guid: e7e607371d2f1644cb5b67a0e16abbc4, type: 2}
 --- !u!4 &1383669183
@@ -5422,10 +5424,10 @@ RectTransform:
   m_Father: {fileID: 1252619411}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487.1, y: -1230.6}
-  m_SizeDelta: {x: 818.39966, y: 270.85898}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 487.1, y: 209.40002}
+  m_SizeDelta: {x: 818.39966, y: 270.859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531874879
 MonoBehaviour:
