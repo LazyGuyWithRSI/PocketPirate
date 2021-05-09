@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatReference: {fileID: 11400000, guid: c30c14b796af063479da1e135c2d392d, type: 2}
-  OnlyAtStart: 0
+  OnlyAtStart: 1
   PreText: 
   PostText: ' Bonus Gold'
 --- !u!114 &240473142
