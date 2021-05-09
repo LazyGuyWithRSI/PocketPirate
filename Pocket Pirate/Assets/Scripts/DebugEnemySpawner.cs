@@ -40,7 +40,7 @@ public class DebugEnemySpawner : MonoBehaviour
         */
         //StartCoroutine(WaveControlCoroutine());
         Debug.Log("enemies to start: " + (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)));
-        StartCoroutine(SpawnWaveCoroutine(Random.Range(0, waves.Length), (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 2f));
+        StartCoroutine(SpawnWaveCoroutine(Random.Range(0, waves.Length), (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 1.3f));
     }
 
     private void Update ()

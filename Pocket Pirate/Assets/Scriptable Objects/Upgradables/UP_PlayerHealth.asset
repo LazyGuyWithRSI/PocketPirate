@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: UP_PlayerHealth
   m_EditorClassIdentifier: 
   Name: Health
-  baseValue: 30
+  baseValue: 25
   maxValue: 60
   stepSize: 5
   baseCost: 100
   costScalingFactor: 1.2
   Increasing: 1
+  RoundFactor: 50

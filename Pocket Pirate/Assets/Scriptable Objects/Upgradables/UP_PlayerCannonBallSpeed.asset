@@ -19,4 +19,4 @@ MonoBehaviour:
   baseCost: 50
   costScalingFactor: 1.3
   Increasing: 1
-  RoundFactor: 50
+  RoundFactor: 10

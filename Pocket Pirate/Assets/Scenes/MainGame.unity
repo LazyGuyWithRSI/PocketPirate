@@ -5131,7 +5131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 60
+  TotalGameTime: 90
   WaveOverDelay: 5
   Playing: 1
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}

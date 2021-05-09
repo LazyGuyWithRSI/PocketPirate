@@ -15,7 +15,8 @@ MonoBehaviour:
   Name: Reload Speed
   baseValue: 3.5
   maxValue: 1
-  stepSize: 0.5
+  stepSize: -0.5
   baseCost: 250
   costScalingFactor: 1.5
   Increasing: 0
+  RoundFactor: 50
