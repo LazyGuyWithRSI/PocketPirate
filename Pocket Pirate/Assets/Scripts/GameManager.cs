@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public FloatReference TotalScore;
     public FloatReference currentWave;
     public FloatReference nextWave;
+    public FloatReference portSkipWaveBonus;
     public BoolReference GameIsPaused;
     public BoolReference IsAPanelShowing;
     // TODO add GameState
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour
         {
             //Time.timeScale = 1.0f;
             //SceneManager.LoadScene(1);
+            Score.Value += portSkipWaveBonus.Value;
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
     }
