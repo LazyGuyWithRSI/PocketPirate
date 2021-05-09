@@ -2446,9 +2446,9 @@ MonoBehaviour:
   damageFX:
   - {fileID: 4383609368626235961}
   - {fileID: 1679410027890490545}
-  breakpoints:
-  - 10
-  - 5
+  percentageBreakpoints:
+  - 66
+  - 33
 --- !u!114 &592530480348178445
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1092,9 +1092,9 @@ MonoBehaviour:
   damageFX:
   - {fileID: 2799851863647376262}
   - {fileID: 1017823876129020901}
-  breakpoints:
-  - 10
-  - 5
+  percentageBreakpoints:
+  - 66
+  - 33
 --- !u!65 &6803729473533443573
 BoxCollider:
   m_ObjectHideFlags: 0

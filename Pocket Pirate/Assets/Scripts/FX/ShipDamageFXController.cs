@@ -6,7 +6,7 @@ public class ShipDamageFXController : MonoBehaviour
 {
     public FireDamageFXController[] damageFX; // TODO use interface for damage fx points
 
-    public float[] breakpoints;
+    public float[] percentageBreakpoints;
 
     private bool[] hitBreakpoints;
 
@@ -17,7 +17,7 @@ public class ShipDamageFXController : MonoBehaviour
     {
         health = GetComponent<Health>();
 
-        hitBreakpoints = new bool[breakpoints.Length];
+        hitBreakpoints = new bool[percentageBreakpoints.Length];
 
         PubSub.RegisterListener<OnPlayerHealed>(OnPlayerHealedHandler);
     }
@@ -41,7 +41,7 @@ public class ShipDamageFXController : MonoBehaviour
         if (next < 0)
             return;
 
-        if (health.curHealth <= breakpoints[next])
+        if ( health.curHealth / health.MaxHealth * 100 <= percentageBreakpoints[next])
         {
             hitBreakpoints[next] = true;
             damageFX[next].StartFire();
