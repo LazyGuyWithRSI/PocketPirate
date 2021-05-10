@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,15 @@ public class ShootInput : MonoBehaviour
     private bool inputDisabled = false;
     private bool gameIsOver = false;
 
+    public float swipeThreshold = 40f;
+    public float timeThreshold = 0.3f;
+    public FloatReference PlayerHeading;
+
+    private Vector2 _fingerDown;
+    private DateTime _fingerDownTime;
+    private Vector2 _fingerUp;
+    private DateTime _fingerUpTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +51,8 @@ public class ShootInput : MonoBehaviour
         PubSub.RegisterListener<OnButtonPressedEvent>(OnButtonPressed);
         PubSub.RegisterListener<OnGameOver>(OnGameOverHandler);
 
+        PubSub.RegisterListener<OnPlayerFired>(OnPlayerFired);
+        PubSub.RegisterListener<OnPlayerReloaded>(OnPlayerReload);
     }
 
     // Update is called once per frame
@@ -52,6 +64,96 @@ public class ShootInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
             portShooter.Shoot();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _fingerDown = Input.mousePosition;
+            _fingerUp = Input.mousePosition;
+            _fingerDownTime = DateTime.Now;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _fingerDown = Input.mousePosition;
+            _fingerUpTime = DateTime.Now;
+            CheckSwipe();
+        }
+
+        foreach (var touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                _fingerDown = touch.position;
+                _fingerUp = touch.position;
+                _fingerDownTime = DateTime.Now;
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                _fingerDown = touch.position;
+                _fingerUpTime = DateTime.Now;
+                CheckSwipe();
+            }
+        }
+    }
+
+    private void CheckSwipe()
+    {
+        var duration = (float)_fingerUpTime.Subtract(_fingerDownTime).TotalSeconds;
+        var dirVector = _fingerUp - _fingerDown;
+
+        if (duration > timeThreshold) return;
+        if (dirVector.magnitude < swipeThreshold) return;
+
+        var direction = Vector2.Angle(Vector2.up, dirVector); //dirVector.Rotation(180f).Round();
+        if (_fingerUp.x < _fingerDown.x)
+            direction = 360f - direction;
+
+        print("finger down: " + _fingerDown + ", finger up:" + _fingerUp + ", swipe dir: " + direction + ", player heading: " + PlayerHeading.Value);
+
+        // get side of ship
+        float difference = PlayerHeading.Value - direction;
+        print(difference);
+        if (difference > 0f)
+        {
+            if (difference > 180f)
+                starboardShooter.Shoot();
+            else
+                portShooter.Shoot();
+        }
+        else
+        {
+            if (difference < -180f)
+                portShooter.Shoot();
+            else
+                starboardShooter.Shoot();
+        }
+
+        /*
+        if (direction >= 45 && direction < 135) onSwipeUp.Invoke();
+        else if (direction >= 135 && direction < 225) onSwipeRight.Invoke();
+        else if (direction >= 225 && direction < 315) onSwipeDown.Invoke();
+        else if (direction >= 315 && direction < 360 || direction >= 0 && direction < 45) onSwipeLeft.Invoke();
+        */
+    }
+
+    public void OnPlayerFired(object publishedEvent)
+    {
+        OnPlayerFired args = publishedEvent as OnPlayerFired;
+        if (args.WeaponName.Equals("Port"))
+            portAimHelper.enabled = false;
+        else if (args.WeaponName.Equals("Starboard"))
+            starboardAimHelper.enabled = false;
+
+    }
+
+    public void OnPlayerReload(object publishedEvent)
+    {
+        OnPlayerReloaded args = publishedEvent as OnPlayerReloaded;
+        if (args.WeaponName.Equals("Port"))
+            portAimHelper.enabled = true;
+        else if (args.WeaponName.Equals("Starboard"))
+            starboardAimHelper.enabled = true;
     }
 
     public void OnButtonPressed (object publishedEvent)
