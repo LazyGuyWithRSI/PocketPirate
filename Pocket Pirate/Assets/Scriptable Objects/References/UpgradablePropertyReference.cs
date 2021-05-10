@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Reference/Upgradable Property")]
-public class UpgradablePropertyReference : ScriptableObject, IResetable
+public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataObjLoadable
 {
     public string Name = "N/A";
 
@@ -56,6 +56,24 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable
     public float GetPercentageOfStep()
     {
         return (Mathf.Abs(stepSize) / baseValue) * 100;
+    }
+
+    public void InitFromDataObj(object dataObj)
+    {
+        UpgradablePropertyReferenceData data = dataObj as UpgradablePropertyReferenceData;
+
+        name = data.Name;
+
+        baseValue = data.BaseValue;
+        maxValue = data.MaxValue;
+        stepSize = data.StepSize;
+
+        baseCost = data.BaseCost;
+        costScalingFactor = data.CostScalingFactor;
+        Increasing = data.Increasing;
+        RoundFactor = data.RoundFactor;
+
+        Reset();
     }
 
     public void Reset()

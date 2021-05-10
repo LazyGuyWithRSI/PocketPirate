@@ -1,7 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
+
+[System.Serializable]
+public struct SOContainer
+{
+    public string ID;
+    public ScriptableObject Object;
+}
 
 public class SOPersistance : MonoBehaviour
 {
@@ -9,15 +17,15 @@ public class SOPersistance : MonoBehaviour
 
     public TextAsset jsonFile;
 
-    [System.Serializable]
-    public class SOContainer
-    {
-        public string ID;
-        public ScriptableObject Object;
-    }
+    
 
     // SO's to manipulate
     public SOContainer[] SOContainers;
+
+    //[SerializeField]
+    //private Dictionary<string, SOContainer> SOContainerDict;
+
+    public ReorderableList reorderableList;
 
     private void Awake()
     {
@@ -35,11 +43,13 @@ public class SOPersistance : MonoBehaviour
 
     private void LoadJSON()
     {
-        //JSONData serializedTest = JsonConvert.SerializeObject(JSONData);
         JSONData data = JsonConvert.DeserializeObject<JSONData>(jsonFile.text);
-        //JSONData data = JsonUtility.FromJson<JSONData>(jsonFile.text);
 
-        Debug.Log("data: " + data.ToString());
+        // load up data to SO's
+        foreach (string key in data.FloatReferences.Keys)
+        {
+            //if (SOContainers.)
+        }
 
     }
 
