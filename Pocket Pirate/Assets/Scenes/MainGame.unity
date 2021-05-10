@@ -6424,6 +6424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a8b709b565bb4f9f93b3107b528a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 367d0e1655a4db04d835bb0ae08e7da7, type: 3}
   SOContainers:
   - ID: NextWave
     Object: {fileID: 11400000, guid: d4a70cc8eb1cf6c46aa8a20cb6bd79f6, type: 2}

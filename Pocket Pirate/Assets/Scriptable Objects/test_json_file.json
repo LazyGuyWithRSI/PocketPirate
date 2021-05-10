@@ -1,4 +1,13 @@
 {
-   "ID": 1,
-   "TestString": "Hello there!"
+   "FloatReferences": {
+      "Test Value": {"Value": 3},
+      "Another Value": {"Value": 42}
+   },
+
+   "UpgradablePropertyReferences": {
+      "Just an upgradable ref": {
+         "Name": "Test Ref",
+         "BaseValue": 42
+      }
+   }
 }
