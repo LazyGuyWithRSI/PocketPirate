@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Reference/Float")]
 public class FloatReference : ScriptableObject, IResetable, IDataObjLoadable
 {
     [SerializeField] private float baseValue = 1f;

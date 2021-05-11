@@ -1,13 +1,27 @@
 {
    "FloatReferences": {
-      "Test Value": {"Value": 3},
-      "Another Value": {"Value": 42}
+      "Score": { "BaseValue": 3 },
+      "Another Value": { "BaseValue": 42 }
    },
 
    "UpgradablePropertyReferences": {
-      "Just an upgradable ref": {
+      "Test Ref": {
          "Name": "Test Ref",
          "BaseValue": 42
+      }
+   },
+   
+   "WaveTableReference": {
+      "WaveGroups": [
+         { "Name": "Easy Basic",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Basic Shooter" }
+            ]
+         }
+      ],
+      
+      "WaveTable": {
+         "1": { "WaveGroupName": "Easy Basic", "IsAdding": true }
       }
    }
 }

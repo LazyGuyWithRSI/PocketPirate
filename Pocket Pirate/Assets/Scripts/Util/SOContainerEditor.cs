@@ -11,23 +11,33 @@ using UnityEngine;
 public class SOContainerEditor : Editor
 {
     SerializedProperty SOContainers;
+    SerializedProperty EnemyPrefabContainers;
 
-    ReorderableList list;
+    ReorderableList listSOContainers;
+    ReorderableList listEnemyPrefabContainers;
 
     private void OnEnable()
     {
         SOContainers = serializedObject.FindProperty("SOContainers");
 
-        list = new ReorderableList(serializedObject, SOContainers, true, true, true, true);
+        listSOContainers = new ReorderableList(serializedObject, SOContainers, true, true, true, true);
 
-        list.elementHeight = EditorGUIUtility.singleLineHeight * 2 + 12;
-        list.drawElementCallback = DrawListItems;
-        list.drawHeaderCallback = DrawHeader;
+        listSOContainers.elementHeight = EditorGUIUtility.singleLineHeight * 2 + 12;
+        listSOContainers.drawElementCallback = DrawListItems;
+        listSOContainers.drawHeaderCallback = DrawHeader;
+
+        EnemyPrefabContainers = serializedObject.FindProperty("EnemyPrefabContainers");
+
+        listEnemyPrefabContainers = new ReorderableList(serializedObject, EnemyPrefabContainers, true, true, true, true);
+
+        listEnemyPrefabContainers.elementHeight = EditorGUIUtility.singleLineHeight * 2 + 12;
+        listEnemyPrefabContainers.drawElementCallback = DrawListItemsEnemy;
+        listEnemyPrefabContainers.drawHeaderCallback = DrawHeaderEnemy;
     }
 
     void DrawListItems(Rect rect, int index, bool isActive, bool isFocused)
     {
-        SerializedProperty element = list.serializedProperty.GetArrayElementAtIndex(index);
+        SerializedProperty element = listSOContainers.serializedProperty.GetArrayElementAtIndex(index);
 
         EditorGUI.LabelField(new Rect(rect.x, rect.y, 50, EditorGUIUtility.singleLineHeight), "ID");
         EditorGUI.PropertyField(new Rect(rect.x + 120, rect.y, 200, EditorGUIUtility.singleLineHeight), element.FindPropertyRelative("ID"), GUIContent.none);
@@ -41,14 +51,30 @@ public class SOContainerEditor : Editor
         EditorGUI.LabelField(rect, name);
     }
 
+    void DrawHeaderEnemy(Rect rect)
+    {
+        string name = "Enemy Prefab Containers";
+        EditorGUI.LabelField(rect, name);
+    }
+
+    void DrawListItemsEnemy(Rect rect, int index, bool isActive, bool isFocused)
+    {
+        SerializedProperty element = listEnemyPrefabContainers.serializedProperty.GetArrayElementAtIndex(index);
+
+        EditorGUI.LabelField(new Rect(rect.x, rect.y, 100, EditorGUIUtility.singleLineHeight), "Enemy ID");
+        EditorGUI.PropertyField(new Rect(rect.x + 120, rect.y, 200, EditorGUIUtility.singleLineHeight), element.FindPropertyRelative("ID"), GUIContent.none);
+        EditorGUI.LabelField(new Rect(rect.x, rect.y + 2 + EditorGUIUtility.singleLineHeight, 100, EditorGUIUtility.singleLineHeight), "Prebab");
+        EditorGUI.PropertyField(new Rect(rect.x + 120, rect.y + 2 + EditorGUIUtility.singleLineHeight, 200, EditorGUIUtility.singleLineHeight), element.FindPropertyRelative("Object"), GUIContent.none);
+    }
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
 
         serializedObject.Update();
 
-        list.DoLayoutList();
+        listSOContainers.DoLayoutList();
+        listEnemyPrefabContainers.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();
     }

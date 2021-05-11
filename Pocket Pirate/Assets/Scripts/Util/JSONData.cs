@@ -12,7 +12,7 @@ public class JSONData
     // upgradable property references
     public Dictionary<string, UpgradablePropertyReferenceData> UpgradablePropertyReferences;
 
-
+    public WaveTableReferenceData WaveTableReference;
 
     // wave definitions
     // <string waveName, enemies <string enemyName, float weight>>
