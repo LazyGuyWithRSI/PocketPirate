@@ -7,7 +7,7 @@ public class BoatInput : MonoBehaviour
     public float JumpAccelRequired = 0.5f;
 
     public Vector2Reference JoyStickInput;
-    public SettingsReference settings;
+    public BoolReference Use2AxisJoystickBoolRef;
     public IBoatMover mover;
     public IJump jumper;
 
@@ -67,7 +67,7 @@ public class BoatInput : MonoBehaviour
             return;
         }
 
-        if (settings.Use2AxisJoystick)
+        if (Use2AxisJoystickBoolRef.Value)
         {
             float angle = Mathf.Atan2(JoyStickInput.Value.x, JoyStickInput.Value.y) * 180 / Mathf.PI;
             angle += 180;

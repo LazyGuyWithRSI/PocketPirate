@@ -918,7 +918,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpAccelRequired: 0.9
   JoyStickInput: {fileID: 11400000, guid: f8b2d00e910143447b1144af8c315b9a, type: 2}
-  settings: {fileID: 11400000, guid: 55cbd3e0ff1ecfe4eaf5e6a40ccca92d, type: 2}
+  Use2AxisJoystickBoolRef: {fileID: 11400000, guid: 6d9de2750fd7e8c41ac43daf2380cb9e,
+    type: 2}
 --- !u!54 &6803729473533443579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1006,6 +1007,11 @@ MonoBehaviour:
   portAimHelper: {fileID: 6803729474985167234}
   starboardShootMount: {fileID: 6803729474984179283}
   portShootMount: {fileID: 6803729474921948186}
+  swipeThreshold: 40
+  timeThreshold: 0.3
+  PlayerHeading: {fileID: 11400000, guid: 0c26a9290c9af99448cc5617db94d52d, type: 2}
+  ShootControlModeFloatRef: {fileID: 11400000, guid: 280e7e38621b17140998b0e6c95b90d9,
+    type: 2}
 --- !u!114 &3766739285694562006
 MonoBehaviour:
   m_ObjectHideFlags: 0

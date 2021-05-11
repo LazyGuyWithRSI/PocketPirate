@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JoystickControlLoader : MonoBehaviour
+public class ShootButtonLoader : MonoBehaviour
 {
-    public GameObject JoystickSliderPrefab;
-    public GameObject Joystick2AxisPrefab;
-
-    public BoolReference Use2AxisJoystickBoolRef;
-
-    private GameObject currentlyLoaded;
+    public GameObject PortShootButton;
+    public GameObject StarboardShootButton;
+    public FloatReference ShootModeFloatRef;
 
     // Start is called before the first frame update
     void Start()
@@ -28,18 +25,18 @@ public class JoystickControlLoader : MonoBehaviour
         }
     }
 
-    private void LoadControl()
+    private void LoadControl() // interface maybe?
     {
-        if (currentlyLoaded != null)
+        if ((ShootControlMode)ShootModeFloatRef.Value == ShootControlMode.BUTTONS)
         {
-            GameObject.Destroy(currentlyLoaded);
-            currentlyLoaded = null;
+            PortShootButton.SetActive(true);
+            StarboardShootButton.SetActive(true);
         }
-
-        if (Use2AxisJoystickBoolRef.Value)
-            currentlyLoaded = Instantiate(Joystick2AxisPrefab, transform);
         else
-            currentlyLoaded = Instantiate(JoystickSliderPrefab, transform);
+        {
+            PortShootButton.SetActive(false);
+            StarboardShootButton.SetActive(false);
+        }
     }
 
     // Update is called once per frame

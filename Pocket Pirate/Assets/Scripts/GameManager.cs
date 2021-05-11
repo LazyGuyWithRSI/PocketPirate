@@ -22,11 +22,13 @@ public class GameManager : MonoBehaviour
     private const string TryAgainBtnName = "BtnTryAgain";
     private const string PauseBtnName = "BtnPause";
     private const string TapBackBtnName = "TapBtnBack";
+    private const string BtnMainMenu = "BtnMainMenu";
     private const string BtnResumeName = "BtnResume";
     private const string BtnNextWaveName = "BtnNextWave";
 
     private bool unPausing = false;
     private bool waveOverFired = false;
+    private bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -137,6 +139,14 @@ public class GameManager : MonoBehaviour
             Score.Value += portSkipWaveBonus.Value;
             PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 1 });
         }
+        else if (args.Name == BtnMainMenu)
+        {
+            //Time.timeScale = 1.0f;
+            //SceneManager.LoadScene(1);
+            if (isGameOver)
+                SOPersistance.Instance.ResetAll();
+            PubSub.Publish<OnRequestSceneChange>(new OnRequestSceneChange() { SceneIndex = 0 });
+        }
     }
 
     private void OnResetHandler(object publishedEvent)
@@ -152,6 +162,7 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 0.0f;
 
+        isGameOver = true;
         StopAllCoroutines();
         PubSub.Publish<OnGameOver>(new OnGameOver() { Died = died });
     }

@@ -26,6 +26,8 @@ public class ShootInput : MonoBehaviour
     public float timeThreshold = 0.3f;
     public FloatReference PlayerHeading;
 
+    public FloatReference ShootControlModeFloatRef;
+
     private Vector2 _fingerDown;
     private DateTime _fingerDownTime;
     private Vector2 _fingerUp;
@@ -115,26 +117,30 @@ public class ShootInput : MonoBehaviour
         float difference = PlayerHeading.Value - direction;
         //print(difference);
 
-        if (_fingerUp.x < _fingerDown.x)
-            starboardShooter.Shoot();
-        else
-            portShooter.Shoot();
-
-        /*
-        if (difference > 0f)
+        if ((ShootControlMode)ShootControlModeFloatRef.Value == ShootControlMode.SWIPE_SIDE)
         {
-            if (difference > 180f)
+            if (_fingerUp.x < _fingerDown.x)
                 starboardShooter.Shoot();
             else
                 portShooter.Shoot();
         }
-        else
+        else if ((ShootControlMode)ShootControlModeFloatRef.Value == ShootControlMode.SWIPE_ANY_DIRECTION)
         {
-            if (difference < -180f)
-                portShooter.Shoot();
+            if (difference > 0f)
+            {
+                if (difference > 180f)
+                    starboardShooter.Shoot();
+                else
+                    portShooter.Shoot();
+            }
             else
-                starboardShooter.Shoot();
-        }*/
+            {
+                if (difference < -180f)
+                    portShooter.Shoot();
+                else
+                    starboardShooter.Shoot();
+            }
+        }
 
         /*
         if (direction >= 45 && direction < 135) onSwipeUp.Invoke();
