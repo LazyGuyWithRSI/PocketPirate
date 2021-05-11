@@ -114,6 +114,13 @@ public class ShootInput : MonoBehaviour
         // get side of ship
         float difference = PlayerHeading.Value - direction;
         print(difference);
+
+        if (_fingerUp.x < _fingerDown.x)
+            starboardShooter.Shoot();
+        else
+            portShooter.Shoot();
+
+        /*
         if (difference > 0f)
         {
             if (difference > 180f)
@@ -127,7 +134,7 @@ public class ShootInput : MonoBehaviour
                 portShooter.Shoot();
             else
                 starboardShooter.Shoot();
-        }
+        }*/
 
         /*
         if (direction >= 45 && direction < 135) onSwipeUp.Invoke();
