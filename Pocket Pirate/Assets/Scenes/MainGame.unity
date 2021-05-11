@@ -4246,7 +4246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 0}
-  SOContainers: []
+  SOContainers:
+  - ID: 
+    Object: {fileID: 0}
 --- !u!4 &775004800
 Transform:
   m_ObjectHideFlags: 0

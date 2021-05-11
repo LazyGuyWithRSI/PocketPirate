@@ -20,6 +20,7 @@ public class SOContainerEditor : Editor
 
         list = new ReorderableList(serializedObject, SOContainers, true, true, true, true);
 
+        list.elementHeight = EditorGUIUtility.singleLineHeight * 2 + 12;
         list.drawElementCallback = DrawListItems;
         list.drawHeaderCallback = DrawHeader;
     }
@@ -28,7 +29,10 @@ public class SOContainerEditor : Editor
     {
         SerializedProperty element = list.serializedProperty.GetArrayElementAtIndex(index);
 
-        EditorGUI.LabelField(new Rect(rect.x, rect.y, 100, EditorGUIUtility.singleLineHeight), "ID");
+        EditorGUI.LabelField(new Rect(rect.x, rect.y, 50, EditorGUIUtility.singleLineHeight), "ID");
+        EditorGUI.PropertyField(new Rect(rect.x + 120, rect.y, 200, EditorGUIUtility.singleLineHeight), element.FindPropertyRelative("ID"), GUIContent.none);
+        EditorGUI.LabelField(new Rect(rect.x, rect.y + 2 + EditorGUIUtility.singleLineHeight, 100, EditorGUIUtility.singleLineHeight), "Scriptable Object");
+        EditorGUI.PropertyField(new Rect(rect.x + 120, rect.y + 2 + EditorGUIUtility.singleLineHeight, 200, EditorGUIUtility.singleLineHeight), element.FindPropertyRelative("Object"), GUIContent.none);
     }
 
     void DrawHeader(Rect rect)
@@ -40,7 +44,7 @@ public class SOContainerEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
 
         serializedObject.Update();
 
