@@ -109,11 +109,11 @@ public class ShootInput : MonoBehaviour
         if (_fingerUp.x < _fingerDown.x)
             direction = 360f - direction;
 
-        print("finger down: " + _fingerDown + ", finger up:" + _fingerUp + ", swipe dir: " + direction + ", player heading: " + PlayerHeading.Value);
+        //print("finger down: " + _fingerDown + ", finger up:" + _fingerUp + ", swipe dir: " + direction + ", player heading: " + PlayerHeading.Value);
 
         // get side of ship
         float difference = PlayerHeading.Value - direction;
-        print(difference);
+        //print(difference);
 
         if (_fingerUp.x < _fingerDown.x)
             starboardShooter.Shoot();

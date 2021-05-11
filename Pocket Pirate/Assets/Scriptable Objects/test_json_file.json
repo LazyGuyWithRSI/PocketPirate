@@ -17,11 +17,18 @@
             "EnemyData": [
                { "Weight": 1, "EnemyName": "Basic Shooter" }
             ]
+         },
+         { "Name": "All Big",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Big Boy" }
+            ]
          }
       ],
       
       "WaveTable": {
-         "1": { "WaveGroupName": "Easy Basic", "IsAdding": true }
+         "1": { "WaveGroupName": "Easy Basic", "IsAdding": true },
+         "2": { "WaveGroupName": "All Big", "IsAdding": true },
+         "4": { "WaveGroupName": "Easy Basic", "IsAdding": false }
       }
    }
 }

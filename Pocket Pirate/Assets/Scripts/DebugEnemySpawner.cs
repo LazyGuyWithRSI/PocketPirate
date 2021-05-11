@@ -9,6 +9,8 @@ public class DebugEnemySpawner : MonoBehaviour
     public Vector3Reference PlayerPosition;
     public FloatReference CurrentWave;
     public GameObject WakePrefab;
+    public WaveTableReference WaveTable;
+
     public int StartEnemies = 5;
     public int MaxEnemies = 20;
     public float MaxSpawnDistance = 20f;
@@ -21,6 +23,8 @@ public class DebugEnemySpawner : MonoBehaviour
     private int numEnemies;
     private int MaxEnemiesThisWave;
     private int enemiesToSpawn;
+
+    private (float weight, GameObject thingToSpawn)[] currentSpawnPool;
 
 
     private bool gameIsOver = false;
@@ -39,6 +43,8 @@ public class DebugEnemySpawner : MonoBehaviour
         }
         */
         //StartCoroutine(WaveControlCoroutine());
+        WaveTable.UpdateWavePool((int)CurrentWave.Value);
+
         Debug.Log("enemies to start: " + (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)));
         StartCoroutine(SpawnWaveCoroutine(Random.Range(0, waves.Length), (int)(StartEnemies * (Ramp * (int)CurrentWave.Value)), 1.3f));
     }
@@ -96,6 +102,26 @@ public class DebugEnemySpawner : MonoBehaviour
         // add up weights
 
         float totalWeight = 0;
+        for (int i = 0; i < currentSpawnPool.Length; i++)
+            totalWeight += currentSpawnPool[i].weight;
+
+        float rand = Random.Range(0, totalWeight);
+        for (int i = 0; i < currentSpawnPool.Length; i++)
+        {
+            if (rand <= currentSpawnPool[i].weight)
+            {
+                GameObject enemy = Instantiate(currentSpawnPool[i].thingToSpawn, spawnPoint, Quaternion.identity);
+                //GameObject wake = Instantiate(WakePrefab);
+                //wake.GetComponent<GenerateWake>().target = enemy.transform;
+                numEnemies++;
+                break;
+            }
+
+            rand -= currentSpawnPool[i].weight;
+        }
+
+        /*
+        float totalWeight = 0;
         for (int i = 0; i < waves[wave].ThingsToSpawn.Length; i++)
             totalWeight += waves[wave].ThingsToSpawn[i].Weight;
 
@@ -113,6 +139,7 @@ public class DebugEnemySpawner : MonoBehaviour
 
             rand -= waves[wave].ThingsToSpawn[i].Weight;
         }
+        */
 
         return true;
     }
@@ -144,6 +171,13 @@ public class DebugEnemySpawner : MonoBehaviour
     private IEnumerator SpawnWaveCoroutine(int wave, int enemiesToSpawn, float interval)
     {
         this.enemiesToSpawn = enemiesToSpawn;
+        List<(float weight, GameObject thingToSpawn)> thingsToSpawnList = new List<(float weight, GameObject thingToSpawn)>();
+        foreach (WaveGroup group in WaveTable.CurrentWavePool)
+            foreach (EnemySpawnGameObject enemy in group.EnemyGameObjects)
+                thingsToSpawnList.Add((enemy.Weight, enemy.GameObject));
+
+        currentSpawnPool = thingsToSpawnList.ToArray();
+        Debug.Log("Current spawn pool size: " + currentSpawnPool.Length);
         while (this.enemiesToSpawn > 0)
         {
             yield return new WaitForSeconds(interval);
