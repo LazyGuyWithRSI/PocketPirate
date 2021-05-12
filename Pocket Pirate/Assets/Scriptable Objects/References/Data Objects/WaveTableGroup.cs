@@ -10,4 +10,5 @@ public class WaveTableGroup
     public int WaveGroupID;
     public string WaveGroupName;
     public bool IsAdding;
+    public bool ClearPool;
 }
