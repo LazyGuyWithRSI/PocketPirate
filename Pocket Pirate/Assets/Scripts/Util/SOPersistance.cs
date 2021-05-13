@@ -72,8 +72,11 @@ public class SOPersistance : MonoBehaviour
 
             foreach (EnemySpawnData enemyData in waveGroup.EnemyData)
             {
+                int spawnLimit = enemyData.SpawnLimit;
+                if (spawnLimit == 0)
+                    spawnLimit = 100;
                 if (enemyDict.ContainsKey(enemyData.EnemyName))
-                    waveGroup.EnemyGameObjects.Add(new EnemySpawnGameObject { Weight = enemyData.Weight, GameObject = enemyDict[enemyData.EnemyName], SpawnLimit = enemyData.SpawnLimit });
+                    waveGroup.EnemyGameObjects.Add(new EnemySpawnGameObject { Weight = enemyData.Weight, GameObject = enemyDict[enemyData.EnemyName], SpawnLimit = spawnLimit });
             }
         }
 
