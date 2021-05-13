@@ -31,9 +31,21 @@
                { "Weight": 0.2, "EnemyName": "Bomber" }
             ]
          },
-         { "Name": "Boss",
+         { "Name": "Boss Single",
             "EnemyData": [
                { "Weight": 1, "EnemyName": "Boss", "SpawnLimit": 1 }
+            ]
+         },
+         { "Name": "Boss 3",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Boss", "SpawnLimit": 3 }
+            ]
+         },
+         {
+            "Name": "Boss Escort",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Basic Shooter", "SpawnLimit": 3 },
+               { "Weight": 0.2, "EnemyName": "Bomber", "SpawnLimit": 6 }
             ]
          }
       ],
@@ -42,9 +54,19 @@
          "1": [{ "WaveGroupName": "Easy Basic", "IsAdding": true }],
          "2": [{ "WaveGroupName": "Standard", "IsAdding": true }],
          "4": [{ "WaveGroupName": "Easy Basic", "IsAdding": false }],
-         "5": [{ "WaveGroupName": "Boss", "IsAdding": true, "ClearPool": true, "SpawnLimit": 1 }],
-         "6": [{ "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true },
-               { "WaveGroupName": "All Big", "IsAdding": true }]
+         "5": [{ "WaveGroupName": "Boss", "IsAdding": true, "ClearPool": true}],
+         "6": [
+            { "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true },
+            { "WaveGroupName": "All Big", "IsAdding": true }
+         ],
+         "10": [
+            { "WaveGroupName": "Boss 3", "IsAdding": true, "ClearPool": true},
+            { "WaveGroupName": "Boss Escort", "IsAdding": true }
+         ],
+         "11": [
+            { "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true },
+            { "WaveGroupName": "All Big", "IsAdding": true }
+         ]
       }
    }
 }

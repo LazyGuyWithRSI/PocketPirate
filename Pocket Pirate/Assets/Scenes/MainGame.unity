@@ -5268,7 +5268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc0d4754694104085b1b7fee3b0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalGameTime: 90
+  TotalGameTime: 300
   WaveOverDelay: 5
   Playing: 1
   GameTime: {fileID: 11400000, guid: 3fa27f2e768bec54fb42e47bb486bfad, type: 2}
@@ -9009,7 +9009,7 @@ MonoBehaviour:
   - Prefab: {fileID: 3802030736467118111, guid: 9d3322c69f7247947ac59808eca4d82c,
       type: 3}
     Weight: 1
-  ChanceForPowerUp: 0.4
+  ChanceForPowerUp: 0.2
   SpewForce: 300
 --- !u!1 &1934231800
 GameObject:
@@ -10604,6 +10604,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6803729473533443572, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: InvincibilityAfterDamageDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803729473533443572, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: FlashTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6803729473533443580, guid: dc3ac18dc78d24b4b8bd5de926bba500,
         type: 3}
       propertyPath: m_LocalPosition.x
