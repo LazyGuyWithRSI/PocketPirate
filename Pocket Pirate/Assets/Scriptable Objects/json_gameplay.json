@@ -8,6 +8,36 @@
       "Test Ref": {
          "Name": "Test Ref",
          "BaseValue": 42
+      },
+      "Player Health": {
+         "Name": "Health",
+         "BaseValue": 20,
+         "MaxValue": 40,
+         "StepSize": 2,
+         "BaseCost": 100,
+         "CostScalingFactor": 1.6,
+         "Increasing": true,
+         "RoundFactor": 10
+      },
+      "Player Reload Speed": {
+         "Name": "Reload Speed",
+         "BaseValue": 3.5,
+         "MaxValue": 1,
+         "StepSize": -0.25,
+         "BaseCost": 250,
+         "CostScalingFactor": 1.5,
+         "Increasing": false,
+         "RoundFactor": 10
+      },
+      "Player Cannonball Speed": {
+         "Name": "Cannonball Speed",
+         "BaseValue": 650,
+         "MaxValue": 1000,
+         "StepSize": 50,
+         "BaseCost": 50,
+         "CostScalingFactor": 1.4,
+         "Increasing": true,
+         "RoundFactor": 10
       }
    },
    

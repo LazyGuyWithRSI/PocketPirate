@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f13e0262b7a79c4cb828c250f28c0f4, type: 3}
-  m_Name: UP_PlayerReloadSpeed
+  m_Name: Reload Speed
   m_EditorClassIdentifier: 
   Name: Reload Speed
   baseValue: 3.5
   maxValue: 1
-  stepSize: -0.5
+  stepSize: -0.25
   baseCost: 250
   costScalingFactor: 1.5
   Increasing: 0
-  RoundFactor: 50
+  RoundFactor: 10
