@@ -204,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 19716960}
   m_LocalRotation: {x: 0.707107, y: -0, z: -0, w: 0.7071066}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1052, y: 1.1052, z: 1.1052}
+  m_LocalScale: {x: 1.3799528, y: 1.3799528, z: 1.3799528}
   m_Children: []
   m_Father: {fileID: 2114259031}
   m_RootOrder: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 210cc3635367d5548b12d9c6e1ff5d0d, type: 3}
-  m_Color: {r: 1, g: 0.3537736, b: 0.3537736, a: 0.41960785}
+  m_Color: {r: 1, g: 0.3537736, b: 0.3537736, a: 0.33333334}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9002,14 +9002,14 @@ MonoBehaviour:
   Pickups:
   - Prefab: {fileID: 7263189321788825705, guid: 20545d378325ff24cb39c16231c867d3,
       type: 3}
-    Weight: 1
+    Weight: 0.3
   - Prefab: {fileID: 3041686980588180391, guid: 8c1792097fbdaad429a320e5af81b276,
       type: 3}
-    Weight: 1
+    Weight: 0.3
   - Prefab: {fileID: 3802030736467118111, guid: 9d3322c69f7247947ac59808eca4d82c,
       type: 3}
     Weight: 1
-  ChanceForPowerUp: 0.2
+  ChanceForPowerUp: 0.35
   SpewForce: 300
 --- !u!1 &1934231800
 GameObject:
