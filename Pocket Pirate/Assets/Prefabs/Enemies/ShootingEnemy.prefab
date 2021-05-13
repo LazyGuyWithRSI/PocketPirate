@@ -827,8 +827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9f25e4d97ec31489b142c3342054e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InfluenceScalar: 5
-  AngleThreshold: 40
+  InfluenceScalar: 3
+  AngleThreshold: 140
 --- !u!1 &7586033476928445050
 GameObject:
   m_ObjectHideFlags: 0

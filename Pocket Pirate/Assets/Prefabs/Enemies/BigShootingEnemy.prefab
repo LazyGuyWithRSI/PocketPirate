@@ -2254,6 +2254,7 @@ GameObject:
   - component: {fileID: 592530480348178445}
   - component: {fileID: 7063728093782805689}
   - component: {fileID: 6553573140966376619}
+  - component: {fileID: 2077868453090224744}
   m_Layer: 0
   m_Name: BigShootingEnemy
   m_TagString: Untagged
@@ -2491,6 +2492,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trail: {fileID: 2664678900097595498}
+--- !u!114 &2077868453090224744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003299066617469212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9f25e4d97ec31489b142c3342054e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfluenceScalar: 2
+  AngleThreshold: 130
 --- !u!1 &9003299067299873760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,12 +2889,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91acbc0f72b977448b7fc601572b0946, type: 3}
---- !u!4 &6097836192191118921 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 781940701568923191, guid: 91acbc0f72b977448b7fc601572b0946,
-    type: 3}
-  m_PrefabInstance: {fileID: 6793081187888597118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4383609368626235961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7102293330472960583, guid: 91acbc0f72b977448b7fc601572b0946,
@@ -2892,6 +2901,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b31312e1d67aa458363335968d36fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6097836192191118921 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 781940701568923191, guid: 91acbc0f72b977448b7fc601572b0946,
+    type: 3}
+  m_PrefabInstance: {fileID: 6793081187888597118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7551995149508636653
 PrefabInstance:
   m_ObjectHideFlags: 0
