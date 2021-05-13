@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: -964173713205435023}
   - component: {fileID: 8026862070061672696}
   - component: {fileID: 3335987596294174946}
+  - component: {fileID: 4352264254954506931}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Untagged
@@ -730,14 +731,6 @@ MonoBehaviour:
   FlashTime: 0.2
   UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
-  modelRenderers:
-  - {fileID: 7586033477712757707}
-  - {fileID: 7902874411513800962}
-  - {fileID: 7586033476390592612}
-  - {fileID: 1487638232930629332}
-  - {fileID: 363082401161864964}
-  - {fileID: 7586033476928444999}
-  - {fileID: 4145115043734732881}
   ExplodeOnDeath: 0
   ExplosionDelay: 4
   ExplosionRadius: 10
@@ -822,6 +815,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trail: {fileID: 6702699222724194840}
+--- !u!114 &4352264254954506931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586033476619514231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9f25e4d97ec31489b142c3342054e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfluenceScalar: 5
+  AngleThreshold: 40
 --- !u!1 &7586033476928445050
 GameObject:
   m_ObjectHideFlags: 0

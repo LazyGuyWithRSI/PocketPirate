@@ -11,6 +11,8 @@ public class DebugEnemySpawner : MonoBehaviour
     public GameObject WakePrefab;
     public WaveTableReference WaveTable;
 
+    public static List<Transform> Enemies;
+
     public int StartEnemies = 5;
     public int MaxEnemies = 20;
     public float MaxSpawnDistance = 20f;
@@ -35,6 +37,7 @@ public class DebugEnemySpawner : MonoBehaviour
         PubSub.RegisterListener<OnDeathEvent>(OnDeathDeath);
         PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
 
+        Enemies = new List<Transform>();
         numEnemies = 0;
         /*
         for (int i = 0; i < MaxEnemies; i++)
@@ -113,6 +116,7 @@ public class DebugEnemySpawner : MonoBehaviour
                 GameObject enemy = Instantiate(currentSpawnPool[i].thingToSpawn, spawnPoint, Quaternion.identity);
                 //GameObject wake = Instantiate(WakePrefab);
                 //wake.GetComponent<GenerateWake>().target = enemy.transform;
+                Enemies.Add(enemy.transform);
                 numEnemies++;
                 break;
             }

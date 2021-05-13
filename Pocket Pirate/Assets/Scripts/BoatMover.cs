@@ -24,6 +24,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
     private Vector3 moveVector;
     private int requestedDirection = 1;
+    private float turnInfluence = 0f;
 
     private Rigidbody rb;
     private IJump jump;
@@ -158,6 +159,9 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
 
             turnDirection *= Mathf.Clamp(Mathf.Abs(headingDifference / EasingFactor), -1, 1);
+
+            // modify by turn influence
+            turnDirection = Mathf.Clamp(turnDirection + turnInfluence, -1, 1);
         }
         //Debug.Log("current heading: " + currentHeading + ", target: " + desiredHeading + ", dif: " + headingDifference);
         float forwardVelocity = Mathf.Max(transform.InverseTransformDirection(rb.velocity).z, (float)(Mathf.Abs(transform.InverseTransformDirection(rb.velocity).x) * 0.7));
@@ -173,6 +177,11 @@ public class BoatMover : MonoBehaviour, IBoatMover
         if (!isDead)
             rb.transform.localEulerAngles = new Vector3(0, rb.transform.localEulerAngles.y, 0);
     }
+
+    public void SetTurnInfluence(float amount)
+    {
+        turnInfluence = amount;
+    }
 }
 
 public interface IBoatMover
@@ -185,4 +194,5 @@ public interface IBoatMover
     void SetHeadingToCurrent ();
     void Drift (bool isStart);
     void Dead ();
+    void SetTurnInfluence(float amount);
 }
