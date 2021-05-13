@@ -73,14 +73,15 @@ public class SOPersistance : MonoBehaviour
             foreach (EnemySpawnData enemyData in waveGroup.EnemyData)
             {
                 if (enemyDict.ContainsKey(enemyData.EnemyName))
-                    waveGroup.EnemyGameObjects.Add(new EnemySpawnGameObject { Weight = enemyData.Weight, GameObject = enemyDict[enemyData.EnemyName] });
+                    waveGroup.EnemyGameObjects.Add(new EnemySpawnGameObject { Weight = enemyData.Weight, GameObject = enemyDict[enemyData.EnemyName], SpawnLimit = enemyData.SpawnLimit });
             }
         }
 
-        foreach (WaveTableGroup waveTableGroup in waveTableData.WaveTable.Values)
+        foreach (WaveTableGroup[] waveTableGroups in waveTableData.WaveTable.Values)
         {
-            if (WaveGroupDict.ContainsKey(waveTableGroup.WaveGroupName))
-                waveTableGroup.WaveGroupID = WaveGroupDict[waveTableGroup.WaveGroupName].ID;
+            foreach (WaveTableGroup waveTableGroup in waveTableGroups)
+                if (WaveGroupDict.ContainsKey(waveTableGroup.WaveGroupName))
+                    waveTableGroup.WaveGroupID = WaveGroupDict[waveTableGroup.WaveGroupName].ID;
         }
 
         WaveTableReference.InitFromDataObj(waveTableData);

@@ -16,14 +16,14 @@ public class AIAvoidance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform closest = null;
+        Health closest = null;
         float closestDist = float.MaxValue;
-        foreach (Transform enemy in DebugEnemySpawner.Enemies)
+        foreach (Health enemy in DebugEnemySpawner.Enemies)
         {
-            if (enemy == transform) // self
+            if (enemy.transform == transform) // self
                 continue;
 
-            float distanceSqr = (enemy.position - transform.position).sqrMagnitude;
+            float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
             if (distanceSqr < closestDist)
             {
                 closestDist = distanceSqr;
@@ -33,8 +33,8 @@ public class AIAvoidance : MonoBehaviour
 
         if (closest != null)
         {
-            float dir = AngleDir(transform.position, transform.forward, closest.position);
-            float realDistance = Vector3.Distance(transform.position, closest.position);
+            float dir = AngleDir(transform.position, transform.forward, closest.transform.position);
+            float realDistance = Vector3.Distance(transform.position, closest.transform.position);
 
             float influence = (1 / realDistance) * dir * InfluenceScalar;
             mover.SetTurnInfluence(influence);
@@ -62,6 +62,6 @@ public class AIAvoidance : MonoBehaviour
 
     public void OnDestroy()
     {
-        DebugEnemySpawner.Enemies.Remove(transform);
+        DebugEnemySpawner.Enemies.Remove(GetComponent<Health>());
     }
 }

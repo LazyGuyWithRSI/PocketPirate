@@ -23,10 +23,12 @@ public struct EnemySpawnData
 {
     public float Weight;
     public string EnemyName;
+    public int SpawnLimit;
 }
 
 public struct EnemySpawnGameObject
 {
     public float Weight;
     public GameObject GameObject;
+    public int SpawnLimit;
 }

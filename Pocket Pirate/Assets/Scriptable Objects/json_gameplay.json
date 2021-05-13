@@ -22,13 +22,29 @@
             "EnemyData": [
                { "Weight": 1, "EnemyName": "Big Boy" }
             ]
+         },
+         {
+            "Name": "Standard",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Basic Shooter" },
+               { "Weight": 0.5, "EnemyName": "Big Boy" },
+               { "Weight": 0.2, "EnemyName": "Bomber" }
+            ]
+         },
+         { "Name": "Boss",
+            "EnemyData": [
+               { "Weight": 1, "EnemyName": "Boss", "SpawnLimit": 1 }
+            ]
          }
       ],
       
       "WaveTable": {
-         "1": { "WaveGroupName": "Easy Basic", "IsAdding": true },
-         "2": { "WaveGroupName": "All Big", "IsAdding": true },
-         "4": { "WaveGroupName": "Easy Basic", "IsAdding": false }
+         "1": [{ "WaveGroupName": "Easy Basic", "IsAdding": true }],
+         "2": [{ "WaveGroupName": "Standard", "IsAdding": true }],
+         "4": [{ "WaveGroupName": "Easy Basic", "IsAdding": false }],
+         "5": [{ "WaveGroupName": "Boss", "IsAdding": true, "ClearPool": true, "SpawnLimit": 1 }],
+         "6": [{ "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true },
+               { "WaveGroupName": "All Big", "IsAdding": true }]
       }
    }
 }

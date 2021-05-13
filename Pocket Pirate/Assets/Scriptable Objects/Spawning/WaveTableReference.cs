@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Reference/Wave Table")]
 public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
 {
-    public Dictionary<int, WaveTableGroup> WaveTable;
+    public Dictionary<int, WaveTableGroup[]> WaveTable;
     public List<WaveGroup> CurrentWavePool;
 
     public List<WaveGroup> WaveGroups;
@@ -26,13 +26,18 @@ public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
     {
         if (WaveTable.ContainsKey(waveNumber))
         {
-            WaveTableGroup tableGroup = WaveTable[waveNumber];
-            if (tableGroup.IsAdding)
-                CurrentWavePool.Add(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
-            else
-                CurrentWavePool.Remove(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
+            foreach (WaveTableGroup tableGroup in WaveTable[waveNumber])
+            {
+                if (tableGroup.ClearPool)
+                    CurrentWavePool.Clear();
 
-            Debug.Log("Wave pool size: " + CurrentWavePool.Count);
+                if (tableGroup.IsAdding)
+                    CurrentWavePool.Add(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
+                else
+                    CurrentWavePool.Remove(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
+
+                Debug.Log("Wave pool size: " + CurrentWavePool.Count);
+            }
         }
     }
 
