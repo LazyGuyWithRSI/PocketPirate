@@ -2098,8 +2098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a485af49457c64ca88b03f48033e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 65
-  TurnSpeed: 55
+  Speed: 70
+  TurnSpeed: 70
   TurnSpeedWhileDrifting: 3
   DriftDuration: 0.5
   DriftForwardSpeed: 10
@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 70
   Team: 1
-  coinsOnDeath: 10
+  coinsOnDeath: 25
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 2845379142092602112}
   FlashTime: 0.2
@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 2845379142092602113}
   MaxLeanAngle: 40
-  AngularVelocityMax: 2.5
+  AngularVelocityMax: 4
 --- !u!114 &1704504309149702502
 MonoBehaviour:
   m_ObjectHideFlags: 0

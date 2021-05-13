@@ -9,6 +9,7 @@ public class IndicatorRing : MonoBehaviour
     public float HeightOffWater = 0.2f;
     public float XOffset = 0.0f;
     public float ZOffset = 0.0f;
+    public float DistanceThreshold;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class IndicatorRing : MonoBehaviour
             }
         }
 
-        if (closest != null)
+        if (closest != null && closestDist > DistanceThreshold)
         {
             Ring.gameObject.SetActive(true);
             Ring.LookAt(closest.transform);

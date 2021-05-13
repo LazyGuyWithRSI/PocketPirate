@@ -5598,6 +5598,7 @@ MonoBehaviour:
   HeightOffWater: 0.2
   XOffset: 0
   ZOffset: 0
+  DistanceThreshold: 260
 --- !u!4 &1121833540
 Transform:
   m_ObjectHideFlags: 0
