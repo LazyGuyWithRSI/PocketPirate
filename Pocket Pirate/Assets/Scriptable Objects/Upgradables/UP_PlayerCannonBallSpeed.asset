@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f13e0262b7a79c4cb828c250f28c0f4, type: 3}
   m_Name: UP_PlayerCannonBallSpeed
   m_EditorClassIdentifier: 
-  Name: Cannon Ball Speed
+  DisplayName: Cannonball Speed
   baseValue: 650
   maxValue: 1000
   stepSize: 50

@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Reference/Upgradable Property")]
 public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataObjLoadable
 {
-    public string Name = "N/A";
+    public string DisplayName = "N/A";
 
     [SerializeField] private float baseValue = 1f;
     public float maxValue = 10f;

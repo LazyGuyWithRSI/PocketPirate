@@ -34,7 +34,7 @@ public class UpgradableElement : MonoBehaviour
     private void Reset()
     {
         // populate menu and all that
-        TxtName.text = UpgradableProperty.Name;
+        TxtName.text = UpgradableProperty.DisplayName;
         TxtCurrentValue.text = (int)UpgradableProperty.GetPercentageOfValue() + "%";
 
         nextValue = UpgradableProperty.GetPercentageOfValue() + UpgradableProperty.GetPercentageOfStep();
