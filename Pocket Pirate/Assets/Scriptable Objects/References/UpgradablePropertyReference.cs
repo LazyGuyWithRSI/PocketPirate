@@ -62,7 +62,7 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataOb
     {
         UpgradablePropertyReferenceData data = dataObj as UpgradablePropertyReferenceData;
 
-        name = data.Name;
+        DisplayName = data.Name;
 
         baseValue = data.BaseValue;
         maxValue = data.MaxValue;
