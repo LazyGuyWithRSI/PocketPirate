@@ -9,6 +9,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
     public float TurnSpeedWhileDrifting = 3f;
     public float DriftDuration = 0.5f;
     public float DriftForwardSpeed = 10f;
+    public float DriftCooldown = 2f;
     public float EasingFactor = 1f;
     public float WaterDrag = 0.8f;
 
@@ -19,6 +20,7 @@ public class BoatMover : MonoBehaviour, IBoatMover
     private bool usingManualTurning = false;
     private bool isDead = false;
     private bool inDrift = false;
+    private bool canDrift = true;
 
     private float currentTurnSpeed = 0f;
 
@@ -75,14 +77,20 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
     public void Drift(bool isStart)
     {
+        if (!canDrift)
+            return;
+
         if (isStart)
             StartCoroutine(DriftCoroutine(DriftDuration));
-        else
+        else if (inDrift)
         {
             StopAllCoroutines();
             currentTurnSpeed = TurnSpeed;
             SetMoving(1);
             inDrift = false;
+
+
+            StartCoroutine(DriftCooldownCoroutine(DriftCooldown));
         }
     }
 
@@ -94,7 +102,15 @@ public class BoatMover : MonoBehaviour, IBoatMover
         SetMoving(0);
         yield return new WaitForSeconds(duration / 2);
         currentTurnSpeed = TurnSpeed;
-        inDrift = false;
+        //inDrift = false;
+    }
+
+    private IEnumerator DriftCooldownCoroutine(float duration)
+    {
+        canDrift = false;
+        PubSub.Publish<OnPlayerDriftOver>(new OnPlayerDriftOver { Cooldown = duration });
+        yield return new WaitForSeconds(duration);
+        canDrift = true;
     }
 
     // Start is called before the first frame update
@@ -123,9 +139,15 @@ public class BoatMover : MonoBehaviour, IBoatMover
 
         // move boat forward
 
+
         if (inDrift && !jump.IsAirborne())
+        {
+            if (requestedDirection != moveDirection)
+                moveDirection = requestedDirection;
+
             rb.AddForce(Vector3.Lerp(moveVector, transform.forward, 0.5f) * Speed * moveDirection);
-        else
+            moveVector = Vector3.Lerp(moveVector, transform.forward, 0.05f);
+        } else
             rb.AddForce(moveVector * Speed * moveDirection);
 
         // turn boat towards target heading

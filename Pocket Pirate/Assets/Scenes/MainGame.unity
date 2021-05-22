@@ -4543,7 +4543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 870732250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d1f6b0ef0b70543993c3f440b92511, type: 3}
+  m_Script: {fileID: 11500000, guid: afc6fc2a057d6ea4e994e1c2d15eb5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &914322788
@@ -7483,6 +7483,7 @@ GameObject:
   - component: {fileID: 1529168687}
   - component: {fileID: 1529168686}
   - component: {fileID: 1529168685}
+  - component: {fileID: 1529168684}
   m_Layer: 0
   m_Name: BtnSails
   m_TagString: Untagged
@@ -7510,6 +7511,18 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: 683}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1529168684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529168682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2371ef5389b924e98c1a1d72a868a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1529168685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7631,13 +7644,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 033d36940848f11419a2dd62890bae20, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1529168689

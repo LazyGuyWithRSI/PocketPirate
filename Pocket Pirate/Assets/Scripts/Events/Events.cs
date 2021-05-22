@@ -97,6 +97,11 @@ public class OnPlayerJump
     public float Cooldown { get; set; }
 }
 
+public class OnPlayerDriftOver
+{
+    public float Cooldown { get; set; }
+}
+
 public class ShowUIPanelEvent
 {
     public string PanelName { get; set; }
