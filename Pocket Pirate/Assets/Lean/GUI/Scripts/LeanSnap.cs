@@ -10,6 +10,11 @@ namespace Lean.Gui
 	[AddComponentMenu(LeanGui.ComponentMenuPrefix + "Snap")]
 	public class LeanSnap : MonoBehaviour
 	{
+
+		/// <summary>Use unscaled time?</summary>
+		[SerializeField] private bool useUnscaledTime = false;
+		public bool UseUnscaledTime { set { useUnscaledTime = value; } get { return useUnscaledTime; } }
+
 		/// <summary>To prevent UI element dragging from conflicting with snapping, you can specify the drag component here.</summary>
 		public LeanDrag DisableWith { set { disableWith = value; } get { return disableWith; } } [SerializeField] private LeanDrag disableWith;
 
@@ -55,6 +60,7 @@ namespace Lean.Gui
 		/// 10 = Fast.</summary>
 		public float VerticalSpeed { set { verticalSpeed = value; } get { return verticalSpeed; } } [SerializeField] private float verticalSpeed = -1.0f;
 
+
 		[System.NonSerialized]
 		private RectTransform cachedRectTransform;
 
@@ -79,16 +85,24 @@ namespace Lean.Gui
 			if (horizontal == true && intervalX != 0.0f)
 			{
 				var target = Mathf.Round((anchoredPosition.x - horizontalOffset) / intervalX) * intervalX + horizontalOffset;
-				var factor = LeanHelper.DampenFactor(horizontalSpeed, Time.deltaTime);
 
+				var time = Time.deltaTime;
+				if (useUnscaledTime)
+					time = Time.unscaledDeltaTime;
+
+				var factor = LeanHelper.DampenFactor(horizontalSpeed, time);
 				anchoredPosition.x = Mathf.Lerp(anchoredPosition.x, target, factor);
 			}
 
 			if (vertical == true && intervalY != 0.0f)
 			{
 				var target = Mathf.Round((anchoredPosition.y - verticalOffset) / intervalY) * intervalY + verticalOffset;
-				var factor = LeanHelper.DampenFactor(verticalSpeed, Time.deltaTime);
 
+				var time = Time.deltaTime;
+				if (useUnscaledTime)
+					time = Time.unscaledDeltaTime;
+
+				var factor = LeanHelper.DampenFactor(verticalSpeed, time);
 				anchoredPosition.y = Mathf.Lerp(anchoredPosition.y, target, factor);
 			}
 
@@ -119,6 +133,7 @@ namespace Lean.Gui.Inspector
 		protected override void DrawInspector()
 		{
 			Draw("horizontal", "Snap horizontally?");
+			Draw("useUnscaledTime", "Use Unscaled Time?");
 
 			if (Any(t => t.Horizontal == true))
 			{
