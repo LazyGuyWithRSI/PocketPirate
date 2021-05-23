@@ -31,13 +31,17 @@ public class DebugEnemySpawner : MonoBehaviour
 
     private bool gameIsOver = false;
 
+    void Awake()
+    {
+        Enemies = new List<Health>();
+    }
+
     // Start is called before the first frame update
     void Start ()
     {
         PubSub.RegisterListener<OnDeathEvent>(OnDeathDeath);
         PubSub.RegisterListener<OnWaveOver>(OnWaveOverHandler);
 
-        Enemies = new List<Health>();
         numEnemies = 0;
         /*
         for (int i = 0; i < MaxEnemies; i++)

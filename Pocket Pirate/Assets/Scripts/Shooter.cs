@@ -64,6 +64,11 @@ public class Shooter : MonoBehaviour, IShooter
 
     public void SetCooldown (float cooldown) { }
     public float GetCooldown () { return 0; }
+
+    public void SetAimHeading(float heading)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public interface IShooter
@@ -74,4 +79,5 @@ public interface IShooter
     void SetCooldown (float cooldown);
     float GetCooldown ();
     void SetName (string Name);
+    void SetAimHeading(float heading);
 }

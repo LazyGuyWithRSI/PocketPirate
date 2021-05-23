@@ -88,4 +88,9 @@ public class Broadside : MonoBehaviour, IShooter
     {
         return ShootCooldown;
     }
+
+    public void SetAimHeading(float heading)
+    {
+        //throw new NotImplementedException();
+    }
 }
