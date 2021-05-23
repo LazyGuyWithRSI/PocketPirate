@@ -902,6 +902,7 @@ MonoBehaviour:
   TurnSpeedWhileDrifting: 80
   DriftDuration: 2
   DriftForwardSpeed: 10
+  DriftCooldown: 2
   EasingFactor: 20
   WaterDrag: 0.95
 --- !u!114 &6803729473533443578
@@ -1028,6 +1029,8 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+  PlayerUpShootForce: {fileID: 11400000, guid: c8ffcbe5ce7732246b2c724445926808, type: 2}
+  UpShootFactor: 2
 --- !u!114 &6803729473533443572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,9 +1046,10 @@ MonoBehaviour:
   MaxHealth: 25
   Team: 0
   coinsOnDeath: 0
-  InvincibilityAfterDamageDuration: 1
+  InvincibilityAfterDamageDuration: 0.3
   ModelForFlash: {fileID: 2124509478166996317}
-  FlashTime: 0.2
+  FlashTime: 0.25
+  DeathDelay: 6
   UpgradablePlayerHealth: {fileID: 11400000, guid: c052faf2964c62147ae23276a8a66d59,
     type: 2}
   curHealth: 0

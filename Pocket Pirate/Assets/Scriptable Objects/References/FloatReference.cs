@@ -9,7 +9,7 @@ public class FloatReference : ScriptableObject, IResetable, IDataObjLoadable
 
     public float Value { get; set; }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         hideFlags = HideFlags.DontUnloadUnusedAsset;
         Value = baseValue;

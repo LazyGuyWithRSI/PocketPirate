@@ -68,7 +68,6 @@ public class ShootAction : Action
                     aimAngle -= 360;
 
                 shooter.SetAimHeading(shooterAngle - controller.mover.GetHeading());
-                Debug.Log("Turret heading: " + shooter.GetShootHeading());
                 if (Mathf.Abs(shooterAngle - controller.mover.GetHeading()) < AngleRequired && shooter.CanShoot())
                 {
                     if (shooter.Shoot())

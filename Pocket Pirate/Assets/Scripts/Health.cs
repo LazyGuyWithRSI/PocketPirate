@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public float InvincibilityAfterDamageDuration = 0f;
     public GameObject ModelForFlash;
     public float FlashTime = 0.2f;
+    public float DeathDelay = 6f;
 
     [SerializeField] private UpgradablePropertyReference UpgradablePlayerHealth;
 
@@ -111,7 +112,7 @@ public class Health : MonoBehaviour
             {
                 if (Team != 0)
                     PubSub.Publish(new OnSpewCoinsEvent() { Amount = coinsOnDeath, Position = transform.position });
-                GameObject.Destroy(gameObject, 6f);
+                GameObject.Destroy(gameObject, DeathDelay);
             }
         }
 
