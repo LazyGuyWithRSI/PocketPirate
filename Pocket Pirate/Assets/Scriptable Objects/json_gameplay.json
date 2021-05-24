@@ -58,7 +58,8 @@
             "EnemyData": [
                { "Weight": 1, "EnemyName": "Basic Shooter" },
                { "Weight": 0.5, "EnemyName": "Big Boy" },
-               { "Weight": 0.2, "EnemyName": "Bomber" }
+               { "Weight": 0.2, "EnemyName": "Bomber" },
+               { "Weight": 1, "EnemyName": "Balloon" }
             ]
          },
          { "Name": "Boss Single",

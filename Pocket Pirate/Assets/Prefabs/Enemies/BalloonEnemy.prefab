@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003d3797c18dc084d8858545dd318bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 5
   Team: 1
   coinsOnDeath: 25
   InvincibilityAfterDamageDuration: 0
@@ -1627,12 +1627,12 @@ PrefabInstance:
     - target: {fileID: 781940701568923191, guid: 91acbc0f72b977448b7fc601572b0946,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.272
+      value: 0.253
       objectReference: {fileID: 0}
     - target: {fileID: 781940701568923191, guid: 91acbc0f72b977448b7fc601572b0946,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.757
+      value: -0.107
       objectReference: {fileID: 0}
     - target: {fileID: 781940701568923191, guid: 91acbc0f72b977448b7fc601572b0946,
         type: 3}
