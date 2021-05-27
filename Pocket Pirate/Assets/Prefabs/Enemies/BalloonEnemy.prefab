@@ -670,7 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   Team: 1
-  coinsOnDeath: 25
+  coinsOnDeath: 10
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 0}
   FlashTime: 0.2
