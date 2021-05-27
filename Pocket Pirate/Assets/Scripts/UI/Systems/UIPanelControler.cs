@@ -22,28 +22,41 @@ public class UIPanelControler : MonoBehaviour
         PubSub.RegisterListener<UIPanelShownEvent>(OnUIPanelShownHandler);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Back();
+        }
+    }
+
     private void OnButtonPressed (object publishedEvent)
     {
         OnButtonReleasedEvent args = publishedEvent as OnButtonReleasedEvent;
         if (args.Name == TapBackBtnName || args.Name == BackBtnName)
         {
-            if (panels.Count != 0)
-            {
-                // rollback last panel
-                panels.Pop().Hide();
-            }
-
-            if (panels.Count == 0)
-            {
-                IsAPanelShowing.Value = false; // TODO even needed anymore with no panels showing event?
-                PubSub.Publish(new OnNoUIPanelShowingEvent());
-            }
+            Back();
         }
 
         // TODO move to some UI managment, with SO's and such
         else if (args.Name == BtnSettingsName)
         {
             PubSub.Publish(new ShowUIPanelEvent() { PanelName = "SettingsPanel" });
+        }
+    }
+
+    private void Back()
+    {
+        if (panels.Count != 0)
+        {
+            // rollback last panel
+            panels.Pop().Hide();
+        }
+
+        if (panels.Count == 0)
+        {
+            IsAPanelShowing.Value = false; // TODO even needed anymore with no panels showing event?
+            PubSub.Publish(new OnNoUIPanelShowingEvent());
         }
     }
 
