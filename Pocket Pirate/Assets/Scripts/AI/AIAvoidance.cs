@@ -20,6 +20,9 @@ public class AIAvoidance : MonoBehaviour
         float closestDist = float.MaxValue;
         foreach (Health enemy in DebugEnemySpawner.Enemies)
         {
+            if (enemy == null)
+                continue;
+
             if (enemy.transform == transform) // self
                 continue;
 

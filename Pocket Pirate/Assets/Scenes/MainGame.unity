@@ -8673,12 +8673,12 @@ MonoBehaviour:
     type: 3}
   WaveTable: {fileID: 11400000, guid: 2b2b824d3b079f1438c68177a0504e2a, type: 2}
   StartEnemies: 2
-  MaxEnemies: 40
+  MaxEnemies: 35
   MaxSpawnDistance: 35
   MinSpawnDistance: 22
   totalSpawnDistance: 50
   WaveTimeLimit: 30
-  Ramp: 1.5
+  Ramp: 1.3
 --- !u!1 &1837008837
 GameObject:
   m_ObjectHideFlags: 0
@@ -10710,6 +10710,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: New Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803729473560540554, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803729474985167237, guid: dc3ac18dc78d24b4b8bd5de926bba500,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3ac18dc78d24b4b8bd5de926bba500, type: 3}
