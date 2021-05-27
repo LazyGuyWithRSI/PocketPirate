@@ -1,0 +1,980 @@
+fileFormatVersion: 2
+guid: c85581eea3c77534da711fb2a43add97
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6338834010506319821
+    second: Atlas_02_TabOff
+  - first:
+      213: -1912626474567320025
+    second: Atlas_02_TabOn
+  - first:
+      213: -4086328831537704908
+    second: Atlas_02_Rank_2
+  - first:
+      213: -5793312875720805957
+    second: Atlas_02_Rank_1
+  - first:
+      213: -737590647146207444
+    second: Atlas_02_Rank_3
+  - first:
+      213: 7217831128102335586
+    second: Atlas_02_ValuesBg
+  - first:
+      213: -5944593637511670876
+    second: Atlas_02_ExpandArrow
+  - first:
+      213: -1344242572670886667
+    second: Atlas_02_ItemLevelOn
+  - first:
+      213: 7523255356414736885
+    second: Atlas_02_ItemLevelOff
+  - first:
+      213: 6883235629656537830
+    second: Atlas_02_TabStripe
+  - first:
+      213: 2498901006060190482
+    second: Atlas_02_SeparatorSmallDots
+  - first:
+      213: 8075634353901579151
+    second: Atlas_02_Planks_Leaders_Items_11
+  - first:
+      213: 4790205452771409335
+    second: Atlas_02_Planks_Leaders_Items_12
+  - first:
+      213: -3253757154685010392
+    second: Atlas_02_Planks_Leaders_Items_13
+  - first:
+      213: 40498703037011203
+    second: Atlas_02_Planks_Leaders_Items_14
+  - first:
+      213: 8624289347523624185
+    second: Atlas_02_Planks_Leaders_Items_15
+  - first:
+      213: 9049087227843087299
+    second: Atlas_02_Planks_Leaders_Items_16
+  - first:
+      213: 93634892726303485
+    second: Atlas_02_Planks_Leaders_Items_17
+  - first:
+      213: -6033684499023663334
+    second: Atlas_02_Planks_Leaders_Items_18
+  - first:
+      213: 4545677073962149364
+    second: Atlas_02_Planks_Leaders_Items_19
+  - first:
+      213: -3432311978256472575
+    second: Atlas_02_Planks_Leaders_Items_20
+  - first:
+      213: 7219324460615276135
+    second: Atlas_02_Planks_Leaders_Items_21
+  - first:
+      213: -6534483123360862816
+    second: Atlas_02_Planks_Leaders_Items_22
+  - first:
+      213: -6800267550626029280
+    second: Atlas_02_Planks_Leaders_Items_23
+  - first:
+      213: -8770865497087356416
+    second: Atlas_02_Planks_Leaders_Items_24
+  - first:
+      213: 5990595755404908796
+    second: Atlas_02_Planks_Leaders_Items_25
+  - first:
+      213: 3773691457803755504
+    second: Atlas_02_Planks_Leaders_Items_26
+  - first:
+      213: -1556453671405913730
+    second: Atlas_02_Planks_Leaders_Items_27
+  - first:
+      213: -4301532961963019787
+    second: Atlas_02_Planks_Leaders_Items_28
+  - first:
+      213: -1649102860559997334
+    second: Atlas_02_Planks_Leaders_Items_29
+  - first:
+      213: 5689231701531416570
+    second: Atlas_02_Planks_Leaders_Items_30
+  - first:
+      213: 6656009127964986381
+    second: Atlas_02_Planks_Leaders_Items_31
+  - first:
+      213: -78313995784220842
+    second: Atlas_02_Planks_Leaders_Items_32
+  - first:
+      213: -8592778998632333244
+    second: Atlas_02_Planks_Leaders_Items_33
+  - first:
+      213: -7203540776141496291
+    second: Atlas_02_Planks_Leaders_Items_34
+  - first:
+      213: -2301313778126235348
+    second: Atlas_02_Planks_Leaders_Items_35
+  - first:
+      213: -7603887191284997051
+    second: Atlas_02_Planks_Leaders_Items_36
+  - first:
+      213: 4773970290592345228
+    second: Atlas_02_Planks_Leaders_Items_37
+  - first:
+      213: -333095463879908158
+    second: Atlas_02_Planks_Leaders_Items_38
+  - first:
+      213: -7389971619779816182
+    second: Atlas_02_Planks_Leaders_Items_39
+  - first:
+      213: 8862828487436327848
+    second: Atlas_02_Planks_Leaders_Items_40
+  - first:
+      213: 2826239931350577662
+    second: Atlas_02_Planks_Leaders_Items_41
+  - first:
+      213: 7010396867384193949
+    second: Atlas_02_Planks_Leaders_Items_42
+  - first:
+      213: -2831606902191444248
+    second: Atlas_02_Planks_Leaders_Items_43
+  - first:
+      213: 7492393883827840764
+    second: Atlas_02_Planks_Leaders_Items_44
+  - first:
+      213: -252663980029010072
+    second: Atlas_02_Planks_Leaders_Items_45
+  - first:
+      213: 2590421651158461204
+    second: Atlas_02_Planks_Leaders_Items_46
+  - first:
+      213: 8501767634830257185
+    second: Atlas_02_Planks_Leaders_Items_47
+  - first:
+      213: 2316148649873792481
+    second: Atlas_02_Planks_Leaders_Items_48
+  - first:
+      213: 6930485113801814980
+    second: Atlas_02_Planks_Leaders_Items_49
+  - first:
+      213: -1250948574683065091
+    second: Atlas_02_Planks_Leaders_Items_50
+  - first:
+      213: 64937541196954181
+    second: Atlas_02_Planks_Leaders_Items_51
+  - first:
+      213: 1786584885406397023
+    second: Atlas_02_Planks_Leaders_Items_52
+  - first:
+      213: 3974242595470713788
+    second: Atlas_02_Planks_Leaders_Items_53
+  - first:
+      213: 8997409488903226442
+    second: Atlas_02_Planks_Leaders_Items_54
+  - first:
+      213: 7109073411293198650
+    second: Atlas_02_Planks_Leaders_Items_55
+  - first:
+      213: -5019913205046935564
+    second: Atlas_02_Planks_Leaders_Items_56
+  - first:
+      213: 5364157332983028057
+    second: Atlas_02_Planks_Leaders_Items_57
+  - first:
+      213: -1187294982582851044
+    second: Atlas_02_Planks_Leaders_Items_58
+  - first:
+      213: 1529491945824845438
+    second: Atlas_02_Planks_Leaders_Items_59
+  - first:
+      213: 4973020533419958035
+    second: Atlas_02_Planks_Leaders_Items_60
+  - first:
+      213: 3958593333549684741
+    second: Atlas_02_Planks_Leaders_Items_61
+  - first:
+      213: 8506405316787112040
+    second: Atlas_02_Planks_Leaders_Items_62
+  - first:
+      213: -7435379350731582708
+    second: Atlas_02_Planks_Leaders_Items_63
+  - first:
+      213: 4710502532304482927
+    second: Atlas_02_Planks_Leaders_Items_64
+  - first:
+      213: -8181328827606008140
+    second: Atlas_02_Planks_Leaders_Items_65
+  - first:
+      213: 6454939364170372471
+    second: Atlas_02_SeparatorShort
+  - first:
+      213: 2873752246546202495
+    second: Atlas_02_Planks_Leaders_Items_67
+  - first:
+      213: 2821370097485335967
+    second: Atlas_02_Planks_Leaders_Items_68
+  - first:
+      213: -2122875488909490589
+    second: Atlas_02_Planks_Leaders_Items_69
+  - first:
+      213: 7813643841699658631
+    second: Atlas_02_Planks_Leaders_Items_70
+  - first:
+      213: -2010348301108466916
+    second: Atlas_02_Planks_Leaders_Items_71
+  - first:
+      213: -1507000079240749261
+    second: Atlas_02_Planks_Leaders_Items_72
+  - first:
+      213: 2434743145843198961
+    second: Atlas_02_Planks_Leaders_Items_73
+  - first:
+      213: -3953280528179094718
+    second: Atlas_02_Planks_Leaders_Items_74
+  - first:
+      213: -3565683085313118696
+    second: Atlas_02_Planks_Leaders_Items_75
+  - first:
+      213: 4165564610390847773
+    second: Atlas_02_Planks_Leaders_Items_76
+  - first:
+      213: -2491646877066404213
+    second: Atlas_02_Planks_Leaders_Items_77
+  - first:
+      213: 8608219783819882522
+    second: Atlas_02_Planks_Leaders_Items_78
+  - first:
+      213: 5625826939624293993
+    second: Atlas_02_Planks_Leaders_Items_79
+  - first:
+      213: 8566344093240011374
+    second: Atlas_02_Planks_Leaders_Items_80
+  - first:
+      213: -5498912213628424649
+    second: Atlas_02_Planks_Leaders_Items_81
+  - first:
+      213: -7208655920520664585
+    second: Atlas_02_Planks_Leaders_Items_82
+  - first:
+      213: -8912564386256085369
+    second: Atlas_02_Planks_Leaders_Items_83
+  - first:
+      213: -117057873945484490
+    second: Atlas_02_Planks_Leaders_Items_84
+  - first:
+      213: 2348157210993033977
+    second: Atlas_02_Planks_Leaders_Items_85
+  - first:
+      213: 8433581892394659851
+    second: Atlas_02_Planks_Leaders_Items_86
+  - first:
+      213: 5275837793073818633
+    second: Atlas_02_Planks_Leaders_Items_87
+  - first:
+      213: -2740002690391046078
+    second: Atlas_02_Planks_Leaders_Items_88
+  - first:
+      213: 1925185294619134987
+    second: Atlas_02_Planks_Leaders_Items_89
+  - first:
+      213: 3949486156048755518
+    second: Atlas_02_Planks_Leaders_Items_90
+  - first:
+      213: 3799070975081449171
+    second: Atlas_02_Planks_Leaders_Items_91
+  - first:
+      213: -668566928880917669
+    second: Atlas_02_Planks_Leaders_Items_92
+  - first:
+      213: 2287835507144567122
+    second: Atlas_02_Planks_Leaders_Items_93
+  - first:
+      213: 4047314901770912259
+    second: Atlas_02_Planks_Leaders_Items_94
+  - first:
+      213: 6394224247034059782
+    second: Atlas_02_Planks_Leaders_Items_95
+  - first:
+      213: -3167316388816322745
+    second: Atlas_02_Planks_Leaders_Items_96
+  - first:
+      213: 1799438886722984126
+    second: Atlas_02_Planks_Leaders_Items_97
+  - first:
+      213: -244553695542349433
+    second: Atlas_02_Planks_Leaders_Items_98
+  - first:
+      213: 3470740397403061418
+    second: Atlas_02_Planks_Leaders_Items_99
+  - first:
+      213: 7793468675040586565
+    second: Atlas_02_Planks_Leaders_Items_100
+  - first:
+      213: 3813896735440295404
+    second: Atlas_02_Planks_Leaders_Items_101
+  - first:
+      213: -7450866895886041134
+    second: Atlas_02_Planks_Leaders_Items_102
+  - first:
+      213: 8676391946432165627
+    second: Atlas_02_Planks_Leaders_Items_103
+  - first:
+      213: -6366443284068820699
+    second: Atlas_02_SquareButton_Green
+  - first:
+      213: -8265825258506503849
+    second: Atlas_02_Planks_Leaders_Items_105
+  - first:
+      213: 3479707873047280125
+    second: Atlas_02_Planks_Leaders_Items_106
+  - first:
+      213: 4594667279402057829
+    second: Atlas_02_Planks_Leaders_Items_107
+  - first:
+      213: -1986058852482397641
+    second: Atlas_02_Planks_Leaders_Items_108
+  - first:
+      213: 5579931261515116233
+    second: Atlas_02_Planks_Leaders_Items_109
+  - first:
+      213: 950871044598076258
+    second: Atlas_02_Planks_Leaders_Items_110
+  - first:
+      213: 7758132503677014601
+    second: Atlas_02_Planks_Leaders_Items_111
+  - first:
+      213: -5639893095475371731
+    second: Atlas_02_Planks_Leaders_Items_112
+  - first:
+      213: -7298333756024481718
+    second: Atlas_02_Planks_Leaders_Items_113
+  - first:
+      213: 7565772990579595228
+    second: Atlas_02_Planks_Leaders_Items_114
+  - first:
+      213: -4886546376520038904
+    second: Atlas_02_Planks_Leaders_Items_115
+  - first:
+      213: -5648088844924086431
+    second: Atlas_02_Planks_Leaders_Items_116
+  - first:
+      213: -39613567215687538
+    second: Atlas_02_Planks_Leaders_Items_117
+  - first:
+      213: -69052458814807443
+    second: Atlas_02_Planks_Leaders_Items_118
+  - first:
+      213: 7295613437126947677
+    second: Atlas_02_Planks_Leaders_Items_119
+  - first:
+      213: 6423300776878690954
+    second: Atlas_02_Planks_Leaders_Items_120
+  - first:
+      213: -3318546985782959685
+    second: Atlas_02_Planks_Leaders_Items_121
+  - first:
+      213: 3401143203351408979
+    second: Atlas_02_Planks_Leaders_Items_122
+  - first:
+      213: -7150678594638518306
+    second: Atlas_02_Planks_Leaders_Items_123
+  - first:
+      213: 4613297336894398568
+    second: Atlas_02_Planks_Leaders_Items_124
+  - first:
+      213: 9085960239804967278
+    second: Atlas_02_Planks_Leaders_Items_125
+  - first:
+      213: -8041232857444393388
+    second: Atlas_02_Planks_Leaders_Items_126
+  - first:
+      213: -648804814863222059
+    second: Atlas_02_Planks_Leaders_Items_127
+  - first:
+      213: 7834385345852161020
+    second: Atlas_02_Planks_Leaders_Items_128
+  - first:
+      213: -7624450326230603833
+    second: Atlas_02_Planks_Leaders_Items_129
+  - first:
+      213: -8633041378026443518
+    second: Atlas_02_Planks_Leaders_Items_130
+  - first:
+      213: -6459243972760282611
+    second: Atlas_02_Planks_Leaders_Items_131
+  - first:
+      213: -8790723714644579775
+    second: Atlas_02_Planks_Leaders_Items_132
+  - first:
+      213: -5495127040978554917
+    second: Atlas_02_Planks_Leaders_Items_133
+  - first:
+      213: 4345483041190893899
+    second: Atlas_02_Planks_Leaders_Items_134
+  - first:
+      213: -79733672250019068
+    second: Atlas_02_Planks_Leaders_Items_135
+  - first:
+      213: 5829762073227717104
+    second: Atlas_02_Planks_Leaders_Items_136
+  - first:
+      213: -5410914404801149562
+    second: Atlas_02_Planks_Leaders_Items_137
+  - first:
+      213: 9204260410001094905
+    second: Atlas_02_Planks_Leaders_Items_138
+  - first:
+      213: -3109370816186624712
+    second: Atlas_02_Planks_Leaders_Items_139
+  - first:
+      213: -2464842904235732491
+    second: Atlas_02_Planks_Leaders_Items_140
+  - first:
+      213: -4994844466905957935
+    second: Atlas_02_Planks_Leaders_Items_141
+  - first:
+      213: -3601968417388872906
+    second: Atlas_02_Planks_Leaders_Items_142
+  - first:
+      213: -6847622539305262488
+    second: Atlas_02_Planks_Leaders_Items_143
+  - first:
+      213: -3638771026562712304
+    second: Atlas_02_Planks_Leaders_Items_144
+  - first:
+      213: -8673387979198295172
+    second: Atlas_02_Planks_Leaders_Items_145
+  - first:
+      213: 7829655775834065906
+    second: Atlas_02_Planks_Leaders_Items_146
+  - first:
+      213: -1900162334141959041
+    second: Atlas_02_Planks_Leaders_Items_147
+  - first:
+      213: -6687115504092484135
+    second: Atlas_02_Planks_Leaders_Items_148
+  - first:
+      213: 4087250592909724703
+    second: Atlas_02_Plank_1
+  - first:
+      213: -7238618520601701902
+    second: Atlas_02_Plank_2
+  - first:
+      213: -202753474371578227
+    second: Atlas_02_Plank_3
+  - first:
+      213: -6662884012849861049
+    second: Atlas_02_Plank_4
+  - first:
+      213: -4739651515949078264
+    second: Atlas_02_Plank_5
+  - first:
+      213: 474784297274857554
+    second: Atlas_02_SeparatorLong
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Atlas_02_TabOff
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1922
+        width: 336
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7d46ea2ff08f750800000000000000
+      internalID: 6338834010506319821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_TabOn
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1922
+        width: 336
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e386bda5cf475e0800000000000000
+      internalID: -1912626474567320025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Rank_2
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1915
+        width: 128
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43012c8f3917a47c0800000000000000
+      internalID: -4086328831537704908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Rank_1
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1915
+        width: 128
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1f6f142a40a9fa0800000000000000
+      internalID: -5793312875720805957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Rank_3
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1915
+        width: 128
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27233fd63d83c5f0800000000000000
+      internalID: -737590647146207444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_ValuesBg
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 1944
+        width: 289
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264fb475b23ea2460800000000000000
+      internalID: 7217831128102335586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_ExpandArrow
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1926
+        width: 73
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3d11e159f808da0800000000000000
+      internalID: -5944593637511670876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_ItemLevelOn
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 1981
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc9ef3908a485de0800000000000000
+      internalID: -1344242572670886667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_ItemLevelOff
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 1914
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9b7a103e8f76860800000000000000
+      internalID: 7523255356414736885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_TabStripe
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1901
+        width: 1579
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea7df2165a268f50800000000000000
+      internalID: 6883235629656537830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_SeparatorSmallDots
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1885
+        width: 1470
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b751ba931eda220800000000000000
+      internalID: 2498901006060190482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_SeparatorShort
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1865
+        width: 646
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7759f08e62d849950800000000000000
+      internalID: 6454939364170372471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Plank_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1448
+        width: 1919
+        height: 404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c836252c4d8b830800000000000000
+      internalID: 4087250592909724703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Plank_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1066
+        width: 1918
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1d8feaec24b8b90800000000000000
+      internalID: -7238618520601701902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Plank_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 687
+        width: 1910
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d861b1f0accaf2df0800000000000000
+      internalID: -202753474371578227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Plank_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 353
+        width: 1815
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e6472ba4ea883a0800000000000000
+      internalID: -6662884012849861049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_Plank_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 6
+        width: 1881
+        height: 338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809a6b8de00693eb0800000000000000
+      internalID: -4739651515949078264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_SeparatorLong
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1867
+        width: 1396
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25850088dc5c69600800000000000000
+      internalID: 474784297274857554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_02_SquareButton_Green
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 1855
+        width: 206
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52918626099d5a7a0800000000000000
+      internalID: -6366443284068820699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3cd039f6d2e501a49ab21f8015f2acf5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

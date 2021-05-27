@@ -1,0 +1,2606 @@
+fileFormatVersion: 2
+guid: 334c4e040a2d8134fbaaf987987e3652
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1022214139464012348
+    second: Atlas_08_Icon_Again_Yellow
+  - first:
+      213: -7115283200650967053
+    second: Atlas_08_Icon_Menu_Yellow
+  - first:
+      213: -9183588166827575354
+    second: Atlas_08_Icons_2
+  - first:
+      213: 7051558803517251533
+    second: Atlas_08_Icons_3
+  - first:
+      213: 4239192943057647621
+    second: Atlas_08_Icon_Again_2_Yellow
+  - first:
+      213: -372636762164580943
+    second: Atlas_08_Icon_Forward_Yellow
+  - first:
+      213: 6900937154526990864
+    second: Atlas_08_Icons_6
+  - first:
+      213: 5120903770057485917
+    second: Atlas_08_Icon_Settings_Yellow
+  - first:
+      213: 1131140512989059949
+    second: Atlas_08_Icon_Play_Yellow
+  - first:
+      213: 223891862027927476
+    second: Atlas_08_Icon_PlayFlipped_Yellow
+  - first:
+      213: 7501697586305532804
+    second: Atlas_08_Icon_Back_Yellow
+  - first:
+      213: -5654807980814839898
+    second: Atlas_08_Icon_List_Yellow
+  - first:
+      213: -5291955888073680812
+    second: Atlas_08_Icon_Backward_Yellow
+  - first:
+      213: 8830575582124829665
+    second: Atlas_08_Icons_13
+  - first:
+      213: -2304409504298126342
+    second: Atlas_08_Icon_Backward_2_Yellow
+  - first:
+      213: 7954500825902422892
+    second: Atlas_08_Icon_Player_Yellow
+  - first:
+      213: -5238444073454426044
+    second: Atlas_08_Icon_Add_Yellow
+  - first:
+      213: 3694299223606997675
+    second: Atlas_08_Icon_Cross_Yellow
+  - first:
+      213: 3235230472834246346
+    second: Atlas_08_Icon_Subtract_Yellow
+  - first:
+      213: 1294458845658773467
+    second: Atlas_08_Icon_Star_Yellow
+  - first:
+      213: 2667398525320380466
+    second: Atlas_08_Icon_Help_Yellow
+  - first:
+      213: -623070479429067077
+    second: Atlas_08_Icon_Money_Yellow
+  - first:
+      213: -654878001173516165
+    second: Atlas_08_Icon_Search_Yellow
+  - first:
+      213: 7677644077681557459
+    second: Atlas_08_Icon_Pause_Yellow
+  - first:
+      213: -8194987882539549723
+    second: Atlas_08_Icons_24
+  - first:
+      213: 3308694193645806772
+    second: Atlas_08_Icon_Tick_Yellow
+  - first:
+      213: 3538225217484299222
+    second: Atlas_08_Icon_Menu_2_Yellow
+  - first:
+      213: 6989764228419003107
+    second: Atlas_08_Icons_27
+  - first:
+      213: -5705670423245791186
+    second: Atlas_08_Icon_Twitter_Yellow
+  - first:
+      213: -348020957874194424
+    second: Atlas_08_Icon_Facebook_Yellow
+  - first:
+      213: -2505932088396503290
+    second: Atlas_08_Icons_30
+  - first:
+      213: -5787044006352637303
+    second: Atlas_08_Icons_31
+  - first:
+      213: -7445018560353965140
+    second: Atlas_08_Icons_32
+  - first:
+      213: -4468591542226562437
+    second: Atlas_08_Icon_Players_Yellow
+  - first:
+      213: -434637430071920711
+    second: Atlas_08_Icon_Home_Yellow
+  - first:
+      213: 3962735422657084296
+    second: Atlas_08_Icon_Reward_Yellow
+  - first:
+      213: -8658224678166192700
+    second: Atlas_08_Icon_Menu_3_Yellow
+  - first:
+      213: 2722443133299943158
+    second: Atlas_08_Icon_Music_Yellow
+  - first:
+      213: -328707856520956226
+    second: Atlas_08_Icon_Forward_2_Yellow
+  - first:
+      213: -4770138667878479984
+    second: Atlas_08_Icon_Message_Yellow
+  - first:
+      213: 4536673794159501560
+    second: Atlas_08_Icon_Basket_Yellow
+  - first:
+      213: -4515039671708546324
+    second: Atlas_08_Icon_Cup_Yellow
+  - first:
+      213: -6880342062559913141
+    second: Atlas_08_Icon_Gamepad_Yellow
+  - first:
+      213: 7283585719575909706
+    second: Atlas_08_Icon_Rank_Yellow
+  - first:
+      213: -3655121517523942703
+    second: Atlas_08_Icon_Sound_Yellow
+  - first:
+      213: -7362269047229342720
+    second: Atlas_08_Icons_45
+  - first:
+      213: -6820729498013357344
+    second: Atlas_08_Icons_46
+  - first:
+      213: 6343378622903297777
+    second: Atlas_08_Icon_Heart_Yellow
+  - first:
+      213: 8834552227160218041
+    second: Atlas_08_Icon_Ran_Yellow
+  - first:
+      213: -7476571283161870083
+    second: Atlas_08_Icons_49
+  - first:
+      213: 6459523742913269780
+    second: Atlas_08_Icons_50
+  - first:
+      213: 6005601710737514201
+    second: Atlas_08_Icons_51
+  - first:
+      213: 4324297675369556260
+    second: Atlas_08_Icons_52
+  - first:
+      213: 1454957767081260930
+    second: Atlas_08_Icon_BubbleSpeech_Yellow
+  - first:
+      213: 5804235305082293638
+    second: Atlas_08_Icon_Cloud_Yellow
+  - first:
+      213: 6295256048203362501
+    second: Atlas_08_Icon_Eye_Yellow
+  - first:
+      213: 4319234433558489785
+    second: Atlas_08_Icon_Location_Yellow
+  - first:
+      213: -7755527915702631768
+    second: Atlas_08_Icon_Time_Yellow
+  - first:
+      213: -3231669410886443454
+    second: Atlas_08_Icon_PlayerAdd_Yellow
+  - first:
+      213: 2852220198940192145
+    second: Atlas_08_Icon_Date_Yellow
+  - first:
+      213: 4286854584462753431
+    second: Atlas_08_Icon_Flag_Yellow
+  - first:
+      213: -6521034677849676914
+    second: Atlas_08_Icon_Power_Yellow
+  - first:
+      213: -5784617186976589217
+    second: Atlas_08_Icon_Dustbin_Yellow
+  - first:
+      213: -1378737820688924963
+    second: Atlas_08_Icon_Phone_Yellow
+  - first:
+      213: 3655088269655223055
+    second: Atlas_08_Icon_Info_Yellow
+  - first:
+      213: -6974588071043248782
+    second: Atlas_08_Icon_Again_Green
+  - first:
+      213: -6357164468337227280
+    second: Atlas_08_Icon_Menu_Green
+  - first:
+      213: -4194913557532858442
+    second: Atlas_08_Icons_67
+  - first:
+      213: 1371200905117936725
+    second: Atlas_08_Icons_68
+  - first:
+      213: 4667379388178922915
+    second: Atlas_08_Icon_Again_2_Green
+  - first:
+      213: 3496427479178699030
+    second: Atlas_08_Icon_Forward_Green
+  - first:
+      213: -4322202405015387707
+    second: Atlas_08_Icons_71
+  - first:
+      213: 9183219490941536104
+    second: Atlas_08_Icon_Settings_Green
+  - first:
+      213: -7122181524814624545
+    second: Atlas_08_Icon_Play_Green
+  - first:
+      213: 5943842905500092974
+    second: Atlas_08_Icon_PlayFlipped_Green
+  - first:
+      213: 5754029489233907798
+    second: Atlas_08_Icon_Back_Green
+  - first:
+      213: 8930535988329269462
+    second: Atlas_08_Icon_List_Green
+  - first:
+      213: -1205097799337435474
+    second: Atlas_08_Icon_Backward_Green
+  - first:
+      213: -469900758989129904
+    second: Atlas_08_Icons_78
+  - first:
+      213: 6382248356435320509
+    second: Atlas_08_Icon_Backward_2_Green
+  - first:
+      213: -2510651938239369469
+    second: Atlas_08_Icon_Player_Green
+  - first:
+      213: 401982760306753178
+    second: Atlas_08_Icon_Add_Green
+  - first:
+      213: 7747800347505167370
+    second: Atlas_08_Icon_Cross_Green
+  - first:
+      213: 2936891565525031562
+    second: Atlas_08_Icon_Subtract_Green
+  - first:
+      213: -4483576690768828586
+    second: Atlas_08_Icon_Star_Green
+  - first:
+      213: 3106703002485773507
+    second: Atlas_08_Icon_Help_Green
+  - first:
+      213: 4448887406590947076
+    second: Atlas_08_Icon_Help_Gree
+  - first:
+      213: -8752588216459782365
+    second: Atlas_08_Icon_Search_Green
+  - first:
+      213: 8035372777370123405
+    second: Atlas_08_Icon_Pause_Green
+  - first:
+      213: -4409094515418128027
+    second: Atlas_08_Icons_89
+  - first:
+      213: -6459948998009834178
+    second: Atlas_08_Icon_Tick_Green
+  - first:
+      213: -289465355687180585
+    second: Atlas_08_Icon_Menu_2_Green
+  - first:
+      213: 365107761123507370
+    second: Atlas_08_Icons_92
+  - first:
+      213: 1027961196106508759
+    second: Atlas_08_Icon_Twitter_Green
+  - first:
+      213: 2093275336203051682
+    second: Atlas_08_Icon_Facebook_Green
+  - first:
+      213: -5492305040141588322
+    second: Atlas_08_Icons_95
+  - first:
+      213: 1033866760848203901
+    second: Atlas_08_Icons_96
+  - first:
+      213: 6234089893875083756
+    second: Atlas_08_Icons_97
+  - first:
+      213: 4769583556407546895
+    second: Atlas_08_Icon_Players_Green
+  - first:
+      213: 3485484189518366630
+    second: Atlas_08_Icon_Home_Green
+  - first:
+      213: -4699253260580558341
+    second: Atlas_08_Icon_Reward_Green
+  - first:
+      213: 4056841032958466992
+    second: Atlas_08_Icon_Menu_3_Green
+  - first:
+      213: -4474796001703977906
+    second: Atlas_08_Icon_Music_Green
+  - first:
+      213: 4431688648111803679
+    second: Atlas_08_Icon_Forward__2_Green
+  - first:
+      213: -9221466571354950190
+    second: Atlas_08_Icon_Message_Green
+  - first:
+      213: -8647283003842792680
+    second: Atlas_08_Icon_Basket_Green
+  - first:
+      213: 1889307336417106005
+    second: Atlas_08_Icon_Cup_Green
+  - first:
+      213: -7082393056071050885
+    second: Atlas_08_Icon_Gamepad_Green
+  - first:
+      213: 6205069168767222806
+    second: Atlas_08_Icon_Rank_Green
+  - first:
+      213: -4393524873764453889
+    second: Atlas_08_Icon_Sound_Green
+  - first:
+      213: -4168750677942179321
+    second: Atlas_08_Icons_110
+  - first:
+      213: -3280559961850855762
+    second: Atlas_08_Icons_111
+  - first:
+      213: 6315348175688398429
+    second: Atlas_08_Icon_Heart_Green
+  - first:
+      213: 848502764220524367
+    second: Atlas_08_Icon_Rank_Gree
+  - first:
+      213: -3144585381116084315
+    second: Atlas_08_Icons_114
+  - first:
+      213: -8277996757095378229
+    second: Atlas_08_Icons_115
+  - first:
+      213: 3687902944794195226
+    second: Atlas_08_Icons_116
+  - first:
+      213: 1340173894061646205
+    second: Atlas_08_Icons_117
+  - first:
+      213: -2511262562875134270
+    second: Atlas_08_Icon_BubbleSpeech_Green
+  - first:
+      213: -3663210172037852212
+    second: Atlas_08_Icon_Cloud_Green
+  - first:
+      213: 80744240111123809
+    second: Atlas_08_Icon_Eye_Green
+  - first:
+      213: 1482848854933258449
+    second: Atlas_08_Icon_Location_Green
+  - first:
+      213: -1413663495241583753
+    second: Atlas_08_Icon_Time_Green
+  - first:
+      213: 887951428712228290
+    second: Atlas_08_Icon_PlayerAdd_Green
+  - first:
+      213: 4657393563643592672
+    second: Atlas_08_Icon_Date_Green
+  - first:
+      213: -942689788687430341
+    second: Atlas_08_Icon_Flag_Green
+  - first:
+      213: -3554909248415162274
+    second: Atlas_08_Icon_Power_Green
+  - first:
+      213: -5007511827491786531
+    second: Atlas_08_Icon_Dustbin_Green
+  - first:
+      213: 3847174099004135407
+    second: Atlas_08_Icon_Phone_Green
+  - first:
+      213: -2633407327013791750
+    second: Atlas_08_Icon_Info_Green
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Again_Yellow
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1898
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdadd4f7ad50d1f0800000000000000
+      internalID: -1022214139464012348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_Yellow
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1915
+        width: 138
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f705ec90af614d90800000000000000
+      internalID: -7115283200650967053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Again_2_Yellow
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 1895
+        width: 137
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5083b418583a4da30800000000000000
+      internalID: 4239192943057647621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Forward_Yellow
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1916
+        width: 151
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdade0d6d024daf0800000000000000
+      internalID: -372636762164580943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Settings_Yellow
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1898
+        width: 132
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e2c3fd8da111740800000000000000
+      internalID: 5120903770057485917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Play_Yellow
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1900
+        width: 104
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b14c3bd4e92bf00800000000000000
+      internalID: 1131140512989059949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_PlayFlipped_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 1898
+        width: 107
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf7648567c6b1300800000000000000
+      internalID: 223891862027927476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Back_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 1911
+        width: 165
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483852485326b1860800000000000000
+      internalID: 7501697586305532804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_List_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1889
+        width: 136
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6afcc761a161681b0800000000000000
+      internalID: -5654807980814839898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Backward_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 1913
+        width: 155
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458d45468223f86b0800000000000000
+      internalID: -5291955888073680812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Backward_2_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 1906
+        width: 140
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3b64fd3c71500e0800000000000000
+      internalID: -2304409504298126342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Player_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1898
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b177d3b50146e60800000000000000
+      internalID: 7954500825902422892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Add_Yellow
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1730
+        width: 120
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448aff1aede4d47b0800000000000000
+      internalID: -5238444073454426044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cross_Yellow
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1738
+        width: 107
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2b8151299c44330800000000000000
+      internalID: 3694299223606997675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Subtract_Yellow
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1770
+        width: 102
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6edcb59f8d5ec20800000000000000
+      internalID: 3235230472834246346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Star_Yellow
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1732
+        width: 133
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd77ad73677d6f110800000000000000
+      internalID: 1294458845658773467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Help_Yellow
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1724
+        width: 94
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2304f1883d0840520800000000000000
+      internalID: 2667398525320380466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Money_Yellow
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1721
+        width: 86
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe199b33b86a57f0800000000000000
+      internalID: -623070479429067077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Search_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 1733
+        width: 137
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70b5d87de769e6f0800000000000000
+      internalID: -654878001173516165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Pause_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 1742
+        width: 96
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df371a5c987c8a60800000000000000
+      internalID: 7677644077681557459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Tick_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1727
+        width: 135
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4e7a2c6d7daed20800000000000000
+      internalID: 3308694193645806772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_2_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 1734
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db1b77c61d4a1130800000000000000
+      internalID: 3538225217484299222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Twitter_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 1736
+        width: 134
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e206bf0eaf261d0b0800000000000000
+      internalID: -5705670423245791186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Facebook_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1718
+        width: 82
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808748f58c49b2bf0800000000000000
+      internalID: -348020957874194424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Players_Yellow
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1563
+        width: 139
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72554ffaaf5cf1c0800000000000000
+      internalID: -4468591542226562437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Home_Yellow
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1556
+        width: 141
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b779766f8bd7f9f0800000000000000
+      internalID: -434637430071920711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Reward_Yellow
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1550
+        width: 110
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b35561fd67ef630800000000000000
+      internalID: 3962735422657084296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_3_Yellow
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1561
+        width: 122
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd1268478ec7d780800000000000000
+      internalID: -8658224678166192700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Music_Yellow
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1555
+        width: 129
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f66b890b9f08c520800000000000000
+      internalID: 2722443133299943158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Forward_2_Yellow
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1568
+        width: 140
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6303132f1307bf0800000000000000
+      internalID: -328707856520956226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Message_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1566
+        width: 147
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0978fb3a7201dcdb0800000000000000
+      internalID: -4770138667878479984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Basket_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 1557
+        width: 145
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f063ba87c085fe30800000000000000
+      internalID: 4536673794159501560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cup_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 1553
+        width: 146
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea040d175b5751c0800000000000000
+      internalID: -4515039671708546324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Gamepad_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1563
+        width: 147
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b10f3095d1480a0800000000000000
+      internalID: -6880342062559913141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Rank_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 1577
+        width: 155
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a451e623f9e741560800000000000000
+      internalID: 7283585719575909706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Sound_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1564
+        width: 143
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d249117856664dc0800000000000000
+      internalID: -3655121517523942703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Heart_Yellow
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1393
+        width: 130
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f625f5bf35380850800000000000000
+      internalID: 6343378622903297777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Ran_Yellow
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1400
+        width: 172
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b955817172aa9a70800000000000000
+      internalID: 8834552227160218041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_BubbleSpeech_Yellow
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1393
+        width: 137
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287f216616c013410800000000000000
+      internalID: 1454957767081260930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cloud_Yellow
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1402
+        width: 146
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d06300249cc8050800000000000000
+      internalID: 5804235305082293638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Eye_Yellow
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 1399
+        width: 144
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c07a4ba50e3d5750800000000000000
+      internalID: 6295256048203362501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Location_Yellow
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 1382
+        width: 97
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9baa3e145d001fb30800000000000000
+      internalID: 4319234433558489785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Time_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1382
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a24be28374de5490800000000000000
+      internalID: -7755527915702631768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_PlayerAdd_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 1389
+        width: 145
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e1e9cfacdc623d0800000000000000
+      internalID: -3231669410886443454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Date_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1390
+        width: 138
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d2603c82f159720800000000000000
+      internalID: 2852220198940192145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Flag_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 1389
+        width: 115
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e38a62887fd7b30800000000000000
+      internalID: 4286854584462753431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Power_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 1392
+        width: 124
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8324caa281a085a0800000000000000
+      internalID: -6521034677849676914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Dustbin_Yellow
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 1390
+        width: 121
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a14a01159e8bfa0800000000000000
+      internalID: -5784617186976589217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Phone_Yellow
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1212
+        width: 102
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddeb077c14dbddce0800000000000000
+      internalID: -1378737820688924963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Info_Yellow
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1215
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b2f7f6a6b79b230800000000000000
+      internalID: 3655088269655223055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Again_Green
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1047
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d4ac23a19453f90800000000000000
+      internalID: -6974588071043248782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_Green
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1067
+        width: 139
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f946060990d6c7a0800000000000000
+      internalID: -6357164468337227280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Again_2_Green
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 1046
+        width: 137
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad726023dcd5c040800000000000000
+      internalID: 4667379388178922915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Forward_Green
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1064
+        width: 152
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6116c57744ec58030800000000000000
+      internalID: 3496427479178699030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Settings_Green
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1048
+        width: 132
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8678304e879517f70800000000000000
+      internalID: 9183219490941536104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Play_Green
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1050
+        width: 104
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8039b53ade82d90800000000000000
+      internalID: -7122181524814624545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_PlayFlipped_Green
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 1048
+        width: 107
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a0f0771a5cc7250800000000000000
+      internalID: 5943842905500092974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Back_Green
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 1061
+        width: 165
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650d8e4955b6adf40800000000000000
+      internalID: 5754029489233907798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_List_Green
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1039
+        width: 136
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d845365a23afeb70800000000000000
+      internalID: 8930535988329269462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Backward_Green
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 1061
+        width: 155
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae13e6bfe1a64fe0800000000000000
+      internalID: -1205097799337435474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Backward_2_Green
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 1056
+        width: 140
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbed5a9c01d429850800000000000000
+      internalID: 6382248356435320509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Player_Green
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 1047
+        width: 96
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30fa89a3d5f582dd0800000000000000
+      internalID: -2510651938239369469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Add_Green
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 880
+        width: 120
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e3ae1d031249500800000000000000
+      internalID: 401982760306753178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cross_Green
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 888
+        width: 107
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c81bfcd57b58b60800000000000000
+      internalID: 7747800347505167370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Subtract_Green
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 920
+        width: 102
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ad5fa815fe1c820800000000000000
+      internalID: 2936891565525031562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Star_Green
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 882
+        width: 133
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657a08731c227c1c0800000000000000
+      internalID: -4483576690768828586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Help_Green
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 874
+        width: 94
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4ddc5bbe93d1b20800000000000000
+      internalID: 3106703002485773507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Help_Gree
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 871
+        width: 86
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40fef8b668f9dbd30800000000000000
+      internalID: 4448887406590947076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Search_Green
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 883
+        width: 137
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32715ace36f888680800000000000000
+      internalID: -8752588216459782365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Pause_Green
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 892
+        width: 97
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c7df0c7f0638f60800000000000000
+      internalID: 8035372777370123405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Tick_Green
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 877
+        width: 135
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35bb72dc96a956a0800000000000000
+      internalID: -6459948998009834178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_2_Green
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 883
+        width: 127
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6cb7beacc9bfbf0800000000000000
+      internalID: -289465355687180585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Twitter_Green
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 886
+        width: 134
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d960d0f24d044e00800000000000000
+      internalID: 1027961196106508759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Facebook_Green
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 868
+        width: 82
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2287fd3decc0d10800000000000000
+      internalID: 2093275336203051682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Players_Green
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 713
+        width: 139
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04573669f6f03240800000000000000
+      internalID: 4769583556407546895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Home_Green
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 706
+        width: 141
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a78b7a476dee5030800000000000000
+      internalID: 3485484189518366630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Reward_Green
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 700
+        width: 110
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9ef75ae06e8ceb0800000000000000
+      internalID: -4699253260580558341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Menu_3_Green
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 713
+        width: 121
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbd7b7ec6bcc4830800000000000000
+      internalID: 4056841032958466992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Music_Green
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 705
+        width: 129
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c9814beb456e1c0800000000000000
+      internalID: -4474796001703977906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Forward__2_Green
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 718
+        width: 140
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1dc5d96855808d30800000000000000
+      internalID: 4431688648111803679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Message_Green
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 716
+        width: 147
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5bf32c205c60080800000000000000
+      internalID: -9221466571354950190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Basket_Green
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 707
+        width: 145
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8137dab5cedaef780800000000000000
+      internalID: -8647283003842792680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cup_Green
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 703
+        width: 146
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5585ea2330b283a10800000000000000
+      internalID: 1889307336417106005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Gamepad_Green
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 713
+        width: 147
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7911352a0946bd90800000000000000
+      internalID: -7082393056071050885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Rank_Green
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 727
+        width: 155
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614491b7885dc1650800000000000000
+      internalID: 6205069168767222806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Sound_Green
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 712
+        width: 141
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff14d6bb7601703c0800000000000000
+      internalID: -4393524873764453889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Heart_Green
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 543
+        width: 130
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5671d4a4bf94a750800000000000000
+      internalID: 6315348175688398429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Rank_Gree
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 550
+        width: 172
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f472d4cb4cc76cb00800000000000000
+      internalID: 848502764220524367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_BubbleSpeech_Green
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 543
+        width: 137
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce271a1104362dd0800000000000000
+      internalID: -2511262562875134270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Cloud_Green
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 552
+        width: 146
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3161ec1c9a92dc0800000000000000
+      internalID: -3663210172037852212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Eye_Green
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 549
+        width: 144
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d7b75657cde1100800000000000000
+      internalID: 80744240111123809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Location_Green
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 532
+        width: 97
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d044e55d23249410800000000000000
+      internalID: 1482848854933258449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Time_Green
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 532
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773303e7a88a16ce0800000000000000
+      internalID: -1413663495241583753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_PlayerAdd_Green
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 539
+        width: 145
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5613eae13a25c00800000000000000
+      internalID: 887951428712228290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Date_Green
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 540
+        width: 138
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0efba2c25c262a040800000000000000
+      internalID: 4657393563643592672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Flag_Green
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 539
+        width: 115
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3dc5ebb1a4eae2f0800000000000000
+      internalID: -942689788687430341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Power_Green
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 542
+        width: 124
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50a67f8fdc6aaec0800000000000000
+      internalID: -3554909248415162274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Dustbin_Green
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 540
+        width: 121
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0f8c9168eb18ab0800000000000000
+      internalID: -5007511827491786531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Phone_Green
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 362
+        width: 102
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe79938b578e36530800000000000000
+      internalID: 3847174099004135407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_08_Icon_Info_Green
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 365
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af79e6c0df1447bd0800000000000000
+      internalID: -2633407327013791750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a1eec480e50300c4a964ce71d473852e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

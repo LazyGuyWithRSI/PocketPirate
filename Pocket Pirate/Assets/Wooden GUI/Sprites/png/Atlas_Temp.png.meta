@@ -1,0 +1,398 @@
+fileFormatVersion: 2
+guid: 4891025531ebd5a40a82bf915965091c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2987725870277212211
+    second: Atlas_Temp_NameShadow
+  - first:
+      213: 136740769519677715
+    second: Atlas_Temp_Text_Leaders
+  - first:
+      213: 5964065042332055046
+    second: Atlas_Temp_Text_Shop
+  - first:
+      213: 1893140141406399380
+    second: Atlas_Temp_Text_WoodenGUI
+  - first:
+      213: -755816365094235080
+    second: Atlas_Temp_Text_Multiplayer
+  - first:
+      213: -1028010949213823153
+    second: Atlas_Temp_Text_Play
+  - first:
+      213: -5679035085003899236
+    second: Atlas_Temp_ButtonPrefabs
+  - first:
+      213: -4526077690298028864
+    second: Atlas_Temp_7
+  - first:
+      213: -1331141073008939207
+    second: Atlas_Temp_8
+  - first:
+      213: -1858401438799962326
+    second: Atlas_Temp_9
+  - first:
+      213: -2610653158855150347
+    second: Atlas_Temp_10
+  - first:
+      213: -8882026494030552265
+    second: Atlas_Temp_11
+  - first:
+      213: 6997010604345033000
+    second: Atlas_Temp_12
+  - first:
+      213: -6037364300151948211
+    second: Atlas_Temp_13
+  - first:
+      213: 8381647437464461608
+    second: Atlas_Temp_14
+  - first:
+      213: 6719119972001427807
+    second: Atlas_Temp_15
+  - first:
+      213: 18841538962946630
+    second: Atlas_Temp_16
+  - first:
+      213: 8006945060385325636
+    second: Atlas_Temp_17
+  - first:
+      213: -8953784240513103705
+    second: Atlas_Temp_18
+  - first:
+      213: 982993082083836256
+    second: Atlas_Temp_19
+  - first:
+      213: -3869301859113681580
+    second: Atlas_Temp_20
+  - first:
+      213: -7718718083572377234
+    second: Atlas_Temp_21
+  - first:
+      213: 6945271808522494720
+    second: Atlas_Temp_22
+  - first:
+      213: 903959474882037336
+    second: Atlas_Temp_23
+  - first:
+      213: -7849313387078742910
+    second: Atlas_Temp_24
+  - first:
+      213: -6061514442927313971
+    second: Atlas_Temp_25
+  - first:
+      213: -7693088044956978623
+    second: Atlas_Temp_26
+  - first:
+      213: -5671723887094014507
+    second: Atlas_Temp_27
+  - first:
+      213: 4192601701768130618
+    second: Atlas_Temp_28
+  - first:
+      213: 5344174503408005482
+    second: Atlas_Temp_29
+  - first:
+      213: 2141062495582836952
+    second: Atlas_Temp_30
+  - first:
+      213: 2769124714890151235
+    second: Atlas_Temp_31
+  - first:
+      213: 1442330112337043594
+    second: Atlas_Temp_32
+  - first:
+      213: 8459371681498067131
+    second: Atlas_Temp_33
+  - first:
+      213: -1755997485828328534
+    second: Atlas_Temp_34
+  - first:
+      213: -8208525614136120639
+    second: Atlas_Temp_35
+  - first:
+      213: -3057926273336941073
+    second: Atlas_Temp_36
+  - first:
+      213: 6074746019845150273
+    second: Atlas_Temp_37
+  - first:
+      213: -8397136937007053212
+    second: Atlas_Temp_38
+  - first:
+      213: -3577140043325389950
+    second: Atlas_Temp_39
+  - first:
+      213: 1554020569379699233
+    second: Atlas_Temp_40
+  - first:
+      213: 4950594603142953163
+    second: Atlas_Temp_Text_Leaders
+  - first:
+      213: 8975560286791220531
+    second: Atlas_Temp_Text_Shop
+  - first:
+      213: -6091242280797513029
+    second: Atlas_Temp_Text_WoodenGUI
+  - first:
+      213: -8510367038078093085
+    second: Atlas_Temp_Text_Multiplayer
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Atlas_Temp_NameShadow
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1727
+        width: 681
+        height: 307
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7c1ef86277986d0800000000000000
+      internalID: -2987725870277212211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_Text_Leaders
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1912
+        width: 742
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc83d4bef8b04b440800000000000000
+      internalID: 4950594603142953163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_Text_Shop
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1754
+        width: 495
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d3b4ab6889f8c70800000000000000
+      internalID: 8975560286791220531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_Text_WoodenGUI
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1151
+        width: 1055
+        height: 568
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba593c1b6f877ba0800000000000000
+      internalID: -6091242280797513029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_Text_Multiplayer
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1007
+        width: 1164
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8792bc44a15e980800000000000000
+      internalID: -8510367038078093085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_Text_Play
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 1916
+        width: 442
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fd5e20d75cbb1f0800000000000000
+      internalID: -1028010949213823153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_Temp_ButtonPrefabs
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 645
+        width: 1338
+        height: 327
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ebc53dda30031b0800000000000000
+      internalID: -5679035085003899236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 360930e00eb05d74e97e8d774a62e8ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
