@@ -60,6 +60,7 @@ namespace Lean.Gui
 		/// 10 = Fast.</summary>
 		public float VerticalSpeed { set { verticalSpeed = value; } get { return verticalSpeed; } } [SerializeField] private float verticalSpeed = -1.0f;
 
+		public int SnapIndex = 0;
 
 		[System.NonSerialized]
 		private RectTransform cachedRectTransform;
@@ -92,6 +93,8 @@ namespace Lean.Gui
 
 				var factor = LeanHelper.DampenFactor(horizontalSpeed, time);
 				anchoredPosition.x = Mathf.Lerp(anchoredPosition.x, target, factor);
+
+				SnapIndex = Mathf.RoundToInt(-anchoredPosition.x / rect.width);
 			}
 
 			if (vertical == true && intervalY != 0.0f)
