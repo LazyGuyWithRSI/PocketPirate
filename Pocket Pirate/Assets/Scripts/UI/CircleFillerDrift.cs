@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CircleFillerDrift : MonoBehaviour
 {
     private Image image;
+    private Button button;
     private bool isFilling = false;
     private float interval = 0;
 
@@ -13,6 +14,7 @@ public class CircleFillerDrift : MonoBehaviour
     void Start ()
     {
         image = GetComponent<Image>();
+        button = GetComponent<Button>();
         PubSub.RegisterListener<OnPlayerDriftOver>(OnPlayerDriftOverHandler);
     }
 
@@ -22,7 +24,10 @@ public class CircleFillerDrift : MonoBehaviour
         {
             image.fillAmount = Mathf.MoveTowards(image.fillAmount, 1, interval * Time.deltaTime);
             if (image.fillAmount >= 1)
+            {
                 isFilling = false;
+                button.interactable = true;
+            }
         }
     }
 
@@ -33,6 +38,7 @@ public class CircleFillerDrift : MonoBehaviour
         interval = 1f / args.Cooldown;
         image.fillAmount = 0f;
         isFilling = true;
+        button.interactable = false;
         //StartCoroutine(AnimateCircleCoroutine(args.ReloadDuration));
     }
 
