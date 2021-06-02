@@ -5,6 +5,7 @@ using UnityEngine;
 public class SplashSystem : MonoBehaviour
 {
     public GameObject SplashPrefab;
+    public OneShotSound oneShotSound;
 
     public void Start ()
     {
@@ -28,5 +29,6 @@ public class SplashSystem : MonoBehaviour
     private void spawnSplash(Vector2 pos)
     {
         GameObject.Destroy(Instantiate(SplashPrefab, new Vector3(pos.x, 0.5f, pos.y), Quaternion.identity), 5);
+        if (oneShotSound != null) oneShotSound.PlayOneShot();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitFXSystem : MonoBehaviour
 {
     public GameObject HitPrefab;
+    public OneShotSound oneShotSound;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,7 @@ public class HitFXSystem : MonoBehaviour
         OnHitEvent args = publishedEvent as OnHitEvent;
         Vector3 newPos = args.Position + ((Camera.main.transform.position - args.Position).normalized * 2f);
         GameObject.Destroy(Instantiate(HitPrefab, newPos, Quaternion.identity), 3);
+
+        if (oneShotSound != null) oneShotSound.PlayOneShot();
     }
 }
