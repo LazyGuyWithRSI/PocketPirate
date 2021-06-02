@@ -95,7 +95,7 @@
          "4": [{ "WaveGroupName": "Easy Basic", "IsAdding": false }],
          "5": [{ "WaveGroupName": "Boss Single", "IsAdding": true, "ClearPool": true}],
          "6": [
-            { "WaveGroupName": "Easy Standard", "IsAdding": true, "ClearPool": true }
+            { "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true }
          ],
          "10": [
             { "WaveGroupName": "Boss 3", "IsAdding": true, "ClearPool": true},
