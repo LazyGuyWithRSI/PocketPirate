@@ -22,7 +22,7 @@ namespace Google.Play.Billing.Internal
     /// </summary>
     public class BillingClientStateListener : AndroidJavaProxy
     {
-        public event Action OnBillingServiceDisconnected = delegate { };
+        //public event Action OnBillingServiceDisconnected = delegate { };
         public event Action<AndroidJavaObject> OnBillingSetupFinished = delegate { };
 
         public BillingClientStateListener() : base(Constants.BillingClientStateListener)
@@ -31,7 +31,7 @@ namespace Google.Play.Billing.Internal
 
         void onBillingServiceDisconnected()
         {
-            OnBillingServiceDisconnected.Invoke();
+            //OnBillingServiceDisconnected.Invoke();
         }
 
         void onBillingSetupFinished(AndroidJavaObject billingResult)

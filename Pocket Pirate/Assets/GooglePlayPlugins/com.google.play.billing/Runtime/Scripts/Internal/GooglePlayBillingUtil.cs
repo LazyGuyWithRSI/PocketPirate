@@ -58,7 +58,7 @@ namespace Google.Play.Billing.Internal
 
             foreach (var action in array)
             {
-                action();
+                //action();
             }
         }
 
