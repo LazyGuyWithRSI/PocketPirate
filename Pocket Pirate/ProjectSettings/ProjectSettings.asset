@@ -699,7 +699,7 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
     Standalone: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}

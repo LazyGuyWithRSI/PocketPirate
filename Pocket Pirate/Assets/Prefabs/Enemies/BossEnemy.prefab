@@ -405,7 +405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7483612136424914714
 Transform:
   m_ObjectHideFlags: 0
@@ -2569,6 +2569,7 @@ MonoBehaviour:
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 2845379142092602112}
   FlashTime: 0.2
+  DeathDelay: 6
   UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
   ExplodeOnDeath: 0
@@ -2662,6 +2663,8 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+  PlayerUpShootForce: {fileID: 0}
+  UpShootFactor: 2
 --- !u!135 &3293720759479794632
 SphereCollider:
   m_ObjectHideFlags: 0

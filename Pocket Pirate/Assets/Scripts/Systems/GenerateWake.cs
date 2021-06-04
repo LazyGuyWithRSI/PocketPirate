@@ -35,6 +35,8 @@ public class GenerateWake : MonoBehaviour
             particleSys.Play();
         }
 
-        transform.position = new Vector3(target.position.x + XOffset, HeightOffWater, target.position.z + ZOffset);
+        transform.position = new Vector3(target.position.x, HeightOffWater, target.position.z);
+        transform.rotation = target.rotation;
+        transform.Translate(new Vector3(XOffset, 0, ZOffset), Space.Self);
     }
 }

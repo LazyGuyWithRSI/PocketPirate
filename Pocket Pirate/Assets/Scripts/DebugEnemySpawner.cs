@@ -128,8 +128,8 @@ public class DebugEnemySpawner : MonoBehaviour
             if (rand <= currentSpawnPool[i].weight && currentSpawnPool[i].totalSpawned < currentSpawnPool[i].SpawnLimit)
             {
                 GameObject enemy = Instantiate(currentSpawnPool[i].thingToSpawn, spawnPoint, Quaternion.identity);
-                //GameObject wake = Instantiate(WakePrefab);
-                //wake.GetComponent<GenerateWake>().target = enemy.transform;
+                GameObject wake = Instantiate(WakePrefab);
+                wake.GetComponent<GenerateWake>().target = enemy.transform;
                 Enemies.Add(enemy.GetComponent<Health>());
                 currentSpawnPool[i].totalSpawned++;
 

@@ -1367,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1622821603292292822
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,6 +1752,7 @@ MonoBehaviour:
   TurnSpeedWhileDrifting: 3
   DriftDuration: 0.5
   DriftForwardSpeed: 10
+  DriftCooldown: 2
   EasingFactor: 27.1
   WaterDrag: 0.95
 --- !u!54 &7586033476619514226
@@ -1827,6 +1828,7 @@ MonoBehaviour:
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 7586033477830173651}
   FlashTime: 0.2
+  DeathDelay: 6
   UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
   ExplodeOnDeath: 0
@@ -1887,6 +1889,8 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+  PlayerUpShootForce: {fileID: 0}
+  UpShootFactor: 2
 --- !u!135 &8026862070061672696
 SphereCollider:
   m_ObjectHideFlags: 0

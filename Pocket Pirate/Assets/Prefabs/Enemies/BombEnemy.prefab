@@ -251,6 +251,7 @@ MonoBehaviour:
   TurnSpeedWhileDrifting: 3
   DriftDuration: 0.5
   DriftForwardSpeed: 10
+  DriftCooldown: 2
   EasingFactor: 27.1
   WaterDrag: 0.95
 --- !u!54 &446508708847417169
@@ -326,6 +327,7 @@ MonoBehaviour:
   InvincibilityAfterDamageDuration: 0
   ModelForFlash: {fileID: 446508710049523184}
   FlashTime: 0.2
+  DeathDelay: 6
   UpgradablePlayerHealth: {fileID: 0}
   curHealth: 0
   ExplodeOnDeath: 1
@@ -384,6 +386,8 @@ MonoBehaviour:
   JumpCooldown: 3
   VerticalDrag: 0.9
   AirDrag: 1
+  PlayerUpShootForce: {fileID: 0}
+  UpShootFactor: 2
 --- !u!135 &1211849755813266981
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -953,7 +957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5510778041809555994
 Transform:
   m_ObjectHideFlags: 0
