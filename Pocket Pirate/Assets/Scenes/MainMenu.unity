@@ -4200,6 +4200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1624920878}
   - component: {fileID: 1624920879}
+  - component: {fileID: 1624920880}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4244,6 +4245,18 @@ MonoBehaviour:
   portSkipWaveBonus: {fileID: 0}
   GameIsPaused: {fileID: 11400000, guid: 48f8e7134216bf34c84b49c299bd2e5d, type: 2}
   IsAPanelShowing: {fileID: 11400000, guid: e7e607371d2f1644cb5b67a0e16abbc4, type: 2}
+--- !u!114 &1624920880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624920877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a7128e395641b4fa1ddd83814b6746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1635705851
 PrefabInstance:
   m_ObjectHideFlags: 0
