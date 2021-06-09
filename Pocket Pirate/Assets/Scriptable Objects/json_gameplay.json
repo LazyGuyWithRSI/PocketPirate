@@ -92,7 +92,11 @@
       "WaveTable": {
          "1": [{ "WaveGroupName": "Easy Basic", "IsAdding": true }],
          "2": [{ "WaveGroupName": "Easy Standard", "IsAdding": true }],
-         "4": [{ "WaveGroupName": "Easy Basic", "IsAdding": false }],
+         "4": [
+            { "WaveGroupName": "Easy Basic", "IsAdding": false },
+            { "WaveGroupName": "Easy Standard", "IsAdding": false },
+            { "WaveGroupName": "Easy Standard", "IsAdding": true }],
+
          "5": [{ "WaveGroupName": "Boss Single", "IsAdding": true, "ClearPool": true}],
          "6": [
             { "WaveGroupName": "Standard", "IsAdding": true, "ClearPool": true }

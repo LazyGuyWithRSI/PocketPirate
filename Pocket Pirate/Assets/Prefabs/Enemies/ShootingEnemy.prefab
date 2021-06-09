@@ -1128,6 +1128,50 @@ Transform:
   m_Father: {fileID: 7586033477830173650}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4512596380076111058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3341267822795088944}
+  - component: {fileID: 7229712508235990971}
+  m_Layer: 12
+  m_Name: Repulse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3341267822795088944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512596380076111058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7586033476619514224}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7229712508235990971
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512596380076111058}
+  m_Material: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.18, z: 0.65}
 --- !u!1 &4775153414474845787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1749,6 @@ GameObject:
   - component: {fileID: 4401082904985895531}
   - component: {fileID: 7374681837318767034}
   - component: {fileID: -964173713205435023}
-  - component: {fileID: 8026862070061672696}
   - component: {fileID: 3335987596294174946}
   - component: {fileID: 4352264254954506931}
   - component: {fileID: 1094112371}
@@ -1732,6 +1775,7 @@ Transform:
   - {fileID: 7586033478142611864}
   - {fileID: 1622821603292292822}
   - {fileID: 3322988381637961513}
+  - {fileID: 3341267822795088944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1891,19 +1935,6 @@ MonoBehaviour:
   AirDrag: 1
   PlayerUpShootForce: {fileID: 0}
   UpShootFactor: 2
---- !u!135 &8026862070061672696
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586033476619514231}
-  m_Material: {fileID: 13400000, guid: a9d037025ac50d541a48be664f4d4243, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.18, z: 0.65}
 --- !u!114 &3335987596294174946
 MonoBehaviour:
   m_ObjectHideFlags: 0
