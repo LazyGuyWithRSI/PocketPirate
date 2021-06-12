@@ -4348,8 +4348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 388, y: 511}
-  m_SizeDelta: {x: 685.8406, y: 265.96365}
+  m_AnchoredPosition: {x: 418.2, y: 511}
+  m_SizeDelta: {x: 746.2446, y: 265.96365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725095045
 MonoBehaviour:
@@ -4371,9 +4371,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '< ACTUAL Version 0.4.1 >
+  m_text: '< Version 0.4.2 >
 
-    - fix auto-update?'
+    - real models for all enemies'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
