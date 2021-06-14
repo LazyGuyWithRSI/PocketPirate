@@ -3,16 +3,63 @@ using Google.Play.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class UpdateChecker : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public StringReference VersionReference;
+    public Button UpdateButton;
+
     AppUpdateManager appUpdateManager;
+    private const string UpdateVersionURL = "https://lazyguywithrsi.github.io/";
+    private const string StoreURL = "https://play.google.com/store/apps/details?id=com.JustSomeDev.PocketPirate";
+
     void Start()
     {
-        Debug.Log("MY TEST - Update Checker checking update");
-        appUpdateManager = new AppUpdateManager();
-        StartCoroutine(CheckForUpdate());
+        //Debug.Log("MY TEST - Update Checker checking update");
+        //appUpdateManager = new AppUpdateManager();
+        //StartCoroutine(CheckForUpdate());
+
+        StartCoroutine(GetRequest(UpdateVersionURL));
+    }
+
+    IEnumerator GetRequest(string uri)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+
+                    if (!VersionReference.Value.Equals(webRequest.downloadHandler.text))
+                    {
+                        UpdateButton.gameObject.SetActive(true);
+                        UpdateButton.onClick.AddListener(OnUpdateButtonClick);
+                    }
+
+                    break;
+            }
+        }
+    }
+
+    void OnUpdateButtonClick()
+    {
+        Application.OpenURL(StoreURL);
     }
 
     IEnumerator CheckForUpdate()
