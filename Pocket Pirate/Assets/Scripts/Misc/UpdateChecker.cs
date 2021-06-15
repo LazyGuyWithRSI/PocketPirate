@@ -45,8 +45,11 @@ public class UpdateChecker : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-
-                    if (!VersionReference.Value.Equals(webRequest.downloadHandler.text))
+                    string versionText = webRequest.downloadHandler.text;
+                    int newestVersion = convertVersionToInt(versionText);
+                    int currentVersion = convertVersionToInt(VersionReference.Value);
+                    Debug.Log("new version: " + newestVersion + ", current version: " + currentVersion);
+                    if (currentVersion < newestVersion)
                     {
                         UpdateButton.gameObject.SetActive(true);
                         UpdateButton.onClick.AddListener(OnUpdateButtonClick);
@@ -55,6 +58,16 @@ public class UpdateChecker : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private int convertVersionToInt(string version)
+    {
+        string[] splitText = version.Split('.');
+        int newestVersion = 0;
+        newestVersion += 10000 * int.Parse(splitText[0]);
+        newestVersion += 100 * int.Parse(splitText[1]);
+        newestVersion += 1 * int.Parse(splitText[2]);
+        return newestVersion;
     }
 
     void OnUpdateButtonClick()
