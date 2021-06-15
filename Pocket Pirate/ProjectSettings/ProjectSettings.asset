@@ -125,7 +125,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.4.3
+  bundleVersion: 0.4.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -171,7 +171,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.JustSomeDev.PocketPirate
   buildNumber: {}
-  AndroidBundleVersionCode: 403
+  AndroidBundleVersionCode: 404
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 29
   AndroidPreferredInstallLocation: 1
@@ -271,7 +271,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 503ee47ef2f156b4d8459f8d7deb9f81, type: 3}
+      m_Icon: {fileID: 2800000, guid: 43a95226befa3ef45948521d51e9b7dc, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
