@@ -2775,7 +2775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 388, y: 387.13998}
+  m_AnchoredPosition: {x: 388, y: 474.15}
   m_SizeDelta: {x: 685.8406, y: 265.96365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969607656
@@ -2798,8 +2798,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "< Version 0.4.4 >\n- new app icon\n\n< Version 0.4.3 >\n- New update checker\n  
-    (this one should work)"
+  m_text: "< Version 0.4.5 >\n- Test updater\n\n< Version 0.4.4 >\n- new app icon\n\n<
+    Version 0.4.3 >\n- New update checker\n   (this one should work)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
