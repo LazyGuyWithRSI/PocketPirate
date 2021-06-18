@@ -9,7 +9,7 @@ public class UIPanelControler : MonoBehaviour
     public const string TapBackBtnName = "TapBtnBack";
     public const string BackBtnName = "BtnBack";
     public const string BtnSettingsName = "BtnSettings";
-
+    public const string BtnLevelSelectName = "BtnLevelSelect";
 
     private Stack<UIPanel> panels;
 
@@ -42,6 +42,10 @@ public class UIPanelControler : MonoBehaviour
         else if (args.Name == BtnSettingsName)
         {
             PubSub.Publish(new ShowUIPanelEvent() { PanelName = "SettingsPanel" });
+        }
+        else if (args.Name == BtnLevelSelectName)
+        {
+            PubSub.Publish(new ShowUIPanelEvent() { PanelName = "LevelSelectPanel" });
         }
     }
 

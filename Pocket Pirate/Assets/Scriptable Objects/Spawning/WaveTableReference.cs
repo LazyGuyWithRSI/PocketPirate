@@ -10,6 +10,8 @@ public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
 
     public List<WaveGroup> WaveGroups;
 
+    private int lastWave = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +26,30 @@ public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
 
     public void UpdateWavePool(int waveNumber)
     {
-        if (WaveTable.ContainsKey(waveNumber))
+        if (lastWave == waveNumber)
+            return;
+
+        for (int i = lastWave; i <= waveNumber; i++)
         {
-            foreach (WaveTableGroup tableGroup in WaveTable[waveNumber])
+            Debug.Log("Adding wave " + i);
+            if (WaveTable.ContainsKey(i))
             {
-                if (tableGroup.ClearPool)
-                    CurrentWavePool.Clear();
+                foreach (WaveTableGroup tableGroup in WaveTable[i])
+                {
+                    if (tableGroup.ClearPool)
+                        CurrentWavePool.Clear();
 
-                if (tableGroup.IsAdding)
-                    CurrentWavePool.Add(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
-                else
-                    CurrentWavePool.Remove(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
+                    if (tableGroup.IsAdding)
+                        CurrentWavePool.Add(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
+                    else
+                        CurrentWavePool.Remove(WaveGroups.Find(x => x.ID == tableGroup.WaveGroupID));
 
-                Debug.Log("Wave pool size: " + CurrentWavePool.Count);
+                    Debug.Log("Wave pool size: " + CurrentWavePool.Count);
+                }
             }
         }
+
+        lastWave = waveNumber;
     }
 
     public void InitFromDataObj(object dataObj)
