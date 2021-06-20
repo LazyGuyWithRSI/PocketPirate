@@ -47,7 +47,7 @@ public class UpdateChecker : MonoBehaviour
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                     string versionText = webRequest.downloadHandler.text;
                     int newestVersion = convertVersionToInt(versionText);
-                    int currentVersion = convertVersionToInt(VersionReference.Value);
+                    int currentVersion = convertVersionToInt("");//(VersionReference.Value);
                     Debug.Log("new version: " + newestVersion + ", current version: " + currentVersion);
                     if (currentVersion < newestVersion)
                     {
