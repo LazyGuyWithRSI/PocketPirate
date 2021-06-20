@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public FloatReference portSkipWaveBonus;
     public BoolReference GameIsPaused;
     public BoolReference IsAPanelShowing;
+    public StringReference FirebaseUserIDReference;
     // TODO add GameState
 
     private const string TryAgainBtnName = "BtnTryAgain";
@@ -164,6 +165,9 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
         StopAllCoroutines();
+
+        Firebase.Analytics.FirebaseAnalytics.LogEvent("game over test", "wave reached", currentWave.Value);
+
         PubSub.Publish<OnGameOver>(new OnGameOver() { Died = died });
     }
 

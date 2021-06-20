@@ -1,6 +1,6 @@
 {
    "FloatReferences": {
-      "Score": { "BaseValue": 3 },
+      "Score": { "BaseValue": 0 },
       "Another Value": { "BaseValue": 42 }
    },
 
