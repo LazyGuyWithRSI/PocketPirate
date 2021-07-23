@@ -26,6 +26,7 @@ public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
 
     public void UpdateWavePool(int waveNumber)
     {
+        Debug.Log("WTR: last wave was " + lastWave + ", waveNumber passed is " + waveNumber);
         if (lastWave == waveNumber)
             return;
 
@@ -59,11 +60,13 @@ public class WaveTableReference : ScriptableObject, IResetable, IDataObjLoadable
         WaveGroups = data.WaveGroups;
 
         CurrentWavePool = new List<WaveGroup>();
+        lastWave = 0;
     }
 
     public void Reset()
     {
         CurrentWavePool = new List<WaveGroup>();
+        lastWave = 0;
         UpdateWavePool(1);
     }
 }

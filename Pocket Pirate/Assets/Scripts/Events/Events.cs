@@ -141,3 +141,8 @@ public class OnPowerupEvent
     public string Type { get; set; }
     public bool Activating { get; set; }
 }
+
+public class OnUpgradablePropertyChanged
+{
+
+}

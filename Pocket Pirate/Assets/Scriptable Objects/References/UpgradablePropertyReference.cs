@@ -34,6 +34,7 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataOb
         {
             Value += stepSize;
             Cost = (int)Mathf.Round((Cost * costScalingFactor) / RoundFactor) * RoundFactor;
+            PubSub.Publish(new OnUpgradablePropertyChanged());
         }
     }
 
@@ -80,5 +81,6 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataOb
     {
         Value = baseValue;
         Cost = baseCost;
+        PubSub.Publish(new OnUpgradablePropertyChanged());
     }
 }

@@ -6313,6 +6313,7 @@ MonoBehaviour:
   portSkipWaveBonus: {fileID: 11400000, guid: c30c14b796af063479da1e135c2d392d, type: 2}
   GameIsPaused: {fileID: 11400000, guid: 48f8e7134216bf34c84b49c299bd2e5d, type: 2}
   IsAPanelShowing: {fileID: 11400000, guid: e7e607371d2f1644cb5b67a0e16abbc4, type: 2}
+  FirebaseUserIDReference: {fileID: 0}
 --- !u!4 &1084219082
 Transform:
   m_ObjectHideFlags: 0
@@ -7501,7 +7502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1263651416
 Transform:
   m_ObjectHideFlags: 0
