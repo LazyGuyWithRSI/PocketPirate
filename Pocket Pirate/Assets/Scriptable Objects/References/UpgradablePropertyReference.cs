@@ -46,6 +46,16 @@ public class UpgradablePropertyReference : ScriptableObject, IResetable, IDataOb
         return Value + stepSize >= maxValue;
     }
 
+    public int GetTotalSegments()
+    {
+        return (int)((maxValue - baseValue) / stepSize);
+    }
+
+    public int GetCurrentSegment()
+    {
+        return (int)((Value - baseValue) / stepSize);
+    }
+
     public float GetPercentageOfValue()
     {
         //if (Increasing)

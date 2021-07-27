@@ -12,15 +12,22 @@ public class UpgradableElement : MonoBehaviour
     public TMP_Text TxtName;
     public TMP_Text TxtCurrentValue;
     public TMP_Text TxtNextValue;
+
+    public GameObject SegmentPrefab;
+    public Transform SegmentPanel;
+
     public Button BtnBuy;
 
     private TMP_Text BtnText;
     private float nextValue;
 
+    private UpgradeSegment[] segments;
+
     // Start is called before the first frame update
     void Start()
     {
         BtnBuy.onClick.AddListener(OnBuyButtonClick);
+        segments = new UpgradeSegment[UpgradableProperty.GetTotalSegments()];
         Reset();
 
         PubSub.RegisterListener<OnUpgradePurchased>(OnUpgradePurchasedHandler);
@@ -33,6 +40,17 @@ public class UpgradableElement : MonoBehaviour
 
     private void Reset()
     {
+        int currentSegment = UpgradableProperty.GetCurrentSegment();
+
+        for (int i = 0; i < segments.Length; i++)
+        {
+            if (segments[i] == null)
+                segments[i] = Instantiate(SegmentPrefab, SegmentPanel).GetComponent<UpgradeSegment>();
+
+            segments[i].SetOn(currentSegment > i);
+        }
+
+
         // populate menu and all that
         TxtName.text = UpgradableProperty.DisplayName;
         TxtCurrentValue.text = (int)UpgradableProperty.GetPercentageOfValue() + "%";
