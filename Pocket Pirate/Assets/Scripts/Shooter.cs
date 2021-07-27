@@ -19,6 +19,9 @@ public class Shooter : MonoBehaviour, IShooter
 
     public bool Shoot ()
     {
+        if (!gameObject.activeSelf)
+            return false;
+
         smoke.Play();
         audio.pitch = Random.Range(PitchLower, PitchUpper);
         audio.Play();
