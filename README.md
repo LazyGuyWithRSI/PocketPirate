@@ -1,5 +1,5 @@
 # Pocket Pirate
-### An arcade naval arena mobile game
+### An arcade naval arena combat mobile game
 
 Made in my spare time during school, this was my first attempt at a complete mobile game in Unity.
 It went through multiple revisions and I learned a lot, mostly:
